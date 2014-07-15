@@ -1,4 +1,4 @@
-bsd-wrappers
+BSD Forms and Wrappers
 ============
 
-This is for tracking code changes made to BSD form / wrappers.
+This is for tracking code changes made to Blue State Digital forms / wrappers.

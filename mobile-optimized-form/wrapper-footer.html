@@ -1,5 +1,70 @@
 <!--
   ====================================
-  Currently using the "EOYFR" wrapper
+  Currently using the "mobile-optimized-EOYFR" wrapper
   ====================================
+  copied from BSD on July 10, 2014 12:25pm PST
 -->
+
+      <!-- BEGIN WRAPPER -->
+<script>
+  function checkPage()
+  {
+    // Show the "change your recurring options form"
+    if (/Edit\syour\srecurring\scontribution/gi.test(document.getElementById("wsform").innerHTML))
+      document.getElementById("contribution").style.display = "block";
+  }
+
+  if (window.attachEvent)
+    window.attachEvent("onload", checkPage);
+  else
+    document.addEventListener("DOMContentLoaded", checkPage, false);
+
+  function checkCountryOptIn() {
+    // Automatically checks email opt in checkbox if United States is selected as country
+    var e = document.getElementById("wsemail_opt_in");
+    var p = document.getElementById("wsemail_opt_in").parentNode;
+    var v = document.getElementById("wscountry").value;
+    var emailOptInDisplay = p.currentStyle ? p.currentStyle.display : getComputedStyle(p, null).display;
+    if(v == "US" && emailOptInDisplay !== "none")
+      e.checked = true;
+    else
+      e.checked = false;
+  }
+  if (window.attachEvent)
+    document.getElementById("wscountry").attachEvent("change", checkCountryOptIn);
+  else
+    document.getElementById("wscountry").addEventListener("change", checkCountryOptIn, false);
+</script>
+
+              </div>
+            </div>
+        </div>
+
+<div class="clearall">
+</div>
+
+<footer class="footer">
+    <div class="partnerWrapper">
+    <section class="partners">
+      <ul class="social">
+        <li><a href="https://twitter.com/mozilla" target="_blank"><img src="https://sendto.mozilla.org/page/-/ws_assets/webpage_images/tw-bird-blue.png" alt="twitter" width="21" height="21" style="position: relative; top: 9px;" /> @mozilla</a></li>
+        <li><a href="https://twitter.com/webmaker" target="_blank"><img src="https://sendto.mozilla.org/page/-/ws_assets/webpage_images/tw-bird-blue.png" alt="twitter" width="21" height="21" style="position: relative; top: 9px;" /> @webmaker</li>
+        <li><a href="https://plus.google.com/u/2/communities/106022863174952221205" target="_blank"><img src="https://sendto.mozilla.org/page/-/ws_assets/webpage_images/google-plus.png" alt="google+" width="19" height="19" style="position: relative; top: 9px;" /> google+</li>
+        <li><a href="http://mozillawebmaker.tumblr.com/" target="_blank"><img src="https://sendto.mozilla.org/page/-/ws_assets/webpage_images/tumblr-icon.png" alt="tumblr" width="19" height="19" style="position: relative; top: 7px; margin-right: -3px;" /> tumblr</a></li>
+      </ul>
+      <ul class="links">
+        <li><a href="//blog.mozilla.org" target="_blank">Blog</a></li>
+        <li><a href="//www.mozilla.org/en-US/about/" target="_blank">About us</a></li>
+        <li><a href="//www.mozilla.org/en-US/contribute/" target="_blank">Get involved</a></li>
+        <li><a href="//sendto.mozilla.org/page/contribute/EOYFR2013-newdefault" target="_blank">Donate</a></li>
+        <li><a href="//www.mozilla.org/en-US/contact/spaces/" target="_blank">Contact</a></li>
+        <li><a href="//www.mozilla.org/en-US/privacy/" target="_blank">Privacy Policy</a></li>
+        <li><a href="//www.mozilla.org/en-US/about/legal.html" target="_blank">Legal Notices</a></li>
+      </ul>
+    </section>
+  </div>
+  </footer>
+
+        <script src="https://www.mozilla.org/tabzilla/media/js/tabzilla.js"></script>
+    </body>
+</html>
