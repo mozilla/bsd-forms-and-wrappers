@@ -13,7 +13,7 @@
     <head>
       <title>Support Mozilla</title>
       <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
-      <meta name="viewport" content="initial-scale=1.0, width=device-width">
+      <meta name="viewport" content="initial-scale=1.0, width=device-width, user-scalable=no">
 
       <!-- Begin style links copied from webmaker home page -->
       <link rel="stylesheet" href="https://login.webmaker.org/css/nav.css">
@@ -646,8 +646,61 @@
 
        /*--- the following code was from `above-form-content.html`, end -----------*/
 
+       @media only screen and (max-device-width: 480px) {
+          .bsd-contribForm-wrap.bsd-contribForm-oneCol {
+            overflow: auto;
+            margin-left: 20px;
+            margin-right: 20px;
+          }
+          body #wsform .donation_intro {
+            width: 100%;
+          }
+          body #wsform .donation_intro img {
+            display: block;
+          }
+          .in.wsform,
+          #wsniceform {
+            float: left;
+            width: 100%;
+          }
+          body #wsniceform .text.colone,
+          body #wsniceform .text.coltwo,
+          #wsniceform .double,
+          #wsniceform .text.colonethird,
+          #wsniceform .text.coltwo.special,
+          #wsniceform .text.coltwo.cvv {
+            width: 95%;
+            width: calc( 100% - 16px );
+          }
+          #wsniceform .select.colonethird,
+          body #wsniceform select.colone,
+          #wsniceform .checkbox {
+            width: 100%;
+          }
+          #wsniceform .select.coltwo.special {
+            width: 48%;
+          }
+          body #wsniceform .colone,
+          body #wsniceform .coltwo {
+            width: 100%;
+          }
+          #wsniceform #submitter-container {
+            float: left;
+            width: 100%;
+          }
+          #wsniceform #submitter  {
+            float: none;
+            margin: 0 auto;
+          }
+          div .max_width_on_mobile {
+            width: 100% !important;
+            padding-left: 0 !important;
+            padding-right: 0 !important;
+          }
+        }
 
-  /*=== end cleaning up / fixing styling ===*/
+/*=== end cleaning up / fixing styling ===*/
+
       </style>
 
 
