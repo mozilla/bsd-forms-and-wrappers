@@ -490,7 +490,7 @@
           }
         }
 
-  /*=== start cleaning up / fixing styling ===*/
+/*=== start cleaning up / fixing styling ===*/
 
         @media only screen and (max-device-width: 480px) {
 
@@ -615,16 +615,116 @@
           }
         }
 
-       /*--- the following code was from `above-form-content.html`, end -----------*/
+        /*--- the following code was from `above-form-content.html`, end -----------*/
 
-       @media only screen and (max-device-width: 480px) {
+        #wsform {
+          padding: 0;
+          width: 100%;
+        }
+
+        .bsd-contribForm-wrap.bsd-contribForm-oneCol {
+          overflow: auto;
+          margin: 20px 40px;
+        }
+
+        footer.footer {
+          background: #fff;
+          overflow: hidden;
+          font-size: 12px;
+          padding-top: 30px;
+          padding-bottom: 30px;
+        }
+
+        footer.footer a {
+          color: #0096DD;
+        }
+
+        footer.footer a:hover {
+          color: #00539F;
+        }
+
+        footer.footer section {
+          float: left;
+        }
+
+        footer.footer section.mozilla-logo {
+          width: 30%;
+          margin-right: 5%;
+        }
+
+        footer.footer section.links {
+          width: 65%;
+        }
+
+        footer.footer section.links ul {
+          margin-top: 0;
+          margin-bottom: 0;
+          list-style: none;
+        }
+
+        .mozilla-logo img {
+          max-width: 100px;
+        }
+
+        @media only screen and (max-device-width: 480px) {
+          #wsniceform .coltwo .radiopay:not(:first-of-type) {
+            margin-left: 5px;
+            margin-right: 0;
+          }
+
+          footer.footer section.mozilla-logo {
+            width: 100%;
+            margin-right: 0;
+            padding-bottom: 15px;
+          }
+
+          footer.footer section.links {
+            width: 100%;
+          }
+
+          footer.footer section.links ul {
+            padding-left: 0;
+          }
+        }
+
+        @media (min-device-width: 481px) and (max-device-width: 1000px) {
+          .donation_intro {
+            margin-bottom: 15px;
+          }
+          #wsniceform .coltwo, #wsniceform .coltwo strong,
+          #wsniceform .select.colonethird {
+            margin-left: 0;
+            margin-right: 0;
+          }
+          #wsniceform .coltwo h4 {
+            padding-left: 0;
+          }
+          #paypalsecurity {
+            float: none;
+            margin-left: 10px;
+          }
+          #wsniceform .radiopay:first-of-type {
+            margin-left: 0;
+          }
+          #wsniceform .text.coltwo.cvv, #wsniceform #cc_cvv {
+            width: 80%;
+            width: calc( 100% - 50px );
+          }
+          #wsniceform #wscc_expir_year.coltwo {
+            margin-left: 3%;
+          }
+          #wssmallprint {
+            margin-left: 0;
+          }
+        }
+
+        @media only screen and (max-device-width: 1000px) {
           .bsd-contribForm-wrap.bsd-contribForm-oneCol {
             overflow: auto;
-            margin-left: 20px;
-            margin-right: 20px;
           }
           body #wsform .donation_intro {
             width: 100%;
+            padding-right: 0;
           }
           body #wsform .donation_intro img {
             display: block;
@@ -656,54 +756,22 @@
             width: 100%;
           }
           #wsniceform #submitter-container {
-            float: left;
             width: 100%;
-          }
-          #wsniceform #submitter  {
-            float: none;
-            margin: 0 auto;
           }
           div .max_width_on_mobile {
             width: 100% !important;
             padding-left: 0 !important;
             padding-right: 0 !important;
           }
+          #wsniceform label.checkbox {
+            height: auto;
+            padding-bottom: 0;
+          }
+          #wsniceform label.checkbox[for="wsemail_opt_in"] {
+            float: none;
+          }
         }
 
-        footer.footer {
-          background: #fff;
-          overflow: hidden;
-          font-size: 12px;
-        }
-
-        footer.footer a {
-          color: #0096DD;
-        }
-
-        footer.footer a:hover {
-          color: #00539F;
-        }
-
-        footer.footer section {
-          float: left;
-          padding-top: 30px;
-          padding-bottom: 30px;
-        }
-
-        footer.footer section.mozilla-logo {
-          width: 30%;
-          margin-right: 5%;
-        }
-
-        footer.footer section.links {
-          width: 65%;
-        }
-
-        footer.footer section.links ul {
-          margin-top: 0;
-          margin-bottom: 0;
-          list-style: none;
-        }
 /*=== end cleaning up / fixing styling ===*/
 
       </style><!-- image preload --><script type="text/javascript" language="JavaScript">
@@ -770,7 +838,7 @@
         setTimeout(activateKountForm, 50);
 
       })();
-      </script><script src="//cdn.optimizely.com/js/206878104.js"></script><link rel="canonical" href="https://sendto.mozilla.org/page/contribute/mobile-optimized-form-test"><link rel="stylesheet" href="//s.bsd.net/page/static/20140724/skins/default/contribution/display_page.inc.css" type="text/css"><script src="//s.bsd.net/page/static/20140724/javascript/bsd.js" type="text/javascript"></script><script src="//ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js" type="text/javascript"></script><script type="text/javascript">!window.jQuery && document.write(unescape('%3Cscript src="/ext/jquery/jquery-1.4.1.min.js"%3E%3C/script%3E'))</script><script src="//s.bsd.net/page/static/20140724/ext/jquery/cookie/jquery.cookie.min.js" type="text/javascript"></script><script src="/modules/spud/js/Spud.js.php" type="text/javascript"></script><script type="text/javascript">window.bQuery = jQuery.noConflict(true);</script><script src="//s.bsd.net/page/static/20140724/modules/contribution/javascript/contribution.js" type="text/javascript"></script><script src="//s.bsd.net/page/static/20140724/utils/ajax/ajax.class.js" type="text/javascript"></script><script src="//s.bsd.net/page/static/20140724/utils/spud/spud.js" type="text/javascript"></script><script src="//s.bsd.net/page/static/20140724/utils/locale/javascript/locale.class.js" type="text/javascript"></script><script src="//s.bsd.net/page/static/20140724/ext/yui/build/yahoo-dom-event/yahoo-dom-event.js" type="text/javascript"></script><script src="//s.bsd.net/page/static/20140724/ext/yui/build/connection/connection-min.js" type="text/javascript"></script><script src="//s.bsd.net/page/static/20140724/javascript/balloon/Balloon.js" type="text/javascript"></script><link rel="stylesheet" href="//s.bsd.net/page/static/20140724/javascript/balloon/Balloon.css" type="text/css"><link rel="stylesheet" href="//s.bsd.net/page/static/20140724/css/jquery_ui_reset.css" type="text/css"><meta property="og:title" content="Support Mozilla"></head><body id="code-party-index" class="section-events brochure-page">
+      </script><script src="//cdn.optimizely.com/js/206878104.js"></script><link rel="canonical" href="https://sendto.mozilla.org/page/contribute/mobile-optimized-form-test"><link rel="stylesheet" href="//s.bsd.net/page/static/20140724.1/skins/default/contribution/display_page.inc.css" type="text/css"><script src="//s.bsd.net/page/static/20140724.1/javascript/bsd.js" type="text/javascript"></script><script src="//ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js" type="text/javascript"></script><script type="text/javascript">!window.jQuery && document.write(unescape('%3Cscript src="/ext/jquery/jquery-1.4.1.min.js"%3E%3C/script%3E'))</script><script src="//s.bsd.net/page/static/20140724.1/ext/jquery/cookie/jquery.cookie.min.js" type="text/javascript"></script><script src="/modules/spud/js/Spud.js.php" type="text/javascript"></script><script type="text/javascript">window.bQuery = jQuery.noConflict(true);</script><script src="//s.bsd.net/page/static/20140724.1/modules/contribution/javascript/contribution.js" type="text/javascript"></script><script src="//s.bsd.net/page/static/20140724.1/utils/ajax/ajax.class.js" type="text/javascript"></script><script src="//s.bsd.net/page/static/20140724.1/utils/spud/spud.js" type="text/javascript"></script><script src="//s.bsd.net/page/static/20140724.1/utils/locale/javascript/locale.class.js" type="text/javascript"></script><script src="//s.bsd.net/page/static/20140724.1/ext/yui/build/yahoo-dom-event/yahoo-dom-event.js" type="text/javascript"></script><script src="//s.bsd.net/page/static/20140724.1/ext/yui/build/connection/connection-min.js" type="text/javascript"></script><script src="//s.bsd.net/page/static/20140724.1/javascript/balloon/Balloon.js" type="text/javascript"></script><link rel="stylesheet" href="//s.bsd.net/page/static/20140724.1/javascript/balloon/Balloon.css" type="text/css"><link rel="stylesheet" href="//s.bsd.net/page/static/20140724.1/css/jquery_ui_reset.css" type="text/css"><meta property="og:title" content="Support Mozilla"></head><body id="code-party-index" class="section-events brochure-page">
       <script>
           document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/, '');
       </script><noscript>
@@ -808,9 +876,9 @@
 </script><h3>Mobile Optimized Form (Test)</h3>
   <div class="donation_intro">
   <img src="https://sendto.mozilla.org/page/-/ws_assets/webpage_images/Mozilla-Logo-wordmark-red.png" width="230" height="60" border="0">
-    We're a non-profit organization that believes the web should be open, accessible, transparent, safe and&mdash;most of all&mdash;a force for the good of humanity.<br><br>
+    We're a non-profit organization that believes the Web should be open, accessible, transparent, safe and&mdash;most of all&mdash;a force for the good of humanity.<br><br>
 
-    At the heart of Mozilla is a global community with a shared mission&mdash;to build the Internet the world needs. Support Mozilla with a donation today&mdash;for a better web and a better world.<br><br></div>
+    At the heart of Mozilla is a global community with a shared mission&mdash;to build the Internet the world needs. Support Mozilla with a donation today&mdash;for a better Web and a better world.<br><br></div>
 <div class="in wsform">
   <form id="wsniceform" action="https://sendto.mozilla.org/page/cde/Contribution/Charge" method="post" novalidate="no validate">
     <input name="slug" id="wsslug" value="help-mozilla-build-a-better-web" type="hidden"><input name="http_referer" value="" type="hidden"><input name="event_attendee_id" value="" type="hidden"><input name="outreach_page_id" value="" type="hidden"><input name="stg_signup_id" value="" type="hidden"><input name="mailing_link_id" value="" type="hidden"><input name="mailing_recipient_id" value="" type="hidden"><input name="match_campaign_id" value="" type="hidden"><input name="match_is_pledge" value="" type="hidden"><input name="contributor_key" value="" type="hidden"><input name="default_country" value="US" type="hidden"><input name="cc_number_ack" id="wscc_number_ack" value="" type="hidden"><input name="ach_account_number_ack" value="" type="hidden"><input name="legal_confirm" value="1" type="hidden"><input name="ach_routing_number" value="" type="hidden"><input name="ach_account_number" value="" type="hidden"><input name="ach_account_name" value="" type="hidden"><input name="bestcontacttime" id="wsbestcontacttime" value="" type="hidden"><input name="source_codes" id="wssource_codes" type="hidden" value=""><input name="submission_key" id="wssubmission_key" type="hidden" value=""><!-- Here's where we layout our nice imitation form.
@@ -1317,9 +1385,9 @@
 
   </script></div>
 <!-- =================== Above form content ENDS =================== -->            </div>
-        <iframe width="1" height="1" frameborder="0" scrolling="no" src="/images/Contribution/Misc/logo.htm?m=132500&amp;s=mozilla_HzmMmQ1E4E8HeTVX6ZcJGMQM"><img width="1" height="1" src="/images/Contribution/Misc/logo.gif?m=132500&amp;s=mozilla_HzmMmQ1E4E8HeTVX6ZcJGMQM"></iframe>
+        <iframe width="1" height="1" frameborder="0" scrolling="no" src="/images/Contribution/Misc/logo.htm?m=132500&amp;s=mozilla_Hzv51sDqHclZDnQx_kXXS-J6"><img width="1" height="1" src="/images/Contribution/Misc/logo.gif?m=132500&amp;s=mozilla_Hzv51sDqHclZDnQx_kXXS-J6"></iframe>
         <form name="contribution" class="bsd-contribution-95" action="/page/cde/Contribution/Charge" method="post" id="contribution">
-          <input name="slug" type="hidden" value="mobile-optimized-form-test"><input name="submission_key" type="hidden" value="HzmMmQ1E4E8HeTVX6ZcJGMQMFPakPILP"><input name="http_referer" type="hidden" value=""><input name="event_attendee_id" type="hidden" value=""><input name="outreach_page_id" type="hidden" value=""><input name="stg_signup_id" type="hidden" value=""><input name="mailing_link_id" type="hidden" value=""><input name="mailing_recipient_id" type="hidden" value=""><input name="match_campaign_id" type="hidden" value=""><input name="match_is_pledge" type="hidden" value=""><input name="pledge_is_convert" type="hidden" value=""><input name="contributor_key" type="hidden" value=""><input id="BSDForm-quick_donate_populated" name="quick_donate_populated" type="hidden" value="0"><input id="BSDForm-device_fingerprint" name="device_fingerprint" type="hidden" value="0"><input id="default_country" name="default_country" type="hidden" value="US"><input name="signup_optin_required" type="hidden" value="1"><input id="cc_number_ack" name="cc_number_ack" type="hidden" value=""><input name="ach_account_number_ack" type="hidden" value=""><input name="k-ris-sid" type="hidden" value="mozilla_HzmMmQ1E4E8HeTVX6ZcJGMQM"><table><tr><script>var quickformErrors = []; if(!BSD.errors){BSD.errors = quickformErrors;} else {BSD.errors = BSD.errors.concat(quickformErrors);}</script><td style="width: 300px;" class="contribcolumn"><table><tr class="bsd-contribution-section-header" id="bsd-contribution-section-header-contributor" data-bsdformsectionname="contributor"><td class="contribheader" id="bsd-contribution-header-contributor">
+          <input name="slug" type="hidden" value="mobile-optimized-form-test"><input name="submission_key" type="hidden" value="Hzv51sDqHclZDnQx_kXXS-J6V4DC8N6Y"><input name="http_referer" type="hidden" value=""><input name="event_attendee_id" type="hidden" value=""><input name="outreach_page_id" type="hidden" value=""><input name="stg_signup_id" type="hidden" value=""><input name="mailing_link_id" type="hidden" value=""><input name="mailing_recipient_id" type="hidden" value=""><input name="match_campaign_id" type="hidden" value=""><input name="match_is_pledge" type="hidden" value=""><input name="pledge_is_convert" type="hidden" value=""><input name="contributor_key" type="hidden" value=""><input id="BSDForm-quick_donate_populated" name="quick_donate_populated" type="hidden" value="0"><input id="BSDForm-device_fingerprint" name="device_fingerprint" type="hidden" value="0"><input id="default_country" name="default_country" type="hidden" value="US"><input name="signup_optin_required" type="hidden" value="1"><input id="cc_number_ack" name="cc_number_ack" type="hidden" value=""><input name="ach_account_number_ack" type="hidden" value=""><input name="k-ris-sid" type="hidden" value="mozilla_Hzv51sDqHclZDnQx_kXXS-J6"><table><tr><script>var quickformErrors = []; if(!BSD.errors){BSD.errors = quickformErrors;} else {BSD.errors = BSD.errors.concat(quickformErrors);}</script><td style="width: 300px;" class="contribcolumn"><table><tr class="bsd-contribution-section-header" id="bsd-contribution-section-header-contributor" data-bsdformsectionname="contributor"><td class="contribheader" id="bsd-contribution-header-contributor">
                 Contributor
               </td>
             </tr><tr><td class="nested_table"><table><tr></tr><tr><td colspan="2" class="nested_table"><table id="country_table"><tr><td>
@@ -1456,7 +1524,10 @@
 </div>
 
 <footer class="footer"><div class="constrained">
-    <section class="mozilla-logo"><div>logo here</div>
+    <section class="mozilla-logo"><div>
+        <a href="https://www.mozilla.org/">
+          <img src="https://sendto.mozilla.org/page/-/maker_party/img/mozilla-wordmark.png" alt="Mozilla Wordmark"></a>
+      </div>
       <div>
         <p>
           Portions of this content are &copy;1998&ndash;2014 by individual mozilla.org contributors. Content available under a <a href="//www.mozilla.org/en-US/foundation/licensing/website-content/">Creative Commons license</a>.

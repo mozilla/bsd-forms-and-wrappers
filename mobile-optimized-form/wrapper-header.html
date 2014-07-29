@@ -519,7 +519,7 @@
           }
         }
 
-  /*=== start cleaning up / fixing styling ===*/
+/*=== start cleaning up / fixing styling ===*/
 
         @media only screen and (max-device-width: 480px) {
 
@@ -644,16 +644,116 @@
           }
         }
 
-       /*--- the following code was from `above-form-content.html`, end -----------*/
+        /*--- the following code was from `above-form-content.html`, end -----------*/
 
-       @media only screen and (max-device-width: 480px) {
+        #wsform {
+          padding: 0;
+          width: 100%;
+        }
+
+        .bsd-contribForm-wrap.bsd-contribForm-oneCol {
+          overflow: auto;
+          margin: 20px 40px;
+        }
+
+        footer.footer {
+          background: #fff;
+          overflow: hidden;
+          font-size: 12px;
+          padding-top: 30px;
+          padding-bottom: 30px;
+        }
+
+        footer.footer a {
+          color: #0096DD;
+        }
+
+        footer.footer a:hover {
+          color: #00539F;
+        }
+
+        footer.footer section {
+          float: left;
+        }
+
+        footer.footer section.mozilla-logo {
+          width: 30%;
+          margin-right: 5%;
+        }
+
+        footer.footer section.links {
+          width: 65%;
+        }
+
+        footer.footer section.links ul {
+          margin-top: 0;
+          margin-bottom: 0;
+          list-style: none;
+        }
+
+        .mozilla-logo img {
+          max-width: 100px;
+        }
+
+        @media only screen and (max-device-width: 480px) {
+          #wsniceform .coltwo .radiopay:not(:first-of-type) {
+            margin-left: 5px;
+            margin-right: 0;
+          }
+
+          footer.footer section.mozilla-logo {
+            width: 100%;
+            margin-right: 0;
+            padding-bottom: 15px;
+          }
+
+          footer.footer section.links {
+            width: 100%;
+          }
+
+          footer.footer section.links ul {
+            padding-left: 0;
+          }
+        }
+
+        @media (min-device-width: 481px) and (max-device-width: 1000px) {
+          .donation_intro {
+            margin-bottom: 15px;
+          }
+          #wsniceform .coltwo, #wsniceform .coltwo strong,
+          #wsniceform .select.colonethird {
+            margin-left: 0;
+            margin-right: 0;
+          }
+          #wsniceform .coltwo h4 {
+            padding-left: 0;
+          }
+          #paypalsecurity {
+            float: none;
+            margin-left: 10px;
+          }
+          #wsniceform .radiopay:first-of-type {
+            margin-left: 0;
+          }
+          #wsniceform .text.coltwo.cvv, #wsniceform #cc_cvv {
+            width: 80%;
+            width: calc( 100% - 50px );
+          }
+          #wsniceform #wscc_expir_year.coltwo {
+            margin-left: 3%;
+          }
+          #wssmallprint {
+            margin-left: 0;
+          }
+        }
+
+        @media only screen and (max-device-width: 1000px) {
           .bsd-contribForm-wrap.bsd-contribForm-oneCol {
             overflow: auto;
-            margin-left: 20px;
-            margin-right: 20px;
           }
           body #wsform .donation_intro {
             width: 100%;
+            padding-right: 0;
           }
           body #wsform .donation_intro img {
             display: block;
@@ -685,54 +785,22 @@
             width: 100%;
           }
           #wsniceform #submitter-container {
-            float: left;
             width: 100%;
-          }
-          #wsniceform #submitter  {
-            float: none;
-            margin: 0 auto;
           }
           div .max_width_on_mobile {
             width: 100% !important;
             padding-left: 0 !important;
             padding-right: 0 !important;
           }
+          #wsniceform label.checkbox {
+            height: auto;
+            padding-bottom: 0;
+          }
+          #wsniceform label.checkbox[for="wsemail_opt_in"] {
+            float: none;
+          }
         }
 
-        footer.footer {
-          background: #fff;
-          overflow: hidden;
-          font-size: 12px;
-        }
-
-        footer.footer a {
-          color: #0096DD;
-        }
-
-        footer.footer a:hover {
-          color: #00539F;
-        }
-
-        footer.footer section {
-          float: left;
-          padding-top: 30px;
-          padding-bottom: 30px;
-        }
-
-        footer.footer section.mozilla-logo {
-          width: 30%;
-          margin-right: 5%;
-        }
-
-        footer.footer section.links {
-          width: 65%;
-        }
-
-        footer.footer section.links ul {
-          margin-top: 0;
-          margin-bottom: 0;
-          list-style: none;
-        }
 /*=== end cleaning up / fixing styling ===*/
 
       </style>
