@@ -519,11 +519,7 @@
           }
         }
 
-/*=== start cleaning up / fixing styling ===*/
-
-        @media only screen and (max-device-width: 480px) {
-
-        }
+/*=== Start cleaning up / fixing styling (Edited: July 2014) ===*/
 
         /*--- the following code was from `above-form-content.html`, starts -----------*/
         body
@@ -646,6 +642,8 @@
 
         /*--- the following code was from `above-form-content.html`, end -----------*/
 
+        /* Additional styling added in July 2014 starts */
+
         #wsform {
           padding: 0;
           width: 100%;
@@ -696,11 +694,26 @@
         }
 
         @media only screen and (max-device-width: 480px) {
+          .donation_intro p:not(:first-of-type) {
+            display: none;
+          }
           #wsniceform .coltwo .radiopay:not(:first-of-type) {
             margin-left: 5px;
             margin-right: 0;
           }
-
+          #wsniceform div.coltwo h4 {
+            width: 100%;
+            margin-left: 0;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            padding: 0;
+          }
+          #paypalsecurity {
+            float: none;
+            margin: 0 0 0 5px;
+            width: 70px;
+            height: auto;
+          }
           footer.footer section.mozilla-logo {
             width: 100%;
             margin-right: 0;
@@ -792,6 +805,10 @@
             padding-left: 0 !important;
             padding-right: 0 !important;
           }
+          #wsniceform .radiopay.dollaramount[for="wsamount_100"],
+          #wsniceform .radiopay.dollaramount[for="wsamount_200"] {
+            display: none;
+          }
           #wsniceform label.checkbox {
             height: auto;
             padding-bottom: 0;
@@ -799,9 +816,16 @@
           #wsniceform label.checkbox[for="wsemail_opt_in"] {
             float: none;
           }
+          #wsniceform .text {
+            height: 25px;
+          }
+          #wsniceform .select {
+            height: 35px;
+          }
         }
 
-/*=== end cleaning up / fixing styling ===*/
+/*=== Start cleaning up / fixing styling (Edited: July 2014) ===*/
+
 
       </style>
 
