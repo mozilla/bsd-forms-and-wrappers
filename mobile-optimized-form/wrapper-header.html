@@ -1,10 +1,3 @@
-<!--
-  ====================================
-  Currently using the "mobile-optimized-EOYFR-test" wrapper
-  ====================================
-  copied from BSD on July 10, 2014 12:25pm PST
--->
-
 <!-- =================== WRAPPER (Header) STARTS =================== -->
 
 <!DOCTYPE html>
@@ -693,76 +686,16 @@
           max-width: 100px;
         }
 
-        @media only screen and (max-device-width: 480px) {
-          .donation_intro p:not(:first-of-type) {
-            display: none;
-          }
-          #wsniceform .coltwo .radiopay:not(:first-of-type) {
-            margin-left: 5px;
-            margin-right: 0;
-          }
-          #wsniceform div.coltwo h4 {
-            width: 100%;
-            margin-left: 0;
-            margin-top: 10px;
-            margin-bottom: 10px;
-            padding: 0;
-          }
-          #paypalsecurity {
-            float: none;
-            margin: 0 0 0 5px;
-            width: 70px;
-            height: auto;
-          }
-          footer.footer section.mozilla-logo {
-            width: 100%;
-            margin-right: 0;
-            padding-bottom: 15px;
-          }
-
-          footer.footer section.links {
-            width: 100%;
-          }
-
-          footer.footer section.links ul {
-            padding-left: 0;
-          }
-        }
-
-        @media (min-device-width: 481px) and (max-device-width: 1000px) {
-          .donation_intro {
-            margin-bottom: 15px;
-          }
-          #wsniceform .coltwo, #wsniceform .coltwo strong,
-          #wsniceform .select.colonethird {
-            margin-left: 0;
-            margin-right: 0;
-          }
-          #wsniceform .coltwo h4 {
-            padding-left: 0;
-          }
-          #paypalsecurity {
-            float: none;
-            margin-left: 10px;
-          }
-          #wsniceform .radiopay:first-of-type {
-            margin-left: 0;
-          }
-          #wsniceform .text.coltwo.cvv, #wsniceform #cc_cvv {
-            width: 80%;
-            width: calc( 100% - 50px );
-          }
-          #wsniceform #wscc_expir_year.coltwo {
-            margin-left: 3%;
-          }
-          #wssmallprint {
-            margin-left: 0;
-          }
-        }
-
-        @media only screen and (max-device-width: 1000px) {
+        /* Tablet and smaller hacks */
+        @media only screen and (max-device-width: 768px) {
           .bsd-contribForm-wrap.bsd-contribForm-oneCol {
             overflow: auto;
+          }
+          #wsform .donation_intro,
+          #wsniceform .text,
+          #wsniceform .select,
+          #wsniceform .checkbox {
+            font-size: 15px;
           }
           body #wsform .donation_intro {
             width: 100%;
@@ -797,6 +730,12 @@
           body #wsniceform .coltwo {
             width: 100%;
           }
+          #gift-amount .clearall {
+            clear: none;
+          }
+          #wsniceform label.radiopay[for="wsamount_other"] {
+            margin-right: 0;
+          }
           #wsniceform #submitter-container {
             width: 100%;
           }
@@ -804,10 +743,6 @@
             width: 100% !important;
             padding-left: 0 !important;
             padding-right: 0 !important;
-          }
-          #wsniceform .radiopay.dollaramount[for="wsamount_100"],
-          #wsniceform .radiopay.dollaramount[for="wsamount_200"] {
-            display: none;
           }
           #wsniceform label.checkbox {
             height: auto;
@@ -817,12 +752,109 @@
             float: none;
           }
           #wsniceform .text {
-            height: 25px;
+            height: 26px;
           }
           #wsniceform .select {
-            height: 35px;
+            height: 36px;
+          }
+          #wsniceform .text,
+          #wsniceform .select {
+            box-shadow: none;
           }
         }
+
+        /* Tablet hacks */
+        @media (min-device-width: 481px) and (max-device-width: 768px) {
+          .donation_intro {
+            margin-bottom: 15px;
+          }
+          #wsniceform .coltwo, #wsniceform .coltwo strong,
+          #wsniceform .select.colonethird {
+            margin-left: 0;
+            margin-right: 0;
+          }
+          #wsniceform .coltwo h4 {
+            padding-left: 0;
+          }
+          #paypalsecurity {
+            float: none;
+            margin-left: 10px;
+          }
+          #wsniceform .radiopay:first-of-type {
+            margin-left: 0;
+          }
+          #wsniceform .text.coltwo.cvv, #wsniceform #cc_cvv {
+            width: 80%;
+            width: calc( 100% - 50px );
+          }
+          #wsniceform #wscc_expir_year.coltwo {
+            margin-left: 3%;
+          }
+          #wssmallprint {
+            margin-left: 0;
+          }
+          #personal-info { /* this is to swap the two sections on mobile */
+            margin-top: 110px;
+          }
+          #gift-amount { /* this is to swap the two sections on mobile */
+            margin-top: -530px;
+          }
+        }
+
+        /* Mobile hacks */
+        @media only screen and (max-device-width: 480px) {
+          .bsd-contribForm-wrap.bsd-contribForm-oneCol {
+            margin-left: 15px;
+            margin-right: 15px;
+          }
+          #form-header {
+            display: none;
+          }
+          .donation_intro p:not(:first-of-type) {
+            display: none;
+          }
+          #wsniceform .coltwo .radiopay:not(:first-of-type) {
+            margin-left: 5px;
+            margin-right: 0;
+          }
+          #wsniceform div.coltwo h4 {
+            width: 100%;
+            margin-left: 0;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            padding: 0;
+          }
+          #paypalsecurity {
+            float: none;
+            margin: 0 0 0 5px;
+            width: 60px;
+            height: auto;
+          }
+          #wsniceform .radiopay.dollaramount[for="wsamount_100"],
+          #wsniceform .radiopay.dollaramount[for="wsamount_200"] {
+            display: none;
+          }
+          #personal-info { /* this is to swap the two sections on mobile */
+            margin-top: 160px;
+          }
+          #gift-amount { /* this is to swap the two sections on mobile */
+            margin-top: -560px;
+          }
+          footer.footer section.mozilla-logo {
+            width: 100%;
+            margin-right: 0;
+            padding-bottom: 15px;
+          }
+          footer.footer section.links {
+            width: 100%;
+          }
+
+          footer.footer section.links ul {
+            padding-left: 0;
+          }
+        }
+
+
 
 /*=== Start cleaning up / fixing styling (Edited: July 2014) ===*/
 
