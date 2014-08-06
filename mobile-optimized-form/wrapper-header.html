@@ -637,6 +637,32 @@
 
         /* Additional styling added in July 2014 starts */
 
+        /* Fix broken link references */
+
+        @font-face {
+          font-family: 'OpenSansLightRegular';
+          src: url('https://sendto.mozilla.org/page/-/ws_assets/fonts/opensans-light-webfont.eot');
+          src: url('https://sendto.mozilla.org/page/-/ws_assets/fonts/opensans-light-webfont.eot?#iefix') format('embedded-opentype'),
+             url('https://sendto.mozilla.org/page/-/ws_assets/fonts/opensans-light-webfont.woff') format('woff'),
+             url('https://sendto.mozilla.org/page/-/ws_assets/fonts/opensans-light-webfont.ttf') format('truetype'),
+             url('https://sendto.mozilla.org/page/-/ws_assets/fonts/opensans-light-webfont.svg#OpenSansLightRegular') format('svg');
+          font-weight: normal;
+          font-style: normal;
+        }
+
+        @font-face {
+          font-family: 'OpenSansRegular';
+          src: url('https://sendto.mozilla.org/page/-/ws_assets/fonts/opensans-regular-webfont.eot');
+          src: url('https://sendto.mozilla.orgpage/-/ws_assets/fonts/opensans-regular-webfont.eot?#iefix') format('embedded-opentype'),
+             url('https://sendto.mozilla.org/page/-/ws_assets/fonts/opensans-regular-webfont.woff') format('woff'),
+             url('https://sendto.mozilla.org/page/-/ws_assets/fonts/opensans-regular-webfont.ttf') format('truetype'),
+             url('https://sendto.mozilla.org/page/-/ws_assets/fonts/opensans-regular-webfont.svg#OpenSansRegular') format('svg');
+          font-weight: normal;
+          font-style: normal;
+        }
+
+        /* CSS hacks */
+
         #wsform {
           padding: 0;
           width: 100%;
@@ -644,7 +670,15 @@
 
         .bsd-contribForm-wrap.bsd-contribForm-oneCol {
           overflow: auto;
-          margin: 20px 40px;
+          margin: 20px 35px;
+        }
+
+        .show-on-mobile-only {
+          display: none;
+        }
+
+        img#cvv_help {
+          display: block;
         }
 
         footer.footer {
@@ -687,11 +721,14 @@
         }
 
         /* Tablet and smaller hacks */
-        @media only screen and (max-device-width: 768px) {
+        /* non-conventional breakpoint just for this form to work responsively */
+        @media only screen and (max-device-width: 1023px) {
           .bsd-contribForm-wrap.bsd-contribForm-oneCol {
             overflow: auto;
           }
-          #wsform .donation_intro,
+          #wsform .donation_intro {
+            font-size: 16px;
+          }
           #wsniceform .text,
           #wsniceform .select,
           #wsniceform .checkbox {
@@ -713,8 +750,7 @@
           body #wsniceform .text.coltwo,
           #wsniceform .double,
           #wsniceform .text.colonethird,
-          #wsniceform .text.coltwo.special,
-          #wsniceform .text.coltwo.cvv {
+          #wsniceform .text.coltwo.special {
             width: 95%;
             width: calc( 100% - 16px );
           }
@@ -725,6 +761,11 @@
           }
           #wsniceform .select.coltwo.special {
             width: 48%;
+          }
+
+          #wsniceform .text.coltwo.cvv, #wsniceform #cc_cvv {
+            width: 80%;
+            width: calc( 100% - 50px );
           }
           body #wsniceform .colone,
           body #wsniceform .coltwo {
@@ -764,7 +805,8 @@
         }
 
         /* Tablet hacks */
-        @media (min-device-width: 481px) and (max-device-width: 768px) {
+        /* non-conventional breakpoint just for this form to work responsively */
+        @media (min-device-width: 481px) and (max-device-width: 1023px) {
           .donation_intro {
             margin-bottom: 15px;
           }
@@ -783,10 +825,6 @@
           #wsniceform .radiopay:first-of-type {
             margin-left: 0;
           }
-          #wsniceform .text.coltwo.cvv, #wsniceform #cc_cvv {
-            width: 80%;
-            width: calc( 100% - 50px );
-          }
           #wsniceform #wscc_expir_year.coltwo {
             margin-left: 3%;
           }
@@ -797,7 +835,7 @@
             margin-top: 110px;
           }
           #gift-amount { /* this is to swap the two sections on mobile */
-            margin-top: -530px;
+            margin-top: -500px;
           }
         }
 
@@ -810,8 +848,11 @@
           #form-header {
             display: none;
           }
-          .donation_intro p:not(:first-of-type) {
+          .donation_intro p:not(.show-on-mobile-only) {
             display: none;
+          }
+          .donation_intro p.show-on-mobile-only {
+            display: block;
           }
           #wsniceform .coltwo .radiopay:not(:first-of-type) {
             margin-left: 5px;
@@ -835,10 +876,10 @@
             display: none;
           }
           #personal-info { /* this is to swap the two sections on mobile */
-            margin-top: 160px;
+            margin-top: 140px;
           }
           #gift-amount { /* this is to swap the two sections on mobile */
-            margin-top: -560px;
+            margin-top: -510px;
           }
           footer.footer section.mozilla-logo {
             width: 100%;
