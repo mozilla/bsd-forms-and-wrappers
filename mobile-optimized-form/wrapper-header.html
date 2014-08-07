@@ -664,13 +664,15 @@
         /* CSS hacks */
 
         #wsform {
-          padding: 0;
-          width: 100%;
+          padding: 20px;
+        }
+
+        .constrained {
+          overflow-y: auto;
         }
 
         .bsd-contribForm-wrap.bsd-contribForm-oneCol {
           overflow: auto;
-          margin: 20px 35px;
         }
 
         .show-on-mobile-only {
@@ -722,7 +724,8 @@
 
         /* Tablet and smaller hacks */
         /* non-conventional breakpoint just for this form to work responsively */
-        @media only screen and (max-device-width: 1023px) {
+        /*@media only screen and (max-device-width: 1023px) {*/
+        @media only screen and (max-device-width: 480px) {
           .bsd-contribForm-wrap.bsd-contribForm-oneCol {
             overflow: auto;
           }
@@ -806,7 +809,8 @@
 
         /* Tablet hacks */
         /* non-conventional breakpoint just for this form to work responsively */
-        @media (min-device-width: 481px) and (max-device-width: 1023px) {
+        /*@media (min-device-width: 481px) and (max-device-width: 1023px) {*/
+        @media only screen and (max-device-width: 480px) {
           .donation_intro {
             margin-bottom: 15px;
           }
@@ -821,9 +825,6 @@
           #paypalsecurity {
             float: none;
             margin-left: 10px;
-          }
-          #wsniceform .radiopay:first-of-type {
-            margin-left: 0;
           }
           #wsniceform #wscc_expir_year.coltwo {
             margin-left: 3%;
@@ -876,7 +877,7 @@
             display: none;
           }
           #personal-info { /* this is to swap the two sections on mobile */
-            margin-top: 140px;
+            margin-top: 120px;
           }
           #gift-amount { /* this is to swap the two sections on mobile */
             margin-top: -510px;

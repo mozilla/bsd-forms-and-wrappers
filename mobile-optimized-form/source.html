@@ -642,13 +642,15 @@
         /* CSS hacks */
 
         #wsform {
-          padding: 0;
-          width: 100%;
+          padding: 20px;
+        }
+
+        .constrained {
+          overflow-y: auto;
         }
 
         .bsd-contribForm-wrap.bsd-contribForm-oneCol {
           overflow: auto;
-          margin: 20px 35px;
         }
 
         .show-on-mobile-only {
@@ -700,7 +702,8 @@
 
         /* Tablet and smaller hacks */
         /* non-conventional breakpoint just for this form to work responsively */
-        @media only screen and (max-device-width: 1023px) {
+        /*@media only screen and (max-device-width: 1023px) {*/
+        @media only screen and (max-device-width: 480px) {
           .bsd-contribForm-wrap.bsd-contribForm-oneCol {
             overflow: auto;
           }
@@ -784,7 +787,8 @@
 
         /* Tablet hacks */
         /* non-conventional breakpoint just for this form to work responsively */
-        @media (min-device-width: 481px) and (max-device-width: 1023px) {
+        /*@media (min-device-width: 481px) and (max-device-width: 1023px) {*/
+        @media only screen and (max-device-width: 480px) {
           .donation_intro {
             margin-bottom: 15px;
           }
@@ -799,9 +803,6 @@
           #paypalsecurity {
             float: none;
             margin-left: 10px;
-          }
-          #wsniceform .radiopay:first-of-type {
-            margin-left: 0;
           }
           #wsniceform #wscc_expir_year.coltwo {
             margin-left: 3%;
@@ -854,7 +855,7 @@
             display: none;
           }
           #personal-info { /* this is to swap the two sections on mobile */
-            margin-top: 140px;
+            margin-top: 120px;
           }
           #gift-amount { /* this is to swap the two sections on mobile */
             margin-top: -510px;
@@ -1488,9 +1489,9 @@
 
   </script></div>
 <!-- =================== Above form content ENDS =================== -->            </div>
-        <iframe width="1" height="1" frameborder="0" scrolling="no" src="/images/Contribution/Misc/logo.htm?m=132500&amp;s=mozilla_Hz969iTl3IzdOcuHIToBQ7je"><img width="1" height="1" src="/images/Contribution/Misc/logo.gif?m=132500&amp;s=mozilla_Hz969iTl3IzdOcuHIToBQ7je"></iframe>
+        <iframe width="1" height="1" frameborder="0" scrolling="no" src="/images/Contribution/Misc/logo.htm?m=132500&amp;s=mozilla_Hz_8Kw_cmso2VhwQtk5BQiUK"><img width="1" height="1" src="/images/Contribution/Misc/logo.gif?m=132500&amp;s=mozilla_Hz_8Kw_cmso2VhwQtk5BQiUK"></iframe>
         <form name="contribution" class="bsd-contribution-95" action="/page/cde/Contribution/Charge" method="post" id="contribution">
-          <input name="slug" type="hidden" value="mobile-optimized-form-test"><input name="submission_key" type="hidden" value="Hz969iTl3IzdOcuHIToBQ7jeyJS1TdPN"><input name="http_referer" type="hidden" value=""><input name="event_attendee_id" type="hidden" value=""><input name="outreach_page_id" type="hidden" value=""><input name="stg_signup_id" type="hidden" value=""><input name="mailing_link_id" type="hidden" value=""><input name="mailing_recipient_id" type="hidden" value=""><input name="match_campaign_id" type="hidden" value=""><input name="match_is_pledge" type="hidden" value=""><input name="pledge_is_convert" type="hidden" value=""><input name="contributor_key" type="hidden" value=""><input id="BSDForm-quick_donate_populated" name="quick_donate_populated" type="hidden" value="0"><input id="BSDForm-device_fingerprint" name="device_fingerprint" type="hidden" value="0"><input id="default_country" name="default_country" type="hidden" value="US"><input name="signup_optin_required" type="hidden" value="1"><input id="cc_number_ack" name="cc_number_ack" type="hidden" value=""><input name="ach_account_number_ack" type="hidden" value=""><input name="k-ris-sid" type="hidden" value="mozilla_Hz969iTl3IzdOcuHIToBQ7je"><table><tr><script>var quickformErrors = []; if(!BSD.errors){BSD.errors = quickformErrors;} else {BSD.errors = BSD.errors.concat(quickformErrors);}</script><td style="width: 300px;" class="contribcolumn"><table><tr class="bsd-contribution-section-header" id="bsd-contribution-section-header-contributor" data-bsdformsectionname="contributor"><td class="contribheader" id="bsd-contribution-header-contributor">
+          <input name="slug" type="hidden" value="mobile-optimized-form-test"><input name="submission_key" type="hidden" value="Hz_8Kw_cmso2VhwQtk5BQiUKyr-a_PmS"><input name="http_referer" type="hidden" value=""><input name="event_attendee_id" type="hidden" value=""><input name="outreach_page_id" type="hidden" value=""><input name="stg_signup_id" type="hidden" value=""><input name="mailing_link_id" type="hidden" value=""><input name="mailing_recipient_id" type="hidden" value=""><input name="match_campaign_id" type="hidden" value=""><input name="match_is_pledge" type="hidden" value=""><input name="pledge_is_convert" type="hidden" value=""><input name="contributor_key" type="hidden" value=""><input id="BSDForm-quick_donate_populated" name="quick_donate_populated" type="hidden" value="0"><input id="BSDForm-device_fingerprint" name="device_fingerprint" type="hidden" value="0"><input id="default_country" name="default_country" type="hidden" value="US"><input name="signup_optin_required" type="hidden" value="1"><input id="cc_number_ack" name="cc_number_ack" type="hidden" value=""><input name="ach_account_number_ack" type="hidden" value=""><input name="k-ris-sid" type="hidden" value="mozilla_Hz_8Kw_cmso2VhwQtk5BQiUK"><table><tr><script>var quickformErrors = []; if(!BSD.errors){BSD.errors = quickformErrors;} else {BSD.errors = BSD.errors.concat(quickformErrors);}</script><td style="width: 300px;" class="contribcolumn"><table><tr class="bsd-contribution-section-header" id="bsd-contribution-section-header-contributor" data-bsdformsectionname="contributor"><td class="contribheader" id="bsd-contribution-header-contributor">
                 Contributor
               </td>
             </tr><tr><td class="nested_table"><table><tr></tr><tr><td colspan="2" class="nested_table"><table id="country_table"><tr><td>
