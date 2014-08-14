@@ -9,7 +9,6 @@
       <meta name="viewport" content="initial-scale=1.0, width=device-width, user-scalable=no">
 
       <!-- Begin style links copied from webmaker home page -->
-      <link rel="stylesheet" href="https://login.webmaker.org/css/nav.css">
       <link rel="stylesheet" href="https://webmaker.org/css/style.css">
       <!-- End style links copied from webmaker home page -->
 
@@ -683,6 +682,10 @@
           padding-top: 0;
         }
 
+        .wallet #gift-amount {
+          margin-top: 0;
+        }
+
         img#cvv_help {
           display: block;
         }
@@ -737,6 +740,16 @@
           }
           #wsform .donation_intro {
             font-size: 16px;
+            margin-bottom: 15px;
+          }
+          .wallet #wsform .donation_intro {
+            margin-bottom: 0;
+          }
+          .donation_intro p:not(.show-on-mobile-only) {
+            display: none;
+          }
+          .donation_intro p.show-on-mobile-only {
+            display: block;
           }
           #wsniceform .text,
           #wsniceform .select,
@@ -786,11 +799,18 @@
           #gift-amount .clearall {
             clear: none;
           }
+          #wsniceform .radiopay.dollaramount[for="wsamount_100"],
+          #wsniceform .radiopay.dollaramount[for="wsamount_200"] {
+            display: none;
+          }
           #wsniceform label.radiopay[for="wsamount_other"] {
             margin-right: 0;
           }
           #wsniceform #submitter-container {
             width: 100%;
+          }
+          .wallet #wsniceform #submitter {
+            margin: 10px 0;
           }
           div .max_width_on_mobile {
             width: 100% !important;
@@ -820,9 +840,6 @@
         /* non-conventional breakpoint just for this form to work responsively */
         @media (min-device-width: 481px) and (max-device-width: 1023px) {
         /*@media only screen and (max-device-width: 480px) {*/
-          .donation_intro {
-            margin-bottom: 15px;
-          }
           #wsniceform .coltwo, #wsniceform .coltwo strong,
           #wsniceform .select.colonethird {
             margin-left: 0;
@@ -843,21 +860,15 @@
           }
           #personal-info,
           .haswall #personal-info.has-margin-top { /* this is to swap the two sections on mobile */
-            margin-top: 110px;
+            margin-top: 90px;
           }
           #gift-amount { /* this is to swap the two sections on mobile */
-            margin-top: -500px;
+            margin-top: -480px;
           }
         }
 
         /* Mobile hacks */
         @media only screen and (max-device-width: 480px) {
-          .donation_intro p:not(.show-on-mobile-only) {
-            display: none;
-          }
-          .donation_intro p.show-on-mobile-only {
-            display: block;
-          }
           #wsniceform .coltwo .radiopay:not(:first-of-type) {
             margin-left: 5px;
             margin-right: 0;
@@ -874,10 +885,6 @@
             margin: 0 0 0 5px;
             width: 60px;
             height: auto;
-          }
-          #wsniceform .radiopay.dollaramount[for="wsamount_100"],
-          #wsniceform .radiopay.dollaramount[for="wsamount_200"] {
-            display: none;
           }
           #personal-info,
           .haswall #personal-info.has-margin-top { /* this is to swap the two sections on mobile */
