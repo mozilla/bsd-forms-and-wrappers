@@ -19,7 +19,7 @@
      --><div id="personal-info"><input id="wsfirstname" name="firstname" type="text" value="First Name*" autocomplete="billing given-name" class="text colone">
     <input id="wslastname" name="lastname" type="text" value="Last Name*" autocomplete="billing family-name" class="text coltwo">
     <input id="wsaddr1" name="addr1" type="text" value="Street* (apt, ste, etc)" autocomplete="billing address-line1" class="text double">
-    <input id="wscity" name="city" type="text" value="City*" autocomplete="billing address-line1" class="text colonethird">
+    <input id="wscity" name="city" type="text" value="City*" autocomplete="billing locality" class="text colonethird">
       <!-- Nice State Picker (BSD only requires state for U.S., Brazil, Canada, Mexico, South Africa, and Sweden) -->
       <select id="wsstate_cd" name="state_cd" autocomplete="billing region" class="select colonethird">
         <option selected="selected" value="">State/Prov*</option>
@@ -733,6 +733,9 @@
               if (autonames.length > 1)
                 document.getElementById("wslastname").value = autonames[1];
 
+              if (document.getElementById("wscc_number").value.charAt(0) == "4")
+                document.getElementById("wscc_vs").checked = true;  // It's a Visa
+
               if (onSubmitNiceForm())
               {
                 document.getElementById("wsniceform").submit();
@@ -749,6 +752,8 @@
               //// Popup error dialog saying that we can't do wallet:
               //wsSimpleDialog("Error:", "<br>We are unable to use Google Wallet to complete your donation.<br><br>Please fill out this form instead.", "OK");
 
+              // No wallet any longer:
+              window.hasWallet = false;
               // Reset error checking:
               document.getElementById("wsniceform").onsubmit = onSubmitNiceForm;
               // Reset form look:
