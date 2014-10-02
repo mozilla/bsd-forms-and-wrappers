@@ -176,6 +176,12 @@ h4,
   display: inline;
 }
 
+/* Temp Fix */
+form#contribution input {
+  max-width: 10px;
+}
+
+
 </style><div class="outer-wrap" id="mozilla-eoy-donation">
 
   <div class="container">
@@ -186,7 +192,7 @@ h4,
       </div>
     </div>
     <div class="row">
-      <div class="col-md-offset-4 col-md-4 col-sm-4" id="form-wrapper">
+      <div class="col-md-offset-4 col-sm-offset-0 col-xs-offset-0 col-md-4" id="form-wrapper">
         <!-- = Amount Section ==========  -->
         <div class="row big-section">
           <div class="col-md-12 col-sm-12 col-xs-12">
@@ -317,9 +323,9 @@ h4,
 
 
 <!-- =================== Above form content ENDS =================== -->            </div>
-        <iframe width="1" height="1" frameborder="0" scrolling="no" src="/images/Contribution/Misc/logo.htm?m=132500&amp;s=mozilla_H1t6Cw52ew_lsokSVsRN_GFW"><img width="1" height="1" src="/images/Contribution/Misc/logo.gif?m=132500&amp;s=mozilla_H1t6Cw52ew_lsokSVsRN_GFW"></iframe>
+        <iframe width="1" height="1" frameborder="0" scrolling="no" src="/images/Contribution/Misc/logo.htm?m=132500&amp;s=mozilla_H1t9SDXEJQ4g2nfjV1VdybJX"><img width="1" height="1" src="/images/Contribution/Misc/logo.gif?m=132500&amp;s=mozilla_H1t9SDXEJQ4g2nfjV1VdybJX"></iframe>
         <form name="contribution" class="bsd-contribution-98" action="/page/cde/Contribution/Charge" method="post" id="contribution">
-          <input name="slug" type="hidden" value="test-give-to-mozilla-today"><input name="submission_key" type="hidden" value="H1t6Cw52ew_lsokSVsRN_GFW6bqmOvMs"><input name="http_referer" type="hidden" value=""><input name="event_attendee_id" type="hidden" value=""><input name="outreach_page_id" type="hidden" value=""><input name="stg_signup_id" type="hidden" value=""><input name="mailing_link_id" type="hidden" value=""><input name="mailing_recipient_id" type="hidden" value=""><input name="match_campaign_id" type="hidden" value=""><input name="match_is_pledge" type="hidden" value=""><input name="pledge_is_convert" type="hidden" value=""><input name="contributor_key" type="hidden" value=""><input id="BSDForm-quick_donate_populated" name="quick_donate_populated" type="hidden" value="0"><input id="BSDForm-device_fingerprint" name="device_fingerprint" type="hidden" value="0"><input id="default_country" name="default_country" type="hidden" value="US"><input id="cc_number_ack" name="cc_number_ack" type="hidden" value=""><input name="ach_account_number_ack" type="hidden" value=""><input name="k-ris-sid" type="hidden" value="mozilla_H1t6Cw52ew_lsokSVsRN_GFW"><table><tr><script>var quickformErrors = []; if(!BSD.errors){BSD.errors = quickformErrors;} else {BSD.errors = BSD.errors.concat(quickformErrors);}</script><td style="width: 300px;" class="contribcolumn"><table><tr class="bsd-contribution-section-header" id="bsd-contribution-section-header-contributor" data-bsdformsectionname="contributor"><td class="contribheader" id="bsd-contribution-header-contributor">
+          <input name="slug" type="hidden" value="test-give-to-mozilla-today"><input name="submission_key" type="hidden" value="H1t9SDXEJQ4g2nfjV1VdybJXbuMBa7bb"><input name="http_referer" type="hidden" value=""><input name="event_attendee_id" type="hidden" value=""><input name="outreach_page_id" type="hidden" value=""><input name="stg_signup_id" type="hidden" value=""><input name="mailing_link_id" type="hidden" value=""><input name="mailing_recipient_id" type="hidden" value=""><input name="match_campaign_id" type="hidden" value=""><input name="match_is_pledge" type="hidden" value=""><input name="pledge_is_convert" type="hidden" value=""><input name="contributor_key" type="hidden" value=""><input id="BSDForm-quick_donate_populated" name="quick_donate_populated" type="hidden" value="0"><input id="BSDForm-device_fingerprint" name="device_fingerprint" type="hidden" value="0"><input id="default_country" name="default_country" type="hidden" value="US"><input id="cc_number_ack" name="cc_number_ack" type="hidden" value=""><input name="ach_account_number_ack" type="hidden" value=""><input name="k-ris-sid" type="hidden" value="mozilla_H1t9SDXEJQ4g2nfjV1VdybJX"><table><tr><script>var quickformErrors = []; if(!BSD.errors){BSD.errors = quickformErrors;} else {BSD.errors = BSD.errors.concat(quickformErrors);}</script><td style="width: 300px;" class="contribcolumn"><table><tr class="bsd-contribution-section-header" id="bsd-contribution-section-header-contributor" data-bsdformsectionname="contributor"><td class="contribheader" id="bsd-contribution-header-contributor">
                 Contributor
               </td>
             </tr><tr><td class="nested_table"><table><tr></tr><tr><td colspan="2" class="nested_table"><table id="country_table"><tr><td>
@@ -376,7 +382,10 @@ h4,
   var module_text = { "total_contribution_label" : "Total Contribution:" }
 </script><div class="bsd-contribForm-belowContent">
                 <!-- =================== Below form content STARTS =================== -->
-<!-- =================== Below form content ENDS =================== -->            </div>
+
+<script>
+  $("head").append("<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0, user-scalable=no\">");
+</script><!-- =================== Below form content ENDS =================== --></div>
         </div><!-- End form wrapper -->
 
 
