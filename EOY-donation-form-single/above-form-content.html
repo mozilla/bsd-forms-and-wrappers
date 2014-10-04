@@ -1,7 +1,6 @@
 <!-- =================== Above form content STARTS =================== -->
-<link href="https://sendto.mozilla.org/page/-/donation_form/css/makerstrap.complete.min.css" rel="stylesheet">
-<script src="https://sendto.mozilla.org/page/-/donation_form/js/jquery-2.1.1.min.js"></script>
-<style>
+<link href="//sendto.mozilla.org/page/-/donation_form/css/makerstrap.complete.min.css" rel="stylesheet">
+<script src="//sendto.mozilla.org/page/-/donation_form/js/jquery-2.1.1.min.js"></script><style>
 /* Sandstone Defaults =============== */
 body {
   font-size: 14px;
@@ -69,6 +68,14 @@ h4,
   font-weight: 300;
 }
 
+#mozilla-wordmark {
+  margin-top: 20px;
+}
+
+#mozilla-wordmark img {
+  max-width: 200px;
+}
+
 #mozilla-eoy-donation h1 {
   margin-top: 50px;
 }
@@ -108,23 +115,52 @@ h4,
   color: #fff;
 }
 
-#mozilla-eoy-donation input[type="radio"] + label,
-#mozilla-eoy-donation input[type="checkbox"] + label {
+#mozilla-eoy-donation input[type="radio"] + label {
   font-size: 18px;
   margin-left: 10px;
 }
 
 #mozilla-eoy-donation input[type="text"] {
   width: 100%;
-  padding: 7px 0 7px 10px;
+  padding: 7px 30px 7px 33px;
   margin-bottom: 5px;
   border: 2px solid #EAEFF2;
   border-radius: 3px;
 }
 
+#mozilla-eoy-donation input[type="text"]:focus {
+  border: 2px solid #38A9ED;
+}
+
+#mozilla-eoy-donation .field-container {
+  display: inline-block;
+  position: relative;
+  width: 100%;
+}
+
+#mozilla-eoy-donation i.fa.field-icon {
+  position: absolute;
+  font-size: 16px;
+  color: #4D4E53; /*Mozilla charcoal*/
+  top: 12px;
+  left: 12px;
+}
+
+#mozilla-eoy-donation i.fa.hint {
+  position: absolute;
+  font-size: 20px;
+  color: #E6E7E8;
+  top: 10px;
+  right: 25px;
+}
+
+#mozilla-eoy-donation input.less-indented {
+  padding-left: 15px;
+  padding-right: 7px;
+}
+
 #form-wrapper {
   background: #fff;
-  margin-top: 30px;
   margin-bottom: 100px;
   padding: 30px;
 }
@@ -136,6 +172,10 @@ h4,
 
 .big-section:first-child {
   padding-top: 0;
+}
+
+.big-section:not(:first-child) {
+  background: url("//sendto.mozilla.org/page/-/donation_form/img/thin-stripe.png") repeat-x scroll center top transparent;
 }
 
 .col-reduced-gutter {
@@ -151,6 +191,18 @@ h4,
   padding-right: 15px;
 }
 
+#payment-type-row .btn {
+  font-size: 18px;
+}
+
+#payment-type-row .btn img.full {
+  width: 100%;
+}
+
+#payment-type-row .btn img.half {
+  width: 50%;
+}
+
 #full-name-row,
 #address-row,
 #credit-card-row,
@@ -158,8 +210,8 @@ h4,
   margin-bottom: 15px;
 }
 
-#full-name-row input[type="text"] {
-  width: calc( 49% - 2px);
+#full-name-row input {
+  width: 100%;
 }
 
 #full-name-row input[type="text"]:first-child {
@@ -170,8 +222,25 @@ h4,
   margin-left: 1%;
 }
 
+#secured-label {
+  display: inline-block;
+  position: absolute;
+  right: 15px;
+  top: 6px;
+  font-size: 14px;
+  font-weight: 800;
+  color: #939597;
+  text-transform: uppercase;
+  letter-spacing: 0.1px;
+}
+
+#secured-label i.fa {
+  margin-right: 6px;
+}
+
 #privacy-policy input[type="checkbox"] + label {
   font-size: 12px;
+  margin-left: 10px;
   display: inline;
 }
 
@@ -183,14 +252,22 @@ form#contribution input {
 
 </style>
 
-
 <div class="outer-wrap" id="mozilla-eoy-donation">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-offset-2 col-md-10">
+        <div id="mozilla-wordmark">
+          <img src="//sendto.mozilla.org/page/-/donation_form/img/Mozilla-wordmark.png" />
+        </div>
+      </div>
+    </div>
+  </div>
 
   <div class="container">
     <div class="row">
       <div class="col-md-offset-4 col-md-4 text-center">
         <h1>Donate Today</h1>
-        <p>(dummy form, for UI reference only. WIP)</p>
+        <p style="color: #6B12C4">(dummy form, for UI reference only. WIP)</p>
       </div>
     </div>
     <div class="row">
@@ -224,12 +301,10 @@ form#contribution input {
             </div>
             <div class="row">
               <div class="col-md-6 col-sm-6 col-xs-6 col-reduced-gutter">
-                <input type="radio" name="payment-frequency" checked>
-                <label>one-time</label>
+                <input type="radio" name="payment-frequency" checked="checked"><label>one-time</label>
               </div>
               <div class="col-md-6 col-sm-6 col-xs-6 col-reduced-gutter">
-                <input type="radio" name="payment-frequency" >
-                <label>monthly</label>
+                <input type="radio" name="payment-frequency"><label>monthly</label>
               </div>
             </div>
           </div>
@@ -239,15 +314,22 @@ form#contribution input {
           <div class="col-md-12 col-sm-12 col-xs-12">
             <div class="row">
               <div class="col-md-12">
-                <h2>Payment</h2>
+                <h2>Payment<p id="secured-label"><i class="fa fa-lock"></i>Secured</p></h2>
               </div>
             </div>
             <div class="row" id="payment-type-row">
               <div class="col-md-6 col-sm-6 col-xs-6 col-reduced-gutter">
-                <div class="btn">Cards</div>
+                <div class="btn">
+                  <img src="//sendto.mozilla.org/page/-/donation_form/img/MasterCard.png" class="half" />
+                  <img src="//sendto.mozilla.org/page/-/donation_form/img/Visa.png" class="half" />
+                  <div>Credit Card</div>
+                </div>
               </div>
               <div class="col-md-6 col-sm-6 col-xs-6 col-reduced-gutter">
-                <div class="btn">PayPal</div>
+                <div class="btn">
+                  <img src="//sendto.mozilla.org/page/-/donation_form/img/PayPal.png" class="full" />
+                  <div>PayPal</div>
+                </div>
               </div>
             </div>
           </div>
@@ -257,9 +339,14 @@ form#contribution input {
           <div class="col-md-12 col-sm-12 col-xs-12">
             <!-- Full Name Row  -->
             <div class="row" id="full-name-row">
-              <div class="col-md-12 col-sm-12 col-xs-12 col-reduced-gutter">
-                <input type="text" placeholder="First Name" />
-                <input type="text" placeholder="Last Name" />
+              <div class="col-md-6 col-sm-6 col-xs-6 col-reduced-gutter">
+                <div class="field-container">
+                  <i class="fa fa-user field-icon"></i>
+                  <input type="text" placeholder="First Name"></div>
+              </div>
+              <div class="col-md-6 col-sm-6 col-xs-6 col-reduced-gutter">
+                <div class="field-container">
+                  <input type="text" placeholder="Last Name" class="less-indented"></div>
               </div>
             </div>
             <!-- Address Row -->
@@ -267,21 +354,20 @@ form#contribution input {
               <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="row">
                   <div class="col-md-12 col-sm-12 col-xs-12">
-                    <input type="text" placeholder="Country" />
+                    <div class="field-container">
+                      <i class="fa fa-map-marker field-icon"></i>
+                      <input type="text" placeholder="Country"></div>
                   </div>
                 </div>
                 <div class="row">
                   <div class="col-md-12 col-sm-12 col-xs-12">
-                    <input type="text" placeholder="Address" />
-                  </div>
+                    <input type="text" placeholder="Address"></div>
                 </div>
                 <div class="row">
                   <div class="col-md-6 col-sm-6 col-xs-6 col-reduced-gutter">
-                    <input type="text" placeholder="City" />
-                  </div>
+                    <input type="text" placeholder="City"></div>
                   <div class="col-md-6 col-sm-6 col-xs-6 col-reduced-gutter">
-                    <input type="text" placeholder="Postal Code" />
-                  </div>
+                    <input type="text" placeholder="Postal Code" class="less-indented"></div>
                 </div>
               </div>
             </div>
@@ -290,22 +376,32 @@ form#contribution input {
               <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="row">
                   <div class="col-md-12 col-sm-12 col-xs-12">
-                    <input type="text" placeholder="Credit Card Number" />
+                    <div class="field-container">
+                      <i class="fa fa-credit-card field-icon"></i>
+                      <input type="text" placeholder="Credit Card Number"></div>
                   </div>
                 </div>
                 <div class="row">
                   <div class="col-md-6 col-sm-6 col-xs-6 col-reduced-gutter">
-                    <input type="text" placeholder="MM/YY" />
+                    <div class="field-container">
+                      <i class="fa fa-calendar-o field-icon"></i>
+                      <input type="text" placeholder="MM/YY"></div>
                   </div>
                   <div class="col-md-6 col-sm-6 col-xs-6 col-reduced-gutter">
-                    <input type="text" placeholder="CVC" />
+                    <div class="field-container">
+                      <i class="fa fa-lock field-icon"></i>
+                      <input type="text" placeholder="CVC"></div>
+                      <i class="fa fa-question-circle hint"></i>
                   </div>
                 </div>
               </div>
             </div>
             <div class="row" id="email-row">
               <div class="col-md-12 col-sm-12 col-xs-12">
-                <input type="text" placeholder="Email" />
+                <div class="field-container">
+                  <i class="fa fa-envelope field-icon"></i>
+                  <input type="text" placeholder="Email"></div>
+                  <i class="fa fa-question-circle hint"></i>
               </div>
             </div>
           </div>
@@ -314,8 +410,7 @@ form#contribution input {
 
         <div class="row" id="privacy-policy">
           <div class="col-md-12 col-sm-12 col-xs-12">
-            <input type="checkbox">
-            <label>I'm okay wiht you handling this info as you explain in your [privacy policy](link).</label>
+            <input type="checkbox"><label>I'm okay wiht you handling this info as you explain in your [privacy policy](link).</label>
           </div>
         </div>
         <div class="row">
@@ -334,7 +429,7 @@ form#contribution input {
 
 </div>
 
-<h2>( real form below )</h2>
+<h2 style="color: #6B12C4">( real BSD generated form below )</h2>
 
 
 <!-- =================== Above form content ENDS =================== -->
