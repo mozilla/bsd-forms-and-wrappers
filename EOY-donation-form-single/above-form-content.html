@@ -1,6 +1,8 @@
 <!-- =================== Above form content STARTS =================== -->
 <link href="//sendto.mozilla.org/page/-/donation_form/css/makerstrap.complete.min.css" rel="stylesheet">
-<script src="//sendto.mozilla.org/page/-/donation_form/js/jquery-2.1.1.min.js"></script><style>
+<script src="//sendto.mozilla.org/page/-/donation_form/js/jquery-2.1.1.min.js"></script>
+
+<style>
 /* Sandstone Defaults =============== */
 body {
   font-size: 14px;
@@ -50,6 +52,22 @@ body {
    height: 100%;
 }*/
 
+/* Set placeholder text colour */
+::-webkit-input-placeholder { /* WebKit browsers */
+  color: #ccc;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+  color: #ccc;
+  opacity:  1;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+  color: #ccc;
+  opacity:  1;
+}
+:-ms-input-placeholder { /* Internet Explorer 10+ */
+  color: #ccc;
+}
+
 h1,
 h2,
 h3,
@@ -73,17 +91,12 @@ h4,
 }
 
 #mozilla-wordmark img {
-  max-width: 200px;
+  max-width: 150px;
 }
 
 #mozilla-eoy-donation h1 {
-  margin-top: 50px;
+  margin-top: 20px;
 }
-
-/*table table table {
-  background: pink;
-  margin-bottom: 20px;
-}*/
 
 #mozilla-eoy-donation .btn {
   width: 100%;
@@ -120,17 +133,97 @@ h4,
   margin-left: 10px;
 }
 
-#mozilla-eoy-donation input[type="text"] {
+#mozilla-eoy-donation input[type="text"],
+#mozilla-eoy-donation select {
   width: 100%;
-  padding: 7px 30px 7px 33px;
   margin-bottom: 5px;
   border: 2px solid #EAEFF2;
   border-radius: 3px;
 }
 
-#mozilla-eoy-donation input[type="text"]:focus {
+#mozilla-eoy-donation input[type="text"] {
+  padding: 7px 30px 7px 33px;
+}
+
+#mozilla-eoy-donation input[type="text"]:focus,
+#mozilla-eoy-donation select:focus {
   border: 2px solid #38A9ED;
 }
+
+#mozilla-eoy-donation input[type="radio"][name="amount"] {
+  display: none;
+}
+
+#mozilla-eoy-donation input[type="radio"][name="amount"] + label {
+  display: inline-block;
+  width: 100%;
+  padding: 6px 12px;
+  margin-left: 0;
+  margin-bottom: 15px;
+  border-radius: 3px;
+  background-color: #EAEFF2;
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+  white-space: nowrap;
+  font-size: 24px;
+  line-height: 1.42857;
+}
+
+#mozilla-eoy-donation input[type="radio"][name="amount"]:checked + label {
+  background: #0095DD;
+  color: #fff;
+}
+
+#mozilla-eoy-donation #amount-other-container {
+  position: relative;
+}
+
+#mozilla-eoy-donation input#amount-other[type="radio"][name="amount"] + label {
+  text-align: left;
+}
+
+#mozilla-eoy-donation input#amount-other + label + input[type="text"] {
+  position: absolute;
+  top: 2px;
+  left: 35px;
+  width: 82%;
+  height: 42px;
+  font-size: 20px;
+  line-height: 24px;
+  padding-left: 10px;
+  padding-right: 5px;
+  border: none;
+}
+
+#mozilla-eoy-donation i.fa.field-icon.icon-in-focus {
+  color: #38A9ED;
+}
+
+#mozilla-eoy-donation select {
+  padding-left: 29px;
+  padding-right: 10px;
+  height: 38px;
+  -webkit-appearance: none;
+  background: #fff;
+}
+
+#mozilla-eoy-donation select * {
+  padding-left: 29px;
+}
+
+/*#mozilla-eoy-donation #country-arrow {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  background: #fff;
+  width: 30px;
+  height: 34px;
+  line-height: 38px;
+  font-size: 20px;
+  text-align: center;
+  color: #ccc;
+}*/
 
 #mozilla-eoy-donation .field-container {
   display: inline-block;
@@ -167,7 +260,6 @@ h4,
 
 .big-section {
   padding-top: 25px;
-  padding-bottom: 25px;
 }
 
 .big-section:first-child {
@@ -175,7 +267,8 @@ h4,
 }
 
 .big-section:not(:first-child) {
-  background: url("//sendto.mozilla.org/page/-/donation_form/img/thin-stripe.png") repeat-x scroll center top transparent;
+  margin-top: 25px;
+  background: url("https://sendto.mozilla.org/page/-/donation_form/img/thin-stripe.png") repeat-x scroll center top transparent;
 }
 
 .col-reduced-gutter {
@@ -193,6 +286,11 @@ h4,
 
 #payment-type-row .btn {
   font-size: 18px;
+}
+
+#payment-type-row .btn.selected {
+  background: #0095DD;
+  color: #fff;
 }
 
 #payment-type-row .btn img.full {
@@ -226,7 +324,7 @@ h4,
   display: inline-block;
   position: absolute;
   right: 15px;
-  top: 6px;
+  top: 15px;
   font-size: 14px;
   font-weight: 800;
   color: #939597;
@@ -250,15 +348,12 @@ form#contribution input {
 }
 
 
-</style>
-
-<div class="outer-wrap" id="mozilla-eoy-donation">
+</style><div class="outer-wrap" id="mozilla-eoy-donation">
   <div class="container">
     <div class="row">
       <div class="col-md-offset-2 col-md-10">
         <div id="mozilla-wordmark">
-          <img src="//sendto.mozilla.org/page/-/donation_form/img/Mozilla-wordmark.png" />
-        </div>
+          <img src="https://sendto.mozilla.org/page/-/donation_form/img/Mozilla-wordmark.png"></div>
       </div>
     </div>
   </div>
@@ -272,6 +367,7 @@ form#contribution input {
     </div>
     <div class="row">
       <div class="col-md-offset-4 col-sm-offset-0 col-xs-offset-0 col-md-4" id="form-wrapper">
+        <form id="donation-form">
         <!-- = Amount Section ==========  -->
         <div class="row big-section">
           <div class="col-md-12 col-sm-12 col-xs-12">
@@ -282,29 +378,39 @@ form#contribution input {
             </div>
             <div class="row donation-amount-row">
               <div class="col-md-4 col-sm-4 col-xs-4 col-reduced-gutter">
-                <div class="btn">$3</div>
+                <input type="radio" name="amount" value="3" id="amount-3" />
+                <label for="amount-3">$3</label>
               </div>
               <div class="col-md-4 col-sm-4 col-xs-4 col-reduced-gutter">
-                <div class="btn">$5</div>
+                <input type="radio" name="amount" value="5" id="amount-5" />
+                <label for="amount-5">$5</label>
               </div>
               <div class="col-md-4 col-sm-4 col-xs-4 col-reduced-gutter">
-                <div class="btn">$10</div>
+                <input type="radio" name="amount" value="10" id="amount-10" />
+                <label for="amount-10">$10</label>
               </div>
             </div>
             <div class="row donation-amount-row">
               <div class="col-md-4 col-sm-4 col-xs-4 col-reduced-gutter">
-                <div class="btn">$20</div>
+                <input type="radio" name="amount" value="20" id="amount-20" />
+                <label for="amount-20">$20</label>
               </div>
               <div class="col-md-8 col-sm-8 col-xs-8 col-reduced-gutter">
-                <div class="btn">$Other</div>
+                <div id="amount-other-container">
+                  <input type="radio" name="amount" value="other" id="amount-other" />
+                  <label for="amount-other">$</label>
+                  <input type="text" name="amount-other" placeholder="Other Amount" />
+                </div>
               </div>
             </div>
             <div class="row">
               <div class="col-md-6 col-sm-6 col-xs-6 col-reduced-gutter">
-                <input type="radio" name="payment-frequency" checked="checked"><label>one-time</label>
+                <input type="radio" name="payment-frequency" checked="checked" id="one-time-payment">
+                <label for="one-time-payment">one-time</label>
               </div>
               <div class="col-md-6 col-sm-6 col-xs-6 col-reduced-gutter">
-                <input type="radio" name="payment-frequency"><label>monthly</label>
+                <input type="radio" name="payment-frequency" id="monthly-payment">
+                <label for="monthly-payment">monthly</label>
               </div>
             </div>
           </div>
@@ -314,28 +420,25 @@ form#contribution input {
           <div class="col-md-12 col-sm-12 col-xs-12">
             <div class="row">
               <div class="col-md-12">
-                <h2>Payment<p id="secured-label"><i class="fa fa-lock"></i>Secured</p></h2>
+                <h2>Payment</h2><p id="secured-label"><i class="fa fa-lock"></i>Secured</p>
               </div>
             </div>
             <div class="row" id="payment-type-row">
               <div class="col-md-6 col-sm-6 col-xs-6 col-reduced-gutter">
-                <div class="btn">
-                  <img src="//sendto.mozilla.org/page/-/donation_form/img/MasterCard.png" class="half" />
-                  <img src="//sendto.mozilla.org/page/-/donation_form/img/Visa.png" class="half" />
-                  <div>Credit Card</div>
+                <div class="btn" id="payment-cc">
+                  <img src="https://sendto.mozilla.org/page/-/donation_form/img/MasterCard.png" class="half"><img src="https://sendto.mozilla.org/page/-/donation_form/img/Visa.png" class="half"><div>Credit Card</div>
                 </div>
               </div>
               <div class="col-md-6 col-sm-6 col-xs-6 col-reduced-gutter">
-                <div class="btn">
-                  <img src="//sendto.mozilla.org/page/-/donation_form/img/PayPal.png" class="full" />
-                  <div>PayPal</div>
+                <div class="btn" id="payment-paypal">
+                  <img src="https://sendto.mozilla.org/page/-/donation_form/img/PayPal.png" class="full"><div>PayPal</div>
                 </div>
               </div>
             </div>
           </div>
         </div>
         <!-- = Billing Info Section ==========  -->
-        <div class="row">
+        <div class="row cc-additional-info">
           <div class="col-md-12 col-sm-12 col-xs-12">
             <!-- Full Name Row  -->
             <div class="row" id="full-name-row">
@@ -356,7 +459,13 @@ form#contribution input {
                   <div class="col-md-12 col-sm-12 col-xs-12">
                     <div class="field-container">
                       <i class="fa fa-map-marker field-icon"></i>
-                      <input type="text" placeholder="Country"></div>
+                      <select name="country">
+                        <option value="">Country</option>
+                        <option value="111">111</option>
+                        <option value="222">222</option>
+                      </select>
+                      <!-- <i class="fa fa-caret-down" id="country-arrow"></i> -->
+                    </div>
                   </div>
                 </div>
                 <div class="row">
@@ -408,21 +517,22 @@ form#contribution input {
         </div>
 
 
-        <div class="row" id="privacy-policy">
+        <div class="row cc-additional-info" id="privacy-policy">
           <div class="col-md-12 col-sm-12 col-xs-12">
-            <input type="checkbox"><label>I'm okay wiht you handling this info as you explain in your [privacy policy](link).</label>
+            <input type="checkbox"><label>I'm okay with you handling this info as you explain in your [privacy policy](link).</label>
           </div>
         </div>
-        <div class="row">
+        <div class="row cc-additional-info">
           <div class="col-md-12 col-sm-12 col-xs-12">
             <div class="btn" id="donate-btn">Donate Now</div>
           </div>
         </div>
-        <div class="row text-center">
+        <div class="row text-center cc-additional-info">
           <div class="col-md-12 col-sm-12 col-xs-12">
             Error Message Here
           </div>
         </div>
+        </form>
       </div>
     </div>
   </div>

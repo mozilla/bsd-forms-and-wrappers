@@ -2,6 +2,32 @@
 
 <script>
   $("head").append("<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0, user-scalable=no\">");
-</script>
 
-<!-- =================== Below form content ENDS =================== -->
+  $(".cc-additional-info").hide();
+
+  $("#donation-form input, #donation-form select").focus(function() {
+    $(this).prev(".field-icon").addClass("icon-in-focus");
+  });
+  $("#donation-form input, #donation-form select").blur(function() {
+    $(this).prev(".field-icon").removeClass("icon-in-focus");
+  });
+
+  $("#payment-type-row .btn").click(function() {
+    // reset
+    $(".cc-additional-info").hide();
+    $("#payment-type-row .btn").removeClass("selected");
+
+    // toggle corresponding section
+    var paymentType = $(this).attr("id");
+    $(this).addClass("selected");
+    if ( paymentType == "payment-cc" ) {
+      $(".cc-additional-info").slideDown( "slow" );
+    }
+  });
+
+  $("#mozilla-eoy-donation input#amount-other + label + input[type=\"text\"]").focus(function() {
+    $(this).prevAll("input[type=\"radio\"]").click();
+  });
+  console.log( $("#mozilla-eoy-donation input[name='amount']:checked").val() );
+
+</script>
