@@ -1,8 +1,5 @@
 <!-- =================== Above form content STARTS =================== -->
-<link href="//sendto.mozilla.org/page/-/donation_form/css/makerstrap.complete.min.css" rel="stylesheet">
-<script src="//sendto.mozilla.org/page/-/donation_form/js/jquery-2.1.1.min.js"></script>
-
-<style>
+<link href="//sendto.mozilla.org/page/-/donation_form/css/makerstrap.complete.min.css" rel="stylesheet"><script src="//sendto.mozilla.org/page/-/donation_form/js/jquery-2.1.1.min.js"></script><style>
 /* Sandstone Defaults =============== */
 body {
   font-size: 14px;
@@ -262,13 +259,13 @@ h4,
   padding-top: 25px;
 }
 
-.big-section:first-child {
+.big-section:first-of-type {
   padding-top: 0;
 }
 
-.big-section:not(:first-child) {
+.big-section:not(:first-of-type) {
   margin-top: 25px;
-  background: url("https://sendto.mozilla.org/page/-/donation_form/img/thin-stripe.png") repeat-x scroll center top transparent;
+  background: url("//sendto.mozilla.org/page/-/donation_form/img/thin-stripe.png") repeat-x scroll center top transparent;
 }
 
 .col-reduced-gutter {
@@ -344,7 +341,7 @@ h4,
 
 /* Temp Fix */
 form#contribution input {
-  max-width: 10px;
+  max-width: 30px;
 }
 
 
@@ -353,7 +350,7 @@ form#contribution input {
     <div class="row">
       <div class="col-md-offset-2 col-md-10">
         <div id="mozilla-wordmark">
-          <img src="https://sendto.mozilla.org/page/-/donation_form/img/Mozilla-wordmark.png"></div>
+          <img src="//sendto.mozilla.org/page/-/donation_form/img/Mozilla-wordmark.png"></div>
       </div>
     </div>
   </div>
@@ -367,7 +364,7 @@ form#contribution input {
     </div>
     <div class="row">
       <div class="col-md-offset-4 col-sm-offset-0 col-xs-offset-0 col-md-4" id="form-wrapper">
-        <form id="donation-form">
+        <form id="donation-form" action="/page/cde/Contribution/Charge">
         <!-- = Amount Section ==========  -->
         <div class="row big-section">
           <div class="col-md-12 col-sm-12 col-xs-12">
@@ -378,39 +375,31 @@ form#contribution input {
             </div>
             <div class="row donation-amount-row">
               <div class="col-md-4 col-sm-4 col-xs-4 col-reduced-gutter">
-                <input type="radio" name="amount" value="3" id="amount-3" />
-                <label for="amount-3">$3</label>
+                <input type="radio" name="amount" value="3" id="amount-3"><label for="amount-3">$3</label>
               </div>
               <div class="col-md-4 col-sm-4 col-xs-4 col-reduced-gutter">
-                <input type="radio" name="amount" value="5" id="amount-5" />
-                <label for="amount-5">$5</label>
+                <input type="radio" name="amount" value="5" id="amount-5"><label for="amount-5">$5</label>
               </div>
               <div class="col-md-4 col-sm-4 col-xs-4 col-reduced-gutter">
-                <input type="radio" name="amount" value="10" id="amount-10" />
-                <label for="amount-10">$10</label>
+                <input type="radio" name="amount" value="10" id="amount-10"><label for="amount-10">$10</label>
               </div>
             </div>
             <div class="row donation-amount-row">
               <div class="col-md-4 col-sm-4 col-xs-4 col-reduced-gutter">
-                <input type="radio" name="amount" value="20" id="amount-20" />
-                <label for="amount-20">$20</label>
+                <input type="radio" name="amount" value="20" id="amount-20"><label for="amount-20">$20</label>
               </div>
               <div class="col-md-8 col-sm-8 col-xs-8 col-reduced-gutter">
                 <div id="amount-other-container">
-                  <input type="radio" name="amount" value="other" id="amount-other" />
-                  <label for="amount-other">$</label>
-                  <input type="text" name="amount-other" placeholder="Other Amount" />
-                </div>
+                  <input type="radio" name="amount" value="other" id="amount-other"><label for="amount-other">$</label>
+                  <input type="text" name="amount_other" placeholder="Other Amount"></div>
               </div>
             </div>
             <div class="row">
               <div class="col-md-6 col-sm-6 col-xs-6 col-reduced-gutter">
-                <input type="radio" name="payment-frequency" checked="checked" id="one-time-payment">
-                <label for="one-time-payment">one-time</label>
+                <input type="radio" name="recurring_acknowledge" value="0" checked="checked" id="one-time-payment"><label for="one-time-payment">one-time</label>
               </div>
               <div class="col-md-6 col-sm-6 col-xs-6 col-reduced-gutter">
-                <input type="radio" name="payment-frequency" id="monthly-payment">
-                <label for="monthly-payment">monthly</label>
+                <input type="radio" name="recurring_acknowledge" value="1" id="monthly-payment"><label for="monthly-payment">monthly</label>
               </div>
             </div>
           </div>
@@ -426,12 +415,12 @@ form#contribution input {
             <div class="row" id="payment-type-row">
               <div class="col-md-6 col-sm-6 col-xs-6 col-reduced-gutter">
                 <div class="btn" id="payment-cc">
-                  <img src="https://sendto.mozilla.org/page/-/donation_form/img/MasterCard.png" class="half"><img src="https://sendto.mozilla.org/page/-/donation_form/img/Visa.png" class="half"><div>Credit Card</div>
+                  <img src="//sendto.mozilla.org/page/-/donation_form/img/MasterCard.png" class="half"><img src="//sendto.mozilla.org/page/-/donation_form/img/Visa.png" class="half"><div>Credit Card</div>
                 </div>
               </div>
               <div class="col-md-6 col-sm-6 col-xs-6 col-reduced-gutter">
                 <div class="btn" id="payment-paypal">
-                  <img src="https://sendto.mozilla.org/page/-/donation_form/img/PayPal.png" class="full"><div>PayPal</div>
+                  <img src="//sendto.mozilla.org/page/-/donation_form/img/PayPal.png" class="full"><div>PayPal</div>
                 </div>
               </div>
             </div>
@@ -445,11 +434,11 @@ form#contribution input {
               <div class="col-md-6 col-sm-6 col-xs-6 col-reduced-gutter">
                 <div class="field-container">
                   <i class="fa fa-user field-icon"></i>
-                  <input type="text" placeholder="First Name"></div>
+                  <input type="text" name="firstname" placeholder="First Name"></div>
               </div>
               <div class="col-md-6 col-sm-6 col-xs-6 col-reduced-gutter">
                 <div class="field-container">
-                  <input type="text" placeholder="Last Name" class="less-indented"></div>
+                  <input type="text" name="lastname" placeholder="Last Name" class="less-indented"></div>
               </div>
             </div>
             <!-- Address Row -->
@@ -459,24 +448,18 @@ form#contribution input {
                   <div class="col-md-12 col-sm-12 col-xs-12">
                     <div class="field-container">
                       <i class="fa fa-map-marker field-icon"></i>
-                      <select name="country">
-                        <option value="">Country</option>
-                        <option value="111">111</option>
-                        <option value="222">222</option>
-                      </select>
-                      <!-- <i class="fa fa-caret-down" id="country-arrow"></i> -->
-                    </div>
+                      <select name="country"><option value="">Country</option></select><!-- <i class="fa fa-caret-down" id="country-arrow"></i> --></div>
                   </div>
                 </div>
                 <div class="row">
                   <div class="col-md-12 col-sm-12 col-xs-12">
-                    <input type="text" placeholder="Address"></div>
+                    <input type="text" name="addr1" placeholder="Address"></div>
                 </div>
                 <div class="row">
                   <div class="col-md-6 col-sm-6 col-xs-6 col-reduced-gutter">
-                    <input type="text" placeholder="City"></div>
+                    <input type="text" name="city" placeholder="City"></div>
                   <div class="col-md-6 col-sm-6 col-xs-6 col-reduced-gutter">
-                    <input type="text" placeholder="Postal Code" class="less-indented"></div>
+                    <input type="text" name="zip" placeholder="Postal Code" class="less-indented"></div>
                 </div>
               </div>
             </div>
@@ -487,7 +470,7 @@ form#contribution input {
                   <div class="col-md-12 col-sm-12 col-xs-12">
                     <div class="field-container">
                       <i class="fa fa-credit-card field-icon"></i>
-                      <input type="text" placeholder="Credit Card Number"></div>
+                      <input type="text" name="cc_number" placeholder="Credit Card Number"></div>
                   </div>
                 </div>
                 <div class="row">
@@ -499,7 +482,7 @@ form#contribution input {
                   <div class="col-md-6 col-sm-6 col-xs-6 col-reduced-gutter">
                     <div class="field-container">
                       <i class="fa fa-lock field-icon"></i>
-                      <input type="text" placeholder="CVC"></div>
+                      <input type="text" name="cc_cvv" placeholder="CVC"></div>
                       <i class="fa fa-question-circle hint"></i>
                   </div>
                 </div>
@@ -509,7 +492,7 @@ form#contribution input {
               <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="field-container">
                   <i class="fa fa-envelope field-icon"></i>
-                  <input type="text" placeholder="Email"></div>
+                  <input type="email" name="email" placeholder="Email"></div>
                   <i class="fa fa-question-circle hint"></i>
               </div>
             </div>
@@ -519,12 +502,12 @@ form#contribution input {
 
         <div class="row cc-additional-info" id="privacy-policy">
           <div class="col-md-12 col-sm-12 col-xs-12">
-            <input type="checkbox"><label>I'm okay with you handling this info as you explain in your [privacy policy](link).</label>
+            <input type="checkbox" name="legal_confirm"><label>I'm okay with you handling this info as you explain in your [privacy policy](link).</label>
           </div>
         </div>
         <div class="row cc-additional-info">
           <div class="col-md-12 col-sm-12 col-xs-12">
-            <div class="btn" id="donate-btn">Donate Now</div>
+            <input type="submit" value="Donate Now" class="btn" id="donate-btn">
           </div>
         </div>
         <div class="row text-center cc-additional-info">

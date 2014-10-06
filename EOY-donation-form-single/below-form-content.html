@@ -1,7 +1,16 @@
 <!-- =================== Below form content STARTS =================== -->
 
 <script>
+
+  // messy code below, to be organized
+
   $("head").append("<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0, user-scalable=no\">");
+
+  var bsdForm = $("form#contribution");
+  var $bsdForm = bsdForm;
+
+  var theForm = $("#donation-form");
+  var $theForm = theForm;
 
   $(".cc-additional-info").hide();
 
@@ -30,4 +39,53 @@
   });
   console.log( $("#mozilla-eoy-donation input[name='amount']:checked").val() );
 
+
+  function generateCountryDropdown() {
+    var cloned = $bsdForm.find("select[name='country']").clone();
+    $theForm.find("select[name='country']").html(cloned.html());
+    $theForm.find("option:selected").removeAttr("selected");
+    $theForm.find("option:first-child").attr("selected","selected").html("Country");
+  }
+  generateCountryDropdown();
+
+
+  function insertFormMetaDOM() {
+    // the following is an array of all the meta form field names that came with the BSD generated form
+    // API doc here: https://github.com/bluestatedigital/bsd-developer-docs/blob/master/bsd-donate-api/README.md
+    var bsdFormMetaName = [
+                        "slug",            // required
+                        "submission_key",
+                        "http_referer",
+                        "event_attendee_id",
+                        "outreach_page_id",
+                        "stg_signup_id",
+                        "mailing_link_id",
+                        "mailing_recipient_id",
+                        "match_campaign_id",
+                        "match_is_pledge",
+                        "pledge_is_convert",
+                        "contributor_key",
+                        "quick_donate_populated",
+                        "device_fingerprint",
+                        "default_country",
+                        "cc_number_ack",
+                        "ach_account_number_ack",
+                        "k-ris-sid"
+                      ];
+
+    var metaFieldsDOM = "";
+
+    $.each(bsdFormMetaName, function( index, value ) {
+      var field = $bsdForm.find("[name='"+ value + "']").clone();
+      metaFieldsDOM += field[0].outerHTML;
+    });
+
+    $theForm.prepend(metaFieldsDOM);
+    console.log("copy cloned fields done");
+  }
+  insertFormMetaDOM();
+
+  // $bsdForm.remove();
+
 </script>
+<!-- =================== Below form content ENDS =================== -->
