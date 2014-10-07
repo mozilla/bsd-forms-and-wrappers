@@ -3,7 +3,11 @@
             <div class="bsd-contribForm-aboveContent">
 
 <!-- =================== Above form content STARTS =================== -->
-<link href="https://sendto.mozilla.org/page/-/donation_form/css/makerstrap.complete.min.css" rel="stylesheet"><script src="https://sendto.mozilla.org/page/-/donation_form/js/jquery-2.1.1.min.js"></script><style>
+<link href="https://sendto.mozilla.org/page/-/donation_form/css/makerstrap.complete.min.css" rel="stylesheet">
+<script src="https://sendto.mozilla.org/page/-/donation_form/js/jquery-2.1.1.min.js"></script>
+<script src="https://sendto.mozilla.org/page/-/donation_form/js/parsley.min.js"></script>
+
+<style>
 /* Sandstone Defaults =============== */
 body {
   font-size: 14px;
@@ -135,20 +139,23 @@ h4,
 }
 
 #mozilla-eoy-donation input[type="text"],
-#mozilla-eoy-donation select {
+#mozilla-eoy-donation select,
+#mozilla-eoy-donation input[type="email"] {
   width: 100%;
   margin-bottom: 5px;
-  border: 2px solid #EAEFF2;
+  border: 1px solid #EAEFF2;
   border-radius: 3px;
 }
 
-#mozilla-eoy-donation input[type="text"] {
+#mozilla-eoy-donation input[type="text"],
+#mozilla-eoy-donation input[type="email"] {
   padding: 7px 30px 7px 33px;
 }
 
 #mozilla-eoy-donation input[type="text"]:focus,
-#mozilla-eoy-donation select:focus {
-  border: 2px solid #38A9ED;
+#mozilla-eoy-donation select:focus,
+#mozilla-eoy-donation input[type="email"]:focus {
+  border-color: #38A9ED;
 }
 
 #mozilla-eoy-donation input[type="radio"][name="amount"] {
@@ -160,7 +167,6 @@ h4,
   width: 100%;
   padding: 6px 12px;
   margin-left: 0;
-  margin-bottom: 15px;
   border-radius: 3px;
   background-color: #EAEFF2;
   text-align: center;
@@ -172,7 +178,7 @@ h4,
 }
 
 #mozilla-eoy-donation input[type="radio"][name="amount"]:checked + label {
-  background: #0095DD;
+  background: #277AC1; /*Mozilla Button Active color */
   color: #fff;
 }
 
@@ -197,7 +203,8 @@ h4,
   border: none;
 }
 
-#mozilla-eoy-donation i.fa.field-icon.icon-in-focus {
+#mozilla-eoy-donation i.fa.field-icon.icon-in-focus,
+#mozilla-eoy-donation i.fa.hint.icon-in-focus {
   color: #38A9ED;
 }
 
@@ -245,7 +252,7 @@ h4,
   font-size: 20px;
   color: #E6E7E8;
   top: 10px;
-  right: 25px;
+  right: 10px;
 }
 
 #mozilla-eoy-donation input.less-indented {
@@ -283,6 +290,10 @@ h4,
 
 .col-reduced-gutter:last-child {
   padding-right: 15px;
+}
+
+.donation-amount-row {
+  margin-bottom: 15px;
 }
 
 #payment-type-row .btn {
@@ -348,8 +359,31 @@ form#contribution input {
   max-width: 30px;
 }
 
+/* Parsley.js / Validation Styling */
+.parsley-errors-list {
+  list-style: none;
+  padding-left: 0;
+}
 
-</style><div class="outer-wrap" id="mozilla-eoy-donation">
+#mozilla-eoy-donation input.parsley-error,
+#mozilla-eoy-donation select.parsley-error {
+  border-color: #C13832;
+}
+
+.parsley-required,
+.parsley-type,
+.parsley-custom-error-message {
+  color: #C13832;
+}
+
+#parsley-id-multiple-amount { /*temp, FIXME*/
+  position: relative;
+  top: -20px;
+}
+
+</style>
+
+<div class="outer-wrap" id="mozilla-eoy-donation">
   <div class="container">
     <div class="row">
       <div class="col-md-offset-2 col-md-10">
@@ -368,7 +402,8 @@ form#contribution input {
     </div>
     <div class="row">
       <div class="col-md-offset-4 col-sm-offset-0 col-xs-offset-0 col-md-4" id="form-wrapper">
-        <form id="donation-form" action="/page/cde/Contribution/Charge">
+        <!-- <form id="donation-form" action="/page/cde/Contribution/Charge"> -->
+        <form id="donation-form" data-parsley-validate>
         <!-- = Amount Section ==========  -->
         <div class="row big-section">
           <div class="col-md-12 col-sm-12 col-xs-12">
@@ -379,31 +414,42 @@ form#contribution input {
             </div>
             <div class="row donation-amount-row">
               <div class="col-md-4 col-sm-4 col-xs-4 col-reduced-gutter">
-                <input type="radio" name="amount" value="3" id="amount-3"><label for="amount-3">$3</label>
+                <input type="radio" name="amount" value="3" id="amount-3" data-parsley-multiple="amount" data-parsley-errors-container="#amount-error-msg" required><label for="amount-3">$3</label>
               </div>
               <div class="col-md-4 col-sm-4 col-xs-4 col-reduced-gutter">
-                <input type="radio" name="amount" value="5" id="amount-5"><label for="amount-5">$5</label>
+                <input type="radio" name="amount" value="5" id="amount-5" data-parsley-multiple="amount"><label for="amount-5">$5</label>
               </div>
               <div class="col-md-4 col-sm-4 col-xs-4 col-reduced-gutter">
-                <input type="radio" name="amount" value="10" id="amount-10"><label for="amount-10">$10</label>
+                <input type="radio" name="amount" value="10" id="amount-10" data-parsley-multiple="amount"><label for="amount-10">$10</label>
               </div>
             </div>
             <div class="row donation-amount-row">
               <div class="col-md-4 col-sm-4 col-xs-4 col-reduced-gutter">
-                <input type="radio" name="amount" value="20" id="amount-20"><label for="amount-20">$20</label>
+                <input type="radio" name="amount" value="20" id="amount-20" data-parsley-multiple="amount"><label for="amount-20">$20</label>
               </div>
               <div class="col-md-8 col-sm-8 col-xs-8 col-reduced-gutter">
                 <div id="amount-other-container">
                   <input type="radio" name="amount" value="other" id="amount-other"><label for="amount-other">$</label>
-                  <input type="text" name="amount_other" placeholder="Other Amount"></div>
+                  <input type="text" name="amount_other" placeholder="Other Amount">
+                </div>
+              </div>
+            </div>
+            <div class="row error-msg-row">
+              <div class="col-md-12 col-sm-12 col-xs-12 col-reduced-gutter">
+                <div id="amount-error-msg"></div>
               </div>
             </div>
             <div class="row">
               <div class="col-md-6 col-sm-6 col-xs-6 col-reduced-gutter">
-                <input type="radio" name="recurring_acknowledge" value="0" checked="checked" id="one-time-payment"><label for="one-time-payment">one-time</label>
+                <input type="radio" name="recurring_acknowledge" value="0" checked="checked" id="one-time-payment" data-parsley-errors-container="#recurring-error-msg" required><label for="one-time-payment">one-time</label>
               </div>
               <div class="col-md-6 col-sm-6 col-xs-6 col-reduced-gutter">
                 <input type="radio" name="recurring_acknowledge" value="1" id="monthly-payment"><label for="monthly-payment">monthly</label>
+              </div>
+            </div>
+            <div class="row error-msg-row">
+              <div class="col-md-12 col-sm-12 col-xs-12 col-reduced-gutter">
+                <div id="recurring-error-msg"></div>
               </div>
             </div>
           </div>
@@ -428,6 +474,11 @@ form#contribution input {
                 </div>
               </div>
             </div>
+            <div class="row error-msg-row">
+              <div class="col-md-12 col-sm-12 col-xs-12 col-reduced-gutter">
+                <div id="payment-type-error-msg" style="display: none;">Please select a payment type.</div>
+              </div>
+            </div>
           </div>
         </div>
         <!-- = Billing Info Section ==========  -->
@@ -438,11 +489,13 @@ form#contribution input {
               <div class="col-md-6 col-sm-6 col-xs-6 col-reduced-gutter">
                 <div class="field-container">
                   <i class="fa fa-user field-icon"></i>
-                  <input type="text" name="firstname" placeholder="First Name"></div>
+                  <input type="text" name="firstname" placeholder="First Name" data-parsley-error-message="Please complete the first name field." required>
+                </div>
               </div>
               <div class="col-md-6 col-sm-6 col-xs-6 col-reduced-gutter">
                 <div class="field-container">
-                  <input type="text" name="lastname" placeholder="Last Name" class="less-indented"></div>
+                  <input type="text" name="lastname" placeholder="Last Name" class="less-indented" required>
+                </div>
               </div>
             </div>
             <!-- Address Row -->
@@ -452,18 +505,21 @@ form#contribution input {
                   <div class="col-md-12 col-sm-12 col-xs-12">
                     <div class="field-container">
                       <i class="fa fa-map-marker field-icon"></i>
-                      <select name="country"><option value="">Country</option></select><!-- <i class="fa fa-caret-down" id="country-arrow"></i> --></div>
+                      <select name="country" required><option value="">Country</option></select><!-- <i class="fa fa-caret-down" id="country-arrow"></i> --></div>
                   </div>
                 </div>
                 <div class="row">
                   <div class="col-md-12 col-sm-12 col-xs-12">
-                    <input type="text" name="addr1" placeholder="Address"></div>
+                    <input type="text" name="addr1" placeholder="Address" required>
+                  </div>
                 </div>
                 <div class="row">
                   <div class="col-md-6 col-sm-6 col-xs-6 col-reduced-gutter">
-                    <input type="text" name="city" placeholder="City"></div>
+                    <input type="text" name="city" placeholder="City" required>
+                  </div>
                   <div class="col-md-6 col-sm-6 col-xs-6 col-reduced-gutter">
-                    <input type="text" name="zip" placeholder="Postal Code" class="less-indented"></div>
+                    <input type="text" name="zip" placeholder="Postal Code" class="less-indented" required>
+                  </div>
                 </div>
               </div>
             </div>
@@ -474,20 +530,23 @@ form#contribution input {
                   <div class="col-md-12 col-sm-12 col-xs-12">
                     <div class="field-container">
                       <i class="fa fa-credit-card field-icon"></i>
-                      <input type="text" name="cc_number" placeholder="Credit Card Number"></div>
+                      <input type="text" name="cc_number" placeholder="Credit Card Number" required>
+                    </div>
                   </div>
                 </div>
                 <div class="row">
                   <div class="col-md-6 col-sm-6 col-xs-6 col-reduced-gutter">
                     <div class="field-container">
                       <i class="fa fa-calendar-o field-icon"></i>
-                      <input type="text" placeholder="MM/YY"></div>
+                      <input type="text" placeholder="MM/YY" required>
+                    </div>
                   </div>
                   <div class="col-md-6 col-sm-6 col-xs-6 col-reduced-gutter">
                     <div class="field-container">
                       <i class="fa fa-lock field-icon"></i>
-                      <input type="text" name="cc_cvv" placeholder="CVC"></div>
+                      <input type="text" name="cc_cvv" maxlength="3" placeholder="CVC" required>
                       <i class="fa fa-question-circle hint"></i>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -496,8 +555,9 @@ form#contribution input {
               <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="field-container">
                   <i class="fa fa-envelope field-icon"></i>
-                  <input type="email" name="email" placeholder="Email"></div>
+                  <input type="email" name="email" placeholder="Email" required>
                   <i class="fa fa-question-circle hint"></i>
+                </div>
               </div>
             </div>
           </div>
@@ -506,17 +566,22 @@ form#contribution input {
 
         <div class="row cc-additional-info" id="privacy-policy">
           <div class="col-md-12 col-sm-12 col-xs-12">
-            <input type="checkbox" name="legal_confirm"><label>I'm okay with you handling this info as you explain in your [privacy policy](link).</label>
+            <input type="checkbox" name="legal_confirm" data-parsley-errors-container="#privacy-error-msg" required><label>I'm okay with you handling this info as you explain in your [privacy policy](link).</label>
           </div>
         </div>
-        <div class="row cc-additional-info">
+        <div class="row cc-additional-info error-msg-row">
+              <div class="col-md-12 col-sm-12 col-xs-12 col-reduced-gutter">
+                <div id="privacy-error-msg"></div>
+              </div>
+            </div>
+        <div class="row">
           <div class="col-md-12 col-sm-12 col-xs-12">
             <input type="submit" value="Donate Now" class="btn" id="donate-btn">
           </div>
         </form></div>
-        <div class="row text-center cc-additional-info">
+        <div class="row text-center">
           <div class="col-md-12 col-sm-12 col-xs-12">
-            Error Message Here
+            One line error message here?????????
           </div>
         </div>
 
@@ -606,13 +671,13 @@ form#contribution input {
   var theForm = $("#donation-form");
   var $theForm = theForm;
 
-  // $(".cc-additional-info").hide();
+  $(".cc-additional-info").hide();
 
   $("#donation-form input, #donation-form select").focus(function() {
-    $(this).prev(".field-icon").addClass("icon-in-focus");
+    $(this).siblings("i.fa").addClass("icon-in-focus");
   });
   $("#donation-form input, #donation-form select").blur(function() {
-    $(this).prev(".field-icon").removeClass("icon-in-focus");
+    $(this).siblings("i.fa").removeClass("icon-in-focus");
   });
 
   $("#payment-type-row .btn").click(function() {
@@ -625,6 +690,7 @@ form#contribution input {
     $(this).addClass("selected");
     if ( paymentType == "payment-cc" ) {
       $(".cc-additional-info").slideDown( "slow" );
+      $("#payment-type-error-msg").hide(); // temp hack, FIXME
     }
   });
 
@@ -680,6 +746,16 @@ form#contribution input {
   insertFormMetaDOM();
 
   // $bsdForm.remove();
+
+  // $theForm.parsley();
+
+  $("#donate-btn").click(function() {
+    if ( !$(".cc-additional-info").is(":visible")  ) {
+      // $(".cc-additional-info").slideDown( "slow" );
+      $("#payment-type-error-msg").css({"color": "#C13832"}); // temp hack, FIXME
+      $("#payment-type-error-msg").show(); // temp hack, FIXME
+    }
+  });
 
 </script>
 

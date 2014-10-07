@@ -15,22 +15,23 @@
   $(".cc-additional-info").hide();
 
   $("#donation-form input, #donation-form select").focus(function() {
-    $(this).prev(".field-icon").addClass("icon-in-focus");
+    $(this).siblings("i.fa").addClass("icon-in-focus");
   });
   $("#donation-form input, #donation-form select").blur(function() {
-    $(this).prev(".field-icon").removeClass("icon-in-focus");
+    $(this).siblings("i.fa").removeClass("icon-in-focus");
   });
 
   $("#payment-type-row .btn").click(function() {
-    // reset
+    https:// reset
     $(".cc-additional-info").hide();
     $("#payment-type-row .btn").removeClass("selected");
 
-    // toggle corresponding section
+    https:// toggle corresponding section
     var paymentType = $(this).attr("id");
     $(this).addClass("selected");
     if ( paymentType == "payment-cc" ) {
       $(".cc-additional-info").slideDown( "slow" );
+      $("#payment-type-error-msg").hide(); // temp hack, FIXME
     }
   });
 
@@ -87,5 +88,16 @@
 
   // $bsdForm.remove();
 
+  // $theForm.parsley();
+
+  $("#donate-btn").click(function() {
+    if ( !$(".cc-additional-info").is(":visible")  ) {
+      // $(".cc-additional-info").slideDown( "slow" );
+      $("#payment-type-error-msg").css({"color": "#C13832"}); // temp hack, FIXME
+      $("#payment-type-error-msg").show(); // temp hack, FIXME
+    }
+  });
+
 </script>
+
 <!-- =================== Below form content ENDS =================== -->
