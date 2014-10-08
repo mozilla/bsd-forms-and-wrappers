@@ -13,32 +13,33 @@
   var $theForm = theForm;
 
   $(".cc-additional-info").hide();
+  $(".hint-msg").hide();
 
   $("#donation-form input, #donation-form select").focus(function() {
-    $(this).siblings("i.fa").addClass("icon-in-focus");
+    $(this).siblings("i.fa.field-icon").addClass("icon-in-focus");
   });
   $("#donation-form input, #donation-form select").blur(function() {
-    $(this).siblings("i.fa").removeClass("icon-in-focus");
+    $(this).siblings("i.fa.field-icon").removeClass("icon-in-focus");
   });
 
-  $("#payment-type-row .btn").click(function() {
-    https:// reset
+  $("#payment-type-row label").click(function() {
+    // reset
     $(".cc-additional-info").hide();
-    $("#payment-type-row .btn").removeClass("selected");
-
-    https:// toggle corresponding section
-    var paymentType = $(this).attr("id");
-    $(this).addClass("selected");
+    // toggle corresponding section
+    var paymentType = $(this).attr("for");
     if ( paymentType == "payment-cc" ) {
       $(".cc-additional-info").slideDown( "slow" );
-      $("#payment-type-error-msg").hide(); // temp hack, FIXME
     }
   });
 
   $("#mozilla-eoy-donation input#amount-other + label + input[type=\"text\"]").focus(function() {
     $(this).prevAll("input[type=\"radio\"]").click();
   });
-  console.log( $("#mozilla-eoy-donation input[name='amount']:checked").val() );
+
+  $("i.hint").click(function() {
+    $(this).toggleClass("on");
+    $(this).parents(".hint-msg-parent").find(".hint-msg").toggle();
+  });
 
 
   function generateCountryDropdown() {
@@ -86,18 +87,46 @@
   }
   insertFormMetaDOM();
 
-  // $bsdForm.remove();
+  var updateDonateButtonText = function(event) {
+    var amountSelected = $(this).val();
+    console.log(amountSelected);
+    var buttonText = "Donate now";
+    if ( amountSelected == "other" ) {
+      amountSelected = $theForm.find("[name='amount_other']").val();
+    }
+    buttonText = amountSelected ? "Donate $" + amountSelected + " now" : "Donate now";
+    $("#donate-btn").attr("value", buttonText);
+  };
 
-  // $theForm.parsley();
-
-  $("#donate-btn").click(function() {
-    if ( !$(".cc-additional-info").is(":visible")  ) {
-      // $(".cc-additional-info").slideDown( "slow" );
-      $("#payment-type-error-msg").css({"color": "#C13832"}); // temp hack, FIXME
-      $("#payment-type-error-msg").show(); // temp hack, FIXME
+  $theForm.find("[name='amount']").change(updateDonateButtonText);
+  $theForm.find("[name='amount_other']").keyup(updateDonateButtonText);
+  $theForm.find("[name='amount_other']").keydown(function(event) {
+    // console.log(event.keyCode);
+    var functionKeys = [46, 8, 9, 27, 13, 110, 190]; // backspace, delete, tab, escape, enter and .
+    var numberKeys = [ 48, 49, 50, 51, 52, 53, 54, 55, 56, 57 ]; // numbers
+    var allowed = functionKeys.concat(numberKeys);
+    // console.log(allowed.indexOf(event.keyCode));
+    if ( allowed.indexOf(event.keyCode) === -1 ) {
+      event.preventDefault();
     }
   });
 
-</script>
+  // $bsdForm.remove();
 
+  window.ParsleyConfig = {};
+
+  $theForm.parsley().subscribe("parsley:form:validate", function (formInstance) {
+    var toggleCCpanel = function() {
+      console.log("clicked!!!!");
+      var amountSelected = formInstance.isValid("amount", true);
+      var paymentTypeSelected = formInstance.isValid("payment-type", true);
+      if ( !$(".cc-additional-info").is(":visible") && amountSelected && paymentTypeSelected  ) {
+        $(".cc-additional-info").slideDown( "slow" );
+      }
+    };
+
+    $("#donate-btn").click(toggleCCpanel);
+  });
+
+</script>
 <!-- =================== Below form content ENDS =================== -->

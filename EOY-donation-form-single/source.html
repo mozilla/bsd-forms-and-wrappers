@@ -1,7 +1,10 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
 <html><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><title>sendto.mozilla.org  |  TEST Give to Mozilla Today</title><link rel="canonical" href="https://sendto.mozilla.org/page/contribute/test-give-to-mozilla-today"><link rel="stylesheet" href="//s.bsd.net/page/static/20141003/skins/default/contribution/display_page.inc.css" type="text/css"><script src="//s.bsd.net/page/static/20141003/javascript/bsd.js" type="text/javascript"></script><link rel="stylesheet" href="//s.bsd.net/page/static/20141003/skins/default/jquery/jquery-ui-1.7.2.custom.css" type="text/css"><script src="//ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js" type="text/javascript"></script><script type="text/javascript">!window.jQuery && document.write(unescape('%3Cscript src="/ext/jquery/jquery-1.4.1.min.js"%3E%3C/script%3E'))</script><script src="//s.bsd.net/page/static/20141003/ext/jquery/cookie/jquery.cookie.min.js" type="text/javascript"></script><script src="/modules/spud/js/Spud.js.php" type="text/javascript"></script><script src="//s.bsd.net/page/static/20141003/ext/jquery/ui/jquery-ui-1.7.2.custom.min.js" type="text/javascript"></script><script src="//s.bsd.net/page/static/20141003/javascript/Core/widget/creditCardTypeSelector.js" type="text/javascript"></script><script type="text/javascript">window.bQuery = jQuery.noConflict(true);</script><script src="//s.bsd.net/page/static/20141003/modules/contribution/javascript/contribution.js" type="text/javascript"></script><script src="//s.bsd.net/page/static/20141003/utils/ajax/ajax.class.js" type="text/javascript"></script><script src="//s.bsd.net/page/static/20141003/utils/spud/spud.js" type="text/javascript"></script><script src="//s.bsd.net/page/static/20141003/utils/locale/javascript/locale.class.js" type="text/javascript"></script><script src="//s.bsd.net/page/static/20141003/ext/yui/build/yahoo-dom-event/yahoo-dom-event.js" type="text/javascript"></script><script src="//s.bsd.net/page/static/20141003/ext/yui/build/connection/connection-min.js" type="text/javascript"></script><script src="//s.bsd.net/page/static/20141003/javascript/balloon/Balloon.js" type="text/javascript"></script><link rel="stylesheet" href="//s.bsd.net/page/static/20141003/javascript/balloon/Balloon.css" type="text/css"><link rel="stylesheet" href="//s.bsd.net/page/static/20141003/css/jquery_ui_reset.css" type="text/css"><meta property="og:title" content="Support Mozilla"></head><body>        <div class="bsd-contribForm-wrap bsd-contribForm-oneCol">
             <div class="bsd-contribForm-aboveContent">
-            <!-- =================== Above form content STARTS =================== -->
+
+
+<!-- =================== Above form content STARTS =================== -->
+
 <link href="https://sendto.mozilla.org/page/-/donation_form/css/makerstrap.complete.min.css" rel="stylesheet"><script src="https://sendto.mozilla.org/page/-/donation_form/js/jquery-2.1.1.min.js"></script><script src="https://sendto.mozilla.org/page/-/donation_form/js/parsley.min.js"></script><style>
 /* Sandstone Defaults =============== */
 body {
@@ -14,7 +17,6 @@ body {
   background:        linear-gradient(to bottom, #D7D3C8, #F6F4EC);
 }
 
-}
 .large {
   font-size: 72px;
   letter-spacing: -3px;
@@ -42,7 +44,8 @@ h4 {
 }
 .small, small {
   font-size: 12px;
-  line-height: 100%;
+  /*line-height: 100%;*/
+  line-height: 125%;
 }
 
 /* Donation Form ========== */
@@ -86,6 +89,18 @@ h4,
   font-weight: 300;
 }
 
+.large-label-size {
+  font-size: 24px;
+}
+
+.medium-label-size {
+  font-size: 18px;
+}
+
+.left {
+  float: left;
+}
+
 #mozilla-wordmark {
   margin-top: 20px;
 }
@@ -102,7 +117,6 @@ h4,
   width: 100%;
   margin-bottom: 15px;
   border-radius: 3px;
-  font-size: 24px;
   background-color: #EAEFF2;
 }
 
@@ -113,23 +127,21 @@ h4,
 
 #mozilla-eoy-donation .btn#donate-btn {
   color: #fff;
-  font-size: 30px;
   font-weight: 800;
-  text-transform: uppercase;
-  background-color: #E93C27;
+  background-color: #C13832; /* Mozilla Red */
   padding-top: 10px;
   padding-bottom: 10px;
   margin-top: 20px;
   margin-bottom: 20px;
+  transition: all 0.3s ease 0s;
 }
 
 #mozilla-eoy-donation .btn#donate-btn:hover {
-  background: #A91300;
+  background-color: #EA3B28; /* Mozilla Red */
   color: #fff;
 }
 
 #mozilla-eoy-donation input[type="radio"] + label {
-  font-size: 18px;
   margin-left: 10px;
 }
 
@@ -153,11 +165,13 @@ h4,
   border-color: #38A9ED;
 }
 
-#mozilla-eoy-donation input[type="radio"][name="amount"] {
+#mozilla-eoy-donation input[type="radio"][name="amount"],
+#mozilla-eoy-donation input[type="radio"][name="payment-type"] {
   display: none;
 }
 
-#mozilla-eoy-donation input[type="radio"][name="amount"] + label {
+#mozilla-eoy-donation input[type="radio"][name="amount"] + label,
+#mozilla-eoy-donation input[type="radio"][name="payment-type"] + label {
   display: inline-block;
   width: 100%;
   padding: 6px 12px;
@@ -168,12 +182,19 @@ h4,
   vertical-align: middle;
   cursor: pointer;
   white-space: nowrap;
-  font-size: 24px;
   line-height: 1.42857;
+  transition: all 0.3s ease 0s;
 }
 
-#mozilla-eoy-donation input[type="radio"][name="amount"]:checked + label {
-  background: #277AC1; /*Mozilla Button Active color */
+#mozilla-eoy-donation input[type="radio"][name="amount"]:hover + label,
+#mozilla-eoy-donation input[type="radio"][name="payment-type"]:hover + label {
+  background: #43A6E2; /* Mozilla Button color */
+  color: #fff;
+}
+
+#mozilla-eoy-donation input[type="radio"][name="amount"]:checked + label,
+#mozilla-eoy-donation input[type="radio"][name="payment-type"]:checked + label {
+  background: #277AC1; /*Mozilla Button color */
   color: #fff;
 }
 
@@ -191,7 +212,6 @@ h4,
   left: 35px;
   width: 82%;
   height: 42px;
-  font-size: 20px;
   line-height: 24px;
   padding-left: 10px;
   padding-right: 5px;
@@ -199,7 +219,7 @@ h4,
 }
 
 #mozilla-eoy-donation i.fa.field-icon.icon-in-focus,
-#mozilla-eoy-donation i.fa.hint.icon-in-focus {
+#mozilla-eoy-donation i.fa.hint.on {
   color: #38A9ED;
 }
 
@@ -248,6 +268,19 @@ h4,
   color: #E6E7E8;
   top: 10px;
   right: 10px;
+  cursor: pointer;
+}
+
+.hint-msg {
+  color: #888;
+}
+
+.hint-msg img {
+  max-width: 60px;
+}
+
+.hint-msg img + div {
+  padding-top: 12px;
 }
 
 #mozilla-eoy-donation input.less-indented {
@@ -288,7 +321,11 @@ h4,
 }
 
 .donation-amount-row {
-  margin-bottom: 15px;
+  margin-bottom: 5px;
+}
+
+#recurring-option-row {
+  margin-top: 10px;
 }
 
 #payment-type-row .btn {
@@ -300,11 +337,11 @@ h4,
   color: #fff;
 }
 
-#payment-type-row .btn img.full {
+#payment-type-row img.full {
   width: 100%;
 }
 
-#payment-type-row .btn img.half {
+#payment-type-row img.half {
   width: 50%;
 }
 
@@ -327,7 +364,7 @@ h4,
   margin-left: 1%;
 }
 
-#secured-label {
+#secure-label {
   display: inline-block;
   position: absolute;
   right: 15px;
@@ -339,12 +376,11 @@ h4,
   letter-spacing: 0.1px;
 }
 
-#secured-label i.fa {
+#secure-label i.fa {
   margin-right: 6px;
 }
 
 #privacy-policy input[type="checkbox"] + label {
-  font-size: 12px;
   margin-left: 10px;
   display: inline;
 }
@@ -356,6 +392,15 @@ form#contribution input {
 
 /* Parsley.js / Validation Styling */
 .parsley-errors-list {
+  display: none;
+  font-size: 12px;
+}
+
+#amount-error-msg .parsley-errors-list,
+#amount-other-error-msg .parsley-errors-list,
+#payment-type-error-msg .parsley-errors-list,
+#privacy-error-msg .parsley-errors-list {
+  display: block;
   list-style: none;
   padding-left: 0;
 }
@@ -371,11 +416,6 @@ form#contribution input {
   color: #C13832;
 }
 
-#parsley-id-multiple-amount { /*temp, FIXME*/
-  position: relative;
-  top: -20px;
-}
-
 </style><div class="outer-wrap" id="mozilla-eoy-donation">
   <div class="container">
     <div class="row">
@@ -388,15 +428,15 @@ form#contribution input {
 
   <div class="container">
     <div class="row">
-      <div class="col-md-offset-4 col-md-4 text-center">
+      <div class="col-md-12 text-center">
         <h1>Donate Today</h1>
         <p style="color: #6B12C4">(dummy form, for UI reference only. WIP)</p>
       </div>
     </div>
     <div class="row">
-      <div class="col-md-offset-4 col-sm-offset-0 col-xs-offset-0 col-md-4" id="form-wrapper">
+      <div class="col-md-offset-4 col-sm-offset-3 col-xs-offset-0 col-md-4 col-sm-6" id="form-wrapper">
         <!-- <form id="donation-form" action="/page/cde/Contribution/Charge"> -->
-        <form id="donation-form" data-parsley-validate="">
+        <form id="donation-form">
         <!-- = Amount Section ==========  -->
         <div class="row big-section">
           <div class="col-md-12 col-sm-12 col-xs-12">
@@ -407,36 +447,37 @@ form#contribution input {
             </div>
             <div class="row donation-amount-row">
               <div class="col-md-4 col-sm-4 col-xs-4 col-reduced-gutter">
-                <input type="radio" name="amount" value="3" id="amount-3" data-parsley-multiple="amount" data-parsley-errors-container="#amount-error-msg" required=""><label for="amount-3">$3</label>
+                <input type="radio" name="amount" value="20" id="amount-20" data-parsley-multiple="amount" data-parsley-group="amount" data-parsley-errors-container="#amount-error-msg" data-parsley-error-message="Please select an amount." required=""><label for="amount-20" class="large-label-size">$20</label>
               </div>
               <div class="col-md-4 col-sm-4 col-xs-4 col-reduced-gutter">
-                <input type="radio" name="amount" value="5" id="amount-5" data-parsley-multiple="amount"><label for="amount-5">$5</label>
+                <input type="radio" name="amount" value="10" id="amount-10" data-parsley-multiple="amount" data-parsley-group="amount"><label for="amount-10" class="large-label-size">$10</label>
               </div>
               <div class="col-md-4 col-sm-4 col-xs-4 col-reduced-gutter">
-                <input type="radio" name="amount" value="10" id="amount-10" data-parsley-multiple="amount"><label for="amount-10">$10</label>
+                <input type="radio" name="amount" value="5" id="amount-5" data-parsley-multiple="amount" data-parsley-group="amount"><label for="amount-5" class="large-label-size">$5</label>
               </div>
             </div>
             <div class="row donation-amount-row">
               <div class="col-md-4 col-sm-4 col-xs-4 col-reduced-gutter">
-                <input type="radio" name="amount" value="20" id="amount-20" data-parsley-multiple="amount"><label for="amount-20">$20</label>
+                <input type="radio" name="amount" value="3" id="amount-3" data-parsley-multiple="amount" data-parsley-group="amount"><label for="amount-3" class="large-label-size">$3</label>
               </div>
               <div class="col-md-8 col-sm-8 col-xs-8 col-reduced-gutter">
                 <div id="amount-other-container">
-                  <input type="radio" name="amount" value="other" id="amount-other"><label for="amount-other">$</label>
-                  <input type="text" name="amount_other" placeholder="Other Amount"></div>
+                  <input type="radio" name="amount" value="other" id="amount-other" data-parsley-group="amount"><label for="amount-other" class="large-label-size">$</label>
+                  <input type="text" name="amount_other" placeholder="Other amount" class="medium-label-size" data-parsley-errors-container="#amount-other-error-msg" data-parsley-type="number"></div>
               </div>
             </div>
             <div class="row error-msg-row">
               <div class="col-md-12 col-sm-12 col-xs-12 col-reduced-gutter">
                 <div id="amount-error-msg"></div>
+                <div id="amount-other-error-msg"></div>
               </div>
             </div>
-            <div class="row">
+            <div class="row" id="recurring-option-row">
               <div class="col-md-6 col-sm-6 col-xs-6 col-reduced-gutter">
-                <input type="radio" name="recurring_acknowledge" value="0" checked="checked" id="one-time-payment" data-parsley-errors-container="#recurring-error-msg" required=""><label for="one-time-payment">one-time</label>
+                <input type="radio" name="recurring_acknowledge" value="0" checked="checked" id="one-time-payment" data-parsley-errors-container="#recurring-error-msg" required=""><label for="one-time-payment" class="medium-label-size">One-time</label>
               </div>
               <div class="col-md-6 col-sm-6 col-xs-6 col-reduced-gutter">
-                <input type="radio" name="recurring_acknowledge" value="1" id="monthly-payment"><label for="monthly-payment">monthly</label>
+                <input type="radio" name="recurring_acknowledge" value="1" id="monthly-payment"><label for="monthly-payment" class="medium-label-size">Monthly</label>
               </div>
             </div>
             <div class="row error-msg-row">
@@ -451,24 +492,24 @@ form#contribution input {
           <div class="col-md-12 col-sm-12 col-xs-12">
             <div class="row">
               <div class="col-md-12">
-                <h2>Payment</h2><p id="secured-label"><i class="fa fa-lock"></i>Secured</p>
+                <h2>Payment</h2><p id="secure-label"><i class="fa fa-lock"></i>Secure</p>
               </div>
             </div>
             <div class="row" id="payment-type-row">
               <div class="col-md-6 col-sm-6 col-xs-6 col-reduced-gutter">
-                <div class="btn" id="payment-cc">
-                  <img src="https://sendto.mozilla.org/page/-/donation_form/img/MasterCard.png" class="half"><img src="https://sendto.mozilla.org/page/-/donation_form/img/Visa.png" class="half"><div>Credit Card</div>
-                </div>
+                <input type="radio" name="payment-type" value="cc" id="payment-cc" data-parsley-multiple="payment-type" data-parsley-group="payment-type" data-parsley-errors-container="#payment-type-error-msg" required=""><label for="payment-cc">
+                  <img src="https://sendto.mozilla.org/page/-/donation_form/img/MasterCard.png" class="half"><img src="https://sendto.mozilla.org/page/-/donation_form/img/Visa.png" class="half"><div class="medium-label-size">Credit card</div>
+                </label>
               </div>
               <div class="col-md-6 col-sm-6 col-xs-6 col-reduced-gutter">
-                <div class="btn" id="payment-paypal">
-                  <img src="https://sendto.mozilla.org/page/-/donation_form/img/PayPal.png" class="full"><div>PayPal</div>
-                </div>
+                <input type="radio" name="payment-type" value="paypal" id="payment-paypal" data-parsley-multiple="payment-type" data-parsley-group="payment-type" data-parsley-errors-container="#payment-type-error-msg" required=""><label for="payment-paypal">
+                  <img src="https://sendto.mozilla.org/page/-/donation_form/img/PayPal.png" class="full"><div class="medium-label-size">PayPal</div>
+                </label>
               </div>
             </div>
             <div class="row error-msg-row">
               <div class="col-md-12 col-sm-12 col-xs-12 col-reduced-gutter">
-                <div id="payment-type-error-msg" style="display: none;">Please select a payment type.</div>
+                <div id="payment-type-error-msg"></div>
               </div>
             </div>
           </div>
@@ -481,11 +522,11 @@ form#contribution input {
               <div class="col-md-6 col-sm-6 col-xs-6 col-reduced-gutter">
                 <div class="field-container">
                   <i class="fa fa-user field-icon"></i>
-                  <input type="text" name="firstname" placeholder="First Name" data-parsley-error-message="Please complete the first name field." required=""></div>
+                  <input type="text" name="firstname" placeholder="First name" data-parsley-error-message="Please complete the first name field." required=""></div>
               </div>
               <div class="col-md-6 col-sm-6 col-xs-6 col-reduced-gutter">
                 <div class="field-container">
-                  <input type="text" name="lastname" placeholder="Last Name" class="less-indented" required=""></div>
+                  <input type="text" name="lastname" placeholder="Last name" class="less-indented" required=""></div>
               </div>
             </div>
             <!-- Address Row -->
@@ -506,7 +547,7 @@ form#contribution input {
                   <div class="col-md-6 col-sm-6 col-xs-6 col-reduced-gutter">
                     <input type="text" name="city" placeholder="City" required=""></div>
                   <div class="col-md-6 col-sm-6 col-xs-6 col-reduced-gutter">
-                    <input type="text" name="zip" placeholder="Postal Code" class="less-indented" required=""></div>
+                    <input type="text" name="zip" placeholder="Postal code" class="less-indented" required=""></div>
                 </div>
               </div>
             </div>
@@ -517,29 +558,43 @@ form#contribution input {
                   <div class="col-md-12 col-sm-12 col-xs-12">
                     <div class="field-container">
                       <i class="fa fa-credit-card field-icon"></i>
-                      <input type="text" name="cc_number" placeholder="Credit Card Number" required=""></div>
+                      <input type="text" name="cc_number" placeholder="Credit card number" required=""></div>
                   </div>
                 </div>
-                <div class="row">
-                  <div class="col-md-6 col-sm-6 col-xs-6 col-reduced-gutter">
-                    <div class="field-container">
-                      <i class="fa fa-calendar-o field-icon"></i>
-                      <input type="text" placeholder="MM/YY" required=""></div>
-                  </div>
-                  <div class="col-md-6 col-sm-6 col-xs-6 col-reduced-gutter">
-                    <div class="field-container">
-                      <i class="fa fa-lock field-icon"></i>
-                      <input type="text" name="cc_cvv" maxlength="3" placeholder="CVC" required=""><i class="fa fa-question-circle hint"></i>
+                <div class="row hint-msg-parent">
+                  <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="row">
+                      <div class="col-md-6 col-sm-6 col-xs-6 col-reduced-gutter">
+                        <div class="field-container">
+                          <i class="fa fa-calendar-o field-icon"></i>
+                          <input type="text" placeholder="MM/YY" required=""></div>
+                      </div>
+                      <div class="col-md-6 col-sm-6 col-xs-6 col-reduced-gutter">
+                        <div class="field-container">
+                          <i class="fa fa-lock field-icon"></i>
+                          <input type="text" name="cc_cvv" maxlength="3" placeholder="CVC" required=""><i class="fa fa-question-circle hint"></i>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-12 col-sm-12 col-xs-12">
+                        <div class="hint-msg small">
+                          <img src="https://sendto.mozilla.org/page/-/donation_form/img/CVC-illustration.png" class="left"><div class="">You can find your three-digit CVC number on the back of your credit card.</div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-            <div class="row" id="email-row">
+            <div class="row hint-msg-parent" id="email-row">
               <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="field-container">
                   <i class="fa fa-envelope field-icon"></i>
                   <input type="email" name="email" placeholder="Email" required=""><i class="fa fa-question-circle hint"></i>
+                  <div class="hint-msg small">
+                    We&rsquo;ll email you a receipt for your donation. We won&rsquo;t send you other email without your permission.
+                  </div>
                 </div>
               </div>
             </div>
@@ -549,7 +604,7 @@ form#contribution input {
 
         <div class="row cc-additional-info" id="privacy-policy">
           <div class="col-md-12 col-sm-12 col-xs-12">
-            <input type="checkbox" name="legal_confirm" data-parsley-errors-container="#privacy-error-msg" required=""><label>I'm okay with you handling this info as you explain in your [privacy policy](link).</label>
+            <input type="checkbox" name="legal_confirm" data-parsley-errors-container="#privacy-error-msg" data-parsley-error-message="[FIXME] Please check this box if you want to proceed." required=""><label>I'm okay with you handling this info as you explain in your <a href="https://www.mozilla.org/privacy/">privacy policy</a>.</label>
           </div>
         </div>
         <div class="row cc-additional-info error-msg-row">
@@ -559,11 +614,11 @@ form#contribution input {
             </div>
         <div class="row">
           <div class="col-md-12 col-sm-12 col-xs-12">
-            <input type="submit" value="Donate Now" class="btn" id="donate-btn"></div>
+            <input type="submit" value="Donate now" class="btn large-label-size" id="donate-btn"></div>
         </div>
-        <div class="row text-center">
+        <div class="row">
           <div class="col-md-12 col-sm-12 col-xs-12">
-            One line error message here?????????
+            [FIXME] Oops, please complete fields highlighted in red.
           </div>
         </div>
 
@@ -576,10 +631,12 @@ form#contribution input {
 <h2 style="color: #6B12C4">( real BSD generated form below )</h2>
 
 
-<!-- =================== Above form content ENDS =================== -->            </div>
-        <iframe width="1" height="1" frameborder="0" scrolling="no" src="/images/Contribution/Misc/logo.htm?m=132500&amp;s=mozilla_H15N0SNR4Y011A3m0X5sWzb6"><img width="1" height="1" src="/images/Contribution/Misc/logo.gif?m=132500&amp;s=mozilla_H15N0SNR4Y011A3m0X5sWzb6"></iframe>
+<!-- =================== Above form content ENDS =================== -->
+
+</div>
+        <iframe width="1" height="1" frameborder="0" scrolling="no" src="/images/Contribution/Misc/logo.htm?m=132500&amp;s=mozilla_H152TBrDM0kHZE4NX5vcwnWq"><img width="1" height="1" src="/images/Contribution/Misc/logo.gif?m=132500&amp;s=mozilla_H152TBrDM0kHZE4NX5vcwnWq"></iframe>
         <form name="contribution" class="bsd-contribution-98" action="/page/cde/Contribution/Charge" method="post" id="contribution">
-          <input name="slug" type="hidden" value="test-give-to-mozilla-today"><input name="submission_key" type="hidden" value="H15N0SNR4Y011A3m0X5sWzb6YGRy_LjW"><input name="http_referer" type="hidden" value=""><input name="event_attendee_id" type="hidden" value=""><input name="outreach_page_id" type="hidden" value=""><input name="stg_signup_id" type="hidden" value=""><input name="mailing_link_id" type="hidden" value=""><input name="mailing_recipient_id" type="hidden" value=""><input name="match_campaign_id" type="hidden" value=""><input name="match_is_pledge" type="hidden" value=""><input name="pledge_is_convert" type="hidden" value=""><input name="contributor_key" type="hidden" value=""><input id="BSDForm-quick_donate_populated" name="quick_donate_populated" type="hidden" value="0"><input id="BSDForm-device_fingerprint" name="device_fingerprint" type="hidden" value="0"><input id="default_country" name="default_country" type="hidden" value="US"><input id="cc_number_ack" name="cc_number_ack" type="hidden" value=""><input name="ach_account_number_ack" type="hidden" value=""><input name="k-ris-sid" type="hidden" value="mozilla_H15N0SNR4Y011A3m0X5sWzb6"><table><tr><script>var quickformErrors = []; if(!BSD.errors){BSD.errors = quickformErrors;} else {BSD.errors = BSD.errors.concat(quickformErrors);}</script><td style="width: 300px;" class="contribcolumn"><table><tr class="bsd-contribution-section-header" id="bsd-contribution-section-header-contributor" data-bsdformsectionname="contributor"><td class="contribheader" id="bsd-contribution-header-contributor">
+          <input name="slug" type="hidden" value="test-give-to-mozilla-today"><input name="submission_key" type="hidden" value="H152TBrDM0kHZE4NX5vcwnWqbMBDEKnP"><input name="http_referer" type="hidden" value=""><input name="event_attendee_id" type="hidden" value=""><input name="outreach_page_id" type="hidden" value=""><input name="stg_signup_id" type="hidden" value=""><input name="mailing_link_id" type="hidden" value=""><input name="mailing_recipient_id" type="hidden" value=""><input name="match_campaign_id" type="hidden" value=""><input name="match_is_pledge" type="hidden" value=""><input name="pledge_is_convert" type="hidden" value=""><input name="contributor_key" type="hidden" value=""><input id="BSDForm-quick_donate_populated" name="quick_donate_populated" type="hidden" value="0"><input id="BSDForm-device_fingerprint" name="device_fingerprint" type="hidden" value="0"><input id="default_country" name="default_country" type="hidden" value="US"><input id="cc_number_ack" name="cc_number_ack" type="hidden" value=""><input name="ach_account_number_ack" type="hidden" value=""><input name="k-ris-sid" type="hidden" value="mozilla_H152TBrDM0kHZE4NX5vcwnWq"><table><tr><script>var quickformErrors = []; if(!BSD.errors){BSD.errors = quickformErrors;} else {BSD.errors = BSD.errors.concat(quickformErrors);}</script><td style="width: 300px;" class="contribcolumn"><table><tr class="bsd-contribution-section-header" id="bsd-contribution-section-header-contributor" data-bsdformsectionname="contributor"><td class="contribheader" id="bsd-contribution-header-contributor">
                 Contributor
               </td>
             </tr><tr><td class="nested_table"><table><tr></tr><tr><td colspan="2" class="nested_table"><table id="country_table"><tr><td>
@@ -635,7 +692,8 @@ form#contribution input {
   var submitted_state_cd = "";
   var module_text = { "total_contribution_label" : "Total Contribution:" }
 </script><div class="bsd-contribForm-belowContent">
-                <!-- =================== Below form content STARTS =================== -->
+
+<!-- =================== Below form content STARTS =================== -->
 
 <script>
 
@@ -650,32 +708,33 @@ form#contribution input {
   var $theForm = theForm;
 
   $(".cc-additional-info").hide();
+  $(".hint-msg").hide();
 
   $("#donation-form input, #donation-form select").focus(function() {
-    $(this).siblings("i.fa").addClass("icon-in-focus");
+    $(this).siblings("i.fa.field-icon").addClass("icon-in-focus");
   });
   $("#donation-form input, #donation-form select").blur(function() {
-    $(this).siblings("i.fa").removeClass("icon-in-focus");
+    $(this).siblings("i.fa.field-icon").removeClass("icon-in-focus");
   });
 
-  $("#payment-type-row .btn").click(function() {
-    https:// reset
+  $("#payment-type-row label").click(function() {
+    // reset
     $(".cc-additional-info").hide();
-    $("#payment-type-row .btn").removeClass("selected");
-
-    https:// toggle corresponding section
-    var paymentType = $(this).attr("id");
-    $(this).addClass("selected");
+    // toggle corresponding section
+    var paymentType = $(this).attr("for");
     if ( paymentType == "payment-cc" ) {
       $(".cc-additional-info").slideDown( "slow" );
-      $("#payment-type-error-msg").hide(); // temp hack, FIXME
     }
   });
 
   $("#mozilla-eoy-donation input#amount-other + label + input[type=\"text\"]").focus(function() {
     $(this).prevAll("input[type=\"radio\"]").click();
   });
-  console.log( $("#mozilla-eoy-donation input[name='amount']:checked").val() );
+
+  $("i.hint").click(function() {
+    $(this).toggleClass("on");
+    $(this).parents(".hint-msg-parent").find(".hint-msg").toggle();
+  });
 
 
   function generateCountryDropdown() {
@@ -723,19 +782,51 @@ form#contribution input {
   }
   insertFormMetaDOM();
 
-  // $bsdForm.remove();
+  var updateDonateButtonText = function(event) {
+    var amountSelected = $(this).val();
+    console.log(amountSelected);
+    var buttonText = "Donate now";
+    if ( amountSelected == "other" ) {
+      amountSelected = $theForm.find("[name='amount_other']").val();
+    }
+    buttonText = amountSelected ? "Donate $" + amountSelected + " now" : "Donate now";
+    $("#donate-btn").attr("value", buttonText);
+  };
 
-  // $theForm.parsley();
-
-  $("#donate-btn").click(function() {
-    if ( !$(".cc-additional-info").is(":visible")  ) {
-      // $(".cc-additional-info").slideDown( "slow" );
-      $("#payment-type-error-msg").css({"color": "#C13832"}); // temp hack, FIXME
-      $("#payment-type-error-msg").show(); // temp hack, FIXME
+  $theForm.find("[name='amount']").change(updateDonateButtonText);
+  $theForm.find("[name='amount_other']").keyup(updateDonateButtonText);
+  $theForm.find("[name='amount_other']").keydown(function(event) {
+    // console.log(event.keyCode);
+    var functionKeys = [46, 8, 9, 27, 13, 110, 190]; // backspace, delete, tab, escape, enter and .
+    var numberKeys = [ 48, 49, 50, 51, 52, 53, 54, 55, 56, 57 ]; // numbers
+    var allowed = functionKeys.concat(numberKeys);
+    // console.log(allowed.indexOf(event.keyCode));
+    if ( allowed.indexOf(event.keyCode) === -1 ) {
+      event.preventDefault();
     }
   });
 
-</script><!-- =================== Below form content ENDS =================== --></div>
+  // $bsdForm.remove();
+
+  window.ParsleyConfig = {};
+
+  $theForm.parsley().subscribe("parsley:form:validate", function (formInstance) {
+    var toggleCCpanel = function() {
+      console.log("clicked!!!!");
+      var amountSelected = formInstance.isValid("amount", true);
+      var paymentTypeSelected = formInstance.isValid("payment-type", true);
+      if ( !$(".cc-additional-info").is(":visible") && amountSelected && paymentTypeSelected  ) {
+        $(".cc-additional-info").slideDown( "slow" );
+      }
+    };
+
+    $("#donate-btn").click(toggleCCpanel);
+  });
+
+</script>
+<!-- =================== Below form content ENDS =================== -->
+
+</div>
         </div><!-- End form wrapper -->
 
 

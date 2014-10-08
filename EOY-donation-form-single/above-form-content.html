@@ -1,9 +1,6 @@
 <!-- =================== Above form content STARTS =================== -->
-<link href="https://sendto.mozilla.org/page/-/donation_form/css/makerstrap.complete.min.css" rel="stylesheet">
-<script src="https://sendto.mozilla.org/page/-/donation_form/js/jquery-2.1.1.min.js"></script>
-<script src="https://sendto.mozilla.org/page/-/donation_form/js/parsley.min.js"></script>
 
-<style>
+<link href="https://sendto.mozilla.org/page/-/donation_form/css/makerstrap.complete.min.css" rel="stylesheet"><script src="https://sendto.mozilla.org/page/-/donation_form/js/jquery-2.1.1.min.js"></script><script src="https://sendto.mozilla.org/page/-/donation_form/js/parsley.min.js"></script><style>
 /* Sandstone Defaults =============== */
 body {
   font-size: 14px;
@@ -15,7 +12,6 @@ body {
   background:        linear-gradient(to bottom, #D7D3C8, #F6F4EC);
 }
 
-}
 .large {
   font-size: 72px;
   letter-spacing: -3px;
@@ -43,7 +39,8 @@ h4 {
 }
 .small, small {
   font-size: 12px;
-  line-height: 100%;
+  /*line-height: 100%;*/
+  line-height: 125%;
 }
 
 /* Donation Form ========== */
@@ -87,6 +84,18 @@ h4,
   font-weight: 300;
 }
 
+.large-label-size {
+  font-size: 24px;
+}
+
+.medium-label-size {
+  font-size: 18px;
+}
+
+.left {
+  float: left;
+}
+
 #mozilla-wordmark {
   margin-top: 20px;
 }
@@ -103,7 +112,6 @@ h4,
   width: 100%;
   margin-bottom: 15px;
   border-radius: 3px;
-  font-size: 24px;
   background-color: #EAEFF2;
 }
 
@@ -114,23 +122,21 @@ h4,
 
 #mozilla-eoy-donation .btn#donate-btn {
   color: #fff;
-  font-size: 30px;
   font-weight: 800;
-  text-transform: uppercase;
-  background-color: #E93C27;
+  background-color: #C13832; /* Mozilla Red */
   padding-top: 10px;
   padding-bottom: 10px;
   margin-top: 20px;
   margin-bottom: 20px;
+  transition: all 0.3s ease 0s;
 }
 
 #mozilla-eoy-donation .btn#donate-btn:hover {
-  background: #A91300;
+  background-color: #EA3B28; /* Mozilla Red */
   color: #fff;
 }
 
 #mozilla-eoy-donation input[type="radio"] + label {
-  font-size: 18px;
   margin-left: 10px;
 }
 
@@ -154,11 +160,13 @@ h4,
   border-color: #38A9ED;
 }
 
-#mozilla-eoy-donation input[type="radio"][name="amount"] {
+#mozilla-eoy-donation input[type="radio"][name="amount"],
+#mozilla-eoy-donation input[type="radio"][name="payment-type"] {
   display: none;
 }
 
-#mozilla-eoy-donation input[type="radio"][name="amount"] + label {
+#mozilla-eoy-donation input[type="radio"][name="amount"] + label,
+#mozilla-eoy-donation input[type="radio"][name="payment-type"] + label {
   display: inline-block;
   width: 100%;
   padding: 6px 12px;
@@ -169,12 +177,19 @@ h4,
   vertical-align: middle;
   cursor: pointer;
   white-space: nowrap;
-  font-size: 24px;
   line-height: 1.42857;
+  transition: all 0.3s ease 0s;
 }
 
-#mozilla-eoy-donation input[type="radio"][name="amount"]:checked + label {
-  background: #277AC1; /*Mozilla Button Active color */
+#mozilla-eoy-donation input[type="radio"][name="amount"]:hover + label,
+#mozilla-eoy-donation input[type="radio"][name="payment-type"]:hover + label {
+  background: #43A6E2; /* Mozilla Button color */
+  color: #fff;
+}
+
+#mozilla-eoy-donation input[type="radio"][name="amount"]:checked + label,
+#mozilla-eoy-donation input[type="radio"][name="payment-type"]:checked + label {
+  background: #277AC1; /*Mozilla Button color */
   color: #fff;
 }
 
@@ -192,7 +207,6 @@ h4,
   left: 35px;
   width: 82%;
   height: 42px;
-  font-size: 20px;
   line-height: 24px;
   padding-left: 10px;
   padding-right: 5px;
@@ -200,7 +214,7 @@ h4,
 }
 
 #mozilla-eoy-donation i.fa.field-icon.icon-in-focus,
-#mozilla-eoy-donation i.fa.hint.icon-in-focus {
+#mozilla-eoy-donation i.fa.hint.on {
   color: #38A9ED;
 }
 
@@ -249,6 +263,19 @@ h4,
   color: #E6E7E8;
   top: 10px;
   right: 10px;
+  cursor: pointer;
+}
+
+.hint-msg {
+  color: #888;
+}
+
+.hint-msg img {
+  max-width: 60px;
+}
+
+.hint-msg img + div {
+  padding-top: 12px;
 }
 
 #mozilla-eoy-donation input.less-indented {
@@ -289,7 +316,11 @@ h4,
 }
 
 .donation-amount-row {
-  margin-bottom: 15px;
+  margin-bottom: 5px;
+}
+
+#recurring-option-row {
+  margin-top: 10px;
 }
 
 #payment-type-row .btn {
@@ -301,11 +332,11 @@ h4,
   color: #fff;
 }
 
-#payment-type-row .btn img.full {
+#payment-type-row img.full {
   width: 100%;
 }
 
-#payment-type-row .btn img.half {
+#payment-type-row img.half {
   width: 50%;
 }
 
@@ -328,7 +359,7 @@ h4,
   margin-left: 1%;
 }
 
-#secured-label {
+#secure-label {
   display: inline-block;
   position: absolute;
   right: 15px;
@@ -340,12 +371,11 @@ h4,
   letter-spacing: 0.1px;
 }
 
-#secured-label i.fa {
+#secure-label i.fa {
   margin-right: 6px;
 }
 
 #privacy-policy input[type="checkbox"] + label {
-  font-size: 12px;
   margin-left: 10px;
   display: inline;
 }
@@ -357,6 +387,15 @@ form#contribution input {
 
 /* Parsley.js / Validation Styling */
 .parsley-errors-list {
+  display: none;
+  font-size: 12px;
+}
+
+#amount-error-msg .parsley-errors-list,
+#amount-other-error-msg .parsley-errors-list,
+#payment-type-error-msg .parsley-errors-list,
+#privacy-error-msg .parsley-errors-list {
+  display: block;
   list-style: none;
   padding-left: 0;
 }
@@ -372,15 +411,7 @@ form#contribution input {
   color: #C13832;
 }
 
-#parsley-id-multiple-amount { /*temp, FIXME*/
-  position: relative;
-  top: -20px;
-}
-
-
-</style>
-
-<div class="outer-wrap" id="mozilla-eoy-donation">
+</style><div class="outer-wrap" id="mozilla-eoy-donation">
   <div class="container">
     <div class="row">
       <div class="col-md-offset-2 col-md-10">
@@ -392,15 +423,15 @@ form#contribution input {
 
   <div class="container">
     <div class="row">
-      <div class="col-md-offset-4 col-md-4 text-center">
+      <div class="col-md-12 text-center">
         <h1>Donate Today</h1>
         <p style="color: #6B12C4">(dummy form, for UI reference only. WIP)</p>
       </div>
     </div>
     <div class="row">
-      <div class="col-md-offset-4 col-sm-offset-0 col-xs-offset-0 col-md-4" id="form-wrapper">
+      <div class="col-md-offset-4 col-sm-offset-3 col-xs-offset-0 col-md-4 col-sm-6" id="form-wrapper">
         <!-- <form id="donation-form" action="/page/cde/Contribution/Charge"> -->
-        <form id="donation-form" data-parsley-validate>
+        <form id="donation-form">
         <!-- = Amount Section ==========  -->
         <div class="row big-section">
           <div class="col-md-12 col-sm-12 col-xs-12">
@@ -411,37 +442,37 @@ form#contribution input {
             </div>
             <div class="row donation-amount-row">
               <div class="col-md-4 col-sm-4 col-xs-4 col-reduced-gutter">
-                <input type="radio" name="amount" value="3" id="amount-3" data-parsley-multiple="amount" data-parsley-errors-container="#amount-error-msg" required><label for="amount-3">$3</label>
+                <input type="radio" name="amount" value="20" id="amount-20" data-parsley-multiple="amount" data-parsley-group="amount" data-parsley-errors-container="#amount-error-msg" data-parsley-error-message="Please select an amount." required=""><label for="amount-20" class="large-label-size">$20</label>
               </div>
               <div class="col-md-4 col-sm-4 col-xs-4 col-reduced-gutter">
-                <input type="radio" name="amount" value="5" id="amount-5" data-parsley-multiple="amount"><label for="amount-5">$5</label>
+                <input type="radio" name="amount" value="10" id="amount-10" data-parsley-multiple="amount" data-parsley-group="amount"><label for="amount-10" class="large-label-size">$10</label>
               </div>
               <div class="col-md-4 col-sm-4 col-xs-4 col-reduced-gutter">
-                <input type="radio" name="amount" value="10" id="amount-10" data-parsley-multiple="amount"><label for="amount-10">$10</label>
+                <input type="radio" name="amount" value="5" id="amount-5" data-parsley-multiple="amount" data-parsley-group="amount"><label for="amount-5" class="large-label-size">$5</label>
               </div>
             </div>
             <div class="row donation-amount-row">
               <div class="col-md-4 col-sm-4 col-xs-4 col-reduced-gutter">
-                <input type="radio" name="amount" value="20" id="amount-20" data-parsley-multiple="amount"><label for="amount-20">$20</label>
+                <input type="radio" name="amount" value="3" id="amount-3" data-parsley-multiple="amount" data-parsley-group="amount"><label for="amount-3" class="large-label-size">$3</label>
               </div>
               <div class="col-md-8 col-sm-8 col-xs-8 col-reduced-gutter">
                 <div id="amount-other-container">
-                  <input type="radio" name="amount" value="other" id="amount-other"><label for="amount-other">$</label>
-                  <input type="text" name="amount_other" placeholder="Other Amount">
-                </div>
+                  <input type="radio" name="amount" value="other" id="amount-other" data-parsley-group="amount"><label for="amount-other" class="large-label-size">$</label>
+                  <input type="text" name="amount_other" placeholder="Other amount" class="medium-label-size" data-parsley-errors-container="#amount-other-error-msg" data-parsley-type="number"></div>
               </div>
             </div>
             <div class="row error-msg-row">
               <div class="col-md-12 col-sm-12 col-xs-12 col-reduced-gutter">
                 <div id="amount-error-msg"></div>
+                <div id="amount-other-error-msg"></div>
               </div>
             </div>
-            <div class="row">
+            <div class="row" id="recurring-option-row">
               <div class="col-md-6 col-sm-6 col-xs-6 col-reduced-gutter">
-                <input type="radio" name="recurring_acknowledge" value="0" checked="checked" id="one-time-payment" data-parsley-errors-container="#recurring-error-msg" required><label for="one-time-payment">one-time</label>
+                <input type="radio" name="recurring_acknowledge" value="0" checked="checked" id="one-time-payment" data-parsley-errors-container="#recurring-error-msg" required=""><label for="one-time-payment" class="medium-label-size">One-time</label>
               </div>
               <div class="col-md-6 col-sm-6 col-xs-6 col-reduced-gutter">
-                <input type="radio" name="recurring_acknowledge" value="1" id="monthly-payment"><label for="monthly-payment">monthly</label>
+                <input type="radio" name="recurring_acknowledge" value="1" id="monthly-payment"><label for="monthly-payment" class="medium-label-size">Monthly</label>
               </div>
             </div>
             <div class="row error-msg-row">
@@ -456,24 +487,24 @@ form#contribution input {
           <div class="col-md-12 col-sm-12 col-xs-12">
             <div class="row">
               <div class="col-md-12">
-                <h2>Payment</h2><p id="secured-label"><i class="fa fa-lock"></i>Secured</p>
+                <h2>Payment</h2><p id="secure-label"><i class="fa fa-lock"></i>Secure</p>
               </div>
             </div>
             <div class="row" id="payment-type-row">
               <div class="col-md-6 col-sm-6 col-xs-6 col-reduced-gutter">
-                <div class="btn" id="payment-cc">
-                  <img src="https://sendto.mozilla.org/page/-/donation_form/img/MasterCard.png" class="half"><img src="https://sendto.mozilla.org/page/-/donation_form/img/Visa.png" class="half"><div>Credit Card</div>
-                </div>
+                <input type="radio" name="payment-type" value="cc" id="payment-cc" data-parsley-multiple="payment-type" data-parsley-group="payment-type" data-parsley-errors-container="#payment-type-error-msg" required=""><label for="payment-cc">
+                  <img src="https://sendto.mozilla.org/page/-/donation_form/img/MasterCard.png" class="half"><img src="https://sendto.mozilla.org/page/-/donation_form/img/Visa.png" class="half"><div class="medium-label-size">Credit card</div>
+                </label>
               </div>
               <div class="col-md-6 col-sm-6 col-xs-6 col-reduced-gutter">
-                <div class="btn" id="payment-paypal">
-                  <img src="https://sendto.mozilla.org/page/-/donation_form/img/PayPal.png" class="full"><div>PayPal</div>
-                </div>
+                <input type="radio" name="payment-type" value="paypal" id="payment-paypal" data-parsley-multiple="payment-type" data-parsley-group="payment-type" data-parsley-errors-container="#payment-type-error-msg" required=""><label for="payment-paypal">
+                  <img src="https://sendto.mozilla.org/page/-/donation_form/img/PayPal.png" class="full"><div class="medium-label-size">PayPal</div>
+                </label>
               </div>
             </div>
             <div class="row error-msg-row">
               <div class="col-md-12 col-sm-12 col-xs-12 col-reduced-gutter">
-                <div id="payment-type-error-msg" style="display: none;">Please select a payment type.</div>
+                <div id="payment-type-error-msg"></div>
               </div>
             </div>
           </div>
@@ -486,13 +517,11 @@ form#contribution input {
               <div class="col-md-6 col-sm-6 col-xs-6 col-reduced-gutter">
                 <div class="field-container">
                   <i class="fa fa-user field-icon"></i>
-                  <input type="text" name="firstname" placeholder="First Name" data-parsley-error-message="Please complete the first name field." required>
-                </div>
+                  <input type="text" name="firstname" placeholder="First name" data-parsley-error-message="Please complete the first name field." required=""></div>
               </div>
               <div class="col-md-6 col-sm-6 col-xs-6 col-reduced-gutter">
                 <div class="field-container">
-                  <input type="text" name="lastname" placeholder="Last Name" class="less-indented" required>
-                </div>
+                  <input type="text" name="lastname" placeholder="Last name" class="less-indented" required=""></div>
               </div>
             </div>
             <!-- Address Row -->
@@ -502,21 +531,18 @@ form#contribution input {
                   <div class="col-md-12 col-sm-12 col-xs-12">
                     <div class="field-container">
                       <i class="fa fa-map-marker field-icon"></i>
-                      <select name="country" required><option value="">Country</option></select><!-- <i class="fa fa-caret-down" id="country-arrow"></i> --></div>
+                      <select name="country" required=""><option value="">Country</option></select><!-- <i class="fa fa-caret-down" id="country-arrow"></i> --></div>
                   </div>
                 </div>
                 <div class="row">
                   <div class="col-md-12 col-sm-12 col-xs-12">
-                    <input type="text" name="addr1" placeholder="Address" required>
-                  </div>
+                    <input type="text" name="addr1" placeholder="Address" required=""></div>
                 </div>
                 <div class="row">
                   <div class="col-md-6 col-sm-6 col-xs-6 col-reduced-gutter">
-                    <input type="text" name="city" placeholder="City" required>
-                  </div>
+                    <input type="text" name="city" placeholder="City" required=""></div>
                   <div class="col-md-6 col-sm-6 col-xs-6 col-reduced-gutter">
-                    <input type="text" name="zip" placeholder="Postal Code" class="less-indented" required>
-                  </div>
+                    <input type="text" name="zip" placeholder="Postal code" class="less-indented" required=""></div>
                 </div>
               </div>
             </div>
@@ -527,33 +553,43 @@ form#contribution input {
                   <div class="col-md-12 col-sm-12 col-xs-12">
                     <div class="field-container">
                       <i class="fa fa-credit-card field-icon"></i>
-                      <input type="text" name="cc_number" placeholder="Credit Card Number" required>
-                    </div>
+                      <input type="text" name="cc_number" placeholder="Credit card number" required=""></div>
                   </div>
                 </div>
-                <div class="row">
-                  <div class="col-md-6 col-sm-6 col-xs-6 col-reduced-gutter">
-                    <div class="field-container">
-                      <i class="fa fa-calendar-o field-icon"></i>
-                      <input type="text" placeholder="MM/YY" required>
+                <div class="row hint-msg-parent">
+                  <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="row">
+                      <div class="col-md-6 col-sm-6 col-xs-6 col-reduced-gutter">
+                        <div class="field-container">
+                          <i class="fa fa-calendar-o field-icon"></i>
+                          <input type="text" placeholder="MM/YY" required=""></div>
+                      </div>
+                      <div class="col-md-6 col-sm-6 col-xs-6 col-reduced-gutter">
+                        <div class="field-container">
+                          <i class="fa fa-lock field-icon"></i>
+                          <input type="text" name="cc_cvv" maxlength="3" placeholder="CVC" required=""><i class="fa fa-question-circle hint"></i>
+                        </div>
+                      </div>
                     </div>
-                  </div>
-                  <div class="col-md-6 col-sm-6 col-xs-6 col-reduced-gutter">
-                    <div class="field-container">
-                      <i class="fa fa-lock field-icon"></i>
-                      <input type="text" name="cc_cvv" maxlength="3" placeholder="CVC" required>
-                      <i class="fa fa-question-circle hint"></i>
+                    <div class="row">
+                      <div class="col-md-12 col-sm-12 col-xs-12">
+                        <div class="hint-msg small">
+                          <img src="https://sendto.mozilla.org/page/-/donation_form/img/CVC-illustration.png" class="left"><div class="">You can find your three-digit CVC number on the back of your credit card.</div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-            <div class="row" id="email-row">
+            <div class="row hint-msg-parent" id="email-row">
               <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="field-container">
                   <i class="fa fa-envelope field-icon"></i>
-                  <input type="email" name="email" placeholder="Email" required>
-                  <i class="fa fa-question-circle hint"></i>
+                  <input type="email" name="email" placeholder="Email" required=""><i class="fa fa-question-circle hint"></i>
+                  <div class="hint-msg small">
+                    We&rsquo;ll email you a receipt for your donation. We won&rsquo;t send you other email without your permission.
+                  </div>
                 </div>
               </div>
             </div>
@@ -563,7 +599,7 @@ form#contribution input {
 
         <div class="row cc-additional-info" id="privacy-policy">
           <div class="col-md-12 col-sm-12 col-xs-12">
-            <input type="checkbox" name="legal_confirm" data-parsley-errors-container="#privacy-error-msg" required><label>I'm okay with you handling this info as you explain in your [privacy policy](link).</label>
+            <input type="checkbox" name="legal_confirm" data-parsley-errors-container="#privacy-error-msg" data-parsley-error-message="[FIXME] Please check this box if you want to proceed." required=""><label>I'm okay with you handling this info as you explain in your <a href="https://www.mozilla.org/privacy/">privacy policy</a>.</label>
           </div>
         </div>
         <div class="row cc-additional-info error-msg-row">
@@ -573,16 +609,15 @@ form#contribution input {
             </div>
         <div class="row">
           <div class="col-md-12 col-sm-12 col-xs-12">
-            <input type="submit" value="Donate Now" class="btn" id="donate-btn">
-          </div>
-        </form></div>
-        <div class="row text-center">
+            <input type="submit" value="Donate now" class="btn large-label-size" id="donate-btn"></div>
+        </div>
+        <div class="row">
           <div class="col-md-12 col-sm-12 col-xs-12">
-            One line error message here?????????
+            [FIXME] Oops, please complete fields highlighted in red.
           </div>
         </div>
 
-      </div>
+      </form></div>
     </div>
   </div>
 
