@@ -3,6 +3,7 @@
             <div class="bsd-contribForm-aboveContent">
 
 <!-- =================== Above form content STARTS =================== -->
+
 <link href="/page/smartproxy/BSD_AwpYQRBKAVsKVFxQUBVaEk1aX18/BhZFCgUFC10JSg16QQBdSjBYXkEOA1UDTg4CUxoHBVQ" rel="stylesheet" type="text/css">
 <link href="https://sendto.mozilla.org/page/-/donation_form/css/font-awesome.min.css" rel="stylesheet">
 <script src="https://sendto.mozilla.org/page/-/donation_form/js/jquery-2.1.1.min.js"></script>
@@ -30,10 +31,30 @@
     letter-spacing: -3px;
     line-height: 100%;
   }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    margin-top: 0;
+    margin-bottom: 20px;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  .btn,
+  input[type="radio"] + label,
+  input[type="checkbox"] + label {
+    font-weight: 300;
+  }
+
   h1 {
     font-size: 48px;
     letter-spacing: -2px;
     line-height: 100%;
+    margin-top: 20px;
   }
   h2 {
     font-size: 32px;
@@ -137,19 +158,14 @@
   }
 
   #form-wrapper {
-    width: 400px;
-    margin: 0 auto;
+    width: 420px;
+    margin: 0 auto 100px auto;
+    padding: 30px;
+    background: #fff;
   }
 
-  label {
-    margin-bottom: 5px;
-  }
+  /* = Set placeholder text colour ========== */
 
-
-  /* Donation Form ========== */
-
-
-  /* Set placeholder text colour */
   ::-webkit-input-placeholder { /* WebKit browsers */
     color: #ccc;
   }
@@ -163,24 +179,6 @@
   }
   :-ms-input-placeholder { /* Internet Explorer 10+ */
     color: #ccc;
-  }
-
-  h1,
-  h2,
-  h3,
-  h4 {
-    margin-top: 0;
-    margin-bottom: 20px;
-  }
-
-  h1,
-  h2,
-  h3,
-  h4,
-  #mozilla-eoy-donation .btn,
-  #mozilla-eoy-donation input[type="radio"] + label,
-  #mozilla-eoy-donation input[type="checkbox"] + label {
-    font-weight: 300;
   }
 
   .large-label-size {
@@ -203,69 +201,73 @@
     max-width: 150px;
   }
 
-  #mozilla-eoy-donation h1 {
-    margin-top: 20px;
-  }
+  /* = Buttons ========== */
 
-  #mozilla-eoy-donation .btn {
+  .btn {
     width: 100%;
     margin-bottom: 15px;
     border-radius: 3px;
     background-color: #EAEFF2;
   }
 
-  #mozilla-eoy-donation .btn:hover {
+  .btn:hover {
     background: #0095DD;
     color: #fff;
   }
 
-  #mozilla-eoy-donation #donate-btn {
+  #donate-btn {
     color: #fff;
     font-weight: 800;
     background-color: #C13832; /* Mozilla Red */
     padding-top: 10px;
     padding-bottom: 10px;
-    margin-top: 20px;
     margin-bottom: 20px;
     transition: all 0.3s ease 0s;
   }
 
-  #mozilla-eoy-donation .btn#donate-btn:hover {
+  .btn#donate-btn:hover {
     background-color: #EA3B28; /* Mozilla Red */
     color: #fff;
   }
 
-  #mozilla-eoy-donation input[type="radio"] + label {
+
+  /* = Form Fields ========== */
+
+  label {
+    margin-bottom: 5px;
+  }
+
+  input[type="radio"] + label {
     margin-left: 10px;
   }
 
-  #mozilla-eoy-donation input[type="text"],
-  #mozilla-eoy-donation select,
-  #mozilla-eoy-donation input[type="email"] {
+  input[type="text"],
+  select,
+  input[type="email"] {
     width: 100%;
     margin-bottom: 5px;
     border: 1px solid #EAEFF2;
     border-radius: 3px;
   }
 
-  #mozilla-eoy-donation input[type="text"],
-  #mozilla-eoy-donation input[type="email"] {
+  input[type="text"],
+  input[type="email"] {
     padding: 7px 30px 7px 33px;
   }
 
-  #mozilla-eoy-donation input[type="text"]:focus,
-  #mozilla-eoy-donation select:focus,
-  #mozilla-eoy-donation input[type="email"]:focus {
+  input[type="text"]:focus,
+  select:focus,
+  input[type="email"]:focus {
     border-color: #38A9ED;
   }
 
-  #mozilla-eoy-donation input[type="radio"][name="amount"],
-  #mozilla-eoy-donation input[type="radio"][name="payment-type"] {
+  input[name="amount"],
+  input[name="payment-type"] {
     display: none;
   }
 
-  #mozilla-eoy-donation input[type="radio"][name="amount"] + label,
-  #mozilla-eoy-donation input[type="radio"][name="payment-type"] + label {
+  input[name="amount"] + label,
+  input[name="payment-type"] + label {
     display: inline-block;
     width: 100%;
     padding: 6px 12px;
@@ -281,27 +283,27 @@
     box-sizing: border-box;
   }
 
-  #mozilla-eoy-donation input[type="radio"][name="amount"]:hover + label,
-  #mozilla-eoy-donation input[type="radio"][name="payment-type"]:hover + label {
+  input[name="amount"]:hover + label,
+  input[name="payment-type"]:hover + label {
     background: #43A6E2; /* Mozilla Button color */
     color: #fff;
   }
 
-  #mozilla-eoy-donation input[type="radio"][name="amount"]:checked + label,
-  #mozilla-eoy-donation input[type="radio"][name="payment-type"]:checked + label {
+  input[name="amount"]:checked + label,
+  input[name="payment-type"]:checked + label {
     background: #277AC1; /*Mozilla Button color */
     color: #fff;
   }
 
-  #mozilla-eoy-donation #amount-other-container {
+  #amount-other-container {
     position: relative;
   }
 
-  #mozilla-eoy-donation input#amount-other[type="radio"][name="amount"] + label {
+  input#amount-other + label {
     text-align: left;
   }
 
-  #mozilla-eoy-donation input#amount-other + label + input[type="text"] {
+  input#amount-other + label + input[type="text"] {
     position: absolute;
     top: 2px;
     left: 35px;
@@ -313,12 +315,12 @@
     border: none;
   }
 
-  #mozilla-eoy-donation i.fa.field-icon.icon-in-focus,
-  #mozilla-eoy-donation i.fa.hint.on {
+  i.fa.field-icon.icon-in-focus,
+  i.fa.hint.on {
     color: #38A9ED;
   }
 
-  #mozilla-eoy-donation select {
+  select {
     padding-left: 29px;
     padding-right: 10px;
     height: 38px;
@@ -326,17 +328,27 @@
     background: #fff;
   }
 
-  #mozilla-eoy-donation select * {
+  select * {
     padding-left: 29px;
   }
 
-  #mozilla-eoy-donation .field-container {
+  select[name='country'].normalTextColor,
+  select[name='country'] [value] {
+    color: #333;
+  }
+
+  select[name='country'],
+  select[name='country'] option[value=""] {
+    color: #ccc;
+  }
+
+  .field-container {
     display: inline-block;
     position: relative;
     width: 100%;
   }
 
-  #mozilla-eoy-donation i.fa.field-icon {
+  i.fa.field-icon {
     position: absolute;
     font-size: 16px;
     color: #4D4E53; /*Mozilla charcoal*/
@@ -344,7 +356,12 @@
     left: 12px;
   }
 
-  #mozilla-eoy-donation i.fa.hint {
+  input.less-indented {
+    padding-left: 15px;
+    padding-right: 7px;
+  }
+
+  i.fa.hint {
     position: absolute;
     font-size: 20px;
     color: #E6E7E8;
@@ -365,16 +382,8 @@
     padding-top: 12px;
   }
 
-  #mozilla-eoy-donation input.less-indented {
-    padding-left: 15px;
-    padding-right: 7px;
-  }
 
-  #form-wrapper {
-    background: #fff;
-    margin-bottom: 100px;
-    padding: 30px;
-  }
+  /* = Layout, sections, and other UI related stuff ========== */
 
   .big-section {
     padding-top: 25px;
@@ -433,6 +442,10 @@
     margin-right: 6px;
   }
 
+  #privacy-policy {
+    margin-top: 10px;
+  }
+
   #privacy-policy input[type="checkbox"] + label {
     margin-left: 10px;
     display: inline;
@@ -466,7 +479,8 @@
   }
 
   /* Parsley.js / Validation Styling */
-  .parsley-errors-list {
+  .parsley-errors-list,
+  #one-line-error {
     display: none;
     font-size: 12px;
   }
@@ -481,14 +495,16 @@
     margin: 0;
   }
 
-  #mozilla-eoy-donation input.parsley-error,
-  #mozilla-eoy-donation select.parsley-error {
+  input.parsley-error,
+  select.parsley-error {
     border-color: #C13832;
   }
 
+  .parsley-errors-list *,
   .parsley-required,
   .parsley-type,
-  .parsley-custom-error-message {
+  .parsley-custom-error-message,
+  #one-line-error {
     color: #C13832;
   }
 
@@ -503,13 +519,11 @@
     #form-wrapper {
       padding: 10px;
     }
-    #mozilla-eoy-donation input#amount-other + label + input[type="text"] {
+    input#amount-other + label + input[type="text"] {
       width: 76%;
     }
   }
-</style>
-
-<div id="mozilla-eoy-donation">
+</style><div id="mozilla-eoy-donation">
   <div class="container">
     <div class="row">
       <div class="col-md-offset-2 col-md-10">
@@ -656,19 +670,19 @@
               <div class="full">
                 <div class="field-container">
                   <i class="fa fa-credit-card field-icon"></i>
-                  <input type="text" name="cc_number" placeholder="Credit card number" required=""></div>
+                  <input type="text" name="cc_number" placeholder="Credit card number" maxlength="16" data-parsley-visa-mc-card-num="" required=""></div>
               </div>
             </div>
             <div class="row hint-msg-parent">
               <div class="half">
                 <div class="field-container">
                   <i class="fa fa-calendar-o field-icon"></i>
-                  <input type="text" placeholder="MM/YY" required=""></div>
+                  <input type="text" placeholder="MM/YY" maxlength="5" data-parsley-cc-expirary="" required=""></div>
               </div>
               <div class="half">
                 <div class="field-container">
                   <i class="fa fa-lock field-icon"></i>
-                  <input type="text" name="cc_cvv" maxlength="3" placeholder="CVC" required=""><i class="fa fa-question-circle hint"></i>
+                  <input type="text" name="cc_cvv" maxlength="3" placeholder="CVC" data-parsley-type="digits" required=""><i class="fa fa-question-circle hint"></i>
                 </div>
               </div>
               <div class="full">
@@ -710,6 +724,15 @@
           </div>
         </div>
         <!-- = Privacy Policy Section Ends ==========  -->
+        <!-- = One Line Error Message ==========  -->
+        <div>
+          <div class="row">
+            <div class="full" id="one-line-error">
+              <p>Oops, please complete fields highlighted in red.</p>
+            </div>
+          </div>
+        </div>
+        <!-- = One Line Error Message Button ==========  -->
         <!-- = Submit Button ==========  -->
         <div>
           <div class="row">
@@ -718,15 +741,6 @@
           </div>
         </div>
         <!-- = Submit Button Ends ==========  -->
-        <!-- = One Line Error Message ==========  -->
-        <div>
-          <div class="row">
-            <div class="full">
-              [FIXME] Oops, please complete fields highlighted in red.
-            </div>
-          </div>
-        </div>
-        <!-- = One Line Error Message Button ==========  -->
       </form>
     </div>
   </div>
@@ -751,10 +765,11 @@
 
 
 <!-- =================== Above form content ENDS =================== -->
+
 </div>
-        <iframe width="1" height="1" frameborder="0" scrolling="no" src="/images/Contribution/Misc/logo.htm?m=132500&amp;s=mozilla_H1-LIhMUkcCMeBayDPaSs88k"><img width="1" height="1" src="/images/Contribution/Misc/logo.gif?m=132500&amp;s=mozilla_H1-LIhMUkcCMeBayDPaSs88k"></iframe>
+        <iframe width="1" height="1" frameborder="0" scrolling="no" src="/images/Contribution/Misc/logo.htm?m=132500&amp;s=mozilla_H1_M0feon8RIgAZ5r21Xvuvu"><img width="1" height="1" src="/images/Contribution/Misc/logo.gif?m=132500&amp;s=mozilla_H1_M0feon8RIgAZ5r21Xvuvu"></iframe>
         <form name="contribution" class="bsd-contribution-98" action="/page/cde/Contribution/Charge" method="post" id="contribution">
-          <input name="slug" type="hidden" value="test-give-to-mozilla-today"><input name="submission_key" type="hidden" value="H1-LIhMUkcCMeBayDPaSs88kY5gSdlq0"><input name="http_referer" type="hidden" value=""><input name="event_attendee_id" type="hidden" value=""><input name="outreach_page_id" type="hidden" value=""><input name="stg_signup_id" type="hidden" value=""><input name="mailing_link_id" type="hidden" value=""><input name="mailing_recipient_id" type="hidden" value=""><input name="match_campaign_id" type="hidden" value=""><input name="match_is_pledge" type="hidden" value=""><input name="pledge_is_convert" type="hidden" value=""><input name="contributor_key" type="hidden" value=""><input id="BSDForm-quick_donate_populated" name="quick_donate_populated" type="hidden" value="0"><input id="BSDForm-device_fingerprint" name="device_fingerprint" type="hidden" value="0"><input id="default_country" name="default_country" type="hidden" value="US"><input id="cc_number_ack" name="cc_number_ack" type="hidden" value=""><input name="ach_account_number_ack" type="hidden" value=""><input name="k-ris-sid" type="hidden" value="mozilla_H1-LIhMUkcCMeBayDPaSs88k"><table><tr><script>var quickformErrors = []; if(!BSD.errors){BSD.errors = quickformErrors;} else {BSD.errors = BSD.errors.concat(quickformErrors);}</script><td style="width: 300px;" class="contribcolumn"><table><tr class="bsd-contribution-section-header" id="bsd-contribution-section-header-contributor" data-bsdformsectionname="contributor"><td class="contribheader" id="bsd-contribution-header-contributor">
+          <input name="slug" type="hidden" value="test-give-to-mozilla-today"><input name="submission_key" type="hidden" value="H1_M0feon8RIgAZ5r21Xvuvuo-1LGcfS"><input name="http_referer" type="hidden" value=""><input name="event_attendee_id" type="hidden" value=""><input name="outreach_page_id" type="hidden" value=""><input name="stg_signup_id" type="hidden" value=""><input name="mailing_link_id" type="hidden" value=""><input name="mailing_recipient_id" type="hidden" value=""><input name="match_campaign_id" type="hidden" value=""><input name="match_is_pledge" type="hidden" value=""><input name="pledge_is_convert" type="hidden" value=""><input name="contributor_key" type="hidden" value=""><input id="BSDForm-quick_donate_populated" name="quick_donate_populated" type="hidden" value="0"><input id="BSDForm-device_fingerprint" name="device_fingerprint" type="hidden" value="0"><input id="default_country" name="default_country" type="hidden" value="US"><input id="cc_number_ack" name="cc_number_ack" type="hidden" value=""><input name="ach_account_number_ack" type="hidden" value=""><input name="k-ris-sid" type="hidden" value="mozilla_H1_M0feon8RIgAZ5r21Xvuvu"><table><tr><script>var quickformErrors = []; if(!BSD.errors){BSD.errors = quickformErrors;} else {BSD.errors = BSD.errors.concat(quickformErrors);}</script><td style="width: 300px;" class="contribcolumn"><table><tr class="bsd-contribution-section-header" id="bsd-contribution-section-header-contributor" data-bsdformsectionname="contributor"><td class="contribheader" id="bsd-contribution-header-contributor">
                 Contributor
               </td>
             </tr><tr><td class="nested_table"><table><tr></tr><tr><td colspan="2" class="nested_table"><table id="country_table"><tr><td>
@@ -848,7 +863,7 @@
     }
   });
 
-  $("#mozilla-eoy-donation input#amount-other + label + input[type=\"text\"]").focus(function() {
+  $("input#amount-other + label + input[type=\"text\"]").focus(function() {
     $(this).prevAll("input[type=\"radio\"]").click();
   });
 
@@ -898,6 +913,15 @@
     $theForm.find("select[name='country']").html(cloned.html());
     $theForm.find("option:selected").removeAttr("selected");
     $theForm.find("option:first-child").attr("selected","selected").html("Country");
+    $theForm.find("select[name='country']").change(function (){
+      var selected = $(this).val();
+      console.log(selected);
+      if ( selected ){
+        $(this).addClass("normalTextColor");
+      } else {
+        $(this).removeClass("normalTextColor");
+      }
+    });
   }
   generateCountryDropdown();
 
@@ -972,26 +996,52 @@
 
   // ***********************************************
   // Parsley.js setting & client side validation etc
+  // API: http://parsleyjs.org/doc/
   // ***********************************************
   window.ParsleyConfig = {};
 
-  $theForm.parsley().subscribe("parsley:form:validate", function (formInstance) {
-    var toggleCCpanel = function() {
-      console.log("clicked!!!!");
-      var amountSelected = formInstance.isValid("amount", true);
-      var paymentTypeSelected = formInstance.isValid("payment-type", true);
-      if ( !$(".cc-additional-info").is(":visible") && amountSelected && paymentTypeSelected  ) {
-        $(".cc-additional-info").slideDown( "slow" );
-      }
+  window.ParsleyValidator
+    // Visa and Master Card client side validation
+    .addValidator('visaMcCardNum', function (value, requirement) {
+      var regVisa = /^(?:4[0-9]{12}(?:[0-9]{3})?)$/;
+      var regMC = /^(?:5[1-5][0-9]{14})$/;
+      return (value.match(regVisa) && value.match(regVisa).length > 0 )
+              || (value.match(regMC) && value.match(regMC).length > 0 );
+    }, 10)
+    // Credit card expirary date validation
+    .addValidator('ccExpirary', function (value, requirement) {
+      var reg = /(0[1-9]|1[0-2])\/[0-9]{2}/;
+      return (value.match(reg) && value.match(reg).length > 0 );
+    }, 10);
+
+  var parsleyForm = $theForm.parsley();
+
+  parsleyForm.subscribe("parsley:form:validate", function (formInstance) {
+    formInstance.submitEvent.preventDefault();
+
+    // Show additional fields if amount has been selected & the payment type is credit card
+    var amount = formInstance.isValid("amount", true);
+    var paymentType = formInstance.isValid("payment-type", true);
+    if ( !$(".cc-additional-info").is(":visible") && amount && paymentType  ) {
+      $(".cc-additional-info").slideDown( "slow" );
     };
 
-    $("#donate-btn").click(toggleCCpanel);
+    var isFormValid = formInstance.isValid();
+    console.log(isFormValid);
+    if ( isFormValid ) {
+      console.log("ajax submitttt");
+      // AJAX POST HERE ===
+      $("#one-line-error").hide();
+    } else {
+      $("#one-line-error").show();
+    }
   });
 
   // ***********************************************
   // Remove the BSD generated form from DOM
   // ***********************************************
-  // $bsdForm.remove();
+  $bsdForm.remove();
+
 </script>
 
 <!-- =================== Below form content ENDS =================== -->

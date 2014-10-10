@@ -34,7 +34,7 @@
     }
   });
 
-  $("#mozilla-eoy-donation input#amount-other + label + input[type=\"text\"]").focus(function() {
+  $("input#amount-other + label + input[type=\"text\"]").focus(function() {
     $(this).prevAll("input[type=\"radio\"]").click();
   });
 
@@ -84,6 +84,15 @@
     $theForm.find("select[name='country']").html(cloned.html());
     $theForm.find("option:selected").removeAttr("selected");
     $theForm.find("option:first-child").attr("selected","selected").html("Country");
+    $theForm.find("select[name='country']").change(function (){
+      var selected = $(this).val();
+      console.log(selected);
+      if ( selected ){
+        $(this).addClass("normalTextColor");
+      } else {
+        $(this).removeClass("normalTextColor");
+      }
+    });
   }
   generateCountryDropdown();
 
@@ -158,26 +167,52 @@
 
   // ***********************************************
   // Parsley.js setting & client side validation etc
+  // API: http://parsleyjs.org/doc/
   // ***********************************************
   window.ParsleyConfig = {};
 
-  $theForm.parsley().subscribe("parsley:form:validate", function (formInstance) {
-    var toggleCCpanel = function() {
-      console.log("clicked!!!!");
-      var amountSelected = formInstance.isValid("amount", true);
-      var paymentTypeSelected = formInstance.isValid("payment-type", true);
-      if ( !$(".cc-additional-info").is(":visible") && amountSelected && paymentTypeSelected  ) {
-        $(".cc-additional-info").slideDown( "slow" );
-      }
+  window.ParsleyValidator
+    // Visa and Master Card client side validation
+    .addValidator('visaMcCardNum', function (value, requirement) {
+      var regVisa = /^(?:4[0-9]{12}(?:[0-9]{3})?)$/;
+      var regMC = /^(?:5[1-5][0-9]{14})$/;
+      return (value.match(regVisa) && value.match(regVisa).length > 0 )
+              || (value.match(regMC) && value.match(regMC).length > 0 );
+    }, 10)
+    // Credit card expirary date validation
+    .addValidator('ccExpirary', function (value, requirement) {
+      var reg = /(0[1-9]|1[0-2])\/[0-9]{2}/;
+      return (value.match(reg) && value.match(reg).length > 0 );
+    }, 10);
+
+  var parsleyForm = $theForm.parsley();
+
+  parsleyForm.subscribe("parsley:form:validate", function (formInstance) {
+    formInstance.submitEvent.preventDefault();
+
+    // Show additional fields if amount has been selected & the payment type is credit card
+    var amount = formInstance.isValid("amount", true);
+    var paymentType = formInstance.isValid("payment-type", true);
+    if ( !$(".cc-additional-info").is(":visible") && amount && paymentType  ) {
+      $(".cc-additional-info").slideDown( "slow" );
     };
 
-    $("#donate-btn").click(toggleCCpanel);
+    var isFormValid = formInstance.isValid();
+    console.log(isFormValid);
+    if ( isFormValid ) {
+      console.log("ajax submitttt");
+      // AJAX POST HERE ===
+      $("#one-line-error").hide();
+    } else {
+      $("#one-line-error").show();
+    }
   });
 
   // ***********************************************
   // Remove the BSD generated form from DOM
   // ***********************************************
-  // $bsdForm.remove();
+  $bsdForm.remove();
+
 </script>
 
 <!-- =================== Below form content ENDS =================== -->
