@@ -1,14 +1,57 @@
 <!-- =================== Below form content STARTS =================== -->
 
+<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top" id="paypal-one-time">
+  <input type="hidden" name="cmd" value="_donations">
+  <input type="hidden" name="business" value="44ZHAVWJHTK2N">
+  <input type="hidden" name="lc" value="US">
+  <input type="hidden" name="item_name" value="Mozilla Foundation">
+  <input type="hidden" name="no_note" value="1">
+  <input type="hidden" name="no_shipping" value="1">
+  <input type="hidden" name="rm" value="1">
+  <!-- Enter Your Donation Amount -->
+  <!-- THIS MUST BE DYNAMICALLY UPDATED -->
+  <input type="hidden" name="amount" value="3">
+  <input type="hidden" name="return" value="https://sendto.mozilla.org/page/s/">
+  <input type="hidden" name="currency_code" value="USD">
+  <input type="hidden" name="bn" value="PP-DonationsBF:maker-party-donate-button.png:NonHosted">
+  <!--
+    <input type="image" src="https://sendto.mozilla.org/page/-/ws_assets/webpage_buttons/maker-party-donate-button.png" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+    <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+  -->
+</form>
+
+<form action="https://www.paypal.com/cgi-bin/webscr" method="post" id="paypal-recurring">
+  <input type="hidden" name="cmd" value="_xclick-subscriptions">
+  <input type="hidden" name="business" value="44ZHAVWJHTK2N">
+  <input type="hidden" name="lc" value="US">
+  <input type="hidden" name="item_name" value="Mozilla Foundation Recurring Donation">
+  <input type="hidden" name="no_note" value="1">
+  <input type="hidden" name="no_shipping" value="2">
+  <input type="hidden" name="return" value="https://sendto.mozilla.org/page/s/">
+  <input type="hidden" name="src" value="1">
+  <input type="hidden" name="p3" value="1">
+  <input type="hidden" name="currency_code" value="USD">
+  <input type="hidden" name="bn" value="PP-SubscriptionsBF:maker-party-donate-button.png:NonHosted">
+  <input type="hidden" name="t3" value="M">
+  <input name="srt" type="hidden" value="0">
+  <!-- Enter Your Donation Amount -->
+  <!-- THIS MUST BE DYNAMICALLY UPDATED -->
+  <input type="hidden" name="a3" value="3">
+  <!--
+    <input type="image" src="https://sendto.mozilla.org/page/-/ws_assets/webpage_buttons/maker-party-donate-button.png" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+    <img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1">
+  -->
+</form>
+
+
 <script src="https://www.mozilla.org/tabzilla/media/js/tabzilla.js"></script>
 <script>
-  var bsdForm = $("form#contribution");
-  var $bsdForm = bsdForm;
-  var theForm = $("#donation-form");
-  var $theForm = theForm;
+var
+    $bsdForm = $("form#contribution"),
+    $theForm = $("#donation-form");
 
   // To make the page show properly on mobile
-  $("head").append("<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0, user-scalable=no\">");
+$("head").append("<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">");
 
   // ***********************************************
   // UI related
@@ -142,12 +185,14 @@
   var updateDonateButtonText = function(event) {
     var amountSelected = $(this).val();
     console.log(amountSelected);
-    var buttonText = "Donate now";
+    var buttonText;
     if ( amountSelected == "other" ) {
       amountSelected = $theForm.find("[name='amount_other']").val();
     }
     buttonText = amountSelected ? "Donate $" + amountSelected + " now" : "Donate now";
     $("#donate-btn").attr("value", buttonText);
+    $('#paypal-one-time').find('[name="amount"]').attr('value', amountSelected);
+    $('#paypal-recurring').find('[name="a3"]').attr('value', amountSelected);
   };
 
   $theForm.find("[name='amount']").change(updateDonateButtonText);
@@ -193,21 +238,29 @@
   parsleyForm.subscribe("parsley:form:validate", function (formInstance) {
     formInstance.submitEvent.preventDefault();
 
-    // Show additional fields if amount has been selected & the payment type is credit card
-    var amount = formInstance.isValid("amount", true);
-    var paymentType = formInstance.isValid("payment-type", true);
-    if ( !$(".cc-additional-info").is(":visible") && amount && paymentType  ) {
-      $(".cc-additional-info").slideDown( "slow" );
-    };
-
-    var isFormValid = formInstance.isValid();
-    console.log(isFormValid);
-    if ( isFormValid ) {
-      console.log("ajax submitttt");
-      // AJAX POST HERE ===
-      $("#one-line-error").hide();
+    if ($('input[name="payment-type"]:checked').val() === 'paypal') {
+      if ($('input[name="recurring_acknowledge"]:checked').val() == '0') {
+        $('#paypal-one-time').submit();
+      } else {
+        $('#paypal-recurring').submit();
+      }
     } else {
-      $("#one-line-error").show();
+      // Show additional fields if amount has been selected & the payment type is credit card
+      var amount = formInstance.isValid("amount", true);
+      var paymentType = formInstance.isValid("payment-type", true);
+      if (!$(".cc-additional-info").is(":visible") && amount && paymentType) {
+        $(".cc-additional-info").slideDown("slow");
+      }
+
+      var isFormValid = formInstance.isValid();
+      console.log(isFormValid);
+      if (isFormValid) {
+        console.log("ajax submitttt");
+        // AJAX POST HERE ===
+        $("#one-line-error").hide();
+      } else {
+        $("#one-line-error").show();
+      }
     }
   });
 
