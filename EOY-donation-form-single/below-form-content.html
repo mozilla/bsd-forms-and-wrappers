@@ -124,8 +124,8 @@ $("head").append("<meta name=\"viewport\" content=\"width=device-width, initial-
   function generateCountryDropdown() {
     var cloned = $bsdForm.find("select[name='country']").clone();
     $theForm.find("select[name='country']").html(cloned.html());
-    $theForm.find("option:selected").removeAttr("selected");
-    $theForm.find("option:first-child").attr("selected","selected").html("Country");
+    $theForm.find("select[name='country'] option:selected").removeAttr("selected");
+    $theForm.find("select[name='country'] option:first-child").attr("selected","selected").html("Country");
     $theForm.find("select[name='country']").change(function (){
       var selected = $(this).val();
       console.log(selected);
