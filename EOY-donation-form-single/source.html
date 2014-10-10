@@ -129,7 +129,7 @@
     width: 66.66%
   }
   .quarter {
-    width: 25.%;
+    width: 25%;
   }
 
   .text-center {
@@ -414,7 +414,7 @@
   .address-section,
   .credit-card-section,
   #email-row {
-    margin-bottom: 15px;
+    margin-top: 15px;
   }
 
   #secure-label {
@@ -436,6 +436,28 @@
   #privacy-policy input[type="checkbox"] + label {
     margin-left: 10px;
     display: inline;
+  }
+
+  footer {
+    background: #fff;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    color: #666;
+    font-size: 12px;
+  }
+
+  footer .half {
+    width: 40%;
+    margin-right: 30px;
+  }
+
+  footer img {
+    max-width: 120px;
+  }
+
+  footer ul {
+    padding-left: 0;
+    list-style: none;
   }
 
   /* Temp Fix */
@@ -487,7 +509,7 @@
   }
 </style>
 
-<div class="outer-wrap" id="mozilla-eoy-donation">
+<div id="mozilla-eoy-donation">
   <div class="container">
     <div class="row">
       <div class="col-md-offset-2 col-md-10">
@@ -572,7 +594,7 @@
             <div class="half">
               <input type="radio" name="payment-type" value="cc" id="payment-cc" data-parsley-multiple="payment-type" data-parsley-group="payment-type" data-parsley-errors-container="#payment-type-error-msg" required=""><label for="payment-cc">
                 <div class="row">
-                  <img src="https://sendto.mozilla.org/page/-/donation_form/img/MasterCard.png" class="half"><img src="https://sendto.mozilla.org/page/-/donation_form/img/Visa.png" class="half"></div>
+                  <img src="https://sendto.mozilla.org/page/-/donation_form/img/Visa.png" class="half" id="visa-logo"><img src="https://sendto.mozilla.org/page/-/donation_form/img/MasterCard.png" class="half" id="mc-logo"></div>
                 <div class="row medium-label-size">Credit card</div>
               </label>
             </div>
@@ -707,18 +729,32 @@
         <!-- = One Line Error Message Button ==========  -->
       </form>
     </div>
-
   </div>
 
+  <footer><div class="container">
+      <div class="row">
+        <div class="half">
+          <img src="https://sendto.mozilla.org/page/-/donation_form/img/Mozilla-wordmark.png"><p class="license">Portions of this content are &copy;1998&ndash;2014 by individual mozilla.org contributors. Content available under a <a href="https://www.mozilla.org/foundation/licensing/website-content/">Creative Commons license</a>.</p>
+        </div>
+        <div class="quarter">
+          <ul class="links"><li><a href="https://www.mozilla.org/mission/">Mission</a></li>
+            <li><a href="https://www.mozilla.org/about/">About</a></li>
+            <li><a href="https://www.mozilla.org/contact/spaces/">Contact</a></li>
+            <li><a href="https://www.mozilla.org/privacy/">Privacy Policy</a></li>
+            <li><a href="https://www.mozilla.org/about/legal/">Legal Notices</a></li>
+          </ul></div>
+      </div>
+    </div>
+  </footer></div>
+
+<h2 style="color: #6B12C4" class="temp-label">( real BSD generated form below )</h2>
+
+
+<!-- =================== Above form content ENDS =================== -->
 </div>
-
-<h2 style="color: #6B12C4">( real BSD generated form below )</h2>
-
-
-<!-- =================== Above form content ENDS =================== -->            </div>
-        <iframe width="1" height="1" frameborder="0" scrolling="no" src="/images/Contribution/Misc/logo.htm?m=132500&amp;s=mozilla_H1-DzfyQbEiYQMHs93vuu-s2"><img width="1" height="1" src="/images/Contribution/Misc/logo.gif?m=132500&amp;s=mozilla_H1-DzfyQbEiYQMHs93vuu-s2"></iframe>
+        <iframe width="1" height="1" frameborder="0" scrolling="no" src="/images/Contribution/Misc/logo.htm?m=132500&amp;s=mozilla_H1-LIhMUkcCMeBayDPaSs88k"><img width="1" height="1" src="/images/Contribution/Misc/logo.gif?m=132500&amp;s=mozilla_H1-LIhMUkcCMeBayDPaSs88k"></iframe>
         <form name="contribution" class="bsd-contribution-98" action="/page/cde/Contribution/Charge" method="post" id="contribution">
-          <input name="slug" type="hidden" value="test-give-to-mozilla-today"><input name="submission_key" type="hidden" value="H1-DzfyQbEiYQMHs93vuu-s2oorips2V"><input name="http_referer" type="hidden" value=""><input name="event_attendee_id" type="hidden" value=""><input name="outreach_page_id" type="hidden" value=""><input name="stg_signup_id" type="hidden" value=""><input name="mailing_link_id" type="hidden" value=""><input name="mailing_recipient_id" type="hidden" value=""><input name="match_campaign_id" type="hidden" value=""><input name="match_is_pledge" type="hidden" value=""><input name="pledge_is_convert" type="hidden" value=""><input name="contributor_key" type="hidden" value=""><input id="BSDForm-quick_donate_populated" name="quick_donate_populated" type="hidden" value="0"><input id="BSDForm-device_fingerprint" name="device_fingerprint" type="hidden" value="0"><input id="default_country" name="default_country" type="hidden" value="US"><input id="cc_number_ack" name="cc_number_ack" type="hidden" value=""><input name="ach_account_number_ack" type="hidden" value=""><input name="k-ris-sid" type="hidden" value="mozilla_H1-DzfyQbEiYQMHs93vuu-s2"><table><tr><script>var quickformErrors = []; if(!BSD.errors){BSD.errors = quickformErrors;} else {BSD.errors = BSD.errors.concat(quickformErrors);}</script><td style="width: 300px;" class="contribcolumn"><table><tr class="bsd-contribution-section-header" id="bsd-contribution-section-header-contributor" data-bsdformsectionname="contributor"><td class="contribheader" id="bsd-contribution-header-contributor">
+          <input name="slug" type="hidden" value="test-give-to-mozilla-today"><input name="submission_key" type="hidden" value="H1-LIhMUkcCMeBayDPaSs88kY5gSdlq0"><input name="http_referer" type="hidden" value=""><input name="event_attendee_id" type="hidden" value=""><input name="outreach_page_id" type="hidden" value=""><input name="stg_signup_id" type="hidden" value=""><input name="mailing_link_id" type="hidden" value=""><input name="mailing_recipient_id" type="hidden" value=""><input name="match_campaign_id" type="hidden" value=""><input name="match_is_pledge" type="hidden" value=""><input name="pledge_is_convert" type="hidden" value=""><input name="contributor_key" type="hidden" value=""><input id="BSDForm-quick_donate_populated" name="quick_donate_populated" type="hidden" value="0"><input id="BSDForm-device_fingerprint" name="device_fingerprint" type="hidden" value="0"><input id="default_country" name="default_country" type="hidden" value="US"><input id="cc_number_ack" name="cc_number_ack" type="hidden" value=""><input name="ach_account_number_ack" type="hidden" value=""><input name="k-ris-sid" type="hidden" value="mozilla_H1-LIhMUkcCMeBayDPaSs88k"><table><tr><script>var quickformErrors = []; if(!BSD.errors){BSD.errors = quickformErrors;} else {BSD.errors = BSD.errors.concat(quickformErrors);}</script><td style="width: 300px;" class="contribcolumn"><table><tr class="bsd-contribution-section-header" id="bsd-contribution-section-header-contributor" data-bsdformsectionname="contributor"><td class="contribheader" id="bsd-contribution-header-contributor">
                 Contributor
               </td>
             </tr><tr><td class="nested_table"><table><tr></tr><tr><td colspan="2" class="nested_table"><table id="country_table"><tr><td>
@@ -775,22 +811,25 @@
   var module_text = { "total_contribution_label" : "Total Contribution:" }
 </script><div class="bsd-contribForm-belowContent">
 
+
 <!-- =================== Below form content STARTS =================== -->
 
 <script>
-
-  // messy code below, to be organized
-
-  $("head").append("<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0, user-scalable=no\">");
-
   var bsdForm = $("form#contribution");
   var $bsdForm = bsdForm;
-
   var theForm = $("#donation-form");
   var $theForm = theForm;
 
+  // To make the page show properly on mobile
+  $("head").append("<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0, user-scalable=no\">");
+
+  // ***********************************************
+  // UI related
+  // ***********************************************
   $(".cc-additional-info").hide();
   $(".hint-msg").hide();
+  $("form#contribution").hide();
+  $("h2.temp-label").hide();
 
   $("#donation-form input, #donation-form select").focus(function() {
     $(this).siblings("i.fa.field-icon").addClass("icon-in-focus");
@@ -819,6 +858,41 @@
   });
 
 
+  // ***********************************************
+  // Changing credit card logos on click / hover
+  // Not an ideal way to swap the images. Probably should use CSS sprite when we get a chance
+  // ***********************************************
+  function coloredCCLogos() {
+    $("#visa-logo").attr("src", "https://sendto.mozilla.org/page/-/donation_form/img/Visa.png");
+      $("#mc-logo").attr("src", "https://sendto.mozilla.org/page/-/donation_form/img/MasterCard.png");
+  }
+
+  function whiteCCLogos() {
+    $("#visa-logo").attr("src", "https://sendto.mozilla.org/page/-/donation_form/img/Visa-white.png");
+      $("#mc-logo").attr("src", "https://sendto.mozilla.org/page/-/donation_form/img/MasterCard-white.png");
+  }
+
+  $("input[name='payment-type']").change(function() {
+    var selected = $(this).val();
+    if ( selected == "cc" ) {
+      whiteCCLogos();
+    } else {
+      coloredCCLogos();
+    }
+  });
+
+  $("label[for='payment-cc']").mouseover(function (){
+    whiteCCLogos();
+  });
+
+  $("label[for='payment-cc']").mouseout(function (){
+    coloredCCLogos();
+  });
+
+  // ***********************************************
+  // Generate country dropdown.
+  // This basically copies the BSD generated DOM.
+  // ***********************************************
   function generateCountryDropdown() {
     var cloned = $bsdForm.find("select[name='country']").clone();
     $theForm.find("select[name='country']").html(cloned.html());
@@ -828,6 +902,9 @@
   generateCountryDropdown();
 
 
+  // ***********************************************
+  // Extract BSD form meta and insert to our form
+  // ***********************************************
   function insertFormMetaDOM() {
     // the following is an array of all the meta form field names that came with the BSD generated form
     // API doc here: https://github.com/bluestatedigital/bsd-developer-docs/blob/master/bsd-donate-api/README.md
@@ -864,6 +941,10 @@
   }
   insertFormMetaDOM();
 
+
+  // ***********************************************
+  // Update Donate button to make it show the selected donation amount
+  // ***********************************************
   var updateDonateButtonText = function(event) {
     var amountSelected = $(this).val();
     console.log(amountSelected);
@@ -888,8 +969,10 @@
     }
   });
 
-  // $bsdForm.remove();
 
+  // ***********************************************
+  // Parsley.js setting & client side validation etc
+  // ***********************************************
   window.ParsleyConfig = {};
 
   $theForm.parsley().subscribe("parsley:form:validate", function (formInstance) {
@@ -905,6 +988,10 @@
     $("#donate-btn").click(toggleCCpanel);
   });
 
+  // ***********************************************
+  // Remove the BSD generated form from DOM
+  // ***********************************************
+  // $bsdForm.remove();
 </script>
 
 <!-- =================== Below form content ENDS =================== -->

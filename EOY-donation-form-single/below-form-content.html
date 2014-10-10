@@ -1,19 +1,21 @@
 <!-- =================== Below form content STARTS =================== -->
 
 <script>
-
-  // messy code below, to be organized
-
-  $("head").append("<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0, user-scalable=no\">");
-
   var bsdForm = $("form#contribution");
   var $bsdForm = bsdForm;
-
   var theForm = $("#donation-form");
   var $theForm = theForm;
 
+  // To make the page show properly on mobile
+  $("head").append("<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0, user-scalable=no\">");
+
+  // ***********************************************
+  // UI related
+  // ***********************************************
   $(".cc-additional-info").hide();
   $(".hint-msg").hide();
+  $("form#contribution").hide();
+  $("h2.temp-label").hide();
 
   $("#donation-form input, #donation-form select").focus(function() {
     $(this).siblings("i.fa.field-icon").addClass("icon-in-focus");
@@ -42,6 +44,41 @@
   });
 
 
+  // ***********************************************
+  // Changing credit card logos on click / hover
+  // Not an ideal way to swap the images. Probably should use CSS sprite when we get a chance
+  // ***********************************************
+  function coloredCCLogos() {
+    $("#visa-logo").attr("src", "https://sendto.mozilla.org/page/-/donation_form/img/Visa.png");
+      $("#mc-logo").attr("src", "https://sendto.mozilla.org/page/-/donation_form/img/MasterCard.png");
+  }
+
+  function whiteCCLogos() {
+    $("#visa-logo").attr("src", "https://sendto.mozilla.org/page/-/donation_form/img/Visa-white.png");
+      $("#mc-logo").attr("src", "https://sendto.mozilla.org/page/-/donation_form/img/MasterCard-white.png");
+  }
+
+  $("input[name='payment-type']").change(function() {
+    var selected = $(this).val();
+    if ( selected == "cc" ) {
+      whiteCCLogos();
+    } else {
+      coloredCCLogos();
+    }
+  });
+
+  $("label[for='payment-cc']").mouseover(function (){
+    whiteCCLogos();
+  });
+
+  $("label[for='payment-cc']").mouseout(function (){
+    coloredCCLogos();
+  });
+
+  // ***********************************************
+  // Generate country dropdown.
+  // This basically copies the BSD generated DOM.
+  // ***********************************************
   function generateCountryDropdown() {
     var cloned = $bsdForm.find("select[name='country']").clone();
     $theForm.find("select[name='country']").html(cloned.html());
@@ -51,6 +88,9 @@
   generateCountryDropdown();
 
 
+  // ***********************************************
+  // Extract BSD form meta and insert to our form
+  // ***********************************************
   function insertFormMetaDOM() {
     // the following is an array of all the meta form field names that came with the BSD generated form
     // API doc here: https://github.com/bluestatedigital/bsd-developer-docs/blob/master/bsd-donate-api/README.md
@@ -87,6 +127,10 @@
   }
   insertFormMetaDOM();
 
+
+  // ***********************************************
+  // Update Donate button to make it show the selected donation amount
+  // ***********************************************
   var updateDonateButtonText = function(event) {
     var amountSelected = $(this).val();
     console.log(amountSelected);
@@ -111,8 +155,10 @@
     }
   });
 
-  // $bsdForm.remove();
 
+  // ***********************************************
+  // Parsley.js setting & client side validation etc
+  // ***********************************************
   window.ParsleyConfig = {};
 
   $theForm.parsley().subscribe("parsley:form:validate", function (formInstance) {
@@ -128,5 +174,10 @@
     $("#donate-btn").click(toggleCCpanel);
   });
 
+  // ***********************************************
+  // Remove the BSD generated form from DOM
+  // ***********************************************
+  // $bsdForm.remove();
 </script>
+
 <!-- =================== Below form content ENDS =================== -->

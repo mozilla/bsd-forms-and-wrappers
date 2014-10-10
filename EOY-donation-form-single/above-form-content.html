@@ -1,5 +1,5 @@
 <!-- =================== Above form content STARTS =================== -->
-<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,300' rel='stylesheet' type='text/css'>
+<link href="/page/smartproxy/BSD_AwpYQRBKAVsKVFxQUBVaEk1aX18/BhZFCgUFC10JSg16QQBdSjBYXkEOA1UDTg4CUxoHBVQ" rel="stylesheet" type="text/css">
 <link href="https://sendto.mozilla.org/page/-/donation_form/css/font-awesome.min.css" rel="stylesheet">
 <script src="https://sendto.mozilla.org/page/-/donation_form/js/jquery-2.1.1.min.js"></script>
 <script src="https://sendto.mozilla.org/page/-/donation_form/js/parsley.min.js"></script>
@@ -125,7 +125,7 @@
     width: 66.66%
   }
   .quarter {
-    width: 25.%;
+    width: 25%;
   }
 
   .text-center {
@@ -410,7 +410,7 @@
   .address-section,
   .credit-card-section,
   #email-row {
-    margin-bottom: 15px;
+    margin-top: 15px;
   }
 
   #secure-label {
@@ -432,6 +432,28 @@
   #privacy-policy input[type="checkbox"] + label {
     margin-left: 10px;
     display: inline;
+  }
+
+  footer {
+    background: #fff;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    color: #666;
+    font-size: 12px;
+  }
+
+  footer .half {
+    width: 40%;
+    margin-right: 30px;
+  }
+
+  footer img {
+    max-width: 120px;
+  }
+
+  footer ul {
+    padding-left: 0;
+    list-style: none;
   }
 
   /* Temp Fix */
@@ -483,7 +505,7 @@
   }
 </style>
 
-<div class="outer-wrap" id="mozilla-eoy-donation">
+<div id="mozilla-eoy-donation">
   <div class="container">
     <div class="row">
       <div class="col-md-offset-2 col-md-10">
@@ -569,18 +591,16 @@
               <input type="radio" name="payment-type" value="cc" id="payment-cc" data-parsley-multiple="payment-type" data-parsley-group="payment-type" data-parsley-errors-container="#payment-type-error-msg" required="">
               <label for="payment-cc">
                 <div class="row">
-                  <img src="https://sendto.mozilla.org/page/-/donation_form/img/MasterCard.png" class="half">
-                  <img src="https://sendto.mozilla.org/page/-/donation_form/img/Visa.png" class="half">
+                  <img src="https://sendto.mozilla.org/page/-/donation_form/img/Visa.png" class="half" id="visa-logo">
+                  <img src="https://sendto.mozilla.org/page/-/donation_form/img/MasterCard.png" class="half" id="mc-logo">
                 </div>
                 <div class="row medium-label-size">Credit card</div>
               </label>
             </div>
             <div class="half">
-              <input type="radio" name="payment-type" value="paypal" id="payment-paypal" data-parsley-multiple="payment-type" data-parsley-group="payment-type" data-parsley-errors-container="#payment-type-error-msg" required="">
-              <label for="payment-paypal">
+              <input type="radio" name="payment-type" value="paypal" id="payment-paypal" data-parsley-multiple="payment-type" data-parsley-group="payment-type" data-parsley-errors-container="#payment-type-error-msg" required=""><label for="payment-paypal">
                 <div class="row">
-                  <img src="https://sendto.mozilla.org/page/-/donation_form/img/PayPal.png" class="full">
-                </div>
+                  <img src="https://sendto.mozilla.org/page/-/donation_form/img/PayPal.png" class="full"></div>
                 <div class="row medium-label-size">PayPal</div>
               </label>
             </div>
@@ -604,8 +624,7 @@
             </div>
             <div class="half">
               <div class="field-container">
-                <input type="text" name="lastname" placeholder="Last name" class="less-indented" required="">
-              </div>
+                <input type="text" name="lastname" placeholder="Last name" class="less-indented" required=""></div>
             </div>
           </div>
           <!-- Full Name Row Ends  -->
@@ -615,8 +634,7 @@
               <div class="full">
                 <div class="field-container">
                   <i class="fa fa-map-marker field-icon"></i>
-                  <select name="country" required=""><option value="">Country</option></select>
-                </div>
+                  <select name="country" required=""><option value="">Country</option></select></div>
               </div>
             </div>
             <div class="row">
@@ -710,12 +728,31 @@
         <!-- = One Line Error Message Button ==========  -->
       </form>
     </div>
-
   </div>
+
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="half">
+          <img src="https://sendto.mozilla.org/page/-/donation_form/img/Mozilla-wordmark.png">
+          <p class="license">Portions of this content are ©1998–2014 by individual mozilla.org contributors. Content available under a <a href="https://www.mozilla.org/foundation/licensing/website-content/">Creative Commons license</a>.</p>
+        </div>
+        <div class="quarter">
+          <ul class="links">
+            <li><a href="https://www.mozilla.org/mission/">Mission</a></li>
+            <li><a href="https://www.mozilla.org/about/">About</a></li>
+            <li><a href="https://www.mozilla.org/contact/spaces/">Contact</a></li>
+            <li><a href="https://www.mozilla.org/privacy/">Privacy Policy</a></li>
+            <li><a href="https://www.mozilla.org/about/legal/">Legal Notices</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
 
 </div>
 
-<h2 style="color: #6B12C4">( real BSD generated form below )</h2>
+<h2 style="color: #6B12C4" class="temp-label">( real BSD generated form below )</h2>
 
 
 <!-- =================== Above form content ENDS =================== -->
