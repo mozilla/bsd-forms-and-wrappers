@@ -15,8 +15,6 @@
   // ***********************************************
   $(".cc-additional-info").hide();
   $(".hint-msg").hide();
-  $("form#contribution").hide();
-  $("h2.temp-label").hide();
 
   $("#donation-form input, #donation-form select").focus(function() {
     $(this).siblings("i.fa.field-icon").addClass("icon-in-focus");
@@ -173,6 +171,10 @@
   window.ParsleyConfig = {};
 
   window.ParsleyValidator
+    // Check `other amount` is valid
+    // .addValidator('checkAmount', function (value, requirement) {
+    //   return;
+    // }, 10)
     // Visa and Master Card client side validation
     .addValidator('visaMcCardNum', function (value, requirement) {
       var regVisa = /^(?:4[0-9]{12}(?:[0-9]{3})?)$/;
@@ -215,5 +217,4 @@
   $bsdForm.remove();
 
 </script>
-
 <!-- =================== Below form content ENDS =================== -->

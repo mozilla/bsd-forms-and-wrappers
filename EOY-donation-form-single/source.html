@@ -2,6 +2,7 @@
 <html><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><title>sendto.mozilla.org  |  TEST Give to Mozilla Today</title><link rel="canonical" href="https://sendto.mozilla.org/page/contribute/test-give-to-mozilla-today"><link rel="stylesheet" href="//s.bsd.net/page/static/20141008/skins/default/contribution/display_page.inc.css" type="text/css"><script src="//s.bsd.net/page/static/20141008/javascript/bsd.js" type="text/javascript"></script><link rel="stylesheet" href="//s.bsd.net/page/static/20141008/skins/default/jquery/jquery-ui-1.7.2.custom.css" type="text/css"><script src="//ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js" type="text/javascript"></script><script type="text/javascript">!window.jQuery && document.write(unescape('%3Cscript src="/ext/jquery/jquery-1.4.1.min.js"%3E%3C/script%3E'))</script><script src="//s.bsd.net/page/static/20141008/ext/jquery/cookie/jquery.cookie.min.js" type="text/javascript"></script><script src="/modules/spud/js/Spud.js.php" type="text/javascript"></script><script src="//s.bsd.net/page/static/20141008/ext/jquery/ui/jquery-ui-1.7.2.custom.min.js" type="text/javascript"></script><script src="//s.bsd.net/page/static/20141008/javascript/Core/widget/creditCardTypeSelector.js" type="text/javascript"></script><script type="text/javascript">window.bQuery = jQuery.noConflict(true);</script><script src="//s.bsd.net/page/static/20141008/modules/contribution/javascript/contribution.js" type="text/javascript"></script><script src="//s.bsd.net/page/static/20141008/utils/ajax/ajax.class.js" type="text/javascript"></script><script src="//s.bsd.net/page/static/20141008/utils/spud/spud.js" type="text/javascript"></script><script src="//s.bsd.net/page/static/20141008/utils/locale/javascript/locale.class.js" type="text/javascript"></script><script src="//s.bsd.net/page/static/20141008/ext/yui/build/yahoo-dom-event/yahoo-dom-event.js" type="text/javascript"></script><script src="//s.bsd.net/page/static/20141008/ext/yui/build/connection/connection-min.js" type="text/javascript"></script><script src="//s.bsd.net/page/static/20141008/javascript/balloon/Balloon.js" type="text/javascript"></script><link rel="stylesheet" href="//s.bsd.net/page/static/20141008/javascript/balloon/Balloon.css" type="text/css"><link rel="stylesheet" href="//s.bsd.net/page/static/20141008/css/jquery_ui_reset.css" type="text/css"><meta property="og:title" content="Support Mozilla"></head><body>        <div class="bsd-contribForm-wrap bsd-contribForm-oneCol">
             <div class="bsd-contribForm-aboveContent">
 
+
 <!-- =================== Above form content STARTS =================== -->
 
 <link href="https://www.mozilla.org/tabzilla/media/css/tabzilla.css" rel="stylesheet">
@@ -19,6 +20,7 @@
     font-size: 14px;
     line-height: 20px;
     color: #333;
+    margin: 0;
     background:-webkit-gradient(linear,left top,left bottom,from(#D7D3C8),to(#F6F4EC));
     background:-webkit-linear-gradient(to bottom, #D7D3C8, #F6F4EC);
     background:   -moz-linear-gradient(to bottom, #D7D3C8, #F6F4EC);
@@ -221,6 +223,7 @@
     background-color: #C13832; /* Mozilla Red */
     padding-top: 10px;
     padding-bottom: 10px;
+    margin-top: 15px;
     margin-bottom: 20px;
     transition: all 0.3s ease 0s;
   }
@@ -495,6 +498,10 @@
     margin: 0;
   }
 
+  #one-line-error p {
+    margin-bottom: 0;
+  }
+
   input.parsley-error,
   select.parsley-error {
     border-color: #C13832;
@@ -547,7 +554,7 @@
   <div class="container">
 
     <div id="form-wrapper">
-      <form id="donation-form">
+      <form id="donation-form" action="/page/cde/Contribution/Charge">
         <!-- = Amount Section ====================  -->
         <div class="big-section">
           <div class="row">
@@ -573,7 +580,7 @@
             <div class="two-third">
               <div id="amount-other-container">
                 <input type="radio" name="amount" value="other" id="amount-other" data-parsley-group="amount"><label for="amount-other" class="large-label-size">$</label>
-                <input type="text" name="amount_other" placeholder="Other amount" class="medium-label-size" data-parsley-errors-container="#amount-other-error-msg" data-parsley-type="number"></div>
+                <input type="text" name="amount_other" placeholder="Other amount" class="medium-label-size" data-parsley-errors-container="#amount-other-error-msg" data-parsley-type="number" data-parsley-check-amount=""></div>
             </div>
           </div>
           <div class="row error-msg-row">
@@ -762,15 +769,11 @@
     </div>
   </footer></div>
 
-<h2 style="color: #6B12C4" class="temp-label">( real BSD generated form below )</h2>
 
-
-<!-- =================== Above form content ENDS =================== -->
-
-</div>
-        <iframe width="1" height="1" frameborder="0" scrolling="no" src="/images/Contribution/Misc/logo.htm?m=132500&amp;s=mozilla_H1_Nlp_dWQ1E6dU7lxsX_hud"><img width="1" height="1" src="/images/Contribution/Misc/logo.gif?m=132500&amp;s=mozilla_H1_Nlp_dWQ1E6dU7lxsX_hud"></iframe>
+<!-- =================== Above form content ENDS =================== -->            </div>
+        <iframe width="1" height="1" frameborder="0" scrolling="no" src="/images/Contribution/Misc/logo.htm?m=132500&amp;s=mozilla_H1_PE1Vy5kQhX5LRJA3cJ6g-"><img width="1" height="1" src="/images/Contribution/Misc/logo.gif?m=132500&amp;s=mozilla_H1_PE1Vy5kQhX5LRJA3cJ6g-"></iframe>
         <form name="contribution" class="bsd-contribution-98" action="/page/cde/Contribution/Charge" method="post" id="contribution">
-          <input name="slug" type="hidden" value="test-give-to-mozilla-today"><input name="submission_key" type="hidden" value="H1_Nlp_dWQ1E6dU7lxsX_hudvpjN05fn"><input name="http_referer" type="hidden" value=""><input name="event_attendee_id" type="hidden" value=""><input name="outreach_page_id" type="hidden" value=""><input name="stg_signup_id" type="hidden" value=""><input name="mailing_link_id" type="hidden" value=""><input name="mailing_recipient_id" type="hidden" value=""><input name="match_campaign_id" type="hidden" value=""><input name="match_is_pledge" type="hidden" value=""><input name="pledge_is_convert" type="hidden" value=""><input name="contributor_key" type="hidden" value=""><input id="BSDForm-quick_donate_populated" name="quick_donate_populated" type="hidden" value="0"><input id="BSDForm-device_fingerprint" name="device_fingerprint" type="hidden" value="0"><input id="default_country" name="default_country" type="hidden" value="US"><input id="cc_number_ack" name="cc_number_ack" type="hidden" value=""><input name="ach_account_number_ack" type="hidden" value=""><input name="k-ris-sid" type="hidden" value="mozilla_H1_Nlp_dWQ1E6dU7lxsX_hud"><table><tr><script>var quickformErrors = []; if(!BSD.errors){BSD.errors = quickformErrors;} else {BSD.errors = BSD.errors.concat(quickformErrors);}</script><td style="width: 300px;" class="contribcolumn"><table><tr class="bsd-contribution-section-header" id="bsd-contribution-section-header-contributor" data-bsdformsectionname="contributor"><td class="contribheader" id="bsd-contribution-header-contributor">
+          <input name="slug" type="hidden" value="test-give-to-mozilla-today"><input name="submission_key" type="hidden" value="H1_PE1Vy5kQhX5LRJA3cJ6g-muhRYgUS"><input name="http_referer" type="hidden" value=""><input name="event_attendee_id" type="hidden" value=""><input name="outreach_page_id" type="hidden" value=""><input name="stg_signup_id" type="hidden" value=""><input name="mailing_link_id" type="hidden" value=""><input name="mailing_recipient_id" type="hidden" value=""><input name="match_campaign_id" type="hidden" value=""><input name="match_is_pledge" type="hidden" value=""><input name="pledge_is_convert" type="hidden" value=""><input name="contributor_key" type="hidden" value=""><input id="BSDForm-quick_donate_populated" name="quick_donate_populated" type="hidden" value="0"><input id="BSDForm-device_fingerprint" name="device_fingerprint" type="hidden" value="0"><input id="default_country" name="default_country" type="hidden" value="US"><input id="cc_number_ack" name="cc_number_ack" type="hidden" value=""><input name="ach_account_number_ack" type="hidden" value=""><input name="k-ris-sid" type="hidden" value="mozilla_H1_PE1Vy5kQhX5LRJA3cJ6g-"><table><tr><script>var quickformErrors = []; if(!BSD.errors){BSD.errors = quickformErrors;} else {BSD.errors = BSD.errors.concat(quickformErrors);}</script><td style="width: 300px;" class="contribcolumn"><table><tr class="bsd-contribution-section-header" id="bsd-contribution-section-header-contributor" data-bsdformsectionname="contributor"><td class="contribheader" id="bsd-contribution-header-contributor">
                 Contributor
               </td>
             </tr><tr><td class="nested_table"><table><tr></tr><tr><td colspan="2" class="nested_table"><table id="country_table"><tr><td>
@@ -830,8 +833,7 @@
 
 <!-- =================== Below form content STARTS =================== -->
 
-<script src="https://www.mozilla.org/tabzilla/media/js/tabzilla.js"></script>
-<script>
+<script src="https://www.mozilla.org/tabzilla/media/js/tabzilla.js"></script><script>
   var bsdForm = $("form#contribution");
   var $bsdForm = bsdForm;
   var theForm = $("#donation-form");
@@ -845,8 +847,6 @@
   // ***********************************************
   $(".cc-additional-info").hide();
   $(".hint-msg").hide();
-  $("form#contribution").hide();
-  $("h2.temp-label").hide();
 
   $("#donation-form input, #donation-form select").focus(function() {
     $(this).siblings("i.fa.field-icon").addClass("icon-in-focus");
@@ -1003,6 +1003,10 @@
   window.ParsleyConfig = {};
 
   window.ParsleyValidator
+    // Check `other amount` is valid
+    // .addValidator('checkAmount', function (value, requirement) {
+    //   return;
+    // }, 10)
     // Visa and Master Card client side validation
     .addValidator('visaMcCardNum', function (value, requirement) {
       var regVisa = /^(?:4[0-9]{12}(?:[0-9]{3})?)$/;
@@ -1045,6 +1049,7 @@
   $bsdForm.remove();
 
 </script>
+
 <!-- =================== Below form content ENDS =================== -->
 
 </div>
