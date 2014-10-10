@@ -7,6 +7,7 @@
 
 <!-- <link href="https://sendto.mozilla.org/page/-/donation_form/css/makerstrap.complete.min.css" rel="stylesheet"> -->
 
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,300' rel='stylesheet' type='text/css'>
 <link href="https://sendto.mozilla.org/page/-/donation_form/css/font-awesome.min.css" rel="stylesheet">
 <link href="no-bootstrap.css" rel="stylesheet">
 
@@ -26,10 +27,16 @@
   </div>
 
   <div class="container">
-    <div class="full text-center">
-      <h1>Donate Today</h1>
-      <p style="color: #6B12C4">(dummy form, for UI reference only. WIP)</p>
+    <div class="row">
+      <div class="full text-center">
+        <h1>Donate Today</h1>
+        <p style="color: #6B12C4">(dummy form, for UI reference only. WIP)</p>
+      </div>
     </div>
+  </div>
+
+
+  <div class="container">
 
     <div id="form-wrapper">
       <form id="donation-form">
@@ -55,7 +62,7 @@
             <div class="third">
               <input type="radio" name="amount" value="3" id="amount-3" data-parsley-multiple="amount" data-parsley-group="amount"><label for="amount-3" class="large-label-size">$3</label>
             </div>
-            <div class="two-third col-sm-8 col-xs-8">
+            <div class="two-third">
               <div id="amount-other-container">
                 <input type="radio" name="amount" value="other" id="amount-other" data-parsley-group="amount"><label for="amount-other" class="large-label-size">$</label>
                 <input type="text" name="amount_other" placeholder="Other amount" class="medium-label-size" data-parsley-errors-container="#amount-other-error-msg" data-parsley-type="number"></div>
@@ -120,7 +127,7 @@
         <!-- = Payment Section Ends ====================  -->
 
         <!-- = Billing Info Section ====================  -->
-        <div class="big-section">
+        <div>
           <!-- Full Name Row  -->
           <div class="row cc-additional-info" id="full-name-row">
             <div class="half">
@@ -158,7 +165,7 @@
           </div>
           <!-- Address Ends -->
           <!-- Credit Card Info -->
-          <div class="credit-card-section">
+          <div class="cc-additional-info credit-card-section">
             <div class="row">
               <div class="full">
                 <div class="field-container">
@@ -187,7 +194,7 @@
           </div>
           <!-- Credit Card Info Ends -->
           <!-- Email -->
-          <div id="email-row">
+          <div class="cc-additional-info" id="email-row">
             <div class="row hint-msg-parent">
               <div class="full">
                 <div class="field-container">
@@ -320,8 +327,8 @@
   var theForm = $("#donation-form");
   var $theForm = theForm;
 
-  // $(".cc-additional-info").hide();
-  // $(".hint-msg").hide();
+  $(".cc-additional-info").hide();
+  $(".hint-msg").hide();
 
   $("#donation-form input, #donation-form select").focus(function() {
     $(this).siblings("i.fa.field-icon").addClass("icon-in-focus");
