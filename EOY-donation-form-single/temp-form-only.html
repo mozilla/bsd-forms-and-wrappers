@@ -1,0 +1,196 @@
+<div class="row">
+      <div id="form-wrapper">
+        <!-- <form id="donation-form" action="/page/cde/Contribution/Charge"> -->
+        <form id="donation-form">
+        <!-- = Amount Section ==========  -->
+        <div class="row big-section">
+          <div class="full">
+            <h2>Amount</h2>
+          </div>
+          <div class="donation-amount-row">
+            <div class="third col-reduced-gutter">
+              <input type="radio" name="amount" value="20" id="amount-20" data-parsley-multiple="amount" data-parsley-group="amount" data-parsley-errors-container="#amount-error-msg" data-parsley-error-message="Please select an amount." required=""><label for="amount-20" class="large-label-size">$20</label>
+            </div>
+            <div class="third col-reduced-gutter">
+              <input type="radio" name="amount" value="10" id="amount-10" data-parsley-multiple="amount" data-parsley-group="amount"><label for="amount-10" class="large-label-size">$10</label>
+            </div>
+            <div class="third col-reduced-gutter">
+              <input type="radio" name="amount" value="5" id="amount-5" data-parsley-multiple="amount" data-parsley-group="amount"><label for="amount-5" class="large-label-size">$5</label>
+            </div>
+          </div>
+          <div class="donation-amount-row">
+            <div class="third col-reduced-gutter">
+              <input type="radio" name="amount" value="3" id="amount-3" data-parsley-multiple="amount" data-parsley-group="amount"><label for="amount-3" class="large-label-size">$3</label>
+            </div>
+            <div class="two-third col-sm-8 col-xs-8 col-reduced-gutter">
+              <div id="amount-other-container">
+                <input type="radio" name="amount" value="other" id="amount-other" data-parsley-group="amount"><label for="amount-other" class="large-label-size">$</label>
+                <input type="text" name="amount_other" placeholder="Other amount" class="medium-label-size" data-parsley-errors-container="#amount-other-error-msg" data-parsley-type="number"></div>
+            </div>
+          </div>
+          <div class="row error-msg-row">
+            <div class="full col-reduced-gutter">
+              <div id="amount-error-msg"></div>
+              <div id="amount-other-error-msg"></div>
+            </div>
+          </div>
+          <div class="row" id="recurring-option-row">
+            <div class="half col-reduced-gutter">
+              <input type="radio" name="recurring_acknowledge" value="0" checked="checked" id="one-time-payment" data-parsley-errors-container="#recurring-error-msg" required=""><label for="one-time-payment" class="medium-label-size">One-time</label>
+            </div>
+            <div class="half col-reduced-gutter">
+              <input type="radio" name="recurring_acknowledge" value="1" id="monthly-payment"><label for="monthly-payment" class="medium-label-size">Monthly</label>
+            </div>
+          </div>
+          <div class="row error-msg-row">
+            <div class="full col-reduced-gutter">
+              <div id="recurring-error-msg"></div>
+            </div>
+          </div>
+        </div>
+        <!-- = Payment Section ==========  -->
+        <div class="row big-section">
+          <div class="row">
+            <div class="full">
+              <h2>Payment</h2><p id="secure-label"><i class="fa fa-lock"></i>Secure</p>
+            </div>
+          </div>
+          <div class="row" id="payment-type-row">
+            <div class="half col-reduced-gutter">
+              <input type="radio" name="payment-type" value="cc" id="payment-cc" data-parsley-multiple="payment-type" data-parsley-group="payment-type" data-parsley-errors-container="#payment-type-error-msg" required="">
+              <label for="payment-cc">
+                <div class="row">
+                  <img src="https://sendto.mozilla.org/page/-/donation_form/img/MasterCard.png" class="half">
+                  <img src="https://sendto.mozilla.org/page/-/donation_form/img/Visa.png" class="half">
+                </div>
+                <div class="row medium-label-size">Credit card</div>
+              </label>
+            </div>
+            <div class="half col-reduced-gutter">
+              <input type="radio" name="payment-type" value="paypal" id="payment-paypal" data-parsley-multiple="payment-type" data-parsley-group="payment-type" data-parsley-errors-container="#payment-type-error-msg" required="">
+              <label for="payment-paypal">
+                <div class="row">
+                  <img src="https://sendto.mozilla.org/page/-/donation_form/img/PayPal.png" class="full">
+                </div>
+                <div class="row medium-label-size">PayPal</div>
+              </label>
+            </div>
+          </div>
+          <div class="row error-msg-row">
+            <div class="full col-reduced-gutter">
+              <div id="payment-type-error-msg"></div>
+            </div>
+          </div>
+        </div>
+        <!-- = Billing Info Section ==========  -->
+        <div class="row cc-additional-info">
+          <div class="full">
+            <!-- Full Name Row  -->
+            <div class="row" id="full-name-row">
+              <div class="half col-reduced-gutter">
+                <div class="field-container">
+                  <i class="fa fa-user field-icon"></i>
+                  <input type="text" name="firstname" placeholder="First name" data-parsley-error-message="Please complete the first name field." required=""></div>
+              </div>
+              <div class="half col-reduced-gutter">
+                <div class="field-container">
+                  <input type="text" name="lastname" placeholder="Last name" class="less-indented" required=""></div>
+              </div>
+            </div>
+            <!-- Address Row -->
+            <div class="row" id="address-row">
+              <div class="full">
+                <div class="row">
+                  <div class="full">
+                    <div class="field-container">
+                      <i class="fa fa-map-marker field-icon"></i>
+                      <select name="country" required=""><option value="">Country</option></select><!-- <i class="fa fa-caret-down" id="country-arrow"></i> --></div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="full">
+                    <input type="text" name="addr1" placeholder="Address" required=""></div>
+                </div>
+                <div class="row">
+                  <div class="half col-reduced-gutter">
+                    <input type="text" name="city" placeholder="City" required=""></div>
+                  <div class="half col-reduced-gutter">
+                    <input type="text" name="zip" placeholder="Postal code" class="less-indented" required=""></div>
+                </div>
+              </div>
+            </div>
+            <!-- Credit Card Info Row -->
+            <div class="row" id="credit-card-row">
+              <div class="full">
+                <div class="row">
+                  <div class="full">
+                    <div class="field-container">
+                      <i class="fa fa-credit-card field-icon"></i>
+                      <input type="text" name="cc_number" placeholder="Credit card number" required=""></div>
+                  </div>
+                </div>
+                <div class="row hint-msg-parent">
+                  <div class="full">
+                    <div class="row">
+                      <div class="half col-reduced-gutter">
+                        <div class="field-container">
+                          <i class="fa fa-calendar-o field-icon"></i>
+                          <input type="text" placeholder="MM/YY" required=""></div>
+                      </div>
+                      <div class="half col-reduced-gutter">
+                        <div class="field-container">
+                          <i class="fa fa-lock field-icon"></i>
+                          <input type="text" name="cc_cvv" maxlength="3" placeholder="CVC" required=""><i class="fa fa-question-circle hint"></i>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="full">
+                        <div class="hint-msg small">
+                          <img src="https://sendto.mozilla.org/page/-/donation_form/img/CVC-illustration.png" class="left"><div class="">You can find your three-digit CVC number on the back of your credit card.</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row hint-msg-parent" id="email-row">
+              <div class="full">
+                <div class="field-container">
+                  <i class="fa fa-envelope field-icon"></i>
+                  <input type="email" name="email" placeholder="Email" required=""><i class="fa fa-question-circle hint"></i>
+                  <div class="hint-msg small">
+                    We&rsquo;ll email you a receipt for your donation. We won&rsquo;t send you other email without your permission.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="row cc-additional-info" id="privacy-policy">
+          <div class="full">
+            <input type="checkbox" name="legal_confirm" data-parsley-errors-container="#privacy-error-msg" data-parsley-error-message="To submit this form you must agree with our privacy policy." required=""><label>I'm okay with you handling this info as you explain in your <a href="https://www.mozilla.org/privacy/">privacy policy</a>.</label>
+          </div>
+        </div>
+        <div class="row cc-additional-info error-msg-row">
+              <div class="full col-reduced-gutter">
+                <div id="privacy-error-msg"></div>
+              </div>
+        </div>
+        <div class="row">
+          <div class="full">
+            <input type="submit" value="Donate now" class="btn large-label-size" id="donate-btn"></div>
+        </div>
+        <div class="row">
+          <div class="full">
+            [FIXME] Oops, please complete fields highlighted in red.
+          </div>
+        </div>
+
+      </form>
+
+      </div>
+    </div>
