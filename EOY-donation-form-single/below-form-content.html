@@ -255,8 +255,10 @@ $("head").append("<meta name=\"viewport\" content=\"width=device-width, initial-
       var isFormValid = formInstance.isValid();
       console.log(isFormValid);
       if (isFormValid) {
-        console.log("ajax submitttt");
-        // AJAX POST HERE ===
+        var $newForm = $('<div id="newForm" />');
+        $theForm.clone().appendTo($newForm);
+        $newForm.find('form').submit();
+
         $("#one-line-error").hide();
       } else {
         $("#one-line-error").show();
