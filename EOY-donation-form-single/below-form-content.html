@@ -146,7 +146,6 @@ $("head").append("<meta name=\"viewport\" content=\"width=device-width, initial-
     // the following is an array of all the meta form field names that came with the BSD generated form
     // API doc here: https://github.com/bluestatedigital/bsd-developer-docs/blob/master/bsd-donate-api/README.md
     var bsdFormMetaName = [
-                        "slug",            // required
                         "submission_key",
                         "http_referer",
                         "event_attendee_id",
@@ -163,10 +162,18 @@ $("head").append("<meta name=\"viewport\" content=\"width=device-width, initial-
                         "default_country",
                         "cc_number_ack",
                         "ach_account_number_ack",
-                        "k-ris-sid"
+                        "k-ris-sid",
                       ];
 
     var metaFieldsDOM = "";
+    var slug = window.location.pathname.split('/');
+    slug = slug.reverse();
+
+    if (slug[0] === '') {
+      slug.shift();
+    }
+
+    $theForm.prepend('<input type="hidden" name="slug" value="' + slug[0] + '" />');
 
     $.each(bsdFormMetaName, function( index, value ) {
       var field = $bsdForm.find("[name='"+ value + "']").clone();
@@ -178,6 +185,11 @@ $("head").append("<meta name=\"viewport\" content=\"width=device-width, initial-
   }
   insertFormMetaDOM();
 
+
+  // ***********************************************
+  // Remove the BSD generated form from DOM
+  // ***********************************************
+  $bsdForm.remove();
 
   // ***********************************************
   // Update Donate button to make it show the selected donation amount
@@ -213,6 +225,9 @@ $("head").append("<meta name=\"viewport\" content=\"width=device-width, initial-
   // Parsley.js setting & client side validation etc
   // API: http://parsleyjs.org/doc/
   // ***********************************************
+  var regVisa = /^(?:4[0-9]{12}(?:[0-9]{3})?)$/;
+  var regMC = /^(?:5[1-5][0-9]{14})$/;
+
   window.ParsleyConfig = {};
 
   window.ParsleyValidator
@@ -222,8 +237,6 @@ $("head").append("<meta name=\"viewport\" content=\"width=device-width, initial-
     // }, 10)
     // Visa and Master Card client side validation
     .addValidator('visaMcCardNum', function (value, requirement) {
-      var regVisa = /^(?:4[0-9]{12}(?:[0-9]{3})?)$/;
-      var regMC = /^(?:5[1-5][0-9]{14})$/;
       return (value.match(regVisa) && value.match(regVisa).length > 0 )
               || (value.match(regMC) && value.match(regMC).length > 0 );
     }, 10)
@@ -237,6 +250,12 @@ $("head").append("<meta name=\"viewport\" content=\"width=device-width, initial-
 
   parsleyForm.subscribe("parsley:form:validate", function (formInstance) {
     formInstance.submitEvent.preventDefault();
+
+    var
+        $donateButton = $('#donate-btn'),
+        donateButtonText = $donateButton.val();
+
+    $donateButton.prop('disabled', true).val('Submitting…');
 
     if ($('input[name="payment-type"]:checked').val() === 'paypal') {
       if ($('input[name="recurring_acknowledge"]:checked').val() == '0') {
@@ -255,9 +274,49 @@ $("head").append("<meta name=\"viewport\" content=\"width=device-width, initial-
       var isFormValid = formInstance.isValid();
       console.log(isFormValid);
       if (isFormValid) {
-        var $newForm = $('<div id="newForm" />');
-        $theForm.clone().appendTo($newForm);
-        $newForm.find('form').submit();
+
+        function findCCType(ccNum) {
+          if (ccNum.match(regVisa)) {
+            return 'vs';
+          } else if (ccNum.match(regMC)) {
+            return 'mc';
+          } else {
+            return null;
+          }
+        }
+
+        function splitExpirationDate() {
+          var
+              $exp = $('input[name="cc_expir_group"]'),
+              exp = $exp.val(),
+              exp = exp.split('/');
+
+          $theForm.append('<input type="hidden" name="cc_expir_month" value="' + exp[0] + '" />')
+          $theForm.append('<input type="hidden" name="cc_expir_year" value="' + exp[1] + '" />')
+        }
+
+        splitExpirationDate();
+        $theForm.append('<input type="hidden" name="cc_type_cd" value="' + findCCType($('input[name="cc_number"]').val()) + '" />')
+
+        var submitDonation = $.ajax('/page/cde/Api/Charge/v1', {
+          type: 'POST',
+          data: $theForm.serializeArray()
+        });
+
+        function submitSuccess(data, textStatus, XHR) {
+          console.log(textStatus);
+          console.log(XHR);
+        }
+
+        function submitError(XHR, textStatus, error) {
+          console.log(textStatus);
+          console.log(XHR);
+          $donateButton.prop('disabled', false).val(donateButtonText);
+          // TODO update error handling
+          $donateButton.parent().append(error);
+        }
+
+        submitDonation.error(submitError).success(submitSuccess);
 
         $("#one-line-error").hide();
       } else {
@@ -265,11 +324,6 @@ $("head").append("<meta name=\"viewport\" content=\"width=device-width, initial-
       }
     }
   });
-
-  // ***********************************************
-  // Remove the BSD generated form from DOM
-  // ***********************************************
-  $bsdForm.remove();
 
 </script>
 <!-- =================== Below form content ENDS =================== -->
