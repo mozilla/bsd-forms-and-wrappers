@@ -182,7 +182,7 @@ $("head").append("<meta name=\"viewport\" content=\"width=device-width, initial-
       slug.shift();
     }
 
-    $theForm.prepend('<input type="hidden" name="slug" value="' + slug[0] + '" />');
+    $('input[name="slug"]').attr('value', slug[0]);
 
     $.each(bsdFormMetaName, function( index, value ) {
       var field = $bsdForm.find("[name='"+ value + "']").clone();
@@ -300,12 +300,12 @@ $("head").append("<meta name=\"viewport\" content=\"width=device-width, initial-
               exp = $exp.val(),
               exp = exp.split('/');
 
-          $theForm.append('<input type="hidden" name="cc_expir_month" value="' + exp[0] + '" />')
-          $theForm.append('<input type="hidden" name="cc_expir_year" value="' + exp[1] + '" />')
+          $('input[name="cc_expir_month"]').attr('value', exp[0] );
+          $('input[name="cc_expir_year"]').attr('value', exp[1]);
         }
 
         splitExpirationDate();
-        $theForm.append('<input type="hidden" name="cc_type_cd" value="' + findCCType($('input[name="cc_number"]').val()) + '" />')
+        $('input[name="cc_type_cd"]').attr('value', findCCType($('input[name="cc_number"]').val()));
 
         var submitDonation = $.ajax('/page/cde/Api/Charge/v1', {
           type: 'POST',
