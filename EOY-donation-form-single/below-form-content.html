@@ -208,17 +208,17 @@ $("head").append("<meta name=\"viewport\" content=\"width=device-width, initial-
     console.log(amountSelected);
     var buttonText;
     if ( amountSelected == "other" ) {
-      amountSelected = $theForm.find("[name='amount_other']").val();
+      amountSelected = $theForm.find("[name='donation_amount_other']").val();
     }
     buttonText = amountSelected ? "Donate $" + amountSelected + " now" : "Donate now";
     $("#donate-btn").attr("value", buttonText);
-    $('#paypal-one-time').find('[name="amount"]').attr('value', amountSelected);
+    $('#paypal-one-time').find('[name="donation_amount"]').attr('value', amountSelected);
     $('#paypal-recurring').find('[name="a3"]').attr('value', amountSelected);
   };
 
-  $theForm.find("[name='amount']").change(updateDonateButtonText);
-  $theForm.find("[name='amount_other']").keyup(updateDonateButtonText);
-  $theForm.find("[name='amount_other']").keydown(function(event) {
+  $theForm.find("[name='donation_amount']").change(updateDonateButtonText);
+  $theForm.find("[name='donation_amount_other']").keyup(updateDonateButtonText);
+  $theForm.find("[name='donation_amount_other']").keydown(function(event) {
     // console.log(event.keyCode);
     var functionKeys = [46, 8, 9, 27, 13, 110, 190]; // backspace, delete, tab, escape, enter and .
     var numberKeys = [ 48, 49, 50, 51, 52, 53, 54, 55, 56, 57 ]; // numbers
@@ -274,7 +274,7 @@ $("head").append("<meta name=\"viewport\" content=\"width=device-width, initial-
       }
     } else {
       // Show additional fields if amount has been selected & the payment type is credit card
-      var amount = formInstance.isValid("amount", true);
+      var amount = formInstance.isValid("donation_amount", true);
       var paymentType = formInstance.isValid("payment-type", true);
       if (!$(".cc-additional-info").is(":visible") && amount && paymentType) {
         $(".cc-additional-info").slideDown("slow");
@@ -304,6 +304,13 @@ $("head").append("<meta name=\"viewport\" content=\"width=device-width, initial-
           $('input[name="cc_expir_year"]').attr('value', exp[1]);
         }
 
+        function prepDonationAmount() {
+          $('input[name="amount_other"]').attr('value',
+              $('input[name="donation_amount_other"]').val() !== '' ? $('input[name="donation_amount_other"]').val() : $('input[name="donation_amount"]:checked').val()
+          )
+        }
+
+        prepDonationAmount();
         splitExpirationDate();
         $('input[name="cc_type_cd"]').attr('value', findCCType($('input[name="cc_number"]').val()));
 

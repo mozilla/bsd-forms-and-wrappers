@@ -259,12 +259,12 @@
     border-color: #38A9ED;
   }
 
-  input[name="amount"],
+  input[name="donation_amount"],
   input[name="payment-type"] {
     display: none;
   }
 
-  input[name="amount"] + label,
+  input[name="donation_amount"] + label,
   input[name="payment-type"] + label {
     display: inline-block;
     width: 100%;
@@ -281,13 +281,13 @@
     box-sizing: border-box;
   }
 
-  input[name="amount"]:hover + label,
+  input[name="donation_amount"]:hover + label,
   input[name="payment-type"]:hover + label {
     background: #43A6E2; /* Mozilla Button color */
     color: #fff;
   }
 
-  input[name="amount"]:checked + label,
+  input[name="donation_amount"]:checked + label,
   input[name="payment-type"]:checked + label {
     background: #277AC1; /*Mozilla Button color */
     color: #fff;
@@ -565,23 +565,23 @@
           </div>
           <div class="row donation-amount-row">
             <div class="third">
-              <input type="radio" name="amount" value="20" id="amount-20" data-parsley-multiple="amount" data-parsley-group="amount" data-parsley-errors-container="#amount-error-msg" data-parsley-error-message="Please select an amount." required=""><label for="amount-20" class="large-label-size">$20</label>
+              <input type="radio" name="donation_amount" value="20" id="amount-20" data-parsley-multiple="donation_amount" data-parsley-group="donation_amount" data-parsley-errors-container="#amount-error-msg" data-parsley-error-message="Please select an amount." required=""><label for="amount-20" class="large-label-size">$20</label>
             </div>
             <div class="third">
-              <input type="radio" name="amount" value="10" id="amount-10" data-parsley-multiple="amount" data-parsley-group="amount"><label for="amount-10" class="large-label-size">$10</label>
+              <input type="radio" name="donation_amount" value="10" id="amount-10" data-parsley-multiple="donation_amount" data-parsley-group="donation_amount"><label for="amount-10" class="large-label-size">$10</label>
             </div>
             <div class="third">
-              <input type="radio" name="amount" value="5" id="amount-5" data-parsley-multiple="amount" data-parsley-group="amount"><label for="amount-5" class="large-label-size">$5</label>
+              <input type="radio" name="donation_amount" value="5" id="amount-5" data-parsley-multiple="donation_amount" data-parsley-group="donation_amount"><label for="amount-5" class="large-label-size">$5</label>
             </div>
           </div>
           <div class="row donation-amount-row">
             <div class="third">
-              <input type="radio" name="amount" value="3" id="amount-3" data-parsley-multiple="amount" data-parsley-group="amount"><label for="amount-3" class="large-label-size">$3</label>
+              <input type="radio" name="donation_amount" value="3" id="amount-3" data-parsley-multiple="donation_amount" data-parsley-group="donation_amount"><label for="amount-3" class="large-label-size">$3</label>
             </div>
             <div class="two-third">
               <div id="amount-other-container">
-                <input type="radio" name="amount" value="other" id="amount-other" data-parsley-group="amount"><label for="amount-other" class="large-label-size">$</label>
-                <input type="text" name="amount_other" placeholder="Other amount" class="medium-label-size" data-parsley-errors-container="#amount-other-error-msg" data-parsley-type="number" data-parsley-check-amount></div>
+                <input type="radio" name="donation_amount" value="other" id="amount-other" data-parsley-group="donation_amount"><label for="amount-other" class="large-label-size">$</label>
+                <input type="text" name="donation_amount_other" placeholder="Other amount" class="medium-label-size" data-parsley-errors-container="#amount-other-error-msg" data-parsley-type="number" data-parsley-check-amount></div>
             </div>
           </div>
           <div class="row error-msg-row">
@@ -991,7 +991,8 @@
         <input type="hidden" name="cc_type_cd" value="" />
         <input type="hidden" name="cc_expir_month" value="" />
         <input type="hidden" name="cc_expir_year" value="" />
-        <!--<input type="hidden" name="amount" value="other" />-->
+        <input type="hidden" name="amount" value="other" />
+        <input type="hidden" name="amount_other" value="" />
       </form>
     </div>
   </div>
