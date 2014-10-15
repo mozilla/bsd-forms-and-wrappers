@@ -118,7 +118,7 @@ $("head").append("<meta name=\"viewport\" content=\"width=device-width, initial-
   });
 
   // ***********************************************
-  // Generate country dropdown.
+  // Generate state & country dropdown.
   // This basically copies the BSD generated DOM.
   // ***********************************************
   function generateCountryDropdown() {
@@ -137,6 +137,15 @@ $("head").append("<meta name=\"viewport\" content=\"width=device-width, initial-
     });
   }
   generateCountryDropdown();
+
+  $theForm.find('select[name="state_cd"]').change(function () {
+    var selected = $(this).val();
+    if ( selected ){
+      $(this).addClass("normalTextColor");
+    } else {
+      $(this).removeClass("normalTextColor");
+    }
+  })
 
 
   // ***********************************************
