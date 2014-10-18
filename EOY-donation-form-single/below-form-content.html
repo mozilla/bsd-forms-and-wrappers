@@ -349,6 +349,7 @@ $("head").append("<meta name=\"viewport\" content=\"width=device-width, initial-
 
         $("#one-line-error").hide();
       } else {
+        $donateButton.prop('disabled', false).val(donateButtonText);
         $("#one-line-error").show();
       }
     }

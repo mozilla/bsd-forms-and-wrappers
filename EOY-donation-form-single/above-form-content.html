@@ -293,6 +293,10 @@
     color: #fff;
   }
 
+  label[for="payment-paypal"], label[for="payment-cc"] {
+    height: 83px;
+  }
+
   #amount-other-container {
     position: relative;
   }
@@ -512,6 +516,10 @@
   .parsley-custom-error-message,
   #one-line-error {
     color: #C13832;
+  }
+
+  .half.parsley-error, .half.parsley-error + .half {
+    border-bottom: #C13832 solid 1px;
   }
 
   @media screen and (max-width: 600px) {
