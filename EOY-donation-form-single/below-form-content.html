@@ -145,6 +145,7 @@ $("head").append("<meta name=\"viewport\" content=\"width=device-width, initial-
     // the following is an array of all the meta form field names that came with the BSD generated form
     // API doc here: https://github.com/bluestatedigital/bsd-developer-docs/blob/master/bsd-donate-api/README.md
     var bsdFormMetaName = [
+                        "slug",
                         "submission_key",
                         "http_referer",
                         "event_attendee_id",
@@ -165,14 +166,6 @@ $("head").append("<meta name=\"viewport\" content=\"width=device-width, initial-
                       ];
 
     var metaFieldsDOM = "";
-    var slug = window.location.pathname.split('/');
-    slug = slug.reverse();
-
-    if (slug[0] === '') {
-      slug.shift();
-    }
-
-    $('input[name="slug"]').attr('value', slug[0]);
 
     $.each(bsdFormMetaName, function( index, value ) {
       var field = $bsdForm.find("[name='"+ value + "']").clone();
