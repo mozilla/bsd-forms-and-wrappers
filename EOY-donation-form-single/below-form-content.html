@@ -315,19 +315,30 @@ $("head").append("<meta name=\"viewport\" content=\"width=device-width, initial-
                 break;
               case 'gateway':
                 switch (XHR.responseJSON.gateway_response.status) {
-                case 'decline':
+                case 'decline' || 'failure':
                   $('#one-line-error').text('Sorry, your card was declined. Please try another.').show();
                   break;
                 }
+              case 'unknown':
+                  $('#one-line-error').text('Something went wrong with your transaction. Please try again later.').show();
+                  break;
               break;
               default :
-                $('#one-line-error').text('Something seems to have gone wrong').show();
+                $('#one-line-error').text('Something seems to have gone wrong. Please try again later.').show();
               }
+            },
+            500: function (XHR, textStatus, error) {
+              $('#one-line-error').text('Something went wrong with your transaction. Please try again later.').show();
             }
           }
         });
 
         function submitSuccess(data, textStatus, XHR) {
+          if (window.location.assign) {
+            window.location.assign(data.redirect_url);
+          } else {
+            window.location = data.redirect_url;
+          }
         }
 
         function submitError(XHR, textStatus, error) {
