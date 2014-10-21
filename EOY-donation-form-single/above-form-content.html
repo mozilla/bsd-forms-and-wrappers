@@ -240,6 +240,7 @@
   }
 
   input[type="text"],
+  input[type="number"],
   select,
   input[type="email"] {
     width: 100%;
@@ -249,12 +250,14 @@
   }
 
   input[type="text"],
+  input[type="number"],
   input[type="email"] {
     padding: 7px 30px 7px 33px;
   }
 
   input[type="text"]:focus,
   select:focus,
+  input[type="number"]:focus,
   input[type="email"]:focus {
     border-color: #38A9ED;
   }
@@ -305,7 +308,7 @@
     text-align: left;
   }
 
-  input#amount-other + label + input[type="text"] {
+  input#amount-other + label + input[type="number"] {
     position: absolute;
     top: 2px;
     left: 35px;
@@ -533,7 +536,7 @@
     #form-wrapper {
       padding: 10px;
     }
-    input#amount-other + label + input[type="text"] {
+    input#amount-other + label + input[type="number"] {
       width: 76%;
     }
   }
@@ -589,7 +592,7 @@
             <div class="two-third">
               <div id="amount-other-container">
                 <input type="radio" name="donation_amount" value="other" id="amount-other" data-parsley-group="donation_amount"><label for="amount-other" class="large-label-size">$</label>
-                <input type="text" name="donation_amount_other" placeholder="Other amount" class="medium-label-size" data-parsley-errors-container="#amount-other-error-msg" data-parsley-type="number" data-parsley-check-amount></div>
+                <input type="number" name="donation_amount_other" placeholder="Other amount" class="medium-label-size" data-parsley-errors-container="#amount-other-error-msg" data-parsley-type="number" data-parsley-check-amount></div>
             </div>
           </div>
           <div class="row error-msg-row">
