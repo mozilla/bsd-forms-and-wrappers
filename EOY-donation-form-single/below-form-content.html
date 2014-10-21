@@ -165,14 +165,10 @@ $("head").append("<meta name=\"viewport\" content=\"width=device-width, initial-
                         "k-ris-sid",
                       ];
 
-    var metaFieldsDOM = "";
-
     $.each(bsdFormMetaName, function( index, value ) {
-      var field = $bsdForm.find("[name='"+ value + "']").clone();
-      metaFieldsDOM += field[0].outerHTML;
+      $theForm.prepend($bsdForm.find("[name='" + value + "']").clone());
     });
 
-    $theForm.prepend(metaFieldsDOM);
     console.log("copy cloned fields done");
   }
   insertFormMetaDOM();
@@ -194,7 +190,7 @@ $("head").append("<meta name=\"viewport\" content=\"width=device-width, initial-
       amountSelected = $theForm.find("[name='donation_amount_other']").val();
     }
     buttonText = amountSelected ? "Donate $" + amountSelected + " now" : "Donate now";
-    $("#donate-btn").attr("value", buttonText);
+    $("#donate-btn").text(buttonText);
     $('#paypal-one-time').find('[name="donation_amount"]').attr('value', amountSelected);
     $('#paypal-recurring').find('[name="a3"]').attr('value', amountSelected);
   };
@@ -245,9 +241,9 @@ $("head").append("<meta name=\"viewport\" content=\"width=device-width, initial-
 
     var
         $donateButton = $('#donate-btn'),
-        donateButtonText = $donateButton.val();
+        donateButtonText = $donateButton.text();
 
-    $donateButton.prop('disabled', true).val('Submitting…');
+    $donateButton.prop('disabled', true).html('<i class="fa fa-cog fa-spin"/> Submitting…');
 
     if ($('input[name="payment-type"]:checked').val() === 'paypal') {
       if ($('input[name="recurring_acknowledge"]:checked').val() == '0') {
@@ -297,29 +293,36 @@ $("head").append("<meta name=\"viewport\" content=\"width=device-width, initial-
         splitExpirationDate();
         $('input[name="cc_type_cd"]').attr('value', findCCType($('input[name="cc_number"]').val()));
 
+        function submission400s(XHR, textStatus, error) {
+          console.log(XHR.responseJSON.code);
+
+          switch (XHR.responseJSON.code) {
+          case 'duplicate':
+            $('#one-line-error').text('Looks like we already have your donation—please refresh if you wish to donate again.').show();
+            break;
+          case 'unknown':
+            $('#one-line-error').text('Something went wrong with your transaction. Please try again later.').show();
+            break;
+          case 'gateway':
+            switch (XHR.responseJSON.gateway_response.status) {
+            case 'decline':
+              $('#one-line-error').text('Sorry, your card was declined. Please try another.').show();
+              break;
+            case 'failure':
+              $('#one-line-error').text('Sorry, your transaction was flagged for fraud protection. Please try another.').show();
+              break;
+            }
+            break;
+          default :
+            $('#one-line-error').text('Something seems to have gone wrong. Please try again later.').show();
+          }
+        }
+
         var submitDonation = $.ajax('/page/cde/Api/Charge/v1', {
           type: 'POST',
           data: $theForm.serializeArray(),
           statusCode: {
-            400: function (XHR, textStatus, error) {
-              switch (XHR.responseJSON.code) {
-              case 'duplicate':
-                $('#one-line-error').text('Looks like we already have your donation—please refresh if you wish to donate again.').show();
-                break;
-              case 'gateway':
-                switch (XHR.responseJSON.gateway_response.status) {
-                case 'decline' || 'failure':
-                  $('#one-line-error').text('Sorry, your card was declined. Please try another.').show();
-                  break;
-                }
-              case 'unknown':
-                  $('#one-line-error').text('Something went wrong with your transaction. Please try again later.').show();
-                  break;
-              break;
-              default :
-                $('#one-line-error').text('Something seems to have gone wrong. Please try again later.').show();
-              }
-            },
+            400: submission400s,
             500: function (XHR, textStatus, error) {
               $('#one-line-error').text('Something went wrong with your transaction. Please try again later.').show();
             }
@@ -335,14 +338,14 @@ $("head").append("<meta name=\"viewport\" content=\"width=device-width, initial-
         }
 
         function submitError(XHR, textStatus, error) {
-          $donateButton.prop('disabled', false).val(donateButtonText);
+          $donateButton.prop('disabled', false).text(donateButtonText);
         }
 
         submitDonation.error(submitError).success(submitSuccess);
 
         $("#one-line-error").hide();
       } else {
-        $donateButton.prop('disabled', false).val(donateButtonText);
+        $donateButton.prop('disabled', false).text(donateButtonText);
         $("#one-line-error").show();
       }
     }
