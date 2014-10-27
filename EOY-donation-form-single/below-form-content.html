@@ -188,7 +188,7 @@ var
     }
     buttonText = amountSelected ? "Donate $" + amountSelected + " now" : "Donate now";
     $("#donate-btn").text(buttonText);
-    $('#paypal-one-time').find('[name="donation_amount"]').attr('value', amountSelected);
+    $('#paypal-one-time').find('[name="amount"]').attr('value', amountSelected);
     $('#paypal-recurring').find('[name="a3"]').attr('value', amountSelected);
   };
 
