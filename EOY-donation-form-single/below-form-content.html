@@ -258,10 +258,14 @@ var
     prepDonationAmount();
 
     if ($('input[name="payment-type"]:checked').val() === 'paypal') {
-      if ($('input[name="recurring_acknowledge"]:checked').val() == '0') {
-        $('#paypal-one-time').submit();
+      if (formInstance.isValid('donation_amount', true)) {
+        if ($('input[name="recurring_acknowledge"]:checked').val() == '0') {
+          $('#paypal-one-time').submit();
+        } else {
+          $('#paypal-recurring').submit();
+        }
       } else {
-        $('#paypal-recurring').submit();
+        $donateButton.prop('disabled', false).text(donateButtonText);
       }
     } else {
       // Show additional fields if amount has been selected & the payment type is credit card
