@@ -116,6 +116,16 @@ var
     $theForm.find("select[name='country']").change(function (){
       var selected = $(this).val();
       console.log(selected);
+      var optgroup = $("select[data-country='" + selected + "'] optgroup");
+      var stateDropdown = $theForm.find('select[name="state_cd"]');
+      stateDropdown.find("optgroup").remove();
+      stateDropdown.removeClass("normalTextColor");
+      if (optgroup.length) {
+        stateDropdown.val("");
+        stateDropdown.append(optgroup.clone());
+      } else {
+        stateDropdown.val("none");
+      }
       if ( selected ){
         $(this).addClass("normalTextColor");
       } else {
@@ -127,7 +137,7 @@ var
 
   $theForm.find('select[name="state_cd"]').change(function () {
     var selected = $(this).val();
-    if ( selected ){
+    if ( selected && selected !== "none"){
       $(this).addClass("normalTextColor");
     } else {
       $(this).removeClass("normalTextColor");

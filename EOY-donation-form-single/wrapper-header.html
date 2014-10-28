@@ -371,8 +371,13 @@ select[name='state_cd'] [value] {
 select[name='country'],
 select[name='country'] option[value=""],
 select[name='state_cd'],
-select[name='state_cd'] option[value=""] {
+select[name='state_cd'] option[value=""],
+select[name='state_cd'] option[value="none"] {
   color: #ccc;
+}
+
+.states-select {
+  display: none;
 }
 
 .field-container {
