@@ -5,6 +5,7 @@
 
 <script>
   $('label').not('[for="opt_in"]').css('display', 'none');
+  $('label[for="opt_in"]').find('label').prepend('<span class="required">*</span> ');
   $('#email')
       .attr('placeholder', 'youremail@example.com')
       .attr('aria-label', 'Email Address')
