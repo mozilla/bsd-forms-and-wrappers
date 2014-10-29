@@ -4,12 +4,29 @@
 </div>
 
 <script>
+  var
+      $opt_in = $('label[for="opt_in"]'),
+      $email = $('#email'),
+      donator_email = donator_email || undefined,
+      donator_name = donator_name || undefined;
+
   $('label').not('[for="opt_in"]').css('display', 'none');
-  $('label[for="opt_in"]').find('label').prepend('<span class="required">*</span> ');
-  $('#email')
+  $opt_in.find('label').html(
+      $opt_in.find('label').text().replace('privacy policy', '<a href="https://mozilla.org/privacy/" target="_blank">privacy policy</a>')
+  );
+  $opt_in.find('label').prepend('<span class="required">*</span> ');
+  $email
       .attr('placeholder', 'youremail@example.com')
       .attr('aria-label', 'Email Address')
       .before('<i class="fa fa-envelope field-icon"></i>')
       .parent().css('position','relative');
+
+  if (donator_email !== undefined) {
+    $email.val(donator_email).attr('value',donator_email);
+  }
+
+  if (donator_name !== undefined) {
+    $('#header-copy').find('h2').html('<em>Thank you</em>, ' + donator_name);
+  }
 </script>
 <!-- =================== Below form content ENDS =================== -->
