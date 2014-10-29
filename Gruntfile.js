@@ -16,7 +16,8 @@ module.exports = function (grunt) {
     watch: {
       server: {
         files: [
-          '**/*.html'
+          '**/*.html',
+          'Gruntfile.js'
         ],
         tasks: ['bake:server']
       },
@@ -25,7 +26,7 @@ module.exports = function (grunt) {
           livereload: '<%= connect.options.livereload %>'
         },
         files: [
-          '**/source.html'
+          '**/compiled.html'
         ]
       }
     },

@@ -4,6 +4,7 @@
 <html>
 <body>
 <script src="//cdn.optimizely.com/js/206878104.js"></script>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,300">
 <link href="https://www.mozilla.org/tabzilla/media/css/tabzilla.css" rel="stylesheet">
 <link href="https://sendto.mozilla.org/page/-/donation_form/css/font-awesome.min.css" rel="stylesheet">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -41,7 +42,9 @@ body {
 h1,
 h2,
 h3,
-h4 {
+h4,
+h5,
+h6{
   margin-top: 0;
   margin-bottom: 20px;
 }
@@ -50,6 +53,8 @@ h1,
 h2,
 h3,
 h4,
+h5,
+h6,
 .btn,
 input[type="radio"] + label,
 input[type="checkbox"] + label {
@@ -79,6 +84,22 @@ h4 {
   font-size: 24px;
   letter-spacing: -0.25px;
   line-height: 100%;
+}
+
+h5 {
+  font-size: 20px;
+  letter-spacing: -0.125px;
+  line-height: 100%;
+}
+
+h6 {
+  font-size: 16px;
+  letter-spacing: 0;
+  line-height: 100%;
+}
+
+br {
+  display: none;
 }
 
 .small, small {
@@ -130,6 +151,11 @@ input[type="submit"] {
 .container {
   margin: 0 auto;
   width: 700px;
+}
+
+.wrap {
+  max-width: 100%;
+  margin: 0 auto;
 }
 
 .row {
@@ -568,6 +594,33 @@ select.parsley-error {
   input#amount-other + label + input[type="number"] {
     width: 76%;
   }
+}
+
+#signuptable {
+  max-width: 100%;
+}
+
+#header-copy {
+  text-align: center;
+}
+
+#signup label.field {
+  font-weight: 300;
+}
+
+#signup input[type="submit"] {
+  margin: 10px auto 3px;
+  text-align: center;
+  background: #C13832;
+  font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  border: 0 transparent solid;
+  color: #ffffff;
+  display: block;
+  padding: 8px 20px;
+  font-weight: 400;
+  font-size: 20px;
+  border-radius: 2px;
+  box-shadow: 3px 3px 16px #eee;
 }
 </style>
 

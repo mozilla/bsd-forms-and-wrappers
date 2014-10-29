@@ -1,4 +1,14 @@
 <!-- =================== Below form content STARTS =================== -->
+</div>
+</div>
+</div>
 
-
+<script>
+  $('label').not('[for="opt_in"]').css('display', 'none');
+  $('#email')
+      .attr('placeholder', 'youremail@example.com')
+      .attr('aria-label', 'Email Address')
+      .before('<i class="fa fa-envelope field-icon"></i>')
+      .parent().css('position','relative');
+</script>
 <!-- =================== Below form content ENDS =================== -->
