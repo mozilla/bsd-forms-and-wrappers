@@ -12,15 +12,24 @@ module.exports = function (grunt) {
           '0-email-signup-form/EOYFR2014-Donor/compiled.html': '0-email-signup-form/EOYFR2014-Donor/template.html',
           '0-content-page/EOYFR2014-Donor-Social-Media-Share/compiled.html': '0-content-page/EOYFR2014-Donor-Social-Media-Share/template.html'
         }
+      },
+      l10n: {
+        options: {
+          content: '0-content-page/EOYFR2014-PayPal-Donate/locale-strings.json',
+          section: 'es-MX'
+        },
+        files: {
+          '0-content-page/EOYFR2014-PayPal-Donate/compiled.html': '0-content-page/EOYFR2014-PayPal-Donate/template.html'
+        }
       }
     },
     watch: {
       server: {
         files: [
-          '**/*.html',
+          '**/*.{html,json}',
           'Gruntfile.js'
         ],
-        tasks: ['bake:server']
+        tasks: ['bake']
       },
       livereload: {
         options: {

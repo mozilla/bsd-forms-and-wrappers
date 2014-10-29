@@ -1,0 +1,144 @@
+<!-- =================== Page Content STARTS =================== -->
+<div class="container" id="header-copy">
+  <h1>{{ donate_today}}</h1>
+</div>
+
+<div id="form-wrapper">
+  <div class="wrap">
+    <div class="row">
+      <img src="https://sendto.mozilla.org/page/-/paypal_logo@2x.png" alt="PayPal Logo" width="210" height="58"/>
+
+      <p id="secure-label"><i class="fa fa-lock"></i>{{ secure }}</p>
+    </div>
+
+    <div class="row">
+      <div class="full">
+        <h4>
+          {{ select_donation }}
+        </h4>
+      </div>
+    </div>
+    <form action="#" id="primary-form">
+      <div class="row donation-amount-row">
+        <div class="third">
+          <input type="radio" name="donation_amount" value="20" id="amount-20" checked><label for="amount-20" class="large-label-size">20</label>
+        </div>
+        <div class="third">
+          <input type="radio" name="donation_amount" value="10" id="amount-10"><label for="amount-10" class="large-label-size">10</label>
+        </div>
+        <div class="third">
+          <input type="radio" name="donation_amount" value="5" id="amount-5"><label for="amount-5" class="large-label-size">5</label>
+        </div>
+      </div>
+      <div class="row donation-amount-row">
+        <div class="full">
+          <div id="amount-other-container">
+            <input type="radio" name="donation_amount" value="other" id="amount-other">
+            <label for="amount-other" class="large-label-size">&nbsp;</label>
+            <input type="number" name="donation_amount_other" placeholder="{{ other_amount }}" class="medium-label-size">
+          </div>
+        </div>
+      </div>
+      <div class="row" id="recurring-option-row">
+        <div class="half">
+          <input type="radio" name="recurring_acknowledge" value="0" required id="one-time-payment"><label for="one-time-payment" class="medium-label-size">One-time</label>
+        </div>
+        <div class="half">
+          <input type="radio" name="recurring_acknowledge" value="1" required id="monthly-payment"><label for="monthly-payment" class="medium-label-size">Monthly</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="full">
+          <button type="submit" class="btn large-label-size" id="donate-btn">
+            {{ donate }} 20 {{ currency_code }} {{ now }}
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+
+<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top" id="paypal-one-time">
+  <input type="hidden" name="cmd" value="_donations">
+  <input type="hidden" name="business" value="44ZHAVWJHTK2N">
+  <input type="hidden" name="lc" value="{{ locale }}">
+  <input type="hidden" name="item_name" value="Mozilla Foundation">
+  <input type="hidden" name="no_note" value="1">
+  <input type="hidden" name="no_shipping" value="1">
+  <input type="hidden" name="rm" value="1">
+  <!-- Donation Amount -->
+  <input type="hidden" name="amount" value="20">
+  <input type="hidden" name="return" value="https://sendto.mozilla.org/page/s/EOYFR2014-donor">
+  <input type="hidden" name="currency_code" value="{{ currency_code }}">
+</form>
+
+<form action="https://www.paypal.com/cgi-bin/webscr" method="post" id="paypal-recurring">
+  <input type="hidden" name="cmd" value="_xclick-subscriptions">
+  <input type="hidden" name="business" value="44ZHAVWJHTK2N">
+  <input type="hidden" name="lc" value="{{ locale }}">
+  <input type="hidden" name="item_name" value="Mozilla Foundation Recurring Donation">
+  <input type="hidden" name="no_note" value="1">
+  <input type="hidden" name="no_shipping" value="2">
+  <input type="hidden" name="return" value="https://sendto.mozilla.org/page/s/EOYFR2014-donor">
+  <input type="hidden" name="src" value="1">
+  <input type="hidden" name="p3" value="1">
+  <input type="hidden" name="currency_code" value="{{ currency_code }}">
+  <input type="hidden" name="t3" value="M">
+  <input name="srt" type="hidden" value="0">
+  <!-- Donation Amount -->
+  <input type="hidden" name="a3" value="20">
+</form>
+
+
+<script>
+  // ***********************************************
+  // Update Donate button to make it show the selected donation amount
+  // ***********************************************
+  var
+      $theForm = $('#primary-form');
+
+  function updateDonateButtonText(event) {
+    var
+        amountSelected = $(this).val(),
+        buttonText;
+
+    if (amountSelected == "other") {
+      amountSelected = $theForm.find("[name='donation_amount_other']").val();
+    }
+    buttonText = amountSelected ? "{{ donate }} " + amountSelected + " {{ currency_code }} {{ now }}" : "{{ donate }} {{ now }}";
+    $("#donate-btn").text(buttonText);
+    $('#paypal-one-time').find('[name="amount"]').attr('value', amountSelected);
+    $('#paypal-recurring').find('[name="a3"]').attr('value', amountSelected);
+  }
+
+  $theForm.find('[name="donation_amount"]').change(updateDonateButtonText);
+  $theForm.find('[name="donation_amount_other"]').keyup(updateDonateButtonText);
+  $theForm.find('[name="donation_amount_other"]').keydown(function (event) {
+    var functionKeys = [46, 8, 9, 27, 13, 110, 190]; // backspace, delete, tab, escape, enter and .
+    var numberKeys = [ 48, 49, 50, 51, 52, 53, 54, 55, 56, 57 ]; // numbers
+    var allowed = functionKeys.concat(numberKeys);
+    if (allowed.indexOf(event.keyCode) === -1) {
+      event.preventDefault();
+    }
+  });
+
+  $('input#amount-other + label + input[type="number"]').focus(function () {
+    $(this).prevAll('input[type="radio"]').click();
+  });
+
+  // ***********************************************
+  // Catch the form submission and send off the appropriate donation type
+  // ***********************************************
+
+  $theForm.on('submit', function (e) {
+    e.preventDefault();
+
+    if ($('input[name="recurring_acknowledge"]:checked').val() === '0') {
+      $('#paypal-one-time').submit();
+    } else {
+      $('#paypal-recurring').submit();
+    }
+  });
+</script>
+<!-- =================== Page Content ENDS =================== -->
