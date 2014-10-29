@@ -9,7 +9,8 @@ module.exports = function (grunt) {
         files: {
           // add whichever files you're working on here
           'EOY-donation-form-single/compiled.html': 'EOY-donation-form-single/template.html',
-          '0-email-signup-form/EOYFR2014-Donor/compiled.html': '0-email-signup-form/EOYFR2014-Donor/template.html'
+          '0-email-signup-form/EOYFR2014-Donor/compiled.html': '0-email-signup-form/EOYFR2014-Donor/template.html',
+          '0-content-page/EOYFR2014-Donor-Social-Media-Share/compiled.html': '0-content-page/EOYFR2014-Donor-Social-Media-Share/template.html'
         }
       }
     },
