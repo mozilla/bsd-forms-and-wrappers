@@ -114,10 +114,13 @@ var
     var stateDropdown = $theForm.find('select[name="state_cd"]');
     stateDropdown.find("optgroup").remove();
     stateDropdown.removeClass("normalTextColor");
+    stateDropdown.find("option[value='none']").remove();
     if (optgroup.length) {
       stateDropdown.val("");
       stateDropdown.append(optgroup.clone());
     } else {
+      var noneoptions = $("select[data-country='none'] option");
+      stateDropdown.append(noneoptions.clone());
       stateDropdown.val("none");
     }
   }
