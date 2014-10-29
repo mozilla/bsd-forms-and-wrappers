@@ -112,7 +112,8 @@ var
     var cloned = $bsdForm.find("select[name='country']").clone();
     $theForm.find("select[name='country']").html(cloned.html());
     $theForm.find("select[name='country'] option:selected").removeAttr("selected");
-    $theForm.find("select[name='country'] option:first-child").attr("selected","selected").html("Country");
+    $theForm.find("select[name='country'] option:first-child").html("Country");
+    $theForm.find("select[name='country']").val("US").addClass("normalTextColor");
     $theForm.find("select[name='country']").change(function (){
       var selected = $(this).val();
       console.log(selected);
