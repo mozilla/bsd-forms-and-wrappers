@@ -380,7 +380,7 @@ var
         $("#one-line-error").show();
       }
     }
-    $('label[for="payment-paypal"]').click(function () {
+    $('label[for="payment-paypal"], label[for="payment-cc"]').click(function () {
       formInstance.reset();
       $("#one-line-error").hide();
     });
