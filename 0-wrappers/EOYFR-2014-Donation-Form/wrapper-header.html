@@ -375,6 +375,20 @@ input#amount-other + label + input[type="number"] {
   border: none;
 }
 
+input[type=number] {
+  -moz-appearance: textfield;
+  -webkit-appearance: none;
+  appearance: textfield;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  margin: 0;
+}
+
 i.fa.field-icon.icon-in-focus,
 i.fa.hint.on {
   color: #38A9ED;
