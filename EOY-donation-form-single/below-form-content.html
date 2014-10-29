@@ -207,6 +207,17 @@ var
 
 
   // ***********************************************
+  // Insert slash to cc expiration field
+  // ***********************************************
+  $('input[name="cc_expir_group"]').on('blur', function () {
+    var $context = $(this);
+    if ($context.val().match(/\d{4}/)) {
+      var date = $context.val();
+      $(this).val(date[0] + date[1] + '/' + date[2] + date[3]);
+    }
+  });
+
+// ***********************************************
   // Parsley.js setting & client side validation etc
   // API: http://parsleyjs.org/doc/
   // ***********************************************

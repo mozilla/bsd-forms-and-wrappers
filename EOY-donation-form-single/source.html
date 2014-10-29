@@ -12,6 +12,246 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="icon" href="https://sendto.mozilla.org/page/-/donation_form/img/favicon.ico" type="image/x-icon">
 
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  line-height: 20px;
+  color: #333;
+  margin: 0;
+  background: -webkit-gradient(linear, left top, left bottom, from(#D7D3C8), to(#F6F4EC));
+  background: -webkit-linear-gradient(to bottom, #D7D3C8, #F6F4EC);
+  background: -moz-linear-gradient(to bottom, #D7D3C8, #F6F4EC);
+  background: -o-linear-gradient(to bottom, #D7D3C8, #F6F4EC);
+  background: linear-gradient(to bottom, #D7D3C8, #F6F4EC);
+}
+
+.large {
+  font-size: 72px;
+  letter-spacing: -3px;
+  line-height: 100%;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+h1,
+h2,
+h3,
+h4,
+.btn,
+input[type="radio"] + label,
+input[type="checkbox"] + label {
+  font-weight: 300;
+}
+
+h1 {
+  font-size: 48px;
+  letter-spacing: -2px;
+  line-height: 100%;
+  margin-top: 20px;
+}
+
+h2 {
+  font-size: 32px;
+  letter-spacing: -1px;
+  line-height: 100%;
+}
+
+h3 {
+  font-size: 28px;
+  letter-spacing: -0.5px;
+  line-height: 100%;
+}
+
+h4 {
+  font-size: 24px;
+  letter-spacing: -0.25px;
+  line-height: 100%;
+}
+
+.small, small {
+  font-size: 12px;
+  line-height: 125%;
+}
+
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-family: inherit;
+  color: inherit;
+  font: inherit;
+  margin: 0px;
+}
+
+a {
+  background: none repeat scroll 0% 0% transparent;
+  color: #27AAE1;
+  text-decoration: none;
+}
+
+button,
+html input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+  cursor: pointer;
+}
+
+.btn {
+  display: inline-block;
+  margin-bottom: 0px;
+  font-weight: normal;
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+  background-image: none;
+  border: 1px solid transparent;
+  white-space: nowrap;
+  padding: 6px 12px;
+  font-size: 14px;
+  line-height: 1.42857;
+  border-radius: 0px;
+  -moz-user-select: none;
+}
+
+.container {
+  margin: 0 auto;
+  width: 700px;
+}
+
+.row {
+  clear: both;
+  overflow: hidden;
+}
+
+.full,
+.half,
+.third,
+.two-third,
+.quarter {
+  position: relative;
+  float: left;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+.full {
+  width: 100%;
+}
+
+.half {
+  width: 50%;
+}
+
+.third {
+  width: 33.33%;
+}
+
+.two-third {
+  width: 66.66%
+}
+
+.quarter {
+  width: 25%;
+}
+
+.text-center {
+  text-align: center;
+}
+
+#form-wrapper {
+  width: 420px;
+  margin: 0 auto 100px auto;
+  padding: 30px;
+  background: #fff;
+}
+
+/* = Set placeholder text colour ========== */
+
+::-webkit-input-placeholder {
+  /* WebKit browsers */
+  color: #ccc;
+}
+
+:-moz-placeholder {
+  /* Mozilla Firefox 4 to 18 */
+  color: #ccc;
+  opacity: 1;
+}
+
+::-moz-placeholder {
+  /* Mozilla Firefox 19+ */
+  color: #ccc;
+  opacity: 1;
+}
+
+:-ms-input-placeholder {
+  /* Internet Explorer 10+ */
+  color: #ccc;
+}
+
+.large-label-size {
+  font-size: 24px;
+}
+
+.medium-label-size {
+  font-size: 18px;
+}
+
+.left {
+  float: left;
+}
+
+#mozilla-wordmark {
+  margin-top: 20px;
+}
+
+#mozilla-wordmark img {
+  max-width: 150px;
+}
+
+/* = Buttons ========== */
+
+.btn {
+  width: 100%;
+  margin-bottom: 15px;
+  border-radius: 3px;
+  background-color: #EAEFF2;
+}
+
+.btn:hover {
+  background: #0095DD;
+  color: #fff;
+}
+
+#donate-btn {
+  color: #fff;
+  font-weight: 800;
+  background-color: #C13832; /* Mozilla Red */
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-top: 15px;
+  margin-bottom: 20px;
+  transition: all 0.3s ease 0s;
+}
+
+.btn#donate-btn:hover {
+  background-color: #EA3B28; /* Mozilla Red */
+  color: #fff;
+}
+</style>
+
 <!-- =================== WRAPPER (Header) ENDS =================== -->
 
 
@@ -31,228 +271,6 @@
   <script src="https://sendto.mozilla.org/page/-/donation_form/js/parsley.min.js"></script>
   
   <style>
-    * {
-      box-sizing: border-box;
-    }
-  
-    body {
-      font-family: "Open Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
-      font-size: 14px;
-      line-height: 20px;
-      color: #333;
-      margin: 0;
-      background:-webkit-gradient(linear,left top,left bottom,from(#D7D3C8),to(#F6F4EC));
-      background:-webkit-linear-gradient(to bottom, #D7D3C8, #F6F4EC);
-      background:   -moz-linear-gradient(to bottom, #D7D3C8, #F6F4EC);
-      background:     -o-linear-gradient(to bottom, #D7D3C8, #F6F4EC);
-      background:        linear-gradient(to bottom, #D7D3C8, #F6F4EC);
-    }
-  
-    .large {
-      font-size: 72px;
-      letter-spacing: -3px;
-      line-height: 100%;
-    }
-  
-    h1,
-    h2,
-    h3,
-    h4 {
-      margin-top: 0;
-      margin-bottom: 20px;
-    }
-  
-    h1,
-    h2,
-    h3,
-    h4,
-    .btn,
-    input[type="radio"] + label,
-    input[type="checkbox"] + label {
-      font-weight: 300;
-    }
-  
-    h1 {
-      font-size: 48px;
-      letter-spacing: -2px;
-      line-height: 100%;
-      margin-top: 20px;
-    }
-    h2 {
-      font-size: 32px;
-      letter-spacing: -1px;
-      line-height: 100%;
-    }
-    h3 {
-      font-size: 28px;
-      letter-spacing: -0.5px;
-      line-height: 100%;
-    }
-    h4 {
-      font-size: 24px;
-      letter-spacing: -0.25px;
-      line-height: 100%;
-    }
-    .small, small {
-      font-size: 12px;
-      line-height: 125%;
-    }
-  
-    button,
-    input,
-    optgroup,
-    select,
-    textarea {
-      font-family: inherit;
-      color: inherit;
-      font: inherit;
-      margin: 0px;
-    }
-  
-    a {
-      background: none repeat scroll 0% 0% transparent;
-      color: #27AAE1;
-      text-decoration: none;
-    }
-  
-    button,
-    html input[type="button"],
-    input[type="reset"],
-    input[type="submit"] {
-      cursor: pointer;
-    }
-  
-    .btn {
-      display: inline-block;
-      margin-bottom: 0px;
-      font-weight: normal;
-      text-align: center;
-      vertical-align: middle;
-      cursor: pointer;
-      background-image: none;
-      border: 1px solid transparent;
-      white-space: nowrap;
-      padding: 6px 12px;
-      font-size: 14px;
-      line-height: 1.42857;
-      border-radius: 0px;
-      -moz-user-select: none;
-    }
-  
-    .container {
-      margin: 0 auto;
-      width: 700px;
-    }
-  
-    .row {
-      clear: both;
-      overflow: hidden;
-    }
-  
-    .full,
-    .half,
-    .third,
-    .two-third,
-    .quarter {
-      position: relative;
-      float: left;
-      padding-left: 5px;
-      padding-right: 5px;
-    }
-    .full {
-      width: 100%;
-    }
-    .half {
-      width: 50%;
-    }
-    .third {
-      width: 33.33%;
-    }
-    .two-third {
-      width: 66.66%
-    }
-    .quarter {
-      width: 25%;
-    }
-  
-    .text-center {
-      text-align: center;
-    }
-  
-    #form-wrapper {
-      width: 420px;
-      margin: 0 auto 100px auto;
-      padding: 30px;
-      background: #fff;
-    }
-  
-    /* = Set placeholder text colour ========== */
-  
-    ::-webkit-input-placeholder { /* WebKit browsers */
-      color: #ccc;
-    }
-    :-moz-placeholder { /* Mozilla Firefox 4 to 18 */
-      color: #ccc;
-      opacity:  1;
-    }
-    ::-moz-placeholder { /* Mozilla Firefox 19+ */
-      color: #ccc;
-      opacity:  1;
-    }
-    :-ms-input-placeholder { /* Internet Explorer 10+ */
-      color: #ccc;
-    }
-  
-    .large-label-size {
-      font-size: 24px;
-    }
-  
-    .medium-label-size {
-      font-size: 18px;
-    }
-  
-    .left {
-      float: left;
-    }
-  
-    #mozilla-wordmark {
-      margin-top: 20px;
-    }
-  
-    #mozilla-wordmark img {
-      max-width: 150px;
-    }
-  
-    /* = Buttons ========== */
-  
-    .btn {
-      width: 100%;
-      margin-bottom: 15px;
-      border-radius: 3px;
-      background-color: #EAEFF2;
-    }
-  
-    .btn:hover {
-      background: #0095DD;
-      color: #fff;
-    }
-  
-    #donate-btn {
-      color: #fff;
-      font-weight: 800;
-      background-color: #C13832; /* Mozilla Red */
-      padding-top: 10px;
-      padding-bottom: 10px;
-      margin-top: 15px;
-      margin-bottom: 20px;
-      transition: all 0.3s ease 0s;
-    }
-  
-    .btn#donate-btn:hover {
-      background-color: #EA3B28; /* Mozilla Red */
-      color: #fff;
-    }
-  
   
     /* = Form Fields ========== */
   
@@ -580,10 +598,7 @@
   
     <div class="container">
       <div class="row">
-        <div class="full text-center">
-          <h1>Donate Today</h1>
-          <p style="color: #6B12C4">(dummy form, for UI reference only. WIP)</p>
-        </div>
+        <p>&nbsp;</p>
       </div>
     </div>
   
@@ -958,7 +973,7 @@
                 <div class="half">
                   <div class="field-container">
                     <i class="fa fa-calendar-o field-icon"></i>
-                    <input type="text" placeholder="MM/YY" maxlength="5" data-parsley-cc-expirary="" required="" name="cc_expir_group"></div>
+                    <input type="text" placeholder="MM/YY" pattern="\d{2}\/\d{2}" maxlength="5" data-parsley-cc-expirary="" required="" name="cc_expir_group"></div>
                 </div>
                 <div class="half">
                   <div class="field-container">
@@ -1336,6 +1351,17 @@
   
   
     // ***********************************************
+    // Insert slash to cc expiration field
+    // ***********************************************
+    $('input[name="cc_expir_group"]').on('blur', function () {
+      var $context = $(this);
+      if ($context.val().match(/\d{4}/)) {
+        var date = $context.val();
+        $(this).val(date[0] + date[1] + '/' + date[2] + date[3]);
+      }
+    });
+  
+  // ***********************************************
     // Parsley.js setting & client side validation etc
     // API: http://parsleyjs.org/doc/
     // ***********************************************
