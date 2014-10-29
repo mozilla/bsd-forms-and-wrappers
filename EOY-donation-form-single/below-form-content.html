@@ -108,6 +108,21 @@ var
   // Generate state & country dropdown.
   // This basically copies the BSD generated DOM.
   // ***********************************************
+  function generateStateDropdown() {
+    var selectedCountry = $theForm.find("select[name='country']").val();
+    var optgroup = $("select[data-country='" + selectedCountry + "'] optgroup");
+    var stateDropdown = $theForm.find('select[name="state_cd"]');
+    stateDropdown.find("optgroup").remove();
+    stateDropdown.removeClass("normalTextColor");
+    if (optgroup.length) {
+      stateDropdown.val("");
+      stateDropdown.append(optgroup.clone());
+    } else {
+      stateDropdown.val("none");
+    }
+  }
+
+
   function generateCountryDropdown() {
     var cloned = $bsdForm.find("select[name='country']").clone();
     $theForm.find("select[name='country']").html(cloned.html());
@@ -117,16 +132,7 @@ var
     $theForm.find("select[name='country']").change(function (){
       var selected = $(this).val();
       console.log(selected);
-      var optgroup = $("select[data-country='" + selected + "'] optgroup");
-      var stateDropdown = $theForm.find('select[name="state_cd"]');
-      stateDropdown.find("optgroup").remove();
-      stateDropdown.removeClass("normalTextColor");
-      if (optgroup.length) {
-        stateDropdown.val("");
-        stateDropdown.append(optgroup.clone());
-      } else {
-        stateDropdown.val("none");
-      }
+      generateStateDropdown();
       if ( selected ){
         $(this).addClass("normalTextColor");
       } else {
@@ -135,6 +141,7 @@ var
     });
   }
   generateCountryDropdown();
+  generateStateDropdown();
 
   $theForm.find('select[name="state_cd"]').change(function () {
     var selected = $(this).val();
