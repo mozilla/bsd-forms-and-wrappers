@@ -33,8 +33,8 @@
   <input type="hidden" name="a3" value="3">
 </form>
 
-
-<script src="https://www.mozilla.org/tabzilla/media/js/tabzilla.js"></script>
+<script src="https://sendto.mozilla.org/page/-/donation_form/js/jquery-2.1.1.min.js"></script>
+<script src="https://sendto.mozilla.org/page/-/donation_form/js/parsley.min.js"></script>
 <script>
 var
     $bsdForm = $("form#contribution"),
@@ -242,11 +242,30 @@ var
 
     $donateButton.prop('disabled', true).html('<i class="fa fa-cog fa-spin"/> Submitting…');
 
-    if ($('input[name="payment-type"]:checked').val() === 'paypal') {
-      if ($('input[name="recurring_acknowledge"]:checked').val() == '0') {
-        $('#paypal-one-time').submit();
+    function prepDonationAmount() {
+      // Set donation amount hidden inputs so all APIs are happy
+      var selected;
+      if ($('input[name="donation_amount_other"]').val() !== '') {
+        selected = $('input[name="donation_amount_other"]').val();
       } else {
-        $('#paypal-recurring').submit();
+        selected = $('input[name="donation_amount"]:checked').val()
+      }
+      $('#paypal-one-time').find('input[name="amount"]').attr('value', selected);
+      $('input[name="a3"]').attr('value', selected);
+      $('input[name="amount_other"]').attr('value', selected);
+    }
+
+    prepDonationAmount();
+
+    if ($('input[name="payment-type"]:checked').val() === 'paypal') {
+      if (formInstance.isValid('donation_amount', true)) {
+        if ($('input[name="recurring_acknowledge"]:checked').val() == '0') {
+          $('#paypal-one-time').submit();
+        } else {
+          $('#paypal-recurring').submit();
+        }
+      } else {
+        $donateButton.prop('disabled', false).text(donateButtonText);
       }
     } else {
       // Show additional fields if amount has been selected & the payment type is credit card
@@ -280,13 +299,6 @@ var
           $('input[name="cc_expir_year"]').attr('value', exp[1]);
         }
 
-        function prepDonationAmount() {
-          $('input[name="amount_other"]').attr('value',
-              $('input[name="donation_amount_other"]').val() !== '' ? $('input[name="donation_amount_other"]').val() : $('input[name="donation_amount"]:checked').val()
-          )
-        }
-
-        prepDonationAmount();
         splitExpirationDate();
         $('input[name="cc_type_cd"]').attr('value', findCCType($('input[name="cc_number"]').val()));
 
@@ -346,19 +358,10 @@ var
         $("#one-line-error").show();
       }
     }
+    $('label[for="payment-paypal"]').click(function () {
+      formInstance.reset();
+    });
   });
 
 </script>
-
-<script type="text/javascript">
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-35433268-5']);
-  _gaq.push(['_trackPageview']);
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-</script>
-
 <!-- =================== Below form content ENDS =================== -->
