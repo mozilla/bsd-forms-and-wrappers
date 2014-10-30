@@ -226,18 +226,6 @@ var
     }
   });
 
-
-  // ***********************************************
-  // Insert slash to cc expiration field
-  // ***********************************************
-  $('input[name="cc_expir_group"]').on('blur', function () {
-    var $context = $(this);
-    if ($context.val().match(/\d{4}/)) {
-      var date = $context.val();
-      $(this).val(date[0] + date[1] + '/' + date[2] + date[3]);
-    }
-  });
-
 // ***********************************************
   // Parsley.js setting & client side validation etc
   // API: http://parsleyjs.org/doc/
@@ -322,13 +310,11 @@ var
         }
 
         function splitExpirationDate() {
-          var
-              $exp = $('input[name="cc_expir_group"]'),
-              exp = $exp.val(),
-              exp = exp.split('/');
+          var month = $('input[name="cc_expir_month"]').val();
+          var year = $('input[name="cc_expir_month"]').val();
 
-          $('input[name="cc_expir_month"]').attr('value', exp[0] );
-          $('input[name="cc_expir_year"]').attr('value', exp[1]);
+          $('input[name="cc_expir_month"]').attr('value', month);
+          $('input[name="cc_expir_year"]').attr('value', year);
         }
 
         splitExpirationDate();

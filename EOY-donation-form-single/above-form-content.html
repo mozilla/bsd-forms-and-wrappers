@@ -388,7 +388,9 @@
               <div class="half">
                 <div class="field-container">
                   <i class="fa fa-calendar-o field-icon"></i>
-                  <input type="text" placeholder="MM/YY" pattern="\d{2}\/\d{2}" maxlength="5" data-parsley-cc-expirary="" required="" name="cc_expir_group"></div>
+                  <input type="text" placeholder="MM" pattern="\d{2}" maxlength="2" data-parsley-type="digits" required="" name="cc_expir_month_input"> / 
+                  <input type="text" placeholder="YY" pattern="\d{2}" maxlength="2" data-parsley-type="digits" required="" name="cc_expir_year_input">
+                </div>
               </div>
               <div class="half">
                 <div class="field-container">
