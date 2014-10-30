@@ -12,12 +12,16 @@
 
   $('label').not('[for="opt_in"]').css('display', 'none');
   $opt_in.find('label').html(
-      $opt_in.find('label').text().replace('privacy policy', '<a href="https://mozilla.org/privacy/" target="_blank">privacy policy</a>')
+      $opt_in.find('label').text()
+          .replace('privacy policy', '<a href="https://mozilla.org/privacy/" target="_blank">privacy policy</a>')
   );
   $opt_in.find('label').prepend('<span class="required">*</span> ');
+  $('#opt_in').attr('required', true);
+
   $email
       .attr('placeholder', 'youremail@example.com')
       .attr('aria-label', 'Email Address')
+      .attr('required', true)
       .before('<i class="fa fa-envelope field-icon"></i>')
       .parent().css('position','relative');
 
