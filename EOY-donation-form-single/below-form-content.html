@@ -309,15 +309,6 @@ var
           }
         }
 
-        function splitExpirationDate() {
-          var month = $('input[name="cc_expir_month"]').val();
-          var year = $('input[name="cc_expir_month"]').val();
-
-          $('input[name="cc_expir_month"]').attr('value', month);
-          $('input[name="cc_expir_year"]').attr('value', year);
-        }
-
-        splitExpirationDate();
         $('input[name="cc_type_cd"]').attr('value', findCCType($('input[name="cc_number"]').val()));
 
         function submission400s(XHR, textStatus, error) {
