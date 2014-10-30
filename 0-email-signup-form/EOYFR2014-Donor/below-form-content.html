@@ -3,6 +3,9 @@
 </div>
 </div>
 
+<script src="https://sendto.mozilla.org/page/-/donation_form/js/jquery-2.1.1.min.js"></script>
+<script src="https://sendto.mozilla.org/page/-/donation_form/js/parsley.min.js"></script>
+
 <script>
   var
       $opt_in = $('label[for="opt_in"]'),
@@ -32,5 +35,12 @@
   if (donator_name !== undefined) {
     $('#header-copy').find('h2').html('<em>Thank you</em>, ' + donator_name);
   }
+
+  $('#signup').parsley().parsleyForm.subscribe("parsley:form:validate", function (formInstance) {
+    if (!formInstance.isValid()) {
+      formInstance.submitEvent.preventDefault();
+    }
+
+  });
 </script>
 <!-- =================== Below form content ENDS =================== -->
