@@ -340,6 +340,12 @@ var
         $("#one-line-error").show();
       }
     }
+    $('.billing-info input').on("input", function() {
+      $("#one-line-error").hide();
+    });
+    $('.billing-info select').on("change", function() {
+      $("#one-line-error").hide();
+    });
     $('label[for="payment-paypal"], label[for="payment-cc"]').click(function () {
       formInstance.reset();
       $("#one-line-error").hide();
