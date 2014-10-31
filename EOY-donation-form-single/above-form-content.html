@@ -64,15 +64,17 @@
           <div class="row" id="payment-type-row">
             <div class="half">
               <input type="radio" name="payment-type" value="cc" id="payment-cc" data-parsley-multiple="payment-type" data-parsley-group="payment-type" data-parsley-errors-container="#payment-type-error-msg" required=""><label for="payment-cc">
-                <div class="row">
-                  <img src="https://sendto.mozilla.org/page/-/donation_form/img/Visa.png" class="half" id="visa-logo"><img src="https://sendto.mozilla.org/page/-/donation_form/img/MasterCard.png" class="half" id="mc-logo"></div>
+                <div class="row payment-logos credit-card-logos">
+                  <p>&nbsp;</p>
+                </div>
                 <div class="row medium-label-size">Credit card</div>
               </label>
             </div>
             <div class="half">
               <input type="radio" name="payment-type" value="paypal" id="payment-paypal" data-parsley-multiple="payment-type" data-parsley-group="payment-type" data-parsley-errors-container="#payment-type-error-msg" required=""><label for="payment-paypal">
-                <div class="row">
-                  <img src="https://sendto.mozilla.org/page/-/donation_form/img/PayPal.png" class="full"></div>
+                <div class="row payment-logos paypal-logo">
+                  <p>&nbsp;</p>
+                </div>
                 <div class="row medium-label-size">PayPal</div>
               </label>
             </div>
