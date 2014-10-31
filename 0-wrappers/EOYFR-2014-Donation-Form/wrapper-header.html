@@ -512,6 +512,90 @@ i.fa.hint {
   padding: 0;
 }
 
+@media screen and (min-width: 480px) {
+  #payment-type-row label {
+    height: 100px;
+  }
+}
+
+@media screen and (min-width: 600px) {
+  #payment-type-row label {
+    height: 85px;
+  }
+}
+
+.payment-logos {
+  width: 116px;
+  height: 40px;
+  margin: 0 auto;
+  background-size: 100% auto;
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-image: url('https://sendto.mozilla.org/page/-/donation_form/img/payment_logos.png');
+}
+
+.credit-card-logos {
+  background-position: center -36px;
+}
+
+.paypal-logo {
+  background-position: center -104px;
+}
+
+label[for="payment-cc"]:hover .payment-logos {
+  background-position: center -3px;
+}
+
+label[for="payment-paypal"]:hover .payment-logos {
+  background-position: center -70px;
+}
+
+@media screen and (min-width: 480px) {
+  .payment-logos {
+    width: 196px;
+    height: 60px;
+  }
+
+  .credit-card-logos {
+    background-position: center -67px;
+  }
+
+  label[for="payment-cc"]:hover .payment-logos {
+    background-position: center -10px;
+  }
+
+  .paypal-logo {
+    background-position: center -182px;
+  }
+
+  label[for="payment-paypal"]:hover .payment-logos {
+    background-position: center -123px;
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .payment-logos {
+    width: 146px;
+    height: 45px;
+  }
+
+  .credit-card-logos {
+    background-position: center -50px;
+  }
+
+  label[for="payment-cc"]:hover .payment-logos {
+    background-position: center -6px;
+  }
+
+  .paypal-logo {
+    background-position: center -137px;
+  }
+
+  label[for="payment-paypal"]:hover .payment-logos {
+    background-position: center -93px;
+  }
+}
+
 #full-name-row,
 .address-section,
 .credit-card-section,

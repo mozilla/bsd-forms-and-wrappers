@@ -74,37 +74,6 @@ var
 
 
   // ***********************************************
-  // Changing credit card logos on click / hover
-  // Not an ideal way to swap the images. Probably should use CSS sprite when we get a chance
-  // ***********************************************
-  function coloredCCLogos() {
-    $("#visa-logo").attr("src", "https://sendto.mozilla.org/page/-/donation_form/img/Visa.png");
-      $("#mc-logo").attr("src", "https://sendto.mozilla.org/page/-/donation_form/img/MasterCard.png");
-  }
-
-  function whiteCCLogos() {
-    $("#visa-logo").attr("src", "https://sendto.mozilla.org/page/-/donation_form/img/Visa-white.png");
-      $("#mc-logo").attr("src", "https://sendto.mozilla.org/page/-/donation_form/img/MasterCard-white.png");
-  }
-
-  $("input[name='payment-type']").change(function() {
-    var selected = $(this).val();
-    if ( selected == "cc" ) {
-      whiteCCLogos();
-    } else {
-      coloredCCLogos();
-    }
-  });
-
-  $("label[for='payment-cc']").mouseover(function (){
-    whiteCCLogos();
-  });
-
-  $("label[for='payment-cc']").mouseout(function (){
-    coloredCCLogos();
-  });
-
-  // ***********************************************
   // Generate state & country dropdown.
   // This basically copies the BSD generated DOM.
   // ***********************************************
