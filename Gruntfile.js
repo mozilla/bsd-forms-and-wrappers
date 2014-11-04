@@ -8,9 +8,9 @@ module.exports = function (grunt) {
       server: {
         files: {
           // add whichever files you're working on here
-          'EOY-donation-form-single/compiled.html': 'EOY-donation-form-single/template.html',
-          '0-email-signup-form/EOYFR2014-Donor/compiled.html': '0-email-signup-form/EOYFR2014-Donor/template.html',
-          '0-content-page/EOYFR2014-Donor-Social-Media-Share/compiled.html': '0-content-page/EOYFR2014-Donor-Social-Media-Share/template.html'
+          'compiled/EOY-donation-form-single.html': '0-donation-forms/EOY-donation-form-single/template.html',
+          'compiled/EOYFR2014-Donor.html': '0-email-signup-form/EOYFR2014-Donor/template.html',
+          'compiled/EOYFR2014-Donor-Social-Media-Share.html': '0-content-page/EOYFR2014-Donor-Social-Media-Share/template.html'
         }
       },
       l10n: {
@@ -19,7 +19,7 @@ module.exports = function (grunt) {
           section: 'es-MX'
         },
         files: {
-          '0-content-page/EOYFR2014-PayPal-Donate/compiled.html': '0-content-page/EOYFR2014-PayPal-Donate/template.html'
+          'compiled/EOYFR2014-PayPal-Donate_es-MX.html': '0-content-page/EOYFR2014-PayPal-Donate/template.html'
         }
       }
     },
