@@ -8,7 +8,9 @@
     "locale": "US",
     "currency_code": "USD",
     "donate": "Donate",
-    "now": "now"
+    "now": "now",
+    "One-time" : "One-time",
+    "Monthly": "Monthly"
   },
   "de-DE": {
     "donate_today": "",
@@ -46,6 +48,8 @@
     "locale": "MX",
     "currency_code": "MXN",
     "donate": "Dona",
-    "now": "ahora"
+    "now": "ahora",
+    "One-time" : "Una vez",
+    "Monthly" : "Cada mez"
   }
 }
