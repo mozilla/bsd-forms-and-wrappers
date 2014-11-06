@@ -10,7 +10,7 @@
   <input type="hidden" name="rm" value="1">
   <!-- Donation Amount -->
   <input type="hidden" name="amount" value="3">
-  <input type="hidden" name="return" value="https://sendto.mozilla.org/page/s/mozilla-manifesto">
+  <input type="hidden" name="return" value="https://sendto.mozilla.org/page/s/EOYFR2014-donor">
   <input type="hidden" name="currency_code" value="USD">
   <input type="hidden" name="bn" value="PP-DonationsBF:maker-party-donate-button.png:NonHosted">
 </form>
@@ -22,7 +22,7 @@
   <input type="hidden" name="item_name" value="Mozilla Foundation Recurring Donation">
   <input type="hidden" name="no_note" value="1">
   <input type="hidden" name="no_shipping" value="2">
-  <input type="hidden" name="return" value="https://sendto.mozilla.org/page/s/mozilla-manifesto">
+  <input type="hidden" name="return" value="https://sendto.mozilla.org/page/s/EOYFR2014-donor">
   <input type="hidden" name="src" value="1">
   <input type="hidden" name="p3" value="1">
   <input type="hidden" name="currency_code" value="USD">
@@ -133,7 +133,6 @@ var
     $theForm.find("select[name='country']").val("US").addClass("normalTextColor");
     $theForm.find("select[name='country']").change(function (){
       var selected = $(this).val();
-      console.log(selected);
       generateStateDropdown();
       if ( selected ){
         $(this).addClass("normalTextColor");
@@ -186,7 +185,6 @@ var
       $theForm.prepend($bsdForm.find("[name='" + value + "']").clone());
     });
 
-    console.log("copy cloned fields done");
   }
   insertFormMetaDOM();
 
@@ -201,7 +199,6 @@ var
   // ***********************************************
   var updateDonateButtonText = function(event) {
     var amountSelected = $(this).val();
-    console.log(amountSelected);
     var buttonText;
     if ( amountSelected == "other" ) {
       amountSelected = $theForm.find("[name='donation_amount_other']").val();
@@ -215,11 +212,9 @@ var
   $theForm.find("[name='donation_amount']").change(updateDonateButtonText);
   $theForm.find("[name='donation_amount_other']").keyup(updateDonateButtonText);
   $theForm.find("[name='donation_amount_other']").keydown(function(event) {
-    // console.log(event.keyCode);
     var functionKeys = [46, 8, 9, 27, 13, 110, 190]; // backspace, delete, tab, escape, enter and .
     var numberKeys = [ 48, 49, 50, 51, 52, 53, 54, 55, 56, 57 ]; // numbers
     var allowed = functionKeys.concat(numberKeys);
-    // console.log(allowed.indexOf(event.keyCode));
     if ( allowed.indexOf(event.keyCode) === -1 ) {
       event.preventDefault();
     }
@@ -296,22 +291,20 @@ var
       return (value.match(reg) && value.match(reg).length > 0 );
     }, 10);
 
-  var parsleyForm = $theForm.parsley();
 
-$theForm.parsley().subscribe('parsley:form:validation', function (formInstance){
+$theForm.parsley().subscribe('parsley:form:validated', function (formInstance) {
+    formInstance.submitEvent.preventDefault();
   if (!formInstance.isValid()) {
-    formInstance.submitEvent.preventDefault();
   } else {
-    return;
-  }
-});
-
- /* parsleyForm.subscribe("parsley:form:validate", function (formInstance) {
-    formInstance.submitEvent.preventDefault();
-
     var
         $donateButton = $('#donate-btn'),
         donateButtonText = $donateButton.text();
+
+    $('#page-1').add('#page-2').removeClass('hidden').attr('disabled', false);
+
+    function hidePages() {
+      $('#page-1').add('#page-2').addClass('hidden').attr('disabled', true);
+    }
 
     $donateButton.prop('disabled', true).html('<i class="fa fa-cog fa-spin"/> Submitting…');
 
@@ -323,114 +316,80 @@ $theForm.parsley().subscribe('parsley:form:validation', function (formInstance){
       } else {
         selected = $('input[name="donation_amount"]:checked').val()
       }
-      $('#paypal-one-time').find('input[name="amount"]').attr('value', selected);
-      $('input[name="a3"]').attr('value', selected);
       $('input[name="amount_other"]').attr('value', selected);
     }
 
     prepDonationAmount();
 
-    if ($('input[name="payment-type"]:checked').val() === 'paypal') {
-      if (formInstance.isValid('donation_amount', true)) {
-        if ($('input[name="recurring_acknowledge"]:checked').val() == '0') {
-          $('#paypal-one-time').submit();
-        } else {
-          $('#paypal-recurring').submit();
-        }
+
+    function findCCType(ccNum) {
+      if (ccNum.match(regVisa)) {
+        return 'vs';
+      } else if (ccNum.match(regMC)) {
+        return 'mc';
       } else {
-        $donateButton.prop('disabled', false).text(donateButtonText);
-      }
-    } else {
-      // Show additional fields if amount has been selected & the payment type is credit card
-      var amount = formInstance.isValid("donation_amount", true);
-      var paymentType = formInstance.isValid("payment-type", true);
-      if (!$(".cc-additional-info").is(":visible") && amount && paymentType) {
-        $(".cc-additional-info").slideDown("slow");
-      }
-
-      var isFormValid = formInstance.isValid();
-      console.log(isFormValid);
-      if (isFormValid) {
-
-        function findCCType(ccNum) {
-          if (ccNum.match(regVisa)) {
-            return 'vs';
-          } else if (ccNum.match(regMC)) {
-            return 'mc';
-          } else {
-            return null;
-          }
-        }
-
-        $('input[name="cc_type_cd"]').attr('value', findCCType($('input[name="cc_number"]').val()));
-
-        function submission400s(XHR, textStatus, error) {
-          console.log(XHR.responseJSON.code);
-
-          switch (XHR.responseJSON.code) {
-          case 'duplicate':
-            $('#one-line-error').text('Looks like we already have your donation—please refresh if you wish to donate again.').show();
-            break;
-          case 'unknown':
-            $('#one-line-error').text('Something went wrong with your transaction. Please try again later.').show();
-            break;
-          case 'gateway':
-            switch (XHR.responseJSON.gateway_response.status) {
-            case 'decline':
-              $('#one-line-error').text('Sorry, your card was declined. Please try another.').show();
-              break;
-            case 'failure':
-              $('#one-line-error').text('Sorry, your transaction was flagged for fraud protection. Please try another.').show();
-              break;
-            }
-            break;
-          default :
-            $('#one-line-error').text('Something seems to have gone wrong. Please try again later.').show();
-          }
-        }
-
-        var submitDonation = $.ajax('/page/cde/Api/Charge/v1', {
-          type: 'POST',
-          data: $theForm.serializeArray(),
-          statusCode: {
-            400: submission400s,
-            500: function (XHR, textStatus, error) {
-              $('#one-line-error').text('Something went wrong with your transaction. Please try again later.').show();
-            }
-          }
-        });
-
-        function submitSuccess(data, textStatus, XHR) {
-          if (win.location.assign) {
-            win.location.assign(data.redirect_url);
-          } else {
-            win.location = data.redirect_url;
-          }
-        }
-
-        function submitError(XHR, textStatus, error) {
-          $donateButton.prop('disabled', false).text(donateButtonText);
-        }
-
-        submitDonation.error(submitError).success(submitSuccess);
-
-        $("#one-line-error").hide();
-      } else {
-        $donateButton.prop('disabled', false).text(donateButtonText);
-        $("#one-line-error").show();
+        return null;
       }
     }
-    $('.billing-info input').on("input", function() {
-      $("#one-line-error").hide();
-    });
-    $('.billing-info select').on("change", function() {
-      $("#one-line-error").hide();
-    });
-    $('label[for="payment-paypal"], label[for="payment-cc"]').click(function () {
-      formInstance.reset();
-      $("#one-line-error").hide();
-    });
-  });*/
 
+    $('input[name="cc_type_cd"]').attr('value', findCCType($('input[name="cc_number"]').val()));
+
+    function submission400s(XHR, textStatus, error) {
+      switch (XHR.responseJSON.code) {
+      case 'duplicate':
+        $('#one-line-error').text('Looks like we already have your donation—please refresh if you wish to donate again.').show();
+          hidePages();
+        break;
+      case 'unknown':
+        $('#one-line-error').text('Something went wrong with your transaction. Please try again later.').show();
+        hidePages();
+        break;
+      case 'gateway':
+        switch (XHR.responseJSON.gateway_response.status) {
+        case 'decline':
+          $('#one-line-error').text('Sorry, your card was declined. Please try another.').show();
+          hidePages();
+          break;
+        case 'failure':
+          $('#one-line-error').text('Sorry, your transaction was flagged for fraud protection. Please try another.').show();
+          hidePages();
+          break;
+        }
+        break;
+      default :
+        $('#one-line-error').text('Something seems to have gone wrong. Please try again later.').show();
+        hidePages();
+      }
+    }
+
+    var submitDonation = $.ajax('/page/cde/Api/Charge/v1', {
+      type: 'POST',
+      data: $theForm.serializeArray(),
+      statusCode: {
+        400: submission400s,
+        500: function (XHR, textStatus, error) {
+          $('#one-line-error').text('Something went wrong with your transaction. Please try again later.').show();
+          hidePages();
+        }
+      }
+    });
+
+    function submitSuccess(data, textStatus, XHR) {
+      if (win.location.assign) {
+        win.location.assign(data.redirect_url);
+      } else {
+        win.location = data.redirect_url;
+      }
+    }
+
+    function submitError(XHR, textStatus, error) {
+      $donateButton.prop('disabled', false).text(donateButtonText);
+    }
+
+    submitDonation.error(submitError).success(submitSuccess);
+
+    $("#one-line-error").hide();
+  }
+});
 </script>
 <!-- =================== Below form content ENDS =================== -->
