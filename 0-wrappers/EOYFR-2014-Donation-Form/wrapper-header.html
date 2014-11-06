@@ -11,6 +11,10 @@
 <link rel="icon" href="https://sendto.mozilla.org/page/-/donation_form/img/favicon.ico" type="image/x-icon"/>
 
 <style>
+.bsd-contribution-98 {
+  display: none;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -132,6 +136,10 @@ html input[type="button"],
 input[type="reset"],
 input[type="submit"] {
   cursor: pointer;
+}
+
+.hidden {
+  display: none;
 }
 
 .btn {
@@ -776,6 +784,65 @@ select.parsley-error {
 
 #twitter:hover {
   background-color: #46c6f1;
+}
+
+#donation-form-sequential {
+  position: relative;
+  overflow: hidden;
+  height: 266.6px;
+  width: 100%;
+  transition: height 400ms;
+}
+
+.sequence-page {
+  border: 0 dashed transparent;
+  left: 0;
+  width: 100%;
+  top: 0;
+  position: absolute;
+  transition: left 500ms;
+}
+
+.page-hidden-complete {
+  /*position: absolute;*/
+  left: -150%;
+}
+
+.page-hidden-incomplete {
+  /*position: absolute;*/
+  left: 150%;
+}
+
+[data-button-type="next"] {
+  border: 0 transparent dashed;
+  background: #C13832;
+  color: #ffffff;
+  float: right;
+  font-size: 1.375rem;
+  margin-right: 1.5rem;
+  margin-top: 1rem;
+  padding: 0.75rem 1rem;
+  position: relative;
+  height: 46px;
+}
+
+[data-button-type="next"]:hover, [data-button-type="next"]:active, [data-button-type="next"]:focus {
+  background: #EA3B28;
+  outline: none;
+}
+
+[data-button-type="next"]::before {
+  border-top: 23px solid transparent;
+  border-bottom: 23px solid transparent;
+  border-left: 23px dashed #C13832;
+  position: absolute;
+  content: '';
+  right: -23px;
+  top: 0;
+}
+
+[data-button-type="next"]:hover::before, [data-button-type="next"]:active::before , [data-button-type="next"]:focus::before {
+  border-left-color: #EA3B28;
 }
 
 </style>

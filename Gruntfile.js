@@ -9,8 +9,7 @@ module.exports = function (grunt) {
         files: {
           // add whichever files you're working on here
           'compiled/EOY-donation-form-single.html': '0-donation-forms/EOY-donation-form-single/template.html',
-          'compiled/EOYFR2014-Donor.html': '0-email-signup-form/EOYFR2014-Donor/template.html',
-          'compiled/EOYFR2014-Donor-Social-Media-Share.html': '0-content-page/EOYFR2014-Donor-Social-Media-Share/template.html'
+          'compiled/EOY-donation-form-sequential.html': '0-donation-forms/EOY-donation-form-sequential/template.html'
         }
       },
       l10n: {
@@ -36,7 +35,7 @@ module.exports = function (grunt) {
           livereload: '<%= connect.options.livereload %>'
         },
         files: [
-          '**/compiled.html'
+          'compiled/*.html'
         ]
       }
     },
@@ -57,7 +56,7 @@ module.exports = function (grunt) {
 
 
   grunt.registerTask('dev', [
-    'bake',
+    'bake:server',
     'connect:livereload',
     'watch'
   ]);

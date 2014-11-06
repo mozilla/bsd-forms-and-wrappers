@@ -1,0 +1,425 @@
+<!-- =================== Below form content STARTS =================== -->
+
+<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top" id="paypal-one-time">
+  <input type="hidden" name="cmd" value="_donations">
+  <input type="hidden" name="business" value="44ZHAVWJHTK2N">
+  <input type="hidden" name="lc" value="US">
+  <input type="hidden" name="item_name" value="Mozilla Foundation">
+  <input type="hidden" name="no_note" value="1">
+  <input type="hidden" name="no_shipping" value="1">
+  <input type="hidden" name="rm" value="1">
+  <!-- Donation Amount -->
+  <input type="hidden" name="amount" value="3">
+  <input type="hidden" name="return" value="https://sendto.mozilla.org/page/s/mozilla-manifesto">
+  <input type="hidden" name="currency_code" value="USD">
+  <input type="hidden" name="bn" value="PP-DonationsBF:maker-party-donate-button.png:NonHosted">
+</form>
+
+<form action="https://www.paypal.com/cgi-bin/webscr" method="post" id="paypal-recurring">
+  <input type="hidden" name="cmd" value="_xclick-subscriptions">
+  <input type="hidden" name="business" value="44ZHAVWJHTK2N">
+  <input type="hidden" name="lc" value="US">
+  <input type="hidden" name="item_name" value="Mozilla Foundation Recurring Donation">
+  <input type="hidden" name="no_note" value="1">
+  <input type="hidden" name="no_shipping" value="2">
+  <input type="hidden" name="return" value="https://sendto.mozilla.org/page/s/mozilla-manifesto">
+  <input type="hidden" name="src" value="1">
+  <input type="hidden" name="p3" value="1">
+  <input type="hidden" name="currency_code" value="USD">
+  <input type="hidden" name="bn" value="PP-SubscriptionsBF:maker-party-donate-button.png:NonHosted">
+  <input type="hidden" name="t3" value="M">
+  <input name="srt" type="hidden" value="0">
+  <!-- Donation Amount -->
+  <input type="hidden" name="a3" value="3">
+</form>
+
+<script src="https://sendto.mozilla.org/page/-/donation_form/js/jquery-2.1.1.min.js"></script>
+<script src="https://sendto.mozilla.org/page/-/donation_form/js/parsley.min.js"></script>
+<script>
+var
+    $bsdForm = $("form#contribution"),
+    $theForm = $("#donation-form-sequential"),
+    win = window;
+
+  // ***********************************************
+  // Preselect dollar amount
+  // ***********************************************
+
+  $(win).on('load', function () {
+    if (win.location.hash.match(/#amount-\d+?/)) {
+      $(win.location.hash).attr('checked', true);
+    }
+
+    history.replaceState({page: 1}, '', '#page-1')
+  });
+
+
+  // ***********************************************
+  // UI related
+  // ***********************************************
+  $bsdForm.hide();
+  $(".cc-additional-info").hide();
+  $(".hint-msg").hide();
+
+  $("#donation-form input, #donation-form select").focus(function() {
+    $(this).siblings("i.fa.field-icon").addClass("icon-in-focus");
+  });
+  $("#donation-form input, #donation-form select").blur(function() {
+    $(this).siblings("i.fa.field-icon").removeClass("icon-in-focus");
+  });
+
+  $("#payment-type-row label").click(function() {
+    // reset
+    $(".cc-additional-info").hide();
+    // toggle corresponding section
+    var paymentType = $(this).attr("for");
+    if (paymentType == "payment-cc") {
+      $(".cc-additional-info").slideDown(400);
+        $('#donation-form-sequential').height(300)
+    } else {
+        $('#donation-form-sequential').height($('#page-2').height() + 10);
+    }
+  });
+
+  $("input#amount-other + label + input[type=\"number\"]").focus(function() {
+    $(this).prevAll("input[type=\"radio\"]").click();
+  });
+
+  $("i.hint").click(function() {
+    $(this).toggleClass("on");
+    $(this).parents(".hint-msg-parent").find(".hint-msg").toggle();
+  });
+
+
+  // ***********************************************
+  // Generate state & country dropdown.
+  // This basically copies the BSD generated DOM.
+  // ***********************************************
+  function generateStateDropdown() {
+    var selectedCountry = $theForm.find("select[name='country']").val();
+    var optgroup = $("select[data-country='" + selectedCountry + "'] optgroup");
+    var stateDropdown = $theForm.find('select[name="state_cd"]');
+    stateDropdown.find("optgroup").remove();
+    stateDropdown.removeClass("normalTextColor");
+    stateDropdown.find("option[data-value='none']").remove();
+    if (optgroup.length) {
+      stateDropdown.val("");
+      stateDropdown.append(optgroup.clone());
+      stateDropdown.prop("required", true);
+    } else {
+      var noneoptions = $("select[data-country='none'] option");
+      var clonedOptions = noneoptions.clone();
+      stateDropdown.append(clonedOptions);
+      stateDropdown.find("option:selected").removeAttr("selected");
+      clonedOptions.prop("selected", true);
+      stateDropdown.prop("required", false);
+    }
+  }
+
+
+  function generateCountryDropdown() {
+    var cloned = $bsdForm.find("select[name='country']").clone();
+    $theForm.find("select[name='country']").html(cloned.html());
+    $theForm.find("select[name='country'] option:selected").removeAttr("selected");
+    $theForm.find("select[name='country'] option:first-child").html("Country");
+    $theForm.find("select[name='country']").val("US").addClass("normalTextColor");
+    $theForm.find("select[name='country']").change(function (){
+      var selected = $(this).val();
+      console.log(selected);
+      generateStateDropdown();
+      if ( selected ){
+        $(this).addClass("normalTextColor");
+      } else {
+        $(this).removeClass("normalTextColor");
+      }
+    });
+  }
+  generateCountryDropdown();
+  generateStateDropdown();
+
+  $theForm.find('select[name="state_cd"]').change(function () {
+    var selected = $(this).val();
+    if ( selected ){
+      $(this).addClass("normalTextColor");
+    } else {
+      $(this).removeClass("normalTextColor");
+    }
+  });
+
+
+  // ***********************************************
+  // Extract BSD form meta and insert to our form
+  // ***********************************************
+  function insertFormMetaDOM() {
+    // the following is an array of all the meta form field names that came with the BSD generated form
+    // API doc here: https://github.com/bluestatedigital/bsd-developer-docs/blob/master/bsd-donate-api/README.md
+    var bsdFormMetaName = [
+                        "slug",
+                        "submission_key",
+                        "http_referer",
+                        "event_attendee_id",
+                        "outreach_page_id",
+                        "stg_signup_id",
+                        "mailing_link_id",
+                        "mailing_recipient_id",
+                        "match_campaign_id",
+                        "match_is_pledge",
+                        "pledge_is_convert",
+                        "contributor_key",
+                        "quick_donate_populated",
+                        "device_fingerprint",
+                        "default_country",
+                        "cc_number_ack",
+                        "ach_account_number_ack",
+                        "k-ris-sid",
+                      ];
+
+    $.each(bsdFormMetaName, function( index, value ) {
+      $theForm.prepend($bsdForm.find("[name='" + value + "']").clone());
+    });
+
+    console.log("copy cloned fields done");
+  }
+  insertFormMetaDOM();
+
+
+  // ***********************************************
+  // Remove the BSD generated form from DOM
+  // ***********************************************
+  $bsdForm.remove();
+
+  // ***********************************************
+  // Update Donate button to make it show the selected donation amount
+  // ***********************************************
+  var updateDonateButtonText = function(event) {
+    var amountSelected = $(this).val();
+    console.log(amountSelected);
+    var buttonText;
+    if ( amountSelected == "other" ) {
+      amountSelected = $theForm.find("[name='donation_amount_other']").val();
+    }
+    buttonText = amountSelected ? "Donate $" + amountSelected + " now" : "Donate now";
+    $("#donate-btn").text(buttonText);
+    $('#paypal-one-time').find('[name="amount"]').attr('value', amountSelected);
+    $('#paypal-recurring').find('[name="a3"]').attr('value', amountSelected);
+  };
+
+  $theForm.find("[name='donation_amount']").change(updateDonateButtonText);
+  $theForm.find("[name='donation_amount_other']").keyup(updateDonateButtonText);
+  $theForm.find("[name='donation_amount_other']").keydown(function(event) {
+    // console.log(event.keyCode);
+    var functionKeys = [46, 8, 9, 27, 13, 110, 190]; // backspace, delete, tab, escape, enter and .
+    var numberKeys = [ 48, 49, 50, 51, 52, 53, 54, 55, 56, 57 ]; // numbers
+    var allowed = functionKeys.concat(numberKeys);
+    // console.log(allowed.indexOf(event.keyCode));
+    if ( allowed.indexOf(event.keyCode) === -1 ) {
+      event.preventDefault();
+    }
+  });
+
+  // ***********************************************
+  // Program next links and back button
+  // ***********************************************
+
+  function hidePage(page, status) {
+  $(page).addClass('page-hidden-' + status).prop('disabled', true);
+    win.setTimeout(function () {
+      $(page).addClass('hidden')
+    }, 501);
+  }
+
+  function showPage(page) {
+    $(page).removeClass('hidden');
+    win.setTimeout(function () {
+      $(page).removeClass('page-hidden-incomplete').removeClass('page-hidden-complete').prop('disabled', false);
+    }, 100);
+
+    $('#donation-form-sequential').height($(page).height() + 10);
+  }
+
+  $theForm.on('click', '[data-button-type="next"]', function (e) {
+    e.preventDefault();
+
+    var
+        $context = $(this),
+        current = $context.data('page'),
+        next = current + 1;
+    if ($theForm.parsley().isValid('page-' + current)) {
+      history.pushState({page: next}, '', $context.prop('href'));
+      hidePage('#page-' + current, 'complete');
+      showPage('#page-' + next);
+    } else {
+      $theForm.parsley().validate('page-' + current);
+      $('#donation-form-sequential').height($('#page-' + current).height() + 10);
+    }
+  });
+
+  win.onpopstate = function (e) {
+    showPage(win.location.hash);
+    hidePage('#page-' + (e.state.page - 1), 'complete');
+    hidePage('#page-' + (e.state.page + 1), 'incomplete');
+  };
+
+  // ***********************************************
+  // Parsley.js setting & client side validation etc
+  // API: http://parsleyjs.org/doc/
+  // ***********************************************
+  var regVisa = /^(?:4[0-9]{12}(?:[0-9]{3})?)$/;
+  var regMC = /^(?:5[1-5][0-9]{14})$/;
+
+  win.ParsleyConfig = {};
+
+  win.ParsleyValidator
+    // Check `other amount` is valid
+    // .addValidator('checkAmount', function (value, requirement) {
+    //   return;
+    // }, 10)
+    // Visa and Master Card client side validation
+    .addValidator('visaMcCardNum', function (value, requirement) {
+      return (value.match(regVisa) && value.match(regVisa).length > 0 )
+              || (value.match(regMC) && value.match(regMC).length > 0 );
+    }, 10)
+    // Credit card expirary date validation
+    .addValidator('ccExpirary', function (value, requirement) {
+      var reg = /(0[1-9]|1[0-2])\/[0-9]{2}/;
+      return (value.match(reg) && value.match(reg).length > 0 );
+    }, 10);
+
+  var parsleyForm = $theForm.parsley();
+
+$theForm.parsley().subscribe('parsley:form:validation', function (formInstance){
+  if (!formInstance.isValid()) {
+    formInstance.submitEvent.preventDefault();
+  } else {
+    return;
+  }
+});
+
+ /* parsleyForm.subscribe("parsley:form:validate", function (formInstance) {
+    formInstance.submitEvent.preventDefault();
+
+    var
+        $donateButton = $('#donate-btn'),
+        donateButtonText = $donateButton.text();
+
+    $donateButton.prop('disabled', true).html('<i class="fa fa-cog fa-spin"/> Submitting…');
+
+    function prepDonationAmount() {
+      // Set donation amount hidden inputs so all APIs are happy
+      var selected;
+      if ($('input[name="donation_amount_other"]').val() !== '') {
+        selected = $('input[name="donation_amount_other"]').val();
+      } else {
+        selected = $('input[name="donation_amount"]:checked').val()
+      }
+      $('#paypal-one-time').find('input[name="amount"]').attr('value', selected);
+      $('input[name="a3"]').attr('value', selected);
+      $('input[name="amount_other"]').attr('value', selected);
+    }
+
+    prepDonationAmount();
+
+    if ($('input[name="payment-type"]:checked').val() === 'paypal') {
+      if (formInstance.isValid('donation_amount', true)) {
+        if ($('input[name="recurring_acknowledge"]:checked').val() == '0') {
+          $('#paypal-one-time').submit();
+        } else {
+          $('#paypal-recurring').submit();
+        }
+      } else {
+        $donateButton.prop('disabled', false).text(donateButtonText);
+      }
+    } else {
+      // Show additional fields if amount has been selected & the payment type is credit card
+      var amount = formInstance.isValid("donation_amount", true);
+      var paymentType = formInstance.isValid("payment-type", true);
+      if (!$(".cc-additional-info").is(":visible") && amount && paymentType) {
+        $(".cc-additional-info").slideDown("slow");
+      }
+
+      var isFormValid = formInstance.isValid();
+      console.log(isFormValid);
+      if (isFormValid) {
+
+        function findCCType(ccNum) {
+          if (ccNum.match(regVisa)) {
+            return 'vs';
+          } else if (ccNum.match(regMC)) {
+            return 'mc';
+          } else {
+            return null;
+          }
+        }
+
+        $('input[name="cc_type_cd"]').attr('value', findCCType($('input[name="cc_number"]').val()));
+
+        function submission400s(XHR, textStatus, error) {
+          console.log(XHR.responseJSON.code);
+
+          switch (XHR.responseJSON.code) {
+          case 'duplicate':
+            $('#one-line-error').text('Looks like we already have your donation—please refresh if you wish to donate again.').show();
+            break;
+          case 'unknown':
+            $('#one-line-error').text('Something went wrong with your transaction. Please try again later.').show();
+            break;
+          case 'gateway':
+            switch (XHR.responseJSON.gateway_response.status) {
+            case 'decline':
+              $('#one-line-error').text('Sorry, your card was declined. Please try another.').show();
+              break;
+            case 'failure':
+              $('#one-line-error').text('Sorry, your transaction was flagged for fraud protection. Please try another.').show();
+              break;
+            }
+            break;
+          default :
+            $('#one-line-error').text('Something seems to have gone wrong. Please try again later.').show();
+          }
+        }
+
+        var submitDonation = $.ajax('/page/cde/Api/Charge/v1', {
+          type: 'POST',
+          data: $theForm.serializeArray(),
+          statusCode: {
+            400: submission400s,
+            500: function (XHR, textStatus, error) {
+              $('#one-line-error').text('Something went wrong with your transaction. Please try again later.').show();
+            }
+          }
+        });
+
+        function submitSuccess(data, textStatus, XHR) {
+          if (win.location.assign) {
+            win.location.assign(data.redirect_url);
+          } else {
+            win.location = data.redirect_url;
+          }
+        }
+
+        function submitError(XHR, textStatus, error) {
+          $donateButton.prop('disabled', false).text(donateButtonText);
+        }
+
+        submitDonation.error(submitError).success(submitSuccess);
+
+        $("#one-line-error").hide();
+      } else {
+        $donateButton.prop('disabled', false).text(donateButtonText);
+        $("#one-line-error").show();
+      }
+    }
+    $('.billing-info input').on("input", function() {
+      $("#one-line-error").hide();
+    });
+    $('.billing-info select').on("change", function() {
+      $("#one-line-error").hide();
+    });
+    $('label[for="payment-paypal"], label[for="payment-cc"]').click(function () {
+      formInstance.reset();
+      $("#one-line-error").hide();
+    });
+  });*/
+
+</script>
+<!-- =================== Below form content ENDS =================== -->
