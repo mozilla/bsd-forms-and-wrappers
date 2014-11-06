@@ -75,10 +75,10 @@ var
     var paymentType = $(this).attr("for");
     if (paymentType == "payment-cc") {
       $(".cc-additional-info").slideDown(400);
-      $('#donation-form-sequential').height(300)
+      $('#donation-form-sequential').height(380)
       $('#page-2').find('a.button').off('click.paypal');
     } else {
-      $('#donation-form-sequential').height($('#page-2').height() + 10);
+      $('#donation-form-sequential').height($('#page-2').height() + 90);
       $('#page-2').find('a.button').on('click.paypal', function () {
         if ($('[name="recurring_acknowledge"]:checked').val() === '0') {
           $('#paypal-one-time').submit();
@@ -237,12 +237,15 @@ var
   }
 
   function showPage(page) {
+    $('ol.progress').find('li').removeClass('active');
+    $('ol.progress').find('li[data-position="' + page +'"]').addClass('active');
+
     $(page).removeClass('hidden');
     win.setTimeout(function () {
       $(page).removeClass('page-hidden-incomplete').removeClass('page-hidden-complete').prop('disabled', false);
     }, 100);
 
-    $('#donation-form-sequential').height($(page).height() + 10);
+    $('#donation-form-sequential').height($(page).height() + 90);
   }
 
   $theForm.on('click', '[data-button-type="next"]', function (e) {
@@ -258,7 +261,7 @@ var
       showPage('#page-' + next);
     } else {
       $theForm.parsley().validate('page-' + current);
-      $('#donation-form-sequential').height($('#page-' + current).height() + 10);
+      $('#donation-form-sequential').height($('#page-' + current).height() + 90);
     }
   });
 

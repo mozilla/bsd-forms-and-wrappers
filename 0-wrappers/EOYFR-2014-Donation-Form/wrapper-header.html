@@ -789,27 +789,58 @@ select.parsley-error {
 #donation-form-sequential {
   position: relative;
   overflow: hidden;
-  height: 266.6px;
+  height: 354.6px;
   width: 100%;
   transition: height 400ms;
+}
+
+ol.progress {
+  counter-reset: progress;
+  list-style: none;
+}
+
+ol.progress li {
+  counter-increment: progress;
+  position: relative;
+  width: 33%;
+  float: left;
+  margin-top: 40px;
+}
+
+ol.progress li::before {
+  background: none repeat scroll 0% 0% #EAEFF2;
+  border-radius: 50%;
+  box-shadow: 0px 0px 0px 10px #EAEFF2;
+  box-sizing: border-box;
+  content: counter(progress, decimal);
+  height: 34px;
+  left: 11%;
+  line-height: 2.4;
+  padding-left: 13px;
+  position: absolute;
+  top: -44px;
+  width: 34px;
+}
+
+ol.progress li.active::before {
+  background: #0095DD;
+  color: #ffffff;
 }
 
 .sequence-page {
   border: 0 dashed transparent;
   left: 0;
   width: 100%;
-  top: 0;
+  top: 80px;
   position: absolute;
   transition: left 500ms;
 }
 
 .page-hidden-complete {
-  /*position: absolute;*/
   left: -150%;
 }
 
 .page-hidden-incomplete {
-  /*position: absolute;*/
   left: 150%;
 }
 
