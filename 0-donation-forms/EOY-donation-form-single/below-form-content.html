@@ -40,7 +40,13 @@ var
     $bsdForm = $("form#contribution"),
     $theForm = $("#donation-form-single");
 
-  // ***********************************************
+$(win).on('load', function () {
+  if (win.location.hash.match(/#amount-\d+?/)) {
+    $(win.location.hash).attr('checked', true);
+  }
+});
+
+// ***********************************************
   // UI related
   // ***********************************************
   $(".cc-additional-info").hide();
