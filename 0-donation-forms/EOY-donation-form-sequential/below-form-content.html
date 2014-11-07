@@ -57,6 +57,7 @@ var
   // UI related
   // ***********************************************
   $bsdForm.hide();
+  $(win).on('resize', calculateHeight);
   $(".cc-additional-info").hide();
   $(".hint-msg").hide();
 
@@ -68,7 +69,7 @@ var
   });
 
 function calculateHeight() {
-  $('#donation-form-sequential').height($(win.location.hash).height() + 100);
+  $('#donation-form-sequential').height($(win.location.hash).height() + 120);
 }
 
   $("#payment-type-row label").click(function() {
@@ -77,8 +78,8 @@ function calculateHeight() {
     // toggle corresponding section
     var paymentType = $(this).attr("for");
     if (paymentType == "payment-cc") {
-      $(".cc-additional-info").slideDown(400);
-      $('#donation-form-sequential').height(400);
+      $(".cc-additional-info").slideDown(100);
+      win.setTimeout(calculateHeight, 100);
       $('#page-2').find('a.button').off('click.paypal');
     } else {
       calculateHeight();
@@ -214,7 +215,13 @@ function calculateHeight() {
   };
 
   $theForm.find("[name='donation_amount']").change(updateDonateButtonText);
-  $theForm.find("[name='donation_amount_other']").keyup(updateDonateButtonText);
+  $theForm.find("[name='donation_amount']").change(function (e) {
+    if ($(this).val() !== 'other') {
+      $('input[name="donation_amount_other"]').attr('required', false).attr('data-parsley-required',"false");
+    }
+  });
+
+$theForm.find("[name='donation_amount_other']").keyup(updateDonateButtonText);
   $theForm.find("[name='donation_amount_other']").keydown(function(event) {
     var functionKeys = [46, 8, 9, 27, 13, 110, 190]; // backspace, delete, tab, escape, enter and .
     var numberKeys = [ 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105 ]; // numbers
@@ -250,6 +257,10 @@ function calculateHeight() {
   $theForm.on('click', '[data-button-type="next"]', function (e) {
     e.preventDefault();
 
+    if ($('input[name="donation_amount"]:checked').val() === 'other') {
+      $('input[name="donation_amount_other"]').attr('required', true);
+    }
+
     var
         $context = $(this),
         current = $context.data('page'),
@@ -260,6 +271,7 @@ function calculateHeight() {
       showPage('#page-' + next);
     } else {
       $theForm.parsley().validate('page-' + current);
+      calculateHeight();
     }
   });
 
@@ -302,108 +314,107 @@ function calculateHeight() {
     }, 10);
 
 
-$theForm.parsley().subscribe('parsley:form:validated', function (formInstance) {
-  calculateHeight();
-//  console.log(formInstance);
-  if (formInstance.submitEvent !== undefined) {
-    formInstance.submitEvent.preventDefault();
-  }
-  if (!formInstance.isValid()) {
-  } else {
-    var
-        $donateButton = $('#donate-btn'),
-        donateButtonText = $donateButton.text();
-
-    $('#page-1').add('#page-2').removeClass('hidden').attr('disabled', false);
-
-    function hidePages() {
-      $('#page-1').add('#page-2').addClass('hidden').attr('disabled', true);
+  $theForm.parsley().subscribe('parsley:form:validated', function (formInstance) {
+    calculateHeight();
+    if (formInstance.submitEvent !== undefined) {
+      formInstance.submitEvent.preventDefault();
     }
+    if (!formInstance.isValid()) {
+    } else {
+      var
+          $donateButton = $('#donate-btn'),
+          donateButtonText = $donateButton.text();
 
-    $donateButton.prop('disabled', true).html('<i class="fa fa-cog fa-spin"/> Submitting…');
+      $('#page-1').add('#page-2').removeClass('hidden').attr('disabled', false);
 
-    function prepDonationAmount() {
-      // Set donation amount hidden inputs so all APIs are happy
-      var selected;
-      if ($('input[name="donation_amount_other"]').val() !== '') {
-        selected = $('input[name="donation_amount_other"]').val();
-      } else {
-        selected = $('input[name="donation_amount"]:checked').val()
+      function hidePages() {
+        $('#page-1').add('#page-2').addClass('hidden').attr('disabled', true);
       }
-      $('input[name="amount_other"]').attr('value', selected);
-    }
 
-    prepDonationAmount();
+      $donateButton.prop('disabled', true).html('<i class="fa fa-cog fa-spin"/> Submitting…');
 
-
-    function findCCType(ccNum) {
-      if (ccNum.match(regVisa)) {
-        return 'vs';
-      } else if (ccNum.match(regMC)) {
-        return 'mc';
-      } else {
-        return null;
-      }
-    }
-
-    $('input[name="cc_type_cd"]').attr('value', findCCType($('input[name="cc_number"]').val()));
-
-    function submission400s(XHR, textStatus, error) {
-      switch (XHR.responseJSON.code) {
-      case 'duplicate':
-        $('#one-line-error').text('Looks like we already have your donation—please refresh if you wish to donate again.').show();
-          hidePages();
-        break;
-      case 'unknown':
-        $('#one-line-error').text('Something went wrong with your transaction. Please try again later.').show();
-        hidePages();
-        break;
-      case 'gateway':
-        switch (XHR.responseJSON.gateway_response.status) {
-        case 'decline':
-          $('#one-line-error').text('Sorry, your card was declined. Please try another.').show();
-          hidePages();
-          break;
-        case 'failure':
-          $('#one-line-error').text('Sorry, your transaction was flagged for fraud protection. Please try another.').show();
-          hidePages();
-          break;
+      function prepDonationAmount() {
+        // Set donation amount hidden inputs so all APIs are happy
+        var selected;
+        if ($('input[name="donation_amount_other"]').val() !== '') {
+          selected = $('input[name="donation_amount_other"]').val();
+        } else {
+          selected = $('input[name="donation_amount"]:checked').val()
         }
-        break;
-      default :
-        $('#one-line-error').text('Something seems to have gone wrong. Please try again later.').show();
-        hidePages();
+        $('input[name="amount_other"]').attr('value', selected);
       }
-    }
 
-    var submitDonation = $.ajax('/page/cde/Api/Charge/v1', {
-      type: 'POST',
-      data: $theForm.serializeArray(),
-      statusCode: {
-        400: submission400s,
-        500: function (XHR, textStatus, error) {
+      prepDonationAmount();
+
+
+      function findCCType(ccNum) {
+        if (ccNum.match(regVisa)) {
+          return 'vs';
+        } else if (ccNum.match(regMC)) {
+          return 'mc';
+        } else {
+          return null;
+        }
+      }
+
+      $('input[name="cc_type_cd"]').attr('value', findCCType($('input[name="cc_number"]').val()));
+
+      function submission400s(XHR, textStatus, error) {
+        switch (XHR.responseJSON.code) {
+        case 'duplicate':
+          $('#one-line-error').text('Looks like we already have your donation—please refresh if you wish to donate again.').show();
+            hidePages();
+          break;
+        case 'unknown':
           $('#one-line-error').text('Something went wrong with your transaction. Please try again later.').show();
           hidePages();
+          break;
+        case 'gateway':
+          switch (XHR.responseJSON.gateway_response.status) {
+          case 'decline':
+            $('#one-line-error').text('Sorry, your card was declined. Please try another.').show();
+            hidePages();
+            break;
+          case 'failure':
+            $('#one-line-error').text('Sorry, your transaction was flagged for fraud protection. Please try another.').show();
+            hidePages();
+            break;
+          }
+          break;
+        default :
+          $('#one-line-error').text('Something seems to have gone wrong. Please try again later.').show();
+          hidePages();
         }
       }
-    });
 
-    function submitSuccess(data, textStatus, XHR) {
-      if (win.location.assign) {
-        win.location.assign(data.redirect_url);
-      } else {
-        win.location = data.redirect_url;
+      var submitDonation = $.ajax('/page/cde/Api/Charge/v1', {
+        type: 'POST',
+        data: $theForm.serializeArray(),
+        statusCode: {
+          400: submission400s,
+          500: function (XHR, textStatus, error) {
+            $('#one-line-error').text('Something went wrong with your transaction. Please try again later.').show();
+            hidePages();
+          }
+        }
+      });
+
+      function submitSuccess(data, textStatus, XHR) {
+        if (win.location.assign) {
+          win.location.assign(data.redirect_url);
+        } else {
+          win.location = data.redirect_url;
+        }
       }
+
+      function submitError(XHR, textStatus, error) {
+        $donateButton.prop('disabled', false).text(donateButtonText);
+      }
+
+      submitDonation.error(submitError).success(submitSuccess);
+
+      $("#one-line-error").hide();
     }
-
-    function submitError(XHR, textStatus, error) {
-      $donateButton.prop('disabled', false).text(donateButtonText);
-    }
-
-    submitDonation.error(submitError).success(submitSuccess);
-
-    $("#one-line-error").hide();
-  }
-});
+  });
 </script>
 <!-- =================== Below form content ENDS =================== -->
