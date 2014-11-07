@@ -48,10 +48,8 @@ var
   $(win).on('load', function () {
     if (win.location.hash.match(/#amount-\d+?/)) {
       $(win.location.hash).attr('checked', true);
-      history.replaceState({page: 1}, '', '#page-1')
-    } else if (!win.location.hash.match(/#page-\d/)) {
-      history.replaceState({page: 1}, '', '#page-1')
     }
+    history.replaceState({page: 1, hash: '#page-1'}, '', '#page-1');
   });
 
 
@@ -69,6 +67,10 @@ var
     $(this).siblings("i.fa.field-icon").removeClass("icon-in-focus");
   });
 
+function calculateHeight() {
+  $('#donation-form-sequential').height($(win.location.hash).height() + 100);
+}
+
   $("#payment-type-row label").click(function() {
     // reset
     $(".cc-additional-info").hide();
@@ -76,10 +78,10 @@ var
     var paymentType = $(this).attr("for");
     if (paymentType == "payment-cc") {
       $(".cc-additional-info").slideDown(400);
-      $('#donation-form-sequential').height(380)
+      $('#donation-form-sequential').height(400);
       $('#page-2').find('a.button').off('click.paypal');
     } else {
-      $('#donation-form-sequential').height($('#page-2').height() + 90);
+      calculateHeight();
       $('#page-2').find('a.button').on('click.paypal', function () {
         if ($('[name="recurring_acknowledge"]:checked').val() === '0') {
           $('#paypal-one-time').submit();
@@ -97,6 +99,7 @@ var
   $("i.hint").click(function() {
     $(this).toggleClass("on");
     $(this).parents(".hint-msg-parent").find(".hint-msg").toggle();
+    calculateHeight();
   });
 
 
@@ -241,7 +244,7 @@ var
       $(page).removeClass('page-hidden-incomplete').removeClass('page-hidden-complete').prop('disabled', false);
     }, 100);
 
-    $('#donation-form-sequential').height($(page).height() + 90);
+    calculateHeight();
   }
 
   $theForm.on('click', '[data-button-type="next"]', function (e) {
@@ -252,17 +255,15 @@ var
         current = $context.data('page'),
         next = current + 1;
     if ($theForm.parsley().isValid('page-' + current)) {
-      history.pushState({page: next}, '', $context.prop('href'));
+      history.pushState({hash: '#page-' + next, page: next}, '', $context.prop('href'));
       hidePage('#page-' + current, 'complete');
       showPage('#page-' + next);
     } else {
       $theForm.parsley().validate('page-' + current);
-      $('#donation-form-sequential').height($('#page-' + current).height() + 90);
     }
   });
 
   win.onpopstate = function (e) {
-    showPage(win.location.hash);
 
     if (e.state.page !== null) {
       hidePage('#page-' + (e.state.page - 1), 'complete');
@@ -271,6 +272,8 @@ var
       hidePage('#page-2', 'incomplete');
       hidePage('#page-3', 'incomplete');
     }
+    history.replaceState({page: e.state.page, hash: e.state.hash}, '', e.state.hash);
+    showPage(e.state.hash);
   };
 
   // ***********************************************
@@ -300,7 +303,11 @@ var
 
 
 $theForm.parsley().subscribe('parsley:form:validated', function (formInstance) {
+  calculateHeight();
+//  console.log(formInstance);
+  if (formInstance.submitEvent !== undefined) {
     formInstance.submitEvent.preventDefault();
+  }
   if (!formInstance.isValid()) {
   } else {
     var
