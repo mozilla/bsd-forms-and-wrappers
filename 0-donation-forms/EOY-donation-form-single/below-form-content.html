@@ -38,7 +38,8 @@
 <script>
 var
     $bsdForm = $("form#contribution"),
-    $theForm = $("#donation-form-single");
+    $theForm = $("#donation-form-single"),
+    win = window;
 
 $(win).on('load', function () {
   if (win.location.hash.match(/#amount-\d+?/)) {
