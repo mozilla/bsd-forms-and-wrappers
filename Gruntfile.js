@@ -6,6 +6,9 @@ module.exports = function (grunt) {
   grunt.initConfig({
     bake: {
       server: {
+        options: {
+          content: '0-donation-forms/EOY-donation-form-single/en-US.json'
+        },
         files: {
           // add whichever files you're working on here
           'compiled/EOY-donation-form-single.html': '0-donation-forms/EOY-donation-form-single/template.html',
