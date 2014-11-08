@@ -57,7 +57,6 @@ var
   // UI related
   // ***********************************************
   $bsdForm.hide();
-  $(win).on('resize', calculateHeight);
   $(".cc-additional-info").hide();
   $(".hint-msg").hide();
 
@@ -69,7 +68,7 @@ var
   });
 
 function calculateHeight() {
-  $('#donation-form-sequential').height($(win.location.hash).height() + 120);
+  $('#donation-form-sequential').height($(win.location.hash).height() + 145);
 }
 
   $("#payment-type-row label").click(function() {
@@ -92,6 +91,8 @@ function calculateHeight() {
       })
     }
   });
+
+  $(win).on('resize', calculateHeight);
 
   $("input#amount-other + label + input[type=\"number\"]").focus(function() {
     $(this).prevAll("input[type=\"radio\"]").click();
@@ -256,6 +257,7 @@ $theForm.find("[name='donation_amount_other']").keyup(updateDonateButtonText);
 
   $theForm.on('click', '[data-button-type="next"]', function (e) {
     e.preventDefault();
+    $('#one-line-error').hide();
 
     if ($('input[name="donation_amount"]:checked').val() === 'other') {
       $('input[name="donation_amount_other"]').attr('required', true);
@@ -277,6 +279,7 @@ $theForm.find("[name='donation_amount_other']").keyup(updateDonateButtonText);
 
   win.onpopstate = function (e) {
 
+    $('#one-line-error').hide();
     if (e.state.page !== null) {
       hidePage('#page-' + (e.state.page - 1), 'complete');
       hidePage('#page-' + (e.state.page + 1), 'incomplete');
@@ -315,11 +318,13 @@ $theForm.find("[name='donation_amount_other']").keyup(updateDonateButtonText);
 
 
   $theForm.parsley().subscribe('parsley:form:validated', function (formInstance) {
+    $('#one-line-error').hide();
     calculateHeight();
     if (formInstance.submitEvent !== undefined) {
       formInstance.submitEvent.preventDefault();
     }
     if (!formInstance.isValid()) {
+      $('#one-line-error').show();
     } else {
       var
           $donateButton = $('#donate-btn'),
@@ -363,28 +368,24 @@ $theForm.find("[name='donation_amount_other']").keyup(updateDonateButtonText);
         switch (XHR.responseJSON.code) {
         case 'duplicate':
           $('#one-line-error').text('Looks like we already have your donation—please refresh if you wish to donate again.').show();
-            hidePages();
           break;
         case 'unknown':
           $('#one-line-error').text('Something went wrong with your transaction. Please try again later.').show();
-          hidePages();
           break;
         case 'gateway':
           switch (XHR.responseJSON.gateway_response.status) {
           case 'decline':
             $('#one-line-error').text('Sorry, your card was declined. Please try another.').show();
-            hidePages();
             break;
           case 'failure':
             $('#one-line-error').text('Sorry, your transaction was flagged for fraud protection. Please try another.').show();
-            hidePages();
             break;
           }
           break;
         default :
           $('#one-line-error').text('Something seems to have gone wrong. Please try again later.').show();
-          hidePages();
         }
+        hidePages();
       }
 
       var submitDonation = $.ajax('/page/cde/Api/Charge/v1', {
