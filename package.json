@@ -13,7 +13,8 @@
     "grunt-contrib-connect": "^0.7.1",
     "grunt-contrib-watch": "^0.5.3",
     "jit-grunt": "^0.8.0",
-    "time-grunt": "^0.1.2"
+    "time-grunt": "^0.1.2",
+    "grunt-bake": "0.3.12"
   },
   "engines": {
     "node": ">=0.10.0"
