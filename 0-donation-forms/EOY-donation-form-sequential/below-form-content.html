@@ -80,8 +80,12 @@ function calculateHeight() {
       $(".cc-additional-info").slideDown(100);
       win.setTimeout(calculateHeight, 100);
       $('#page-2').find('a.button').off('click.paypal');
+      if ( $(".parsley-error").length > 0 ) {
+        $("#one-line-error").show();
+      }
     } else {
       calculateHeight();
+      $("#one-line-error").hide();
       $('#page-2').find('a.button').on('click.paypal', function () {
         if ($('[name="recurring_acknowledge"]:checked').val() === '0') {
           $('#paypal-one-time').submit();
