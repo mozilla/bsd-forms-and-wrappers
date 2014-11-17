@@ -44,11 +44,11 @@ var
     PRESET2 = [ 100, 50, 25, 15];
 
 // extract query param from url
-// credits: http://www.sitepoint.com/url-parameters-jquery/
+// code modified from: http://www.sitepoint.com/url-parameters-jquery/
 $.urlParam = function(name){
   var results =
       new RegExp('[\?&amp;]' + name + '=([^&amp;#]*)').exec(window.location.href);
-  return results[1] || 0;
+  return results ? results[1] : 0;
 }
 
 $(win).on('load', function () {
