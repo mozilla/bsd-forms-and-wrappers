@@ -124,6 +124,7 @@ function calculateHeight() {
       stateDropdown.val("");
       stateDropdown.append(optgroup.clone());
       stateDropdown.prop("required", true);
+      stateDropdown.show();
     } else {
       var noneoptions = $("select[data-country='none'] option");
       var clonedOptions = noneoptions.clone();
@@ -131,6 +132,7 @@ function calculateHeight() {
       stateDropdown.find("option:selected").removeAttr("selected");
       clonedOptions.prop("selected", true);
       stateDropdown.prop("required", false);
+      stateDropdown.hide();
     }
   }
 
