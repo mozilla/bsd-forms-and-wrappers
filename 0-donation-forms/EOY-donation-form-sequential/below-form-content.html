@@ -67,6 +67,15 @@ var
     $(this).siblings("i.fa.field-icon").removeClass("icon-in-focus");
   });
 
+  // Clickable progress dot
+  $(".progress").on("click", "li", function() {
+    var pageToGo = $(this).data("position").replace("#page-","");
+    var currPageNum = $(".progress li.active").data("position").replace("#page-","");
+    if ( pageToGo < currPageNum ) {
+      goToPage(currPageNum, pageToGo);
+    }
+  });
+
 function calculateHeight() {
   $('#donation-form-sequential').height($(win.location.hash).height() + 145);
 }
@@ -259,6 +268,16 @@ $theForm.find("[name='donation_amount_other']").keyup(updateDonateButtonText);
     }, 100);
 
     calculateHeight();
+
+    // Reset progress bar dots' cursor type accordlying
+    $(".progress li").css({ cursor: "default" });
+    $(".progress li.active").prevAll("li").css({ cursor: "pointer" });
+  }
+
+  function goToPage(currPageNum, pageNumToGo, validateCurr) {
+    history.pushState({hash: '#page-' + pageNumToGo, page: pageNumToGo}, '', '#page-' + pageNumToGo);
+    hidePage('#page-' + currPageNum, 'complete');
+    showPage('#page-' + pageNumToGo);
   }
 
   $theForm.on('click', '[data-button-type="next"]', function (e) {
@@ -271,12 +290,9 @@ $theForm.find("[name='donation_amount_other']").keyup(updateDonateButtonText);
 
     var
         $context = $(this),
-        current = $context.data('page'),
-        next = current + 1;
+        current = $context.data('page');
     if ($theForm.parsley().isValid('page-' + current)) {
-      history.pushState({hash: '#page-' + next, page: next}, '', $context.prop('href'));
-      hidePage('#page-' + current, 'complete');
-      showPage('#page-' + next);
+      goToPage(current, current + 1);
     } else {
       $theForm.parsley().validate('page-' + current);
       calculateHeight();
@@ -284,7 +300,6 @@ $theForm.find("[name='donation_amount_other']").keyup(updateDonateButtonText);
   });
 
   win.onpopstate = function (e) {
-
     $('#one-line-error').hide();
     if (e.state.page !== null) {
       hidePage('#page-' + (e.state.page - 1), 'complete');
