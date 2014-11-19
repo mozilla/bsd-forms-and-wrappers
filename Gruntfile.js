@@ -52,7 +52,7 @@ module.exports = function (grunt) {
       },
       livereload: {
         options: {
-          open: "http://localhost:9007/compiled/"
+          open: 'http://localhost:9007/compiled/'
         }
       }
     }
