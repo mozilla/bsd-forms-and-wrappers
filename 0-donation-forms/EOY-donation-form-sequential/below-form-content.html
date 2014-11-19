@@ -67,6 +67,18 @@ var
     $(this).siblings("i.fa.field-icon").removeClass("icon-in-focus");
   });
 
+  // Clickable progress dot
+  $(".progress").on("click", "li", function() {
+    var dotSelected = $(this).data("position").replace("#page-","");
+    var currentPage = $(".progress li.active").data("position").replace("#page-","");
+    if ( dotSelected < currentPage ) {
+      window.history.go(dotSelected-currentPage);
+      if ( dotSelected-currentPage == -2 ) {
+        hidePage('#page-3', 'incomplete');
+      }
+    }
+  });
+
 function calculateHeight() {
   $('#donation-form-sequential').height($(win.location.hash).height() + 145);
 }
@@ -259,6 +271,10 @@ $theForm.find("[name='donation_amount_other']").keyup(updateDonateButtonText);
     }, 100);
 
     calculateHeight();
+
+    // Reset progress bar dots' cursor type accordlying
+    $(".progress li").css({ cursor: "default" });
+    $(".progress li.active").prevAll("li").css({ cursor: "pointer" });
   }
 
   $theForm.on('click', '[data-button-type="next"]', function (e) {
