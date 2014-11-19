@@ -19,7 +19,7 @@
 
   <div class="row donation-amount-row">
     <div class="third">
-      <input type="radio" name="donation_amount" value="20" id="amount-20" data-parsley-multiple="donation_amount" data-parsley-group="page-1" data-parsley-errors-container="#amount-error-msg" data-parsley-error-message="Please select an amount." required=""><label for="amount-20" class="large-label-size">$20</label>
+      <input type="radio" name="donation_amount" value="20" id="amount-20" data-parsley-multiple="donation_amount" data-parsley-group="page-1" data-parsley-errors-container="#amount-error-msg" data-parsley-error-message="{{ Please-select-an-amount }}." required=""><label for="amount-20" class="large-label-size">$20</label>
     </div>
     <div class="third">
       <input type="radio" name="donation_amount" value="10" id="amount-10" data-parsley-multiple="donation_amount" data-parsley-group="page-1"><label for="amount-10" class="large-label-size">$10</label>
@@ -35,7 +35,7 @@
     <div class="two-third">
       <div id="amount-other-container">
         <input type="radio" name="donation_amount" value="other" id="amount-other" data-parsley-multiple="donation_amount" data-parsley-group="page-1"><label for="amount-other" class="large-label-size">$</label>
-        <input type="number" name="donation_amount_other" placeholder="Other amount" class="medium-label-size" data-parsley-multiple="donation_amount" data-parsley-group="page-1" data-parsley-errors-container="#amount-other-error-msg" data-parsley-check-amount>
+        <input type="number" name="donation_amount_other" placeholder="{{Other-amount}}" class="medium-label-size" data-parsley-multiple="donation_amount" data-parsley-group="page-1" data-parsley-errors-container="#amount-other-error-msg" data-parsley-check-amount>
       </div>
     </div>
   </div>
@@ -47,10 +47,10 @@
   </div>
   <div class="row" id="recurring-option-row">
     <div class="half">
-      <input type="radio" name="recurring_acknowledge" value="0" checked="checked" id="one-time-payment" data-parsley-multiple="recurring_acknowledge" data-parsley-group="page-1" data-parsley-errors-container="#recurring-error-msg" required=""><label for="one-time-payment" class="medium-label-size">One-time</label>
+      <input type="radio" name="recurring_acknowledge" value="0" checked="checked" id="one-time-payment" data-parsley-multiple="recurring_acknowledge" data-parsley-group="page-1" data-parsley-errors-container="#recurring-error-msg" required=""><label for="one-time-payment" class="medium-label-size">{{One-time}}</label>
     </div>
     <div class="half">
-      <input type="radio" name="recurring_acknowledge" value="1" id="monthly-payment" data-parsley-multiple="recurring_acknowledge" data-parsley-group="page-1"><label for="monthly-payment" class="medium-label-size">Monthly</label>
+      <input type="radio" name="recurring_acknowledge" value="1" id="monthly-payment" data-parsley-multiple="recurring_acknowledge" data-parsley-group="page-1"><label for="monthly-payment" class="medium-label-size">{{Monthly}}</label>
     </div>
   </div>
   <div class="row error-msg-row">
@@ -69,7 +69,7 @@
     <div class="full">
       <h2>Payment</h2>
 
-      <p id="secure-label"><i class="fa fa-lock"></i>Secure</p>
+      <p id="secure-label"><i class="fa fa-lock"></i>{{Secure}}</p>
     </div>
   </div>
   <div class="row" id="payment-type-row">
@@ -78,7 +78,7 @@
       <div class="row payment-logos credit-card-logos">
         <p>&nbsp;</p>
       </div>
-      <div class="row medium-label-size">Credit card</div>
+      <div class="row medium-label-size">{{Credit-card}}</div>
     </label>
     </div>
     <div class="half">
@@ -96,7 +96,7 @@
       <div class="full">
         <div class="field-container">
           <i class="fa fa-credit-card field-icon"></i>
-          <input type="text" name="cc_number" placeholder="Credit card number" maxlength="16" data-parsley-group="page-2" data-parsley-visa-mc-card-num="" required="">
+          <input type="text" name="cc_number" placeholder="{{Credit-card-number}}" maxlength="16" data-parsley-group="page-2" data-parsley-visa-mc-card-num="" required="">
         </div>
       </div>
     </div>
@@ -104,25 +104,22 @@
       <div class="half">
         <div class="field-container">
           <i class="fa fa-calendar-o field-icon"></i>
-          <input aria-label="Credit Card Expiration Month" type="text" placeholder="MM" pattern="\d{2}" maxlength="2" data-parsley-group="page-2" data-parsley-type="digits" required="" name="cc_expir_month">
+          <input aria-label="{{Credit-Card-Expiration-Month}}" type="text" placeholder="{{MM}}" pattern="\d{2}" maxlength="2" data-parsley-group="page-2" data-parsley-type="digits" required="" name="cc_expir_month">
           /
-          <input aria-label="Credit Card Expiration Year" type="text" placeholder="YY" pattern="\d{2}" maxlength="2" data-parsley-group="page-2" data-parsley-type="digits" required="" name="cc_expir_year">
+          <input aria-label="{{Credit-Card-Expiration-Year}}" type="text" placeholder="{{YY}}" pattern="\d{2}" maxlength="2" data-parsley-group="page-2" data-parsley-type="digits" required="" name="cc_expir_year">
         </div>
       </div>
       <div class="half">
         <div class="field-container">
           <i class="fa fa-lock field-icon"></i>
-          <input type="number" name="cc_cvv" maxlength="3" placeholder="CVC" data-parsley-group="page-2" data-parsley-type="digits" required=""><i class="fa fa-question-circle hint"></i>
+          <input type="number" name="cc_cvv" maxlength="3" placeholder="{{CVC}}" data-parsley-group="page-2" data-parsley-type="digits" required=""><i class="fa fa-question-circle hint"></i>
         </div>
       </div>
       <div class="full">
         <div class="hint-msg small">
           <img src="https://sendto.mozilla.org/page/-/donation_form/img/CVC-illustration.png" class="left">
 
-          <p>
-            You can find your three-digit CVC number on the back of your credit
-            card.
-          </p>
+          <div class="">{{cvc-info}}.</div>
         </div>
       </div>
     </div>
@@ -153,12 +150,12 @@
   <div class="half">
     <div class="field-container">
       <i class="fa fa-user field-icon"></i>
-      <input type="text" name="firstname" placeholder="First name" data-parsley-group="page-3" required="">
+      <input type="text" name="firstname" placeholder="{{First-name}}" data-parsley-group="page-3" required="">
     </div>
   </div>
   <div class="half">
     <div class="field-container">
-      <input type="text" name="lastname" placeholder="Last name" data-parsley-group="page-3" class="less-indented" required="">
+      <input type="text" name="lastname" placeholder="{{Last-name}}" data-parsley-group="page-3" class="less-indented" required="">
     </div>
   </div>
 </div>
@@ -177,19 +174,19 @@
 </div>
 <div class="row">
   <div class="full">
-    <input type="text" name="addr1" placeholder="Address" data-parsley-group="page-3" required=""></div>
+    <input type="text" name="addr1" placeholder="{{Address}}" data-parsley-group="page-3" required=""></div>
 </div>
 <div class="row">
   <div class="half">
-    <input type="text" name="city" placeholder="City" data-parsley-group="page-3" required=""></div>
+    <input type="text" name="city" placeholder="{{City}}" data-parsley-group="page-3" required=""></div>
   <div class="half">
-    <input type="text" name="zip" placeholder="Postal code" class="less-indented" data-parsley-group="page-3" required="">
+    <input type="text" name="zip" placeholder="{{Postal-code}}" class="less-indented" data-parsley-group="page-3" required="">
   </div>
 </div>
 <div class="row">
 <div class="full">
 <select id="wsstate_cd" name="state_cd" autocomplete="billing region" class="">
-  <option selected="selected" value="">State/Prov*</option>
+  <option selected="selected" value="">{{State-Province}}</option>
 </select>
 <select class="states-select" data-country="none">
   <option value="" data-value="none">None</option>
@@ -451,8 +448,7 @@
         <input type="email" name="email" placeholder="Email" data-parsley-group="page-3" required=""><i class="fa fa-question-circle hint"></i>
 
         <div class="hint-msg small">
-          We&rsquo;ll email you a receipt for your donation. We won&rsquo;t send
-          you other email without your permission.
+          {{email-info}}
         </div>
       </div>
     </div>
@@ -465,9 +461,7 @@
 <div id="privacy-policy">
   <div class="row cc-additional-info">
     <div class="full">
-      <input type="checkbox" name="legal_confirm" id="legalConfirm" data-parsley-group="page-3" data-parsley-errors-container="#privacy-error-msg" data-parsley-error-message="To submit this form you must agree with our privacy policy." required=""><label for="legalConfirm">I'm
-      okay with you handling this info as you explain in your
-      <a href="https://www.mozilla.org/privacy/" target="_blank">privacy policy</a>.</label>
+      <input type="checkbox" name="legal_confirm" id="legalConfirm" data-parsley-group="page-3" data-parsley-errors-container="#privacy-error-msg" data-parsley-error-message="{{pp-acknowledge}}." required=""><label for="legalConfirm">{{privacy-policy}}.</label>
     </div>
   </div>
   <div class="row cc-additional-info error-msg-row">
@@ -482,7 +476,7 @@
   <div class="row">
     <div class="full">
       <button type="submit" class="btn large-label-size" id="donate-btn">
-        Donate now
+        {{Donate-now}}
       </button>
     </div>
   </div>
@@ -492,7 +486,7 @@
 <div>
   <div class="row">
     <div class="full" id="one-line-error">
-      <p>Oops, please complete all fields.</p>
+      <p>{{please-complete}}.</p>
     </div>
   </div>
 </div>
@@ -506,15 +500,10 @@
 </div>
 <div class="row">
   <p class="need-help">
-    <small>Problems donating? <a href="https://wiki.mozilla.org/Donate">Visit
-      our FAQ</a> for answers to most common questions. Still have problems?
-      <a href="mailto:donate@mozilla.org">Send us an email</a>.
-    </small>
+    <small>{{problems-donating}}</small>
   </p>
   <p class="donation-notice">
-    <small>
-      Contributions go to the Mozilla Foundation, a 501(c)(3) organization, to be used in its discretion for its charitable purposes. They are tax-deductible in the U.S. to the fullest extent permitted by law.
-    </small>
+    <small>{{donation-notice}}</small>
   </p>
 </div>
 </div>
