@@ -11,6 +11,7 @@ module.exports = function (grunt) {
         },
         files: {
           // add whichever files you're working on here
+          'compiled/EOY-content-page-bitcoin-donate.html': '0-content-page/EOYFR2014-Bitcoin-Donate/template.html',
           'compiled/EOY-donation-form-single.html': '0-donation-forms/EOY-donation-form-single/template.html',
           'compiled/EOY-donation-form-sequential.html': '0-donation-forms/EOY-donation-form-sequential/template.html'
         }
@@ -51,7 +52,7 @@ module.exports = function (grunt) {
       },
       livereload: {
         options: {
-          open: true
+          open: 'http://localhost:9007/compiled/'
         }
       }
     }
