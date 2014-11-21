@@ -1,4 +1,67 @@
 <!-- =================== Above form content STARTS =================== -->
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-35433268-5']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    var x = window.BSDTracker;
+    var _gaq = _gaq || [];
+
+    window.optimizely = window.optimizely || [];
+    if (x) {
+      var type = (x.signup) ? "signup" : (x.contribution) ? "contribution" : false;
+      if (type) {
+        x[type].safe_get = function(field, fallback) {
+          return this.hasField(field) ? this.get(field) : fallback;
+        };
+
+        var is_preset = function(value, presets) {
+          for (var i = 0; i < presets.length; i++) {
+            if (+presets === +value) {
+              return true;
+            }
+          }
+          return false;
+        };
+
+        var y = x[type];
+        var module = y.getModuleName() || false;
+        var form = y.safe_get('formname', false);
+        var amount = y.safe_get('transaction_amt', 0);
+
+        window.optimizely.push(['trackEvent', 'donation', {'revenue': amount * 100}]);
+        _gaq.push(['_trackEvent', 'Completions', module, form, amount]);
+
+        if (amount) {
+          var order_id = y.safe_get("contribution_key", "r_" + (new Date).getTime());
+          var affiliation = "";
+          var sku_end = is_preset(amount, y.safe_get("pageamounts", [])) ? Math.round(amount) : "other";
+          var sku = y.safe_get("contribution_page_id", "") + "_" + sku_end;
+          var pagetype = +y.safe_get("pagetype", 1);
+
+          var category = (y.safe_get("is_recurring", false)) ? "BSD Recurring" : "BSD";
+
+          category += pagetype === 4 ? " Memberships" : pagetype === 2 ? " Tickets" : pagetype === 3 ? " Custom Contributions" : " Contributions";
+
+          _gaq.push(['_addTrans', order_id, affiliation, amount, '0', '0', "", "", ""]);
+          _gaq.push(['_addItem', order_id, sku, form, category, amount, '1']);
+          _gaq.push(['_trackTrans']);
+        }
+
+      }
+    }
+  });
+</script>
+
 <style>
   .parsley-errors-list {
     display: block;
