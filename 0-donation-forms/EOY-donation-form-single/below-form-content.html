@@ -355,12 +355,12 @@ $(win).on('load', function () {
             }
             break;
           case 'validation':
-            if (XHR.responseJSON.filed_errors.length) {
-              switch (XHR.responseJSON.filed_errors[0].field) {
+            if (XHR.responseJSON.field_errors.length) {
+              switch (XHR.responseJSON.field_errors[0].field) {
               case 'cc_number':
                 $('#one-line-error').text('Invalid credit card number.').show();
                 break;
-              case 'cc_security':
+              case 'cc_cvv':
                 $('#one-line-error').text('Invalid CVC number.').show();
                 break;
               case 'cc_expir_group':
