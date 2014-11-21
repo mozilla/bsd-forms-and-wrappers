@@ -351,7 +351,7 @@ $(win).on('load', function () {
               $('#one-line-error').text('Sorry, your transaction was flagged for fraud protection. Please try another card.').show();
               break;
             default :
-              $('#one-line-error').text('Something seems to have gone wrong. Please try again later.').show();
+              $('#one-line-error').text('Something seems to have gone wrong. Please verify your card details or try another card.').show();
             }
             break;
           case 'validation':
@@ -367,7 +367,7 @@ $(win).on('load', function () {
                 $('#one-line-error').text('Sorry, your card has expired. Please verify your card details or try another card.').show();
                 break;
               default :
-                $('#one-line-error').text('Something seems to have gone wrong. Please try again later.').show();
+                $('#one-line-error').text('Something seems to have gone wrong. Please verify your card details or try another card.').show();
               }
               break;
             }
