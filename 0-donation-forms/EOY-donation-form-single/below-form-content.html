@@ -235,6 +235,9 @@ $(win).on('load', function () {
   };
 
   $theForm.find("[name='donation_amount']").change(updateDonateButtonText);
+  $theForm.find("[name='donation_amount']").change(function() {
+    $theForm.find("[name='donation_amount_other']").val("");
+  });
   $theForm.find("[name='donation_amount_other']").keyup(updateDonateButtonText);
   $theForm.find("[name='donation_amount_other']").keydown(function(event) {
     // console.log(event.keyCode);
