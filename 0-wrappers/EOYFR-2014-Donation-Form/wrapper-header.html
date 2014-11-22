@@ -1,9 +1,17 @@
 <!-- =================== WRAPPER (Header) STARTS =================== -->
 
 <!-- This form uses the "EOYFR-2014-Donation-Form" wrapper. Wrapper code starts below -->
+<script src="https://sendto.mozilla.org/page/-/donation_form/js/jquery-2.1.1.min.js"></script>
 <script type="text/javascript">
   var _gaq = _gaq || [];
   _gaq.push(['_setAccount', 'UA-35433268-5']);
+  _gaq.push(["_setDomainName", location.hostname.split(".").slice(-2).join(".")]);
+  _gaq.push(["_setAllowAnchor", true]);
+  _gaq.push(['_setAllowLinker', true]);
+  _gaq.push(['_setSiteSpeedSampleRate', 20]);
+</script>
+<script src="//s.bsd.net/bsdaction/default/page/-/js/analytics/ga_integration-min.js"></script>
+<script>
   _gaq.push(['_trackPageview']);
   (function() {
     var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
@@ -923,8 +931,5 @@ ol.progress li.active::before {
       </div>
     </div>
   </div>
-
-
-  <script src="https://sendto.mozilla.org/page/-/donation_form/js/jquery-2.1.1.min.js"></script>
 
 <!-- =================== WRAPPER (Header) ENDS =================== -->
