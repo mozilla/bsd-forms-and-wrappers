@@ -24,7 +24,8 @@ module.exports = function (grunt) {
         files: {
           // add whichever files you're working on here
           'compiled/EOY-donation-form-single-de.html': '0-donation-forms/EOY-donation-form-single/template.html',
-          'compiled/EOY-donation-form-sequential-de.html': '0-donation-forms/EOY-donation-form-sequential/template.html'
+          'compiled/EOY-donation-form-sequential-de.html': '0-donation-forms/EOY-donation-form-sequential/template.html',
+          '0-email-signup-form/EOYFR2014-Donor/compiled-de.html': '0-email-signup-form/EOYFR2014-Donor/template.html'
         }
       },
       'fr': {
@@ -34,7 +35,8 @@ module.exports = function (grunt) {
         files: {
           // add whichever files you're working on here
           'compiled/EOY-donation-form-single-fr.html': '0-donation-forms/EOY-donation-form-single/template.html',
-          'compiled/EOY-donation-form-sequential-fr.html': '0-donation-forms/EOY-donation-form-sequential/template.html'
+          'compiled/EOY-donation-form-sequential-fr.html': '0-donation-forms/EOY-donation-form-sequential/template.html',
+          '0-email-signup-form/EOYFR2014-Donor/compiled-fr.html': '0-email-signup-form/EOYFR2014-Donor/template.html'
         }
       },
       'pt_BR': {
@@ -44,7 +46,8 @@ module.exports = function (grunt) {
         files: {
           // add whichever files you're working on here
           'compiled/EOY-donation-form-single-pt-BR.html': '0-donation-forms/EOY-donation-form-single/template.html',
-          'compiled/EOY-donation-form-sequential-pt-BR.html': '0-donation-forms/EOY-donation-form-sequential/template.html'
+          'compiled/EOY-donation-form-sequential-pt-BR.html': '0-donation-forms/EOY-donation-form-sequential/template.html',
+          '0-email-signup-form/EOYFR2014-Donor/compiled-pt-BR.html': '0-email-signup-form/EOYFR2014-Donor/template.html'
         }
       },
       'id': {
@@ -54,7 +57,8 @@ module.exports = function (grunt) {
         files: {
           // add whichever files you're working on here
           'compiled/EOY-donation-form-single-id.html': '0-donation-forms/EOY-donation-form-single/template.html',
-          'compiled/EOY-donation-form-sequential-id.html': '0-donation-forms/EOY-donation-form-sequential/template.html'
+          'compiled/EOY-donation-form-sequential-id.html': '0-donation-forms/EOY-donation-form-sequential/template.html',
+          '0-email-signup-form/EOYFR2014-Donor/compiled-id.html': '0-email-signup-form/EOYFR2014-Donor/template.html'
         }
       },
       'es_MX': {
@@ -64,7 +68,8 @@ module.exports = function (grunt) {
         files: {
           // add whichever files you're working on here
           'compiled/EOY-donation-form-single-es-MX.html': '0-donation-forms/EOY-donation-form-single/template.html',
-          'compiled/EOY-donation-form-sequential-es-MX.html': '0-donation-forms/EOY-donation-form-sequential/template.html'
+          'compiled/EOY-donation-form-sequential-es-MX.html': '0-donation-forms/EOY-donation-form-sequential/template.html',
+          '0-email-signup-form/EOYFR2014-Donor/compiled-es-MX.html': '0-email-signup-form/EOYFR2014-Donor/template.html'
         }
       },
       l10n: {
