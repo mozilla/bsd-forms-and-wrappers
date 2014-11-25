@@ -242,7 +242,10 @@ function calculateHeight() {
     }
   });
 
-$theForm.find("[name='donation_amount_other']").keyup(updateDonateButtonText);
+  $theForm.find("[name='donation_amount_other']").keyup(updateDonateButtonText);
+  $theForm.find("[name='donation_amount']").change(function() {
+    $theForm.find("[name='donation_amount_other']").val("");
+  });
   $theForm.find("[name='donation_amount_other']").keydown(function(event) {
     var functionKeys = [46, 8, 9, 27, 13, 110, 190]; // backspace, delete, tab, escape, enter and .
     var numberKeys = [ 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105 ]; // numbers
@@ -394,15 +397,35 @@ $theForm.find("[name='donation_amount_other']").keyup(updateDonateButtonText);
           $('#one-line-error').text('Looks like we already have your donation—please refresh if you wish to donate again.').show();
           break;
         case 'unknown':
-          $('#one-line-error').text('Something went wrong with your transaction. Please try again later.').show();
+          $('#one-line-error').text('Something went wrong with your transaction. Please verify your card details or try another card.').show();
           break;
         case 'gateway':
           switch (XHR.responseJSON.gateway_response.status) {
           case 'decline':
-            $('#one-line-error').text('Sorry, your card was declined. Please try another.').show();
+            $('#one-line-error').text('Sorry, your card was declined. Please verify your card details or try another card.').show();
             break;
           case 'failure':
-            $('#one-line-error').text('Sorry, your transaction was flagged for fraud protection. Please try another.').show();
+            $('#one-line-error').text('Sorry, your transaction was flagged for fraud protection. Please try another card.').show();
+            break;
+          default :
+            $('#one-line-error').text('Something seems to have gone wrong. Please verify your card details or try another card.').show();
+          }
+          break;
+        case 'validation':
+          if (XHR.responseJSON.field_errors.length) {
+            switch (XHR.responseJSON.field_errors[0].field) {
+            case 'cc_number':
+              $('#one-line-error').text('Invalid credit card number.').show();
+              break;
+            case 'cc_cvv':
+              $('#one-line-error').text('Invalid CVC number.').show();
+              break;
+            case 'cc_expir_group':
+              $('#one-line-error').text('Sorry, your card has expired. Please verify your card details or try another card.').show();
+              break;
+            default :
+              $('#one-line-error').text('Something seems to have gone wrong. Please verify your card details or try another card.').show();
+            }
             break;
           }
           break;
