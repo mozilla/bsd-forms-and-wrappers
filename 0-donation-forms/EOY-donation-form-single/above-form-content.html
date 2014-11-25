@@ -8,7 +8,7 @@
         <div class="big-section">
           <div class="row">
             <div class="full">
-              <h2>Amount</h2>
+              <h2>{{Amount}}</h2>
             </div>
           </div>
           <div class="row donation-amount-row" style="display: none;">
@@ -29,7 +29,7 @@
             <div class="two-third">
               <div id="amount-other-container">
                 <input type="radio" name="donation_amount" value="other" id="amount-other" data-parsley-group="donation_amount"><label for="amount-other" class="large-label-size">$</label>
-                <input type="number" name="donation_amount_other" placeholder="{{Other-amount}}" class="medium-label-size" data-parsley-errors-container="#amount-other-error-msg" data-parsley-type="number" data-parsley-check-amount data-parsley-min="2">
+                <input type="number" name="donation_amount_other" placeholder="{{Other-amount}}" class="medium-label-size" data-parsley-errors-container="#amount-other-error-msg" data-parsley-type="number" data-parsley-error-message="{{donation-min-error}}." data-parsley-check-amount data-parsley-min="2">
               </div>
             </div>
           </div>
@@ -60,7 +60,7 @@
         <div class="big-section">
           <div class="row">
             <div class="full">
-              <h2>Payment</h2>
+              <h2>{{Payment}}</h2>
 
               <p id="secure-label"><i class="fa fa-lock"></i>{{Secure}}</p>
             </div>
@@ -98,7 +98,7 @@
             <div class="half">
               <div class="field-container">
                 <i class="fa fa-user field-icon"></i>
-                <input type="text" name="firstname" placeholder="{{First-name}}" data-parsley-error-message="Please-complete-the-first-name-field." required="">
+                <input type="text" name="firstname" placeholder="{{First-name}}" data-parsley-error-message="{{Please-complete-the-first-name-field}}." required="">
               </div>
             </div>
             <div class="half">
@@ -114,7 +114,7 @@
               <div class="full">
                 <div class="field-container">
                   <i class="fa fa-map-marker field-icon"></i>
-                  <select name="country" required=""><option value="">Country</option></select></div>
+                  <select name="country" required=""><option value="">{{Country}}</option></select></div>
               </div>
             </div>
             <div class="row">
@@ -136,7 +136,7 @@
               <option selected="selected" value="">{{State-Province}}</option>
             </select>
             <select class="states-select" data-country="none">
-              <option value="" data-value="none">None</option>
+              <option value="" data-value="none">{{None}}</option>
             </select>
             <select class="states-select" data-country="US">
               <optgroup label="U.S. States and Territories">
@@ -427,7 +427,7 @@
               <div class="full">
                 <div class="field-container">
                   <i class="fa fa-envelope field-icon"></i>
-                  <input type="email" name="email" placeholder="Email" required=""><i class="fa fa-question-circle hint"></i>
+                  <input type="email" name="email" placeholder="{{Email}}" required=""><i class="fa fa-question-circle hint"></i>
                   <div class="hint-msg small">
                     {{email-info}}
                   </div>
