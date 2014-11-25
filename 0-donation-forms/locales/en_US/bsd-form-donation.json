@@ -1,5 +1,7 @@
 {
   "One-time": "One-time",
+  "From all of us at Mozilla": "From all of us at Mozilla",
+  "<em>Thank you</em> for your donation": "<em>Thank you</em> for your donation",
   "Monthly": "Monthly",
   "Please-select-an-amount": "Please select an amount",
   "Other-amount": "Other amount",
@@ -25,6 +27,25 @@
   "please-complete": "Oops, please complete fields highlighted in red",
   "problems-donating": "Problems donating? <a href=\"https://wiki.mozilla.org/Donate\">Visit our FAQ</a> for answers to most common questions. Still have problems? <a href=\"mailto:donate@mozilla.org\">Send us an email</a>.",
   "Donate-now": "Donate now",
-  "donation-notice": "Contributions go to the Mozilla Foundation, a 501(c)(3) organization, to be used in its discretion for its charitable purposes. They are tax-deductible in the U.S. to the fullest extent permitted by law."
+  "donation-notice": "Contributions go to the Mozilla Foundation, a 501(c)(3) organization, to be used in its discretion for its charitable purposes. They are tax-deductible in the U.S. to the fullest extent permitted by law.",
+  "Amount": "Amount",
+  "Email": "Email",
+  "Payment": "Payment",
+  "Country": "Country",
+  "None": "None",
+  "donation-min-error": "Donations must be 2$ or more",
+  "Submitting": "Submitting…",
+  "Something went wrong with your transaction. Please try again later": "Something went wrong with your transaction. Please try again later",
+  "Something seems to have gone wrong. Please try again later": "Something seems to have gone wrong. Please try again later",
+  "Something seems to have gone wrong. Please verify your card details or try another card": "Something seems to have gone wrong. Please verify your card details or try another card",
+  "Sorry, your card has expired. Please verify your card details or try another card": "Sorry, your card has expired. Please verify your card details or try another card",
+  "Invalid CVC number": "Invalid CVC number",
+  "Invalid credit card number": "Invalid credit card number",
+  "Sorry, your transaction was flagged for fraud protection. Please try another card": "Sorry, your transaction was flagged for fraud protection. Please try another card",
+  "Sorry, your card was declined. Please verify your card details or try another card": "Sorry, your card was declined. Please verify your card details or try another card",
+  "Something went wrong with your transaction. Please verify your card details or try another card": "Something went wrong with your transaction. Please verify your card details or try another card",
+  "Looks like we already have your donation—please refresh if you wish to donate again": "Looks like we already have your donation—please refresh if you wish to donate again",
+  "Select your amount": "Select your amount",
+  "Next": "Next"
 }
 
