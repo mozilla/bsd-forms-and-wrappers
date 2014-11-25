@@ -1,8 +1,4 @@
 {
-  "locale": "es_MX",
-  "currency": "MXN",
-  "return-url": "https://sendto.mozilla.org/page/s/EOYFR2014-donor-es-MX",
-
   "One-time": "Única vez",
   "Monthly": "Mensual",
   "Please-select-an-amount": "Please select an amount",

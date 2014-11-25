@@ -1,8 +1,4 @@
 {
-  "locale": "FR",
-  "currency": "EUR",
-  "return-url": "https://sendto.mozilla.org/page/s/EOYFR2014-donor-fr",
-
   "One-time": "Unique",
   "Monthly": "Mensuel",
   "Please-select-an-amount": "Veuillez sélectionner un montant",

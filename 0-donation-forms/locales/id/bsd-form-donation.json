@@ -1,8 +1,4 @@
 {
-  "locale": "id_ID",
-  "currency": "ILS",
-  "return-url": "https://sendto.mozilla.org/page/s/EOYFR2014-donor-id",
-
   "One-time": "Satu kali",
   "Monthly": "Bulanan",
   "Please-select-an-amount": "Silakan pilih nilai",
