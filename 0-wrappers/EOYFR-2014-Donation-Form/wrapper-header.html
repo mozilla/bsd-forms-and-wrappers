@@ -12,6 +12,39 @@
 </script>
 <script src="//s.bsd.net/bsdaction/default/page/-/js/analytics/ga_integration-min.js"></script>
 <script>
+  (function() {
+    var queryString = window.location.search;
+    if (queryString) {
+      queryString = queryString.trim();
+      var tx = queryString.match(/tx=(\w+)/)[1];
+      var amt = parseFloat(queryString.match(/amt=([\w\.]+)/)[1], 10);
+      var cc = queryString.match(/cc=(\w+)/)[1];
+      if (tx && amt && cc) {
+        window.optimizely = window.optimizely || [];
+        window.optimizely.push(['trackEvent', 'donation', {'revenue': amt * 100}]);
+        _gaq.push(['_set', 'currencyCode', cc]); // Set to user currency
+        _gaq.push(['_addTrans',
+                   tx,           // transaction ID - required
+                   'Donations',  // affiliation or store name
+                   amt,          // total - required eg '10.50'
+                   '0',           // tax
+                   '0'              // shipping
+        ]);
+        _gaq.push(['_addItem',
+                   tx,           // transaction ID - required
+                   'PayPal Donation',           // SKU/code - required
+                   'PayPal Donation',        // product name
+                   'PayPal Donation',   // category or variation
+                   amt,          // unit price - required e.g. '10.50'
+                   '1'               // quantity - required
+        ]);
+        _gaq.push(['_trackTrans']); //submits transaction to the Analytics servers
+      }
+    }
+console.log(_gaq, window.optimizely);
+  })();
+</script>
+<script>
   _gaq.push(['_trackPageview']);
   (function() {
     var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
