@@ -8,12 +8,12 @@
         <div class="big-section">
           <div class="row">
             <div class="full">
-              <h2>Amount</h2>
+              <h2>{{Amount}}</h2>
             </div>
           </div>
           <div class="row donation-amount-row" style="display: none;">
             <div class="third">
-              <input type="radio" name="donation_amount" value="20" id="amount-20" data-parsley-multiple="donation_amount" data-parsley-group="donation_amount" data-parsley-errors-container="#amount-error-msg" data-parsley-error-message="{{ Please-select-an-amount }}." required=""><label for="amount-20" class="large-label-size">$20</label>
+              <input type="radio" name="donation_amount" value="20" id="amount-20" data-parsley-multiple="donation_amount" data-parsley-group="donation_amount" data-parsley-errors-container="#amount-error-msg" data-parsley-error-message="{{Please-select-an-amount}}." required=""><label for="amount-20" class="large-label-size">$20</label>
             </div>
             <div class="third">
               <input type="radio" name="donation_amount" value="10" id="amount-10" data-parsley-multiple="donation_amount" data-parsley-group="donation_amount"><label for="amount-10" class="large-label-size">$10</label>
@@ -41,12 +41,10 @@
           </div>
           <div class="row" id="recurring-option-row">
             <div class="half">
-              <input type="radio" name="recurring_acknowledge" value="0" checked="checked" id="one-time-payment" data-parsley-errors-container="#recurring-error-msg" required=""><label for="one-time-payment" class="medium-label-size">{{
-              One-time }}</label>
+              <input type="radio" name="recurring_acknowledge" value="0" checked="checked" id="one-time-payment" data-parsley-errors-container="#recurring-error-msg" required=""><label for="one-time-payment" class="medium-label-size">{{One-time}}</label>
             </div>
             <div class="half">
-              <input type="radio" name="recurring_acknowledge" value="1" id="monthly-payment"><label for="monthly-payment" class="medium-label-size">{{
-              Monthly }}</label>
+              <input type="radio" name="recurring_acknowledge" value="1" id="monthly-payment"><label for="monthly-payment" class="medium-label-size">{{Monthly}}</label>
             </div>
           </div>
           <div class="row error-msg-row">
@@ -60,7 +58,7 @@
         <div class="big-section">
           <div class="row">
             <div class="full">
-              <h2>Payment</h2>
+              <h2>{{Payment}}</h2>
 
               <p id="secure-label"><i class="fa fa-lock"></i>{{Secure}}</p>
             </div>
@@ -71,7 +69,7 @@
               <div class="row payment-logos credit-card-logos">
               <p>&nbsp;</p>
                 </div>
-              <div class="row medium-label-size">{{ Credit-card }}</div>
+              <div class="row medium-label-size">{{Credit-card}}</div>
             </label>
             </div>
             <div class="half">

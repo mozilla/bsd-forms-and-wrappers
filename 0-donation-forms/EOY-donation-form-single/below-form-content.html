@@ -342,43 +342,43 @@ $(win).on('load', function () {
 
           switch (XHR.responseJSON.code) {
           case 'duplicate':
-            $('#one-line-error').text('Looks like we already have your donation—please refresh if you wish to donate again.').show();
+            $('#one-line-error').text('{{dupe-donation}}').show();
             break;
           case 'unknown':
-            $('#one-line-error').text('Something went wrong with your transaction. Please verify your card details or try another card.').show();
+            $('#one-line-error').text('{{transaction-try-another}}').show();
             break;
           case 'gateway':
             switch (XHR.responseJSON.gateway_response.status) {
             case 'decline':
-              $('#one-line-error').text('Sorry, your card was declined. Please verify your card details or try another card.').show();
+              $('#one-line-error').text('{{declined-card}}').show();
               break;
             case 'failure':
-              $('#one-line-error').text('Sorry, your transaction was flagged for fraud protection. Please try another card.').show();
+              $('#one-line-error').text('{{fraud-card}}').show();
               break;
             default :
-              $('#one-line-error').text('Something seems to have gone wrong. Please verify your card details or try another card.').show();
+              $('#one-line-error').text('{{gone-wrong-try-another}}').show();
             }
             break;
           case 'validation':
             if (XHR.responseJSON.field_errors.length) {
               switch (XHR.responseJSON.field_errors[0].field) {
               case 'cc_number':
-                $('#one-line-error').text('Invalid credit card number.').show();
+                $('#one-line-error').text('{{Invalid-number}}').show();
                 break;
               case 'cc_cvv':
-                $('#one-line-error').text('Invalid CVC number.').show();
+                $('#one-line-error').text('{{Invalid-CVC}}').show();
                 break;
               case 'cc_expir_group':
-                $('#one-line-error').text('Sorry, your card has expired. Please verify your card details or try another card.').show();
+                $('#one-line-error').text('{{expired-card}}').show();
                 break;
               default :
-                $('#one-line-error').text('Something seems to have gone wrong. Please verify your card details or try another card.').show();
+                $('#one-line-error').text('{{gone-wrong-try-another}}').show();
               }
               break;
             }
             break;
           default :
-            $('#one-line-error').text('Something seems to have gone wrong. Please try again later.').show();
+            $('#one-line-error').text('{{try-again-later}}').show();
           }
         }
 
@@ -388,7 +388,7 @@ $(win).on('load', function () {
           statusCode: {
             400: submission400s,
             500: function (XHR, textStatus, error) {
-              $('#one-line-error').text('Something went wrong with your transaction. Please try again later.').show();
+              $('#one-line-error').text('{{try-again-later}}').show();
             }
           }
         });
