@@ -32,8 +32,16 @@ module.exports = function (grunt) {
           // add whichever files you're working on here
           'compiled/en_US/EOY-content-page-bitcoin-donate.html': '0-content-page/EOYFR2014-Bitcoin-Donate/template.html',
           'compiled/en_US/EOY-donation-form-single.html': '0-donation-forms/EOY-donation-form-single/template.html',
+          'compiled/en_US/EOY-donation-form-single-above.html': '0-donation-forms/EOY-donation-form-single/above-form-content.html',
+          'compiled/en_US/EOY-donation-form-single-below.html': '0-donation-forms/EOY-donation-form-single/below-form-content.html',
+          // sequential
           'compiled/en_US/EOY-donation-form-sequential.html': '0-donation-forms/EOY-donation-form-sequential/template.html',
-          'compiled/en_US/EOY-signup-form-post-donation.html': '0-email-signup-form/EOYFR2014-Donor/template.html'
+          'compiled/en_US/EOY-donation-form-sequential-above.html': '0-donation-forms/EOY-donation-form-sequential/above-form-content.html',
+          'compiled/en_US/EOY-donation-form-sequential-below.html': '0-donation-forms/EOY-donation-form-sequential/below-form-content.html',
+          // post donation
+          'compiled/en_US/EOY-signup-form-post-donation.html': '0-email-signup-form/EOYFR2014-Donor/template.html',
+          'compiled/en_US/EOY-signup-form-post-donation-above.html': '0-email-signup-form/EOYFR2014-Donor/above-form-content.html',
+          'compiled/en_US/EOY-signup-form-post-donation-below.html': '0-email-signup-form/EOYFR2014-Donor/below-form-content.html'
         }
       },
       'de': {
@@ -50,8 +58,16 @@ module.exports = function (grunt) {
         files: {
           // add whichever files you're working on here
           'compiled/de/EOY-donation-form-single.html': '0-donation-forms/EOY-donation-form-single/template.html',
+          'compiled/de/EOY-donation-form-single-above.html': '0-donation-forms/EOY-donation-form-single/above-form-content.html',
+          'compiled/de/EOY-donation-form-single-below.html': '0-donation-forms/EOY-donation-form-single/below-form-content.html',
+          // sequential
           'compiled/de/EOY-donation-form-sequential.html': '0-donation-forms/EOY-donation-form-sequential/template.html',
-          'compiled/de/EOY-signup-form-post-donation.html': '0-email-signup-form/EOYFR2014-Donor/template.html'
+          'compiled/de/EOY-donation-form-sequential-above.html': '0-donation-forms/EOY-donation-form-sequential/above-form-content.html',
+          'compiled/de/EOY-donation-form-sequential-below.html': '0-donation-forms/EOY-donation-form-sequential/below-form-content.html',
+          // post donation
+          'compiled/de/EOY-signup-form-post-donation.html': '0-email-signup-form/EOYFR2014-Donor/template.html',
+          'compiled/de/EOY-signup-form-post-donation-above.html': '0-email-signup-form/EOYFR2014-Donor/above-form-content.html',
+          'compiled/de/EOY-signup-form-post-donation-below.html': '0-email-signup-form/EOYFR2014-Donor/below-form-content.html'
         }
       },
       'fr': {
@@ -68,8 +84,16 @@ module.exports = function (grunt) {
         files: {
           // add whichever files you're working on here
           'compiled/fr/EOY-donation-form-single.html': '0-donation-forms/EOY-donation-form-single/template.html',
+          'compiled/fr/EOY-donation-form-single-above.html': '0-donation-forms/EOY-donation-form-single/above-form-content.html',
+          'compiled/fr/EOY-donation-form-single-below.html': '0-donation-forms/EOY-donation-form-single/below-form-content.html',
+          // sequential
           'compiled/fr/EOY-donation-form-sequential.html': '0-donation-forms/EOY-donation-form-sequential/template.html',
-          'compiled/fr/EOY-signup-form-post-donation.html': '0-email-signup-form/EOYFR2014-Donor/template.html'
+          'compiled/fr/EOY-donation-form-sequential-above.html': '0-donation-forms/EOY-donation-form-sequential/above-form-content.html',
+          'compiled/fr/EOY-donation-form-sequential-below.html': '0-donation-forms/EOY-donation-form-sequential/below-form-content.html',
+          // post donation
+          'compiled/fr/EOY-signup-form-post-donation.html': '0-email-signup-form/EOYFR2014-Donor/template.html',
+          'compiled/fr/EOY-signup-form-post-donation-above.html': '0-email-signup-form/EOYFR2014-Donor/above-form-content.html',
+          'compiled/fr/EOY-signup-form-post-donation-below.html': '0-email-signup-form/EOYFR2014-Donor/below-form-content.html'
         }
       },
       'pt_BR': {
@@ -86,8 +110,16 @@ module.exports = function (grunt) {
         files: {
           // add whichever files you're working on here
           'compiled/pt_BR/EOY-donation-form-single.html': '0-donation-forms/EOY-donation-form-single/template.html',
+          'compiled/pt_BR/EOY-donation-form-single-above.html': '0-donation-forms/EOY-donation-form-single/above-form-content.html',
+          'compiled/pt_BR/EOY-donation-form-single-below.html': '0-donation-forms/EOY-donation-form-single/below-form-content.html',
+          // sequential
           'compiled/pt_BR/EOY-donation-form-sequential.html': '0-donation-forms/EOY-donation-form-sequential/template.html',
-          'compiled/pt_BR/EOY-signup-form-post-donation.html': '0-email-signup-form/EOYFR2014-Donor/template.html'
+          'compiled/pt_BR/EOY-donation-form-sequential-above.html': '0-donation-forms/EOY-donation-form-sequential/above-form-content.html',
+          'compiled/pt_BR/EOY-donation-form-sequential-below.html': '0-donation-forms/EOY-donation-form-sequential/below-form-content.html',
+          // post donation
+          'compiled/pt_BR/EOY-signup-form-post-donation.html': '0-email-signup-form/EOYFR2014-Donor/template.html',
+          'compiled/pt_BR/EOY-signup-form-post-donation-above.html': '0-email-signup-form/EOYFR2014-Donor/above-form-content.html',
+          'compiled/pt_BR/EOY-signup-form-post-donation-below.html': '0-email-signup-form/EOYFR2014-Donor/below-form-content.html'
         }
       },
       'id': {
@@ -104,8 +136,16 @@ module.exports = function (grunt) {
         files: {
           // add whichever files you're working on here
           'compiled/id/EOY-donation-form-single.html': '0-donation-forms/EOY-donation-form-single/template.html',
+          'compiled/id/EOY-donation-form-single-above.html': '0-donation-forms/EOY-donation-form-single/above-form-content.html',
+          'compiled/id/EOY-donation-form-single-below.html': '0-donation-forms/EOY-donation-form-single/below-form-content.html',
+          // sequential
           'compiled/id/EOY-donation-form-sequential.html': '0-donation-forms/EOY-donation-form-sequential/template.html',
-          'compiled/id/EOY-signup-form-post-donation.html': '0-email-signup-form/EOYFR2014-Donor/template.html'
+          'compiled/id/EOY-donation-form-sequential-above.html': '0-donation-forms/EOY-donation-form-sequential/above-form-content.html',
+          'compiled/id/EOY-donation-form-sequential-below.html': '0-donation-forms/EOY-donation-form-sequential/below-form-content.html',
+          // post donation
+          'compiled/id/EOY-signup-form-post-donation.html': '0-email-signup-form/EOYFR2014-Donor/template.html',
+          'compiled/id/EOY-signup-form-post-donation-above.html': '0-email-signup-form/EOYFR2014-Donor/above-form-content.html',
+          'compiled/id/EOY-signup-form-post-donation-below.html': '0-email-signup-form/EOYFR2014-Donor/below-form-content.html'
         }
       },
       'es_MX': {
@@ -120,10 +160,18 @@ module.exports = function (grunt) {
           )
         },
         files: {
-          // add whichever files you're working on here
+          // single
           'compiled/es_MX/EOY-donation-form-single.html': '0-donation-forms/EOY-donation-form-single/template.html',
+          'compiled/es_MX/EOY-donation-form-single-above.html': '0-donation-forms/EOY-donation-form-single/above-form-content.html',
+          'compiled/es_MX/EOY-donation-form-single-below.html': '0-donation-forms/EOY-donation-form-single/below-form-content.html',
+          // sequential
           'compiled/es_MX/EOY-donation-form-sequential.html': '0-donation-forms/EOY-donation-form-sequential/template.html',
-          'compiled/es_MX/EOY-signup-form-post-donation.html': '0-email-signup-form/EOYFR2014-Donor/template.html'
+          'compiled/es_MX/EOY-donation-form-sequential-above.html': '0-donation-forms/EOY-donation-form-sequential/above-form-content.html',
+          'compiled/es_MX/EOY-donation-form-sequential-below.html': '0-donation-forms/EOY-donation-form-sequential/below-form-content.html',
+          // post donation
+          'compiled/es_MX/EOY-signup-form-post-donation.html': '0-email-signup-form/EOYFR2014-Donor/template.html',
+          'compiled/es_MX/EOY-signup-form-post-donation-above.html': '0-email-signup-form/EOYFR2014-Donor/above-form-content.html',
+          'compiled/es_MX/EOY-signup-form-post-donation-below.html': '0-email-signup-form/EOYFR2014-Donor/below-form-content.html'
         }
       }
     },
