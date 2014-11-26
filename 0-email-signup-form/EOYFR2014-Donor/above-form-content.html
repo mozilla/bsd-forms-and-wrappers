@@ -14,7 +14,13 @@
   </div>
 </div>
 
+<!--(bake-start _if="show_email_signup")-->
 <div id="form-wrapper">
+<!--(bake-end)-->
+<!--(bake-start _if="!show_email_signup")-->
+<div id="form-wrapper" style="display: none">
+<!--(bake-end)-->
+
   <div class="wrap">
     <div class="row">
       <h2>Sign up for email updates</h2>

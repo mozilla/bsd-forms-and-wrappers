@@ -5,12 +5,13 @@ module.exports = function (grunt) {
 
   grunt.initConfig({
     bake: {
-      server: {
+      'en_US': {
         options: {
           content: (function(){
             var obj = require('./0-donation-forms/locales/en_US/bsd-form-donation.json');
             obj.locale = "US";
             obj.currency = "USD";
+            obj.show_email_signup = true;
             obj['return-url'] = "https://sendto.mozilla.org/page/s/EOYFR2014-donor";
             return obj;
           })()
@@ -29,6 +30,7 @@ module.exports = function (grunt) {
             var obj = require('./0-donation-forms/locales/de/bsd-form-donation.json');
             obj.locale = "DE";
             obj.currency = "EUR";
+            obj.show_email_signup = false;
             obj['return-url'] = "https://sendto.mozilla.org/page/s/EOYFR2014-donor-de";
             return obj;
           })()
@@ -46,6 +48,7 @@ module.exports = function (grunt) {
             var obj = require('./0-donation-forms/locales/fr/bsd-form-donation.json');
             obj.locale = "FR";
             obj.currency = "EUR";
+            obj.show_email_signup = false;
             obj['return-url'] = "https://sendto.mozilla.org/page/s/EOYFR2014-donor-fr";
             return obj;
           })()
@@ -63,6 +66,7 @@ module.exports = function (grunt) {
             var obj = require('./0-donation-forms/locales/pt_BR/bsd-form-donation.json');
             obj.locale = "pt_BR";
             obj.currency = "BRL";
+            obj.show_email_signup = false;
             obj['return-url'] = "https://sendto.mozilla.org/page/s/EOYFR2014-donor-pt-BR";
             return obj;
           })()
@@ -80,6 +84,7 @@ module.exports = function (grunt) {
             var obj = require('./0-donation-forms/locales/id/bsd-form-donation.json');
             obj.locale = "id_ID";
             obj.currency = "ILS";
+            obj.show_email_signup = false;
             obj['return-url'] = "https://sendto.mozilla.org/page/s/EOYFR2014-donor-id";
             return obj;
           })()
@@ -97,6 +102,7 @@ module.exports = function (grunt) {
             var obj = require('./0-donation-forms/locales/es_MX/bsd-form-donation.json');
             obj.locale = "es_MX";
             obj.currency = "MXN";
+            obj.show_email_signup = false;
             obj['return-url'] = "https://sendto.mozilla.org/page/s/EOYFR2014-donor-es-MX";
             return obj;
           })()
@@ -142,17 +148,8 @@ module.exports = function (grunt) {
   });
 
   grunt.registerTask('dev', [
-    'bake:server',
+    'bake',
     'connect:livereload',
     'watch'
-  ]);
-
-  grunt.registerTask('l10n', [
-    'bake:server',
-    'bake:de',
-    'bake:fr',
-    'bake:pt_BR',
-    'bake:id',
-    'bake:es_MX'
   ]);
 };
