@@ -20,7 +20,7 @@ module.exports = function (grunt) {
           'compiled/EOY-content-page-bitcoin-donate.html': '0-content-page/EOYFR2014-Bitcoin-Donate/template.html',
           'compiled/EOY-donation-form-single.html': '0-donation-forms/EOY-donation-form-single/template.html',
           'compiled/EOY-donation-form-sequential.html': '0-donation-forms/EOY-donation-form-sequential/template.html',
-          'compiled/EOY-donor.html': '0-email-signup-form/EOYFR2014-Donor/template.html'
+          'compiled/EOY-signup-form-post-donation.html': '0-email-signup-form/EOYFR2014-Donor/template.html'
         }
       },
       'de': {

@@ -17,7 +17,7 @@
     var tx_re = /tx=(\w+)/;
     var amt_re = /amt=([\w\.]+)/;
     var cc_re = /cc=(\w+)/;
-    if (tx_re.match(queryString) && amt_re.match(queryString) && cc_re.match(queryString)) {
+    if (tx_re.test(queryString) && amt_re.test(queryString) && cc_re.test(queryString)) {
       var tx = queryString.match(tx_re)[1];
       var amt = queryString.match(amt_re)[1];
       var cc = queryString.match(cc_re)[1];
@@ -41,7 +41,6 @@
       ]);
       _gaq.push(['_trackTrans']); //submits transaction to the Analytics servers
     }
-    console.log(window.optimizely);
   })();
 </script>
 <script>
