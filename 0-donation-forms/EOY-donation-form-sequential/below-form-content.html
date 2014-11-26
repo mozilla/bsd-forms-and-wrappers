@@ -229,7 +229,12 @@ function calculateHeight() {
     if ( amountSelected == "other" ) {
       amountSelected = $theForm.find("[name='donation_amount_other']").val();
     }
-    buttonText = amountSelected ? "Donate $" + amountSelected + " now" : "Donate now";
+    var locale = "{{locale}}";
+    if (amountSelected && locale === "US") {
+      buttonText = "Donate $" + amountSelected + " now";
+    } else {
+      buttonText = "{{Donate-now}}";
+    }
     $("#donate-btn").text(buttonText);
     $('#paypal-one-time').find('[name="amount"]').attr('value', amountSelected);
     $('#paypal-recurring').find('[name="a3"]').attr('value', amountSelected);
@@ -363,7 +368,7 @@ function calculateHeight() {
         $('#page-1').add('#page-2').addClass('hidden').attr('disabled', true);
       }
 
-      $donateButton.prop('disabled', true).html('<i class="fa fa-cog fa-spin"/> Submitting…');
+      $donateButton.prop('disabled', true).html('<i class="fa fa-cog fa-spin"/> {{Submitting}}');
 
       function prepDonationAmount() {
         // Set donation amount hidden inputs so all APIs are happy
