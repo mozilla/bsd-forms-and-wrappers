@@ -148,30 +148,30 @@ module.exports = function (grunt) {
           'compiled/id/EOY-signup-form-post-donation-below.html': '0-email-signup-form/EOYFR2014-Donor/below-form-content.html'
         }
       },
-      'es_MX': {
+      'es': {
         options: {
           content: generate_bake_content(
-            "es_MX",
-            "es_MX",
+            "es",
+            "ES",
             false,
             "USD",
             "USD",
-            "https://sendto.mozilla.org/page/s/EOYFR2014-donor-es-MX"
+            "https://sendto.mozilla.org/page/s/EOYFR2014-donor-es"
           )
         },
         files: {
           // single
-          'compiled/es_MX/EOY-donation-form-single.html': '0-donation-forms/EOY-donation-form-single/template.html',
-          'compiled/es_MX/EOY-donation-form-single-above.html': '0-donation-forms/EOY-donation-form-single/above-form-content.html',
-          'compiled/es_MX/EOY-donation-form-single-below.html': '0-donation-forms/EOY-donation-form-single/below-form-content.html',
+          'compiled/es/EOY-donation-form-single.html': '0-donation-forms/EOY-donation-form-single/template.html',
+          'compiled/es/EOY-donation-form-single-above.html': '0-donation-forms/EOY-donation-form-single/above-form-content.html',
+          'compiled/es/EOY-donation-form-single-below.html': '0-donation-forms/EOY-donation-form-single/below-form-content.html',
           // sequential
-          'compiled/es_MX/EOY-donation-form-sequential.html': '0-donation-forms/EOY-donation-form-sequential/template.html',
-          'compiled/es_MX/EOY-donation-form-sequential-above.html': '0-donation-forms/EOY-donation-form-sequential/above-form-content.html',
-          'compiled/es_MX/EOY-donation-form-sequential-below.html': '0-donation-forms/EOY-donation-form-sequential/below-form-content.html',
+          'compiled/es/EOY-donation-form-sequential.html': '0-donation-forms/EOY-donation-form-sequential/template.html',
+          'compiled/es/EOY-donation-form-sequential-above.html': '0-donation-forms/EOY-donation-form-sequential/above-form-content.html',
+          'compiled/es/EOY-donation-form-sequential-below.html': '0-donation-forms/EOY-donation-form-sequential/below-form-content.html',
           // post donation
-          'compiled/es_MX/EOY-signup-form-post-donation.html': '0-email-signup-form/EOYFR2014-Donor/template.html',
-          'compiled/es_MX/EOY-signup-form-post-donation-above.html': '0-email-signup-form/EOYFR2014-Donor/above-form-content.html',
-          'compiled/es_MX/EOY-signup-form-post-donation-below.html': '0-email-signup-form/EOYFR2014-Donor/below-form-content.html'
+          'compiled/es/EOY-signup-form-post-donation.html': '0-email-signup-form/EOYFR2014-Donor/template.html',
+          'compiled/es/EOY-signup-form-post-donation-above.html': '0-email-signup-form/EOYFR2014-Donor/above-form-content.html',
+          'compiled/es/EOY-signup-form-post-donation-below.html': '0-email-signup-form/EOYFR2014-Donor/below-form-content.html'
         }
       }
     },
