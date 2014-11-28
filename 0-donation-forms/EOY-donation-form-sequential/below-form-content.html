@@ -356,7 +356,10 @@ function calculateHeight() {
       formInstance.submitEvent.preventDefault();
     }
     if (!formInstance.isValid()) {
-      $('#one-line-error').show();
+      var paymentType = $("#payment-type-row input:checked").val();
+      if ( paymentType !== "paypal" ) {
+        $('#one-line-error').show();
+      }
     } else {
       var
           $donateButton = $('#donate-btn'),
