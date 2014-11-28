@@ -10,6 +10,21 @@ var generate_bake_content = function(locale, paypal_locale, show_email_signup, c
   return bake_content;
 };
 
+var generatePayPalPage = function(currency_code) {
+
+  var locale_content = require("./0-content-page/EOYFR2014-PayPal-Donate/locales/" + currency_code + "/locale.json");
+  locale_content["currency_code"] = currency_code;
+
+  var bake_content = {
+    options: {
+      content: locale_content
+    },
+    files: {}
+  };
+  bake_content.files["compiled/paypal/" + currency_code + "/EOYFR2014-PayPal-Donate.html"] = "0-content-page/EOYFR2014-PayPal-Donate/template.html";
+  return bake_content;
+};
+
 module.exports = function (grunt) {
   require('time-grunt')(grunt);
   require('jit-grunt')(grunt, {
@@ -173,7 +188,8 @@ module.exports = function (grunt) {
           'compiled/es/EOY-signup-form-post-donation-above.html': '0-email-signup-form/EOYFR2014-Donor/above-form-content.html',
           'compiled/es/EOY-signup-form-post-donation-below.html': '0-email-signup-form/EOYFR2014-Donor/below-form-content.html'
         }
-      }
+      },
+      HUF: generatePayPalPage("HUF")
     },
     watch: {
       server: {
