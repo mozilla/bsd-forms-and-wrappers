@@ -83,8 +83,14 @@ function updateAmountOptions(presetNum) {
 }
 
 $(win).on('load', function () {
+  var queryString = window.location.search;
+  var default_amount_re = /form-default-amount=([\w\.]+)/;
+  var default_amount;
   if (win.location.hash.match(/#amount-\d+?/)) {
     $(win.location.hash).attr('checked', true);
+  } else if (default_amount_re.test(queryString)) {
+    default_amount = queryString.match(default_amount_re)[1];
+    $("#amount-" + default_amount).attr('checked', true);
   }
 });
 

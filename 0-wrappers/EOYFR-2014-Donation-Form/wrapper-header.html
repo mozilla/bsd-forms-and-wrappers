@@ -53,6 +53,19 @@
 </script>
 <html>
 <body>
+<script>
+  (function() {
+    var amount = window.location.hash.match(/#amount-(\d+)/);
+    if (amount && amount[1]) {
+      if (window.location.search) {
+        var updatedSearch = window.location.search + "&form-default-amount=" + amount[1];
+      } else {
+        var updatedSearch = "?form-default-amount=" + amount[1];
+      }
+      window.history.replaceState({}, "", window.location.origin + window.location.pathname + updatedSearch );
+    }
+  })();
+</script>
 <script src="//cdn.optimizely.com/js/206878104.js"></script>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic"/>
 <link href="https://www.mozilla.org/tabzilla/media/css/tabzilla.css" rel="stylesheet"/>
