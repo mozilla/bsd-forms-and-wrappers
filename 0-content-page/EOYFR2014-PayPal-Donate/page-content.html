@@ -1,41 +1,30 @@
 <!-- =================== Page Content STARTS =================== -->
 <div class="container" id="header-copy">
-  <h1>{{ donate_today}}</h1>
+  <h1>{{ donate_today }}</h1>
 </div>
 
 <div id="form-wrapper">
   <div class="wrap">
     <div class="row">
-      <img src="https://sendto.mozilla.org/page/-/paypal_logo@2x.png" alt="PayPal Logo" width="210" height="58"/>
+      <img src="https://sendto.mozilla.org/page/-/paypal_logo@2x.png" alt="PayPal Logo" width="140" height="58"/>
 
       <p id="secure-label"><i class="fa fa-lock"></i>{{ secure }}</p>
     </div>
 
     <div class="row">
       <div class="full">
-        <h4>
+        <h4 style="margin-top: 20px;">
           {{ select_donation }}
         </h4>
       </div>
     </div>
     <form action="#" id="primary-form">
       <div class="row donation-amount-row">
-        <div class="third">
-          <input type="radio" name="donation_amount" value="20" id="amount-20" checked><label for="amount-20" class="large-label-size">20</label>
-        </div>
-        <div class="third">
-          <input type="radio" name="donation_amount" value="10" id="amount-10"><label for="amount-10" class="large-label-size">10</label>
-        </div>
-        <div class="third">
-          <input type="radio" name="donation_amount" value="5" id="amount-5"><label for="amount-5" class="large-label-size">5</label>
-        </div>
-      </div>
-      <div class="row donation-amount-row">
         <div class="full">
           <div id="amount-other-container">
             <input type="radio" name="donation_amount" value="other" id="amount-other">
-            <label for="amount-other" class="large-label-size">&nbsp;</label>
-            <input type="number" name="donation_amount_other" placeholder="{{ other_amount }}" class="medium-label-size">
+            <label for="amount-other" class="large-label-size">{{ currency_symbol }}</label>
+            <input x-moz-errormessage="{{ error_amount }}" type="number" name="donation_amount_other" min="{{ min_amount }}" placeholder="{{ amount }}" class="medium-label-size">
           </div>
         </div>
       </div>
@@ -49,7 +38,7 @@
       </div>
       <div class="row">
         <div class="full">
-          <button type="submit" class="btn large-label-size" id="donate-btn">
+          <button type="submit" class="btn large-label-size" id="donate-btn" style="margin: 35px 0 0 0;">
             {{ donate }} 20 {{ currency_code }} {{ now }}
           </button>
         </div>
@@ -59,9 +48,7 @@
 </div>
 <div class="row">
   <p class="donation-notice">
-    <small>
-      Contributions go to the Mozilla Foundation, a 501(c)(3) organization, to be used in its discretion for its charitable purposes. They are tax-deductible in the U.S. to the fullest extent permitted by law.
-    </small>
+    <small>{{ contributions }}</small>
   </p>
 </div>
 
@@ -93,8 +80,7 @@
   <input type="hidden" name="currency_code" value="{{ currency_code }}">
   <input type="hidden" name="t3" value="M">
   <input name="srt" type="hidden" value="0">
-  <!-- Donation Amount -->
-  <input type="hidden" name="a3" value="20">
+
 </form>
 
 
