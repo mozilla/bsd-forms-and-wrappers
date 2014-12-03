@@ -41,7 +41,46 @@
 var
     $bsdForm = $("form#contribution"),
     $theForm = $("#donation-form-sequential"),
-    win = window;
+    win = window,
+    AMOUNT_SET_PARAM = "preset",
+    AMOUNT_PRESET = {
+      2: [ 100, 50, 25, 15 ]
+    };
+
+  // hide these fields until the amount options are updated according to the `preset` param
+  $(".row.donation-amount-row").hide();
+
+  // extract query param from url
+  // code modified from: http://www.sitepoint.com/url-parameters-jquery/
+  $.urlParam = function(name){
+    var results =
+        new RegExp('[\?&amp;]' + name + '=([^&amp;#]*)').exec(window.location.href);
+    return results ? results[1] : null;
+  }
+
+  function updateAmountOptions(presetNum) {
+    if ( presetNum && AMOUNT_PRESET[presetNum] ) {
+      $("input[name='donation_amount']").each(function(idx) {
+        if ( $(this).attr("id") == "amount-other" ) {
+          return;
+        }
+        var selectedPreset = AMOUNT_PRESET[presetNum];
+        var newAmount = selectedPreset[idx];
+        $(this).attr({
+          id: "amount-" + newAmount,
+          value: newAmount
+        });
+        $(this).siblings("label").attr({
+          for: $(this).attr("id")
+        });
+        $(this).siblings("label").text("$" + newAmount);
+      });
+    }
+    // amount options have been updated, now show them to users
+    $(".row.donation-amount-row").show();
+  }
+
+  updateAmountOptions( $.urlParam(AMOUNT_SET_PARAM) );
 
   // ***********************************************
   // Preselect dollar amount
