@@ -29,6 +29,7 @@ var generatePayPalPage = function(currency_code, min_amount, currency_symbol, lo
     files: {}
   };
   bake_content.files["compiled/paypal/" + currency_code + "/EOYFR2014-PayPal-Donate.html"] = "0-content-page/EOYFR2014-PayPal-Donate/template.html";
+  bake_content.files["compiled/paypal/" + currency_code + "/EOYFR2014-PayPal-Donate-content.html"] = "0-content-page/EOYFR2014-PayPal-Donate/page-content.html";
   return bake_content;
 };
 
