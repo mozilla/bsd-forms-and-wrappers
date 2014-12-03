@@ -10,7 +10,7 @@ var generate_bake_content = function(locale, paypal_locale, show_email_signup, c
   return bake_content;
 };
 
-var generatePayPalPage = function(currency_code, min_amount, currency_symbol) {
+var generatePayPalPage = function(currency_code, min_amount, currency_symbol, locale) {
 
   var locale_content = require("./0-content-page/EOYFR2014-PayPal-Donate/locales/" + currency_code + "/locale.json");
   locale_content["currency_code"] = currency_code;

@@ -1,6 +1,7 @@
 {
 	"donate_today": "Donate Today",
 	"secure": "Secure",
+	"amount": "Amount",
 	"select_donation": "Select your donation amount",
 	"continue": "continue",
 	"error_amount": "Please select a value that is no less than {{ min_amount }}.",
