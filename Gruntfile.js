@@ -10,13 +10,18 @@ var generate_bake_content = function(locale, paypal_locale, show_email_signup, c
   return bake_content;
 };
 
-var generatePayPalPage = function(currency_code, min_amount, currency_symbol, locale) {
-
-  var locale_content = require("./0-content-page/EOYFR2014-PayPal-Donate/locales/" + currency_code + "/locale.json");
+var generatePayPalPage = function(currency_code, min_amount, currency_symbol, paypal_locale, locale, currency_dup) {
+  var path_code = currency_dup ? currency_dup : currency_code;
+  var locale_content;
+  if(locale) {
+    locale_content = require("./0-content-page/EOYFR2014-PayPal-Donate/locales/" + currency_code + "/locale-" + locale + ".json");
+  } else {
+    locale_content = require("./0-content-page/EOYFR2014-PayPal-Donate/locales/" + currency_code + "/locale.json");
+  }
   locale_content["currency_code"] = currency_code;
   locale_content["min_amount"] = min_amount;
   locale_content["currency_symbol"] = currency_symbol;
-  locale_content["locale"] = locale;
+  locale_content["locale"] = paypal_locale;
 
   locale_content = JSON.parse(JSON.stringify(locale_content).replace(/{{ min_amount }}/, function(m, k) {
     return min_amount
@@ -28,8 +33,8 @@ var generatePayPalPage = function(currency_code, min_amount, currency_symbol, lo
     },
     files: {}
   };
-  bake_content.files["compiled/paypal/" + currency_code + "/EOYFR2014-PayPal-Donate.html"] = "0-content-page/EOYFR2014-PayPal-Donate/template.html";
-  bake_content.files["compiled/paypal/" + currency_code + "/EOYFR2014-PayPal-Donate-content.html"] = "0-content-page/EOYFR2014-PayPal-Donate/page-content.html";
+  bake_content.files["compiled/paypal/" + path_code + "/EOYFR2014-PayPal-Donate.html"] = "0-content-page/EOYFR2014-PayPal-Donate/template.html";
+  bake_content.files["compiled/paypal/" + path_code + "/EOYFR2014-PayPal-Donate-content.html"] = "0-content-page/EOYFR2014-PayPal-Donate/page-content.html";
   return bake_content;
 };
 
@@ -197,28 +202,29 @@ module.exports = function(grunt) {
         }
       },
       // PayPal currencies
-      'HKD': generatePayPalPage('HKD', 15, '$', 'HK'),
-      'USD': generatePayPalPage('USD', 2, '$', 'US'),
-      'PHP': generatePayPalPage('PHP', 90, 'P', 'PHP'),
       'AUD': generatePayPalPage('AUD', 2, '$', 'AU'),
-      'HUF': generatePayPalPage('HUF', 490, 'Ft', 'HU'),
-      'PLN': generatePayPalPage('PLN', 7, 'zł', 'PL'),
-      'BRL': generatePayPalPage('BRL', 5, 'R$', 'BR'),
-      'ILS': generatePayPalPage('ILS', 8, '₪', 'IL'),
-      'RUB': generatePayPalPage('RUB', 100, 'руб', 'RU'),
-      'GBP': generatePayPalPage('GBP', 1, '£', 'GB'),
-      'JPY': generatePayPalPage('JPY', 240, '¥', 'JP'),
+      'BRL': generatePayPalPage('BRL', 5, 'R$', 'BR', 'pt_BR'),
       'CAD': generatePayPalPage('CAD', 2, '$', 'CA'),
-      'MXN': generatePayPalPage('MXN', 30, '$', 'MX'),
-      'SEK': generatePayPalPage('SEK', 15, 'kr', 'SE'),
-      'CZK': generatePayPalPage('CZK', 45, 'Kč', 'CZ'),
-      'TWD': generatePayPalPage('TWD', 62, 'NT$', 'TW'),
       'CHF': generatePayPalPage('CHF', 2, 'CHF', 'CH'),
-      'DKK': generatePayPalPage('DKK', 12, 'kr', 'DK'),
+      'CZK': generatePayPalPage('CZK', 45, 'Kč', 'CZ', 'cs'),
+      'DKK': generatePayPalPage('DKK', 12, 'kr', 'DK', 'da'),
+      'EUR-DE': generatePayPalPage('EUR', 2, '€', 'DE', 'de', 'EUR-DE'),
+      'EUR-FR': generatePayPalPage('EUR', 2, '€', 'FR', 'fr', 'EUR-FR'),
+      'GBP': generatePayPalPage('GBP', 1, '£', 'GB'),
+      'HKD': generatePayPalPage('HKD', 15, '$', 'HK'),
+      'HUF': generatePayPalPage('HUF', 490, 'Ft', 'HU', 'hu'),
+      'ILS': generatePayPalPage('ILS', 8, '₪', 'IL', 'he'),
+      'JPY': generatePayPalPage('JPY', 240, '¥', 'JP', 'ja'),
+      'MXN': generatePayPalPage('MXN', 30, '$', 'MX', 'es'),
+      'NOK': generatePayPalPage('NOK', 15, 'kr', 'NO', 'no'),
       'NZD': generatePayPalPage('NZD', 3, '$', 'NZ'),
-      'THB': generatePayPalPage('THB', 70, '฿', 'TH'),
-      'EUR': generatePayPalPage('EUR', 2, '€', 'EU'),
-      'NOK': generatePayPalPage('NOK', 15, 'kr', 'NO')
+      'PHP': generatePayPalPage('PHP', 90, 'P', 'PHP', 'tl'),
+      'PLN': generatePayPalPage('PLN', 7, 'zł', 'PL', 'pl'),
+      'RUB': generatePayPalPage('RUB', 100, 'руб', 'RU', 'ru'),
+      'SEK': generatePayPalPage('SEK', 15, 'kr', 'SE', 'sv'),
+      'THB': generatePayPalPage('THB', 70, '฿', 'TH', 'th'),
+      'TWD': generatePayPalPage('TWD', 62, 'NT$', 'TW', 'zh_TW'),
+      'USD': generatePayPalPage('USD', 2, '$', 'US')
     },
     watch: {
       server: {

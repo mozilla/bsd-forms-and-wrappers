@@ -1,0 +1,13 @@
+{
+    "donate_today": "Doner I dag",
+    "secure": "Sikker",
+    "amount": "Beløb",
+    "select_donation": "Vælg dit donations beløb",
+    "continue": "fortsæt",
+    "error_amount": "Vælg venligst en værdi, der ikke er mindre end {{ min_amount }}.",
+    "donate": "Doner",
+    "now": "nu",
+    "One-time": "Engangs",
+    "Monthly": "Månedligt",
+    "contributions": "Bidrag går til Mozilla Fonden, en 501(c)(3) organisation, der skal anvendes i sit skøn til sine velgørende formål. De er fradragsberettigede i USA i største mulige omfang tilladt af loven."
+}

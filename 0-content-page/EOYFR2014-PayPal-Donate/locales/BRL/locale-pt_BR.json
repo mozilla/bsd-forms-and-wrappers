@@ -1,0 +1,13 @@
+{
+    "donate_today": "Doe Hoje",
+    "secure": "Seguro",
+    "amount": "Montante",
+    "select_donation": "Selecione o valor da doação",
+    "continue": "continue",
+    "error_amount": "Por favor selecione um valor não inferior a {{ min_amount }}.",
+    "donate": "Doe",
+    "now": "agora",
+    "One-time": "Uma-vez",
+    "Monthly": "Mensalmente",
+    "contributions": "Contribuições vão para a Fundação Mozilla, uma organização 501 (c) (3), para ser usado a seu critério para os seus fins de caridade. Elas são dedutíveis de imposto nos EUA em toda a extensão permitida por lei."
+}
