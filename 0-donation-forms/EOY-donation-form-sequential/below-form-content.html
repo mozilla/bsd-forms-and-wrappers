@@ -120,9 +120,10 @@ var
     }
   });
 
-function calculateHeight() {
-  $('#donation-form-sequential').height($(win.location.hash).height() + 145);
-}
+  function calculateHeight() {
+    $('#donation-form-sequential').height($(win.location.hash).height() + 145);
+    $('[name="cc_number"]').focus();
+  }
 
   $("#payment-type-row label").click(function() {
     // reset
