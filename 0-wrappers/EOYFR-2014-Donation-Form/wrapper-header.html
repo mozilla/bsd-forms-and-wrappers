@@ -393,7 +393,8 @@ input[type="radio"] + label {
 input[type="text"],
 input[type="number"],
 select,
-input[type="email"] {
+input[type="email"],
+input[name="donation_amount_other"] {
   width: 100%;
   margin-bottom: 5px;
   border: 1px solid #EAEFF2;
@@ -421,14 +422,16 @@ input[type="email"] {
 
 input[type="text"],
 input[type="number"],
-input[type="email"] {
+input[type="email"],
+input[name="donation_amount_other"] {
   padding: 7px 30px 7px 33px;
 }
 
 input[type="text"]:focus,
 select:focus,
 input[type="number"]:focus,
-input[type="email"]:focus {
+input[type="email"]:focus,
+input[name="donation_amount_other"]:focus {
   border-color: #38A9ED;
 }
 
@@ -478,7 +481,7 @@ input#amount-other + label {
   text-align: left;
 }
 
-input#amount-other + label + input[type="number"] {
+input#amount-other + label + input[name="donation_amount_other"] {
   position: absolute;
   top: 2px;
   left: 35px;
@@ -812,7 +815,7 @@ select.parsley-error:focus {
   #form-wrapper {
     padding: 10px;
   }
-  input#amount-other + label + input[type="number"] {
+  input#amount-other + label + input[name="donation_amount_other"] {
     width: 76%;
   }
 }

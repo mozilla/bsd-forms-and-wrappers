@@ -146,8 +146,8 @@ var
 
   $(win).on('resize', calculateHeight);
 
-  $("input#amount-other + label + input[type=\"number\"]").focus(function() {
-    $(this).prevAll("input[type=\"radio\"]").click();
+  $("input#amount-other + label + input[name='donation_amount_other']").focus(function() {
+    $(this).prevAll("input[type='radio']").click();
   });
 
   $("i.hint").click(function() {
@@ -368,9 +368,13 @@ var
 
   win.ParsleyValidator
     // Check `other amount` is valid
-    // .addValidator('checkAmount', function (value, requirement) {
-    //   return;
-    // }, 10)
+    .addValidator('checkAmount', function (value, requirement) {
+      // 2 decimals places; allows leading 0 (eg. 0.12);
+      var reg = /^\s*-?(\d+(\.\d{1,2})?|\.\d{1,2})\s*$/;
+      console.log(requirement);
+      return (value.match(reg) && value.match(reg).length > 0 );
+    }, 10)
+    .addMessage("en", "checkAmount", "{{Other-amount-format-error}}")
     // Visa and Master Card client side validation
     .addValidator('visaMcCardNum', function (value, requirement) {
       return (value.match(regVisa) && value.match(regVisa).length > 0 )

@@ -47,5 +47,6 @@
   "dupe-donation": "Looks like we already have your donation—please refresh if you wish to donate again",
   "Select-your-amount": "Select your amount",
   "Next": "Next",
-  "Personal": "Personal"
+  "Personal": "Personal",
+  "Other-amount-format-error": "Please enter a number up to 2 decimal places."
 }
