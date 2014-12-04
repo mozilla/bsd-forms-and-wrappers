@@ -47,9 +47,6 @@ var
       2: [ 100, 50, 25, 15 ]
     };
 
-  // hide these fields until the amount options are updated according to the `preset` param
-  $(".row.donation-amount-row").hide();
-
   // extract query param from url
   // code modified from: http://www.sitepoint.com/url-parameters-jquery/
   $.urlParam = function(name){
@@ -77,7 +74,7 @@ var
       });
     }
     // amount options have been updated, now show them to users
-    $(".row.donation-amount-row").show();
+    $(".row.donation-amount-row").removeClass("hidden-visibility");
   }
 
   updateAmountOptions( $.urlParam(AMOUNT_SET_PARAM) );
