@@ -286,7 +286,7 @@ var
     $theForm.find("[name='donation_amount_other']").val("");
   });
   $theForm.find("[name='donation_amount_other']").keydown(function(event) {
-    var functionKeys = [46, 8, 9, 27, 13, 110, 190]; // backspace, delete, tab, escape, enter and .
+    var functionKeys = [ 8, 9, 13, 27, 37, 39, 46, 110, 190]; // backspace, tab, enter, escape, left arrow, right arrow, delete, decimal point, period
     var numberKeys = [ 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105 ]; // numbers
     var allowed = functionKeys.concat(numberKeys);
     if ( allowed.indexOf(event.keyCode) === -1 ) {
