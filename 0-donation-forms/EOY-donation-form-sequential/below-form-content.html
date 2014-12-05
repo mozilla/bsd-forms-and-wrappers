@@ -119,7 +119,6 @@ var
 
   function calculateHeight() {
     $('#donation-form-sequential').height($(win.location.hash).height() + 145);
-    $('[name="cc_number"]').focus();
   }
 
   $("#payment-type-row label").click(function() {
@@ -129,7 +128,10 @@ var
     var paymentType = $(this).attr("for");
     if (paymentType == "payment-cc") {
       $(".cc-additional-info").slideDown(100);
-      win.setTimeout(calculateHeight, 100);
+      win.setTimeout(function() {
+        calculateHeight();
+        $('[name="cc_number"]').focus();
+      }, 100);
       if ( $(".parsley-error").length > 0 ) {
         $("#one-line-error").show();
       }
