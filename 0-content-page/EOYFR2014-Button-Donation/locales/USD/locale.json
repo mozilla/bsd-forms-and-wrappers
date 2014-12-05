@@ -1,0 +1,6 @@
+{
+	"Donate_amount": "Donate {{ currency_symbol }}{ amount }",
+	"secure": "Secure",
+	"mozilla_non_profit": "Mozilla, the non-profit behind Firefox, relies on grants and donations from people like you.",
+	"if_everyone": "If everyone reading this donates a few dollars, we can be fully funded for another year."
+}
