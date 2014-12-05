@@ -1,0 +1,13 @@
+{
+    "donate_today": "Doner i dag",
+    "secure": "Sikker",
+    "amount": "Sum",
+    "select_donation": "Velg ditt donasjonsbeløp",
+    "continue": "fortsett",
+    "error_amount": "Vennligst velg en sum som ikke er mindre enn {{ min_amount }}.",
+    "donate": "Doner",
+    "now": "nå",
+    "One-time": "Engangsbeløp",
+    "Monthly": "Månedlig beløp",
+    "contributions": "Bidrag går til Mozilla Foundation, en 501(c)(3)-organisasjon, og vil brukes til veldedige formål på organisasjonens diskresjon. Bidragene gir skattefradrag i USA så langt lovverket tillater."
+}

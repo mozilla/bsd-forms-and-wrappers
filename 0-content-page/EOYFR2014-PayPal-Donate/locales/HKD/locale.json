@@ -1,11 +1,10 @@
 {
 	"donate_today": "Donate Today",
 	"secure": "Secure",
+	"amount": "Amount",
 	"select_donation": "Select your donation amount",
-	"other_amount": "other",
 	"continue": "continue",
-	"locale": "US",
-	"currency_code": "HKD",
+	"error_amount": "Please select a value that is no less than {{ min_amount }}.",
 	"donate": "Donate",
 	"now": "now",
 	"One-time": "One-time",

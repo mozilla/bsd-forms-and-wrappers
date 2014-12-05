@@ -1,0 +1,13 @@
+{
+    "donate_today": "Darujte dnes",
+    "secure": "Šifrované spojení",
+    "amount": "Částka",
+    "select_donation": "Zvolte částku, kterou chcete přispět",
+    "continue": "pokračovat",
+    "error_amount": "Zvolte, prosím, částku, která činí nejméně {{ min_amount }}.",
+    "donate": "Darujte",
+    "now": "nyní",
+    "One-time": "Jednorázově",
+    "Monthly": "Měsíčně",
+    "contributions": "Příspěvky putují na účet neziskové organizace Mozilla Foundation a dle uvážení budou použity pro dobročinné účely. Příspěvky jsou dle daňového systému USA odečitatelné z daní v plném rozsahu povoleném zákonem."
+}

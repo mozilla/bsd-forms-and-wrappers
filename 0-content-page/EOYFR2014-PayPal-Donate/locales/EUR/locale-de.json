@@ -1,0 +1,13 @@
+{
+    "donate_today": "Jetzt spenden",
+    "secure": "Sicher",
+    "amount": "Betrag",
+    "select_donation": "Wählen Sie Ihren Spendenbetrag",
+    "continue": "Weiter",
+    "error_amount": "Wählen Sie bitte einen Wert nicht kleiner als {{ min_amount }}.",
+    "donate": "Spenden",
+    "now": "jetzt",
+    "One-time": "Einmalig",
+    "Monthly": "Monatlich",
+    "contributions": "Die Spenden gehen an die Mozilla Foundation, eine 501(c)(3)-Organisation, und werden nach eigenem Ermessen für wohltätige Zwecke verwendet. Sie sind in den USA, soweit es gesetzlich zulässig ist, im vollsten Umfang steuerlich absetzbar."
+}
