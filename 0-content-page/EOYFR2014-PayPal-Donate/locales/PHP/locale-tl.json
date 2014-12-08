@@ -5,8 +5,8 @@
     "select_donation": "Piliin ang halaga ng iyong donasyon",
     "continue": "magpatuloy",
     "error_amount": "Mangyaring pumili ng isang halaga na hindi bababa sa { min_amount }}.",
-    "donate": "Magdonasyon",
-    "now": "ngayon",
+    "donate_now": "Magdonasyon ngayon",
+    "donate_now_amount": "Magdonasyon {{ currency_symbol }}{ amount } ngayon",
     "One-time": "Isang beses",
     "Monthly": "Buwanan",
     "contributions": "Ang mga kontribusyon ay mapupunta sa Mozilla Foundation, isang 501(c)(3) na  organisasyon, na gagamitin sa sarili nitong pagpapasya para sa mga  layuning pangkawang-gawa nito. Ang mga ito ay maaaring ibawas sa buwis sa US sa pinakamalawak na saklaw na pinahihintulutan ng batas."

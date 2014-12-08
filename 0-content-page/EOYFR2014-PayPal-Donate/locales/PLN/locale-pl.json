@@ -5,8 +5,8 @@
     "select_donation": "Zaznacz kwotę swojej darowizny",
     "continue": "kontynuuj",
     "error_amount": "Proszę zaznaczyć wartość nie mniejszą niż {{ min_amount }}.",
-    "donate": "Przekaż darowiznę",
-    "now": "teraz",
+    "donate_now": "Przekaż darowiznę teraz",
+    "donate_now_amount": "Przekaż darowiznę {{ currency_symbol }}{ amount } teraz",
     "One-time": "Jednorazowo",
     "Monthly": "Miesięcznie",
     "contributions": "Darowizny są przekazywane fundacji Mozilla Foundation, organizacji non-profit typu 501(c)(3), na jej dowolne cele charytatywne. W Stanach Zjednoczonych darowizny te podlegają odpisaniu od podatku w maksymalnej kwocie dozwolonej przez prawo."

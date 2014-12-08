@@ -5,8 +5,8 @@
     "select_donation": "请选择您的捐赠金额",
     "continue": "继续",
     "error_amount": "请选择一个数值，应不少于 {{ min_amount }}。",
-    "donate": "捐赠",
-    "now": "现在",
+    "donate_now": "现在捐赠",
+    "donate_now_amount": "现在捐赠 {{ currency_symbol }}{ amount }",
     "One-time": "一次性",
     "Monthly": "每月",
     "contributions": "捐款将会转给 Mozilla 基金会，它是一个 501(c)(3) 组织，并酌情将捐款用于自己的慈善事业。在美国，法律也允许它们可以在最大程度上获得免税。"

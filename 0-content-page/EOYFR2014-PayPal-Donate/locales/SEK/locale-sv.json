@@ -5,8 +5,8 @@
     "select_donation": "Välj ditt donationsbelopp",
     "continue": "fortsätt",
     "error_amount": "Vänligen välj ett värde som inte är mindre än {{ min_amount }}.",
-    "donate": "Donera",
-    "now": "nu",
+    "donate_now": "Donera nu",
+    "donate_now_amount": "Donera {{ currency_symbol }}{ amount } nu",
     "One-time": "Engångs",
     "Monthly": "Månatlig",
     "contributions": "Bidragen går till Mozilla Foundation, en 501(c)(3)-organisation, för att användas för dess välgörande ändamål efter eget godtycke. De är avdragsgilla i USA i den mån det är tillåtet enligt lag."
