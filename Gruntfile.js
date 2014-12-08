@@ -205,7 +205,7 @@ module.exports = function(grunt) {
       'AUD': generatePayPalPage('AUD', 2, '$', 'AU'),
       'BRL': generatePayPalPage('BRL', 5, 'R$', 'BR', 'pt_BR'),
       'CAD': generatePayPalPage('CAD', 2, '$', 'CA'),
-      'CHF': generatePayPalPage('CHF', 2, 'CHF', 'CH'),
+      'CHF': generatePayPalPage('CHF', 2, 'CHF', 'CH', 'de'),
       'CZK': generatePayPalPage('CZK', 45, 'Kč', 'CZ', 'cs'),
       'DKK': generatePayPalPage('DKK', 12, 'kr', 'DK', 'da'),
       'EUR-DE': generatePayPalPage('EUR', 2, '€', 'DE', 'de', 'EUR-DE'),
