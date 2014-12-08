@@ -84,8 +84,12 @@ var
   // ***********************************************
 
   $(win).on('load', function () {
+    var newAmount;
     if (win.location.hash.match(/#amount-\d+?/)) {
       $(win.location.hash).attr('checked', true);
+      newAmount = $(win.location.hash).val();
+      $('#paypal-one-time').find('[name="amount"]').attr('value', newAmount);
+      $('#paypal-recurring').find('[name="a3"]').attr('value', newAmount);
     }
     history.replaceState({page: 1, hash: '#page-1'}, '', '#page-1');
   });
