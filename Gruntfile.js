@@ -151,7 +151,7 @@ module.exports = function(grunt) {
       'NOK': generatePayPalPage('NOK', 15, 'kr', 'no_NO', 'no'),
       'NZD': generatePayPalPage('NZD', 3, '$', 'US'),
       // PayPal locale code is wrong here
-      'PHP': generatePayPalPage('PHP', 90, 'P', 'PHP', 'tl'),
+      'PHP': generatePayPalPage('PHP', 90, 'P', 'PH', 'tl'),
       'PLN': generatePayPalPage('PLN', 7, 'zł', 'PL', 'pl'),
       'RUB': generatePayPalPage('RUB', 100, 'руб', 'RU', 'ru'),
       'SEK': generatePayPalPage('SEK', 15, 'kr', 'sv_SE', 'sv'),
