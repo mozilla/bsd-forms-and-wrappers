@@ -5,8 +5,8 @@
     "select_donation": "寄付金額を入力してください",
     "continue": "次に進む",
     "error_amount": "{{ min_amount }} 以上の金額を入力してください。",
-    "donate": "今すぐ",
-    "now": "を寄付",
+    "donate_now": "今すぐ寄付",
+    "donate_now_amount": "今すぐ {{ currency_symbol }}{ amount } を寄付",
     "One-time": "1 回のみ",
     "Monthly": "毎月",
     "contributions": "寄付金は、501(c)(3) 組織である Mozilla Foundation へとわたり、Mozilla が決定する慈善目的に使用されます。その寄付金は米国内において、法律で認められた最大限が課税控除対象となります。"

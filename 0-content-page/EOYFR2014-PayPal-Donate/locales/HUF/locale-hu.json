@@ -5,8 +5,8 @@
     "select_donation": "Adja meg az adomány összegét",
     "continue": "tovább",
     "error_amount": "Kérem, válasszon egy összeget, ami nem kevesebb, mint {{ min_amount}}!",
-    "donate": "Adomány",
-    "now": "küldése",
+    "donate_now": "Adomány küldése",
+    "donate_now_amount": "Adomány {{ currency_symbol }}{ amount } küldése",
     "One-time": "Csak egyszer",
     "Monthly": "Havonta",
     "contributions": "Hozzájárulása a Mozilla Foundation 501(c)(3) szervezet részére fog érkezni és azt saját belátása szerint fogja jótékony célokra felhasználni. Az adomány az adóból levonható és teljes mértékben törvényes."

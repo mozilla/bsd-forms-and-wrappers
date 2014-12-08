@@ -5,8 +5,8 @@
     "select_donation": "Sélectionnez le montant de votre don",
     "continue": "continuer",
     "error_amount": "Veuillez sélectionner une valeur supérieure à {{ min_amount }}.",
-    "donate": "Faites un don",
-    "now": " ",
+    "donate_now": "Faites un don",
+    "donate_now_amount": "Faites un don {{ currency_symbol }}{ amount }",
     "One-time": "Unique",
     "Monthly": "Mensuel",
     "contributions": "Les dons seront reversés à la Mozilla Foundation, une organisation 501(c)(3), et seront utilisés à des fins caritatives. Ils sont déductibles des impôts aux États-Unis, dans la mesure permise par la loi."
