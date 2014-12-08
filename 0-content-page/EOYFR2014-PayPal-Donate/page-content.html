@@ -39,7 +39,7 @@
       <div class="row">
         <div class="full">
           <button type="submit" class="btn large-label-size" id="donate-btn" style="margin: 35px 0 0 0;">
-            {{ donate }} {{ now }}
+            {{ donate_now }}
           </button>
         </div>
       </div>
@@ -98,7 +98,7 @@
         buttonText;
 
 
-    buttonText = amountSelected ? "{{ donate }} " + amountSelected + " {{ currency_code }} {{ now }}" : "{{ donate }} {{ now }}";
+    buttonText = amountSelected ? "{{ donate_now_amount }}".replace("{ amount }", amountSelected) : "{{ donate_now }}";
     $("#donate-btn").text(buttonText);
     $('#paypal-one-time').find('[name="amount"]').attr('value', amountSelected);
     $('#paypal-recurring').find('[name="a3"]').attr('value', amountSelected);
