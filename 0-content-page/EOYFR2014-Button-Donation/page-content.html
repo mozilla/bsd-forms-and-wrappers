@@ -1,0 +1,68 @@
+<!-- =================== Page Content STARTS =================== -->
+<div class="container" id="header-copy">
+  <h1>{{ donate_now }}</h1>
+  <p>{{ mozilla_non_profit }}</p>
+  <p>{{ if_everyone }}</p>
+</div>
+
+<div id="form-wrapper">
+  <div class="wrap">
+    <div class="row">
+      <img src="https://sendto.mozilla.org/page/-/paypal_logo@2x.png" alt="PayPal Logo" width="140" height="58"/>
+
+      <p id="secure-label"><i class="fa fa-lock"></i>{{ secure }}</p>
+    </div>
+    <div class="row hidden-visibility">
+      <div class="full">
+        <button id="donate-btn" class="btn large-label-size btn-submit-01" style="margin: 35px 0 0 0;">{{ Donate_amount }}</button>
+        <button id="donate-btn" class="btn large-label-size btn-submit-02" style="margin: 35px 0 0 0;">{{ Donate_amount }}</button>
+        <button id="donate-btn" class="btn large-label-size btn-submit-03" style="margin: 35px 0 0 0;">{{ Donate_amount }}</button>
+        <button id="donate-btn" class="btn large-label-size btn-submit-04" style="margin: 35px 0 0 0;">{{ Donate_amount }}</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <p class="donation-notice">
+    <small>{{ donation-notice }}</small>
+  </p>
+</div>
+
+
+<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top" id="paypal-one-time">
+  <input type="hidden" name="cmd" value="_donations">
+  <input type="hidden" name="business" value="44ZHAVWJHTK2N">
+  <input type="hidden" name="lc" value="{{ locale }}">
+  <input type="hidden" name="item_name" value="Mozilla Foundation">
+  <input type="hidden" name="no_note" value="1">
+  <input type="hidden" name="no_shipping" value="1">
+  <input type="hidden" name="rm" value="1">
+  <!-- Donation Amount -->
+  <input type="hidden" name="amount" value="0">
+  <input type="hidden" name="return" value="https://sendto.mozilla.org/page/s/EOYFR2014-donor">
+  <input type="hidden" name="currency_code" value="{{ currency }}">
+</form>
+
+<script>
+var btn1 = $('.btn-submit-01');
+var btn2 = $('.btn-submit-02');
+var btn3 = $('.btn-submit-03');
+var btn4 = $('.btn-submit-04');
+
+btn1.text(btn1.text().replace(/{ amount }/, "{{amount_idx_1}}"));
+btn2.text(btn2.text().replace(/{ amount }/, "{{amount_idx_2}}"));
+btn3.text(btn3.text().replace(/{ amount }/, "{{amount_idx_3}}"));
+btn4.text(btn4.text().replace(/{ amount }/, "{{amount_idx_4}}"));
+
+btn1.on('click', (function(){ return submitForm("{{amount_idx_1}}")}));
+btn2.on('click', (function(){ return submitForm("{{amount_idx_2}}")}));
+btn3.on('click', (function(){ return submitForm("{{amount_idx_3}}")}));
+btn4.on('click', (function(){ return submitForm("{{amount_idx_4}}")}));
+$(".row").removeClass("hidden-visibility");
+
+function submitForm(amount) {
+  $('#paypal-one-time').find('[name="amount"]').attr('value', amount);
+  $('#paypal-one-time').submit();
+}
+</script>
+<!-- =================== Page Content ENDS =================== -->
