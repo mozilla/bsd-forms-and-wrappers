@@ -93,15 +93,23 @@
 
   $theForm.find('[name="donation_amount_other"]').val("");
 
-  function updateDonateButtonText(event) {
-    var amountSelected = $(this).val(),
-        buttonText;
-
-
-    buttonText = amountSelected ? "{{ donate_now_amount }}".replace("{ amount }", amountSelected) : "{{ donate_now }}";
+  function updateDonateButtonText(amountSelected) {
+    var buttonText = amountSelected ? "{{ donate_now_amount }}".replace("{ amount }", amountSelected) : "{{ donate_now }}";
     $("#donate-btn").text(buttonText);
     $('#paypal-one-time').find('[name="amount"]').attr('value', amountSelected);
     $('#paypal-recurring').find('[name="a3"]').attr('value', amountSelected);
+  }
+
+  function updateDonateButtonTextEvent(event) {
+    var amountSelected = $(this).val();
+    updateDonateButtonText(amountSelected);
+  }
+
+  // check if a pre-selected amount is passed via the URL
+  if (window.location.hash.match(/#amount-\d+?/)) {
+    var preSelected = window.location.hash.substring(8);
+    $theForm.find('[name="donation_amount_other"]').val(preSelected);
+    updateDonateButtonText(preSelected);
   }
 
   $theForm.find('[name="donation_amount_other"]').keyup(updateDonateButtonText);
