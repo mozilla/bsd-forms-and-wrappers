@@ -16,7 +16,7 @@ var generatePayPalPage = function(currency_code, min_amount, currency_symbol, pa
   if(locale) {
     locale_content = require("./0-content-page/EOYFR2014-PayPal-Donate/locales/" + currency_code + "/locale-" + locale + ".json");
   } else {
-    locale_content = require("./0-content-page/EOYFR2014-PayPal-Donate/locales/" + currency_code + "/locale.json");
+    locale_content = require("./0-content-page/EOYFR2014-PayPal-Donate/locales/USD/locale.json");
   }
   locale_content["currency_code"] = currency_code;
   locale_content["min_amount"] = min_amount;
@@ -25,6 +25,9 @@ var generatePayPalPage = function(currency_code, min_amount, currency_symbol, pa
 
   locale_content = JSON.parse(JSON.stringify(locale_content).replace(/{{ min_amount }}/, function(m, k) {
     return min_amount
+  }));
+  locale_content = JSON.parse(JSON.stringify(locale_content).replace(/{{ currency_symbol }}/, function(m, k) {
+    return currency_symbol
   }));
 
   var bake_content = {
