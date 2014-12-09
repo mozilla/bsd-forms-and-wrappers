@@ -85,6 +85,8 @@
   display: none;
 }
 
+*:before,
+*:after,
 * {
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -229,6 +231,12 @@ input[type="submit"] {
   line-height: 1.42857;
   border-radius: 0px;
   -moz-user-select: none;
+}
+
+.sequential-container {
+  margin: 0 auto;
+  width: 420px;
+  overflow-x: hidden;
 }
 
 .container {
@@ -455,7 +463,6 @@ input[name="payment-type"] + label {
   white-space: nowrap;
   line-height: 1.42857;
   transition: all 0.3s ease 0s;
-  box-sizing: border-box;
 }
 
 input[name="donation_amount"] + label:hover,
@@ -808,6 +815,7 @@ select.parsley-error:focus {
 
 @media screen and (max-width: 600px) {
   .container,
+  .sequential-container,
   #form-wrapper {
     width: 100%;
   }
@@ -892,7 +900,6 @@ select.parsley-error:focus {
 
 #donation-form-sequential {
   position: relative;
-  overflow: hidden;
   height: 445px;
   width: 100%;
   transition: height 400ms;
@@ -924,7 +931,6 @@ ol.progress li::before {
   background: none repeat scroll 0% 0% #EAEFF2;
   border-radius: 50%;
   box-shadow: 0px 0px 0px 10px #EAEFF2;
-  box-sizing: border-box;
   content: counter(progress, decimal);
   height: 34px;
   left: 11%;
