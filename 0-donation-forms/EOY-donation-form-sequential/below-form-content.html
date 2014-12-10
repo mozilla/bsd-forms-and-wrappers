@@ -122,6 +122,9 @@ var
   });
 
   function calculateHeight() {
+    if (!win.location.hash) {
+      return;
+    }
     $('#donation-form-sequential').height($(win.location.hash).height() + 145);
   }
 
