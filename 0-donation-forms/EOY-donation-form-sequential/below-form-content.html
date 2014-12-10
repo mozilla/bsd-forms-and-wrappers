@@ -90,8 +90,16 @@ var
       newAmount = $(win.location.hash).val();
       $('#paypal-one-time').find('[name="amount"]').attr('value', newAmount);
       $('#paypal-recurring').find('[name="a3"]').attr('value', newAmount);
+      history.replaceState({page: 1, hash: '#page-1'}, '', '#page-1');
+      history.pushState({page: 2, hash: '#page-2'}, '', '#page-2');
+      updateDonateButtonText(newAmount);
+      $('#payment-cc').prop('checked', true);
+      showCreditCardForm();
+      hidePage('#page-1', 'complete');
+      showPage('#page-2');
+    } else {
+      history.replaceState({page: 1, hash: '#page-1'}, '', '#page-1');
     }
-    history.replaceState({page: 1, hash: '#page-1'}, '', '#page-1');
   });
 
 
@@ -128,20 +136,24 @@ var
     $('#donation-form-sequential').height($(win.location.hash).height() + 145);
   }
 
+  function showCreditCardForm() {
+    $(".cc-additional-info").slideDown(100);
+    win.setTimeout(function() {
+      calculateHeight();
+      $('[name="cc_number"]').focus();
+    }, 100);
+    if ( $(".parsley-error").length > 0 ) {
+      $("#one-line-error").show();
+    }
+  }
+
   $("#payment-type-row label").click(function() {
     // reset
     $(".cc-additional-info").hide();
     // toggle corresponding section
     var paymentType = $(this).attr("for");
     if (paymentType == "payment-cc") {
-      $(".cc-additional-info").slideDown(100);
-      win.setTimeout(function() {
-        calculateHeight();
-        $('[name="cc_number"]').focus();
-      }, 100);
-      if ( $(".parsley-error").length > 0 ) {
-        $("#one-line-error").show();
-      }
+      showCreditCardForm();
     } else {
       calculateHeight();
       $("#one-line-error").hide();
@@ -266,8 +278,7 @@ var
   // ***********************************************
   // Update Donate button to make it show the selected donation amount
   // ***********************************************
-  var updateDonateButtonText = function(event) {
-    var amountSelected = $(this).val();
+  var updateDonateButtonText = function(amountSelected) {
     var buttonText;
     if ( amountSelected == "other" ) {
       amountSelected = $theForm.find("[name='donation_amount_other']").val();
@@ -283,14 +294,18 @@ var
     $('#paypal-recurring').find('[name="a3"]').attr('value', amountSelected);
   };
 
-  $theForm.find("[name='donation_amount']").change(updateDonateButtonText);
+  $theForm.find("[name='donation_amount']").change(function() {
+    updateDonateButtonText($(this).val());
+  });
   $theForm.find("[name='donation_amount']").change(function (e) {
     if ($(this).val() !== 'other') {
       $('input[name="donation_amount_other"]').attr('required', false).attr('data-parsley-required',"false");
     }
   });
 
-  $theForm.find("[name='donation_amount_other']").keyup(updateDonateButtonText);
+  $theForm.find("[name='donation_amount_other']").keyup(function() {
+    updateDonateButtonText($(this).val());
+  });
   $theForm.find("[name='donation_amount']").change(function() {
     $theForm.find("[name='donation_amount_other']").val("");
   });
