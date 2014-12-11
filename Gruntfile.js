@@ -162,7 +162,8 @@ module.exports = function(grunt) {
     watch: {
       server: {
         files: [
-          '**/*.{html,json}',
+          '0-*/**/*.{html,json}',
+          'Hive*/**/*.{html,json}',
           'Gruntfile.js'
         ],
         tasks: ['bake']
