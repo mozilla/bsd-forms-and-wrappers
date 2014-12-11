@@ -41,7 +41,10 @@ module.exports = function(grunt) {
     // buttons
     obj.files['compiled/' + locale + '/simple-paypal/EOY-simple-paypal.html'] = '0-content-page/EOYFR2014-Button-Donation/template.html';
     obj.files['compiled/' + locale + '/simple-paypal/EOY-simple-paypal-content.html'] = '0-content-page/EOYFR2014-Button-Donation/page-content.html';
-
+    // OLD mobile optimized form (Google Wallet enabled)
+    obj.files['compiled/' + 'en_US' + '/for-reference/mobile-optimized-form.html'] = '0-donation-forms/mobile-optimized-form/template.html';
+    obj.files['compiled/' + 'en_US' + '/for-reference/above-form-content.html'] = '0-donation-forms/mobile-optimized-form/above-form-content.html';
+    obj.files['compiled/' + 'en_US' + '/for-reference/below-form-content.html'] = '0-donation-forms/mobile-optimized-form/below-form-content.html';
     return obj;
   };
 
