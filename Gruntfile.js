@@ -189,26 +189,11 @@ module.exports = function(grunt) {
           open: 'http://localhost:9007/compiled/'
         }
       }
-    },
-    imagemin: {
-      options: {
-        optimizationLevel: 7,
-        pngquant: false
-      },
-      primary: {
-        files: [{
-          expand: true,
-          cwd: "0-donation-forms/EOY-donation-form-single/img/",
-          src: ["**/*.{png,jpg,gif}"],
-          dest: "0-donation-forms/EOY-donation-form-single/img/"
-        }]
-      }
-    },
+    }
   });
 
   grunt.registerTask('dev', [
     'bake',
-    'imagemin',
     'connect:livereload',
     'watch'
   ]);
