@@ -323,7 +323,22 @@ var
   // ***********************************************
 
   function hidePage(page, status) {
-  $(page).addClass('page-hidden-' + status).prop('disabled', true);
+    $(page).addClass('page-hidden-' + status).prop('disabled', true);
+    var amount;
+    if (page === "#page-1") {
+      if (status === "complete") {
+        amount = "$" + $('#paypal-one-time').find('[name="amount"]').attr('value');
+        $("[data-position='#page-1'] .page-breadcrumb").text(amount);
+      } else {
+        $("[data-position='#page-1'] .page-breadcrumb").text("");
+      }
+    } else if (page === "#page-2") {
+      if (status === "complete") {
+        $("[data-position='#page-2'] .page-breadcrumb").text("Credit card");
+      } else {
+        $("[data-position='#page-2'] .page-breadcrumb").text("");
+      }
+    }
     win.setTimeout(function () {
       $(page).addClass('hidden')
     }, 501);
@@ -332,6 +347,8 @@ var
   function showPage(page) {
     $('ol.progress').find('li').removeClass('active');
     $('ol.progress').find('li[data-position="' + page +'"]').addClass('active');
+
+    $("[data-position='" + page + "'] .page-breadcrumb").text("");
 
     $(page).removeClass('hidden');
     win.setTimeout(function () {
