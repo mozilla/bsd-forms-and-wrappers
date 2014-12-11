@@ -88,6 +88,7 @@ var
     $('#paypal-one-time').find('[name="amount"]').attr('value', newAmount);
     $('#paypal-recurring').find('[name="a3"]').attr('value', newAmount);
     history.replaceState({page: 1, hash: '#page-1'}, '', '#page-1');
+    updateDonateButtonText(newAmount);
     return newAmount;
   }
 
@@ -100,7 +101,6 @@ var
       winLocationHash = winLocationHash.replace("cc-", "");
       newAmount = processAmountHash(winLocationHash);
       history.pushState({page: 2, hash: '#page-2'}, '', '#page-2');
-      updateDonateButtonText(newAmount);
       $('#payment-cc').prop('checked', true);
       showCreditCardForm();
       hidePage('#page-1', 'complete');
