@@ -196,7 +196,7 @@ textarea {
   font-family: inherit;
   color: inherit;
   font: inherit;
-  margin: 0px;
+  margin: 0;
 }
 
 a {
@@ -218,7 +218,7 @@ input[type="submit"] {
 
 .btn {
   display: inline-block;
-  margin-bottom: 0px;
+  margin-bottom: 0;
   font-weight: normal;
   text-align: center;
   vertical-align: middle;
@@ -229,7 +229,7 @@ input[type="submit"] {
   padding: 6px 12px;
   font-size: 14px;
   line-height: 1.42857;
-  border-radius: 0px;
+  border-radius: 0;
   -moz-user-select: none;
 }
 
@@ -920,6 +920,8 @@ select.parsley-error:focus {
 ol.progress {
   counter-reset: progress;
   list-style: none;
+  padding-left: 0;
+  text-align: center;
 }
 
 ol.progress li {
@@ -930,18 +932,22 @@ ol.progress li {
   margin-top: 40px;
 }
 
+.page-breadcrumb {
+  color: #0095DD;
+}
+
 ol.progress li::before {
   background: none repeat scroll 0% 0% #EAEFF2;
   border-radius: 50%;
   box-shadow: 0px 0px 0px 10px #EAEFF2;
   content: counter(progress, decimal);
   height: 34px;
-  left: 11%;
   line-height: 2.4;
-  padding-left: 13px;
   position: absolute;
   top: -44px;
   width: 34px;
+  left: 50%;
+  margin-left: -17px;
 }
 
 ol.progress li.active::before {
