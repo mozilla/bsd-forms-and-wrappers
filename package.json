@@ -11,7 +11,6 @@
     "grunt": "~0.4.1",
     "grunt-cli": "^0.1.13",
     "grunt-contrib-connect": "^0.7.1",
-    "grunt-contrib-imagemin": "0.3.0",
     "grunt-contrib-watch": "^0.5.3",
     "jit-grunt": "^0.8.0",
     "time-grunt": "^0.1.2",
