@@ -84,20 +84,17 @@ var
   // ***********************************************
   function processAmountHash(winLocationHash) {
     $(winLocationHash).attr('checked', true);
-    var newAmount = $(winLocationHash).val();
     history.replaceState({page: 1, hash: '#page-1'}, '', '#page-1');
-    updateDonateButtonText(newAmount);
-    return newAmount;
+    updateDonateButtonText($(winLocationHash).val());
   }
 
   $(win).on('load', function () {
-    var newAmount;
     var winLocationHash = win.location.hash;
     if (winLocationHash.match(/#amount-\d+?/)) {
       processAmountHash(winLocationHash);
     } else if (winLocationHash.match(/#cc-amount-\d+?/)) {
       winLocationHash = winLocationHash.replace("cc-", "");
-      newAmount = processAmountHash(winLocationHash);
+      processAmountHash(winLocationHash);
       history.pushState({page: 2, hash: '#page-2'}, '', '#page-2');
       $('#payment-cc').prop('checked', true);
       showCreditCardForm();
