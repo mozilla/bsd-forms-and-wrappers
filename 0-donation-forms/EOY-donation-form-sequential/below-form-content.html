@@ -82,21 +82,23 @@ var
   // ***********************************************
   // Preselect dollar amount
   // ***********************************************
+  function processAmountHash(winLocationHash) {
+    $(winLocationHash).attr('checked', true);
+    var newAmount = $(winLocationHash).val();
+    $('#paypal-one-time').find('[name="amount"]').attr('value', newAmount);
+    $('#paypal-recurring').find('[name="a3"]').attr('value', newAmount);
+    history.replaceState({page: 1, hash: '#page-1'}, '', '#page-1');
+    return newAmount;
+  }
 
   $(win).on('load', function () {
     var newAmount;
-    if (win.location.hash.match(/#amount-\d+?/)) {
-      $(win.location.hash).attr('checked', true);
-      newAmount = $(win.location.hash).val();
-      $('#paypal-one-time').find('[name="amount"]').attr('value', newAmount);
-      $('#paypal-recurring').find('[name="a3"]').attr('value', newAmount);
-      history.replaceState({page: 1, hash: '#page-1'}, '', '#page-1');
-    } else if (win.location.hash.match(/#cc-amount-\d+?/)) {
-      $(win.location.hash).attr('checked', true);
-      newAmount = $(win.location.hash).val();
-      $('#paypal-one-time').find('[name="amount"]').attr('value', newAmount);
-      $('#paypal-recurring').find('[name="a3"]').attr('value', newAmount);
-      history.replaceState({page: 1, hash: '#page-1'}, '', '#page-1');
+    var winLocationHash = win.location.hash;
+    if (winLocationHash.match(/#amount-\d+?/)) {
+      processAmountHash(winLocationHash);
+    } else if (winLocationHash.match(/#cc-amount-\d+?/)) {
+      winLocationHash = winLocationHash.replace("cc-", "");
+      newAmount = processAmountHash(winLocationHash);
       history.pushState({page: 2, hash: '#page-2'}, '', '#page-2');
       updateDonateButtonText(newAmount);
       $('#payment-cc').prop('checked', true);
