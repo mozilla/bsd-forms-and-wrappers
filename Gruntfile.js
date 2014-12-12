@@ -206,9 +206,9 @@ module.exports = function(grunt) {
       primary: {
         files: [{
           expand: true,
-          cwd: "./img/",
+          cwd: "img/",
           src: ["**/*.{png,jpg,gif}"],
-          dest: "./img/"
+          dest: "compiled/tree/page/-/eoy2014/"
         }]
       }
     },
