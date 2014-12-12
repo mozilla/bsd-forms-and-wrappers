@@ -27,27 +27,28 @@ module.exports = function(grunt) {
       },
       files: {}
     };
-    obj.files['compiled/' + locale + '/EOY-content-page-bitcoin-donate.html'] = '0-content-page/EOYFR2014-Bitcoin-Donate/template.html';
-    obj.files['compiled/' + locale + '/EOY-donation-form-single.html'] = '0-donation-forms/EOY-donation-form-single/template.html';
-    obj.files['compiled/' + locale + '/EOY-donation-form-single-above.html'] = '0-donation-forms/EOY-donation-form-single/above-form-content.html';
-    obj.files['compiled/' + locale + '/EOY-donation-form-single-below.html'] = '0-donation-forms/EOY-donation-form-single/below-form-content.html';
-    // sequential
-    obj.files['compiled/' + locale + '/EOY-donation-form-sequential.html'] = '0-donation-forms/EOY-donation-form-sequential/template.html';
-    obj.files['compiled/' + locale + '/EOY-donation-form-sequential-above.html'] = '0-donation-forms/EOY-donation-form-sequential/above-form-content.html';
-    obj.files['compiled/' + locale + '/EOY-donation-form-sequential-below.html'] = '0-donation-forms/EOY-donation-form-sequential/below-form-content.html';
-    // post donation
-    obj.files['compiled/' + locale + '/EOY-signup-form-post-donation.html'] = '0-email-signup-form/EOYFR2014-Donor/template.html';
-    obj.files['compiled/' + locale + '/EOY-signup-form-post-donation-above.html'] = '0-email-signup-form/EOYFR2014-Donor/above-form-content.html';
-    obj.files['compiled/' + locale + '/EOY-signup-form-post-donation-below.html'] = '0-email-signup-form/EOYFR2014-Donor/below-form-content.html';
-    // buttons
-    obj.files['compiled/' + locale + '/simple-paypal/EOY-simple-paypal.html'] = '0-content-page/EOYFR2014-Button-Donation/template.html';
-    obj.files['compiled/' + locale + '/simple-paypal/EOY-simple-paypal-content.html'] = '0-content-page/EOYFR2014-Button-Donation/page-content.html';
+    if (locale === "en-US") {
+      obj.files['compiled/tree/page/content/give-bitcoin/index.html'] = '0-content-page/EOYFR2014-Bitcoin-Donate/template.html';
+      obj.files['compiled/tree/page/content/givenow-paypal-simple/index.html'] = '0-content-page/EOYFR2014-Button-Donation/template.html';
+      obj.files['compiled/tree/page/s/EOYFR2014-donor/index.html'] = '0-email-signup-form/EOYFR2014-Donor/template.html';
+      obj.files['compiled/tree/page/contribute/givenow-seq/index.html'] = '0-donation-forms/EOY-donation-form-sequential/template.html';
+    } else {
+      obj.files['compiled/tree/page/contribute/givenow-seq-' + locale + '/index.html'] = '0-donation-forms/EOY-donation-form-sequential/template.html';
+      obj.files['compiled/tree/page/s/EOYFR2014-donor-' + locale + '/index.html'] = '0-email-signup-form/EOYFR2014-Donor/template.html';
+    }
+
+    obj.files['compiled/src/' + locale + '/simple-paypal/EOY-simple-paypal-content.html'] = '0-content-page/EOYFR2014-Button-Donation/page-content.html';
+    obj.files['compiled/src/' + locale + '/EOY-signup-form-post-donation-above.html'] = '0-email-signup-form/EOYFR2014-Donor/above-form-content.html';
+    obj.files['compiled/src/' + locale + '/EOY-signup-form-post-donation-below.html'] = '0-email-signup-form/EOYFR2014-Donor/below-form-content.html';
+    obj.files['compiled/src/' + locale + '/EOY-donation-form-sequential-above.html'] = '0-donation-forms/EOY-donation-form-sequential/above-form-content.html';
+    obj.files['compiled/src/' + locale + '/EOY-donation-form-sequential-below.html'] = '0-donation-forms/EOY-donation-form-sequential/below-form-content.html';
 
     return obj;
   };
 
-  var generatePayPalPage = function(currency_code, min_amount, currency_symbol, paypal_locale, locale, currency_dup) {
+  var generatePayPalCurrencyPage = function(currency_code, min_amount, currency_symbol, paypal_locale, locale, currency_dup) {
     var path_code = currency_dup ? currency_dup : currency_code;
+    path_code = path_code.toLowerCase();
     var locale_content;
     if(locale) {
       locale_content = require("./0-content-page/EOYFR2014-PayPal-Donate/locales/" + currency_code + "/locale-" + locale + ".json");
@@ -72,8 +73,8 @@ module.exports = function(grunt) {
       },
       files: {}
     };
-    bake_content.files["compiled/paypal/" + path_code + "/EOYFR2014-PayPal-Donate.html"] = "0-content-page/EOYFR2014-PayPal-Donate/template.html";
-    bake_content.files["compiled/paypal/" + path_code + "/EOYFR2014-PayPal-Donate-content.html"] = "0-content-page/EOYFR2014-PayPal-Donate/page-content.html";
+    bake_content.files["compiled/tree/page/content/paypal-donate-" + path_code + "/index.html"] = "0-content-page/EOYFR2014-PayPal-Donate/template.html";
+    bake_content.files["compiled/src/paypal/" + path_code + "/EOYFR2014-PayPal-Donate-content.html"] = "0-content-page/EOYFR2014-PayPal-Donate/page-content.html";
     return bake_content;
   };
 
@@ -83,7 +84,7 @@ module.exports = function(grunt) {
   grunt.initConfig({
     bake: {
       'en_US': generate_bake_files_content(
-        "en_US",
+        "en-US",
         "US",
         true,
         "USD",
@@ -112,7 +113,7 @@ module.exports = function(grunt) {
         false
       ),
       'pt_BR': generate_bake_files_content(
-        "pt_BR",
+        "pt-BR",
         "pt_BR",
         false,
         "USD",
@@ -139,32 +140,32 @@ module.exports = function(grunt) {
         false
       ),
       // PayPal currencies
-      'AUD': generatePayPalPage('AUD', 2, '$', 'US'),
-      'BRL': generatePayPalPage('BRL', 5, 'R$', 'pt_BR', 'pt_BR'),
-      'CAD': generatePayPalPage('CAD', 2, '$', 'US'),
-      'CHF': generatePayPalPage('CHF', 2, 'CHF', 'DE', 'de'),
+      'AUD': generatePayPalCurrencyPage('AUD', 2, '$', 'US'),
+      'BRL': generatePayPalCurrencyPage('BRL', 5, 'R$', 'pt_BR', 'pt_BR'),
+      'CAD': generatePayPalCurrencyPage('CAD', 2, '$', 'US'),
+      'CHF': generatePayPalCurrencyPage('CHF', 2, 'CHF', 'DE', 'de'),
       // PayPal locale code is wrong here
-      'CZK': generatePayPalPage('CZK', 45, 'Kč', 'CZ', 'cs'),
-      'DKK': generatePayPalPage('DKK', 12, 'kr', 'da_DK', 'da'),
-      'EUR-DE': generatePayPalPage('EUR', 2, '€', 'DE', 'de', 'EUR-DE'),
-      'EUR-FR': generatePayPalPage('EUR', 2, '€', 'FR', 'fr', 'EUR-FR'),
-      'GBP': generatePayPalPage('GBP', 1, '£', 'US'),
-      'HKD': generatePayPalPage('HKD', 15, '$', 'US'),
+      'CZK': generatePayPalCurrencyPage('CZK', 45, 'Kč', 'CZ', 'cs'),
+      'DKK': generatePayPalCurrencyPage('DKK', 12, 'kr', 'da_DK', 'da'),
+      'EUR-DE': generatePayPalCurrencyPage('EUR', 2, '€', 'DE', 'de', 'EUR-DE'),
+      'EUR-FR': generatePayPalCurrencyPage('EUR', 2, '€', 'FR', 'fr', 'EUR-FR'),
+      'GBP': generatePayPalCurrencyPage('GBP', 1, '£', 'US'),
+      'HKD': generatePayPalCurrencyPage('HKD', 15, '$', 'US'),
       // PayPal locale code is wrong here
-      'HUF': generatePayPalPage('HUF', 490, 'Ft', 'HU', 'hu'),
-      'ILS': generatePayPalPage('ILS', 8, '₪', 'he_IL', 'he'),
-      'JPY': generatePayPalPage('JPY', 240, '¥', 'ja_JP', 'ja'),
-      'MXN': generatePayPalPage('MXN', 30, '$', 'ES', 'es'),
-      'NOK': generatePayPalPage('NOK', 15, 'kr', 'no_NO', 'no'),
-      'NZD': generatePayPalPage('NZD', 3, '$', 'US'),
+      'HUF': generatePayPalCurrencyPage('HUF', 490, 'Ft', 'HU', 'hu'),
+      'ILS': generatePayPalCurrencyPage('ILS', 8, '₪', 'he_IL', 'he'),
+      'JPY': generatePayPalCurrencyPage('JPY', 240, '¥', 'ja_JP', 'ja'),
+      'MXN': generatePayPalCurrencyPage('MXN', 30, '$', 'ES', 'es'),
+      'NOK': generatePayPalCurrencyPage('NOK', 15, 'kr', 'no_NO', 'no'),
+      'NZD': generatePayPalCurrencyPage('NZD', 3, '$', 'US'),
       // PayPal locale code is wrong here
-      'PHP': generatePayPalPage('PHP', 90, 'P', 'PH', 'tl'),
-      'PLN': generatePayPalPage('PLN', 7, 'zł', 'PL', 'pl'),
-      'RUB': generatePayPalPage('RUB', 100, 'руб', 'RU', 'ru'),
-      'SEK': generatePayPalPage('SEK', 15, 'kr', 'sv_SE', 'sv'),
-      'THB': generatePayPalPage('THB', 70, '฿', 'th_TH', 'th'),
-      'TWD': generatePayPalPage('TWD', 62, 'NT$', 'zh_TW', 'zh_TW'),
-      'USD': generatePayPalPage('USD', 2, '$', 'US')
+      'PHP': generatePayPalCurrencyPage('PHP', 90, 'P', 'PH', 'tl'),
+      'PLN': generatePayPalCurrencyPage('PLN', 7, 'zł', 'PL', 'pl'),
+      'RUB': generatePayPalCurrencyPage('RUB', 100, 'руб', 'RU', 'ru'),
+      'SEK': generatePayPalCurrencyPage('SEK', 15, 'kr', 'sv_SE', 'sv'),
+      'THB': generatePayPalCurrencyPage('THB', 70, '฿', 'th_TH', 'th'),
+      'TWD': generatePayPalCurrencyPage('TWD', 62, 'NT$', 'zh_TW', 'zh_TW'),
+      'USD': generatePayPalCurrencyPage('USD', 2, '$', 'US')
     },
     watch: {
       server: {
