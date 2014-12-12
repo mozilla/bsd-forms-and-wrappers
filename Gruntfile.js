@@ -165,7 +165,12 @@ module.exports = function(grunt) {
       'SEK': generatePayPalCurrencyPage('SEK', 15, 'kr', 'sv_SE', 'sv'),
       'THB': generatePayPalCurrencyPage('THB', 70, '฿', 'th_TH', 'th'),
       'TWD': generatePayPalCurrencyPage('TWD', 62, 'NT$', 'zh_TW', 'zh_TW'),
-      'USD': generatePayPalCurrencyPage('USD', 2, '$', 'US')
+      'USD': generatePayPalCurrencyPage('USD', 2, '$', 'US'),
+      'styles': {
+        files: {
+          "compiled/tree/page/-/donation_form/css/font-awesome.min.css": "assets/styles/font-awesome.min.css"
+        }
+      }
     },
     watch: {
       server: {
@@ -206,9 +211,59 @@ module.exports = function(grunt) {
       primary: {
         files: [{
           expand: true,
-          cwd: "img/",
-          src: ["**/*.{png,jpg,gif}"],
+          cwd: "assets/img/",
+          src: ["paypal_logo@2x.png"],
+          dest: "compiled/tree/page/-/"
+        },{
+          expand: true,
+          cwd: "assets/img/",
+          src: ["bitcoin_donation_large.png"],
           dest: "compiled/tree/page/-/eoy2014/"
+        },{
+          expand: true,
+          cwd: "assets/img/",
+          src: ["favicon.ico", "CVC-illustration.png", "Mozilla-wordmark.png", "thin-stripe.png", "payment_logos.png"],
+          dest: "compiled/tree/page/-/donation_form/img/"
+        },{
+          expand: true,
+          cwd: "assets/img/",
+          src: ["mozilla_wordmark-M.png", "mozilla_wordmark-M-sm.png"],
+          dest: "compiled/tree/page/-/ws_assets/share_images/"
+        },{
+          expand: true,
+          cwd: "assets/img/",
+          src: ["spacer.png"],
+          dest: "compiled/tree/page/-/ws_assets/"
+        },{
+          expand: true,
+          cwd: "assets/img/",
+          src: ["Mozilla-Logo-wordmark-red.png", "paypal.png", "joinMoz-gradient.jpg", "tw-bird-blue.png", "maker-party-bg-3.jpg", "google-plus.png", "tumblr-icon.png"],
+          dest: "compiled/tree/page/-/ws_assets/webpage_images/"
+        },{
+          expand: true,
+          cwd: "assets/img/",
+          src: ["maker-party-donate-button-hover.png", "maker-party-donate-button.png", "sign-on-red-button.png"],
+          dest: "compiled/tree/page/-/ws_assets/webpage_buttons/"
+        },{
+          expand: true,
+          cwd: "assets/img/",
+          src: ["mozilla-wordmark.png", "bg_tile.png"],
+          dest: "compiled/tree/page/-/maker_party/img/"
+        },{
+          expand: true,
+          cwd: "assets/assets/img/",
+          src: ["moz-join-dotted.png", "net-nuetrality-updates-sm.jpg", "moz-join-fb.png", "moz-join-tw.png"],
+          dest: "compiled/tree/page/-/firefox_tshirt/webassets/"
+        },{
+          expand: true,
+          cwd: "assets/img/",
+          src: ["webmaker_page_bottom.jpg"],
+          dest: "compiled/tree/page/-/ws_assets/email_images/"
+        },{
+          expand: true,
+          cwd: "assets/img/",
+          src: ["hive_bsd_logo.png"],
+          dest: "compiled/tree/page/-/hive/img/"
         }]
       }
     },
