@@ -198,9 +198,9 @@ module.exports = function(grunt) {
       primary: {
         files: [{
           expand: true,
-          cwd: "0-donation-forms/EOY-donation-form-single/img/",
+          cwd: "./img/",
           src: ["**/*.{png,jpg,gif}"],
-          dest: "0-donation-forms/EOY-donation-form-single/img/"
+          dest: "./img/"
         }]
       }
     },
