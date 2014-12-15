@@ -83,9 +83,17 @@ var
   // Preselect dollar amount
   // ***********************************************
   function processAmountHash(winLocationHash) {
-    $(winLocationHash).attr('checked', true);
+    var amtRegex = /#amount-([\w\.]+)/;
+    var amount = winLocationHash.match(amtRegex)[1];
+    if ($(winLocationHash)[0]) {
+      $(winLocationHash)[0].checked = true;
+      $('input[name="donation_amount_other"]').val("");
+    } else {
+      $("#amount-other")[0].checked = true;
+      $('input[name="donation_amount_other"]').val(amount);
+    }
     history.replaceState({page: 1, hash: '#page-1'}, '', '#page-1');
-    updateDonateButtonText($(winLocationHash).val());
+    updateDonateButtonText(amount);
   }
 
   $(win).on('load', function () {
