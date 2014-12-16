@@ -12,7 +12,7 @@
   "Last-name": "Apellido",
   "Address": "Dirección",
   "City": "Ciudad",
-  "Postal-code": "Código postal",
+  "Postal-code": "Zip/código postal",
   "State-Province": "Estado/Provincia",
   "Credit-card-number": "Número de la tarjeta de crédito",
   "MM": "MM",
@@ -41,11 +41,13 @@
   "expired-card": "Lo sentimos, tu tarjeta ha expirado. Por favor, verifica los detalles de tu tarjeta o prueba con otra",
   "Invalid-CVC": "Número CVC inválido",
   "Invalid-number": "Número de la tarjeta de crédito inválido",
+  "Invalid-zip": "Zip/código postal no válido",
   "fraud-card": "Lo sentimos, tu transacción fue marcada como operación fraudulenta. Por favor, intenta con otra tarjeta",
   "declined-card": "Lo sentimos, tu tarjeta fue rechazada. Por favor, verifica los detalles de tu tarjeta o prueba con otra",
   "transaction-try-another": "Algo falló con tu transacción. Por favor, verifica los detalles de tu tarjeta o prueba con otra",
   "dupe-donation": "Parece que ya tenemos tu donación—por favor, recarga la página si deseas volver a donar",
   "Select-your-amount": "Selecciona el monto",
   "Next": "Siguiente",
-  "Personal": "Personal"
+  "Personal": "Personal",
+  "Other-amount-format-error": "Por favor, introduzca un número de hasta 2 decimales."
 }
