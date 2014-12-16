@@ -415,6 +415,7 @@ var
   // ***********************************************
   var regVisa = /^(?:4[0-9]{12}(?:[0-9]{3})?)$/;
   var regMC = /^(?:5[1-5][0-9]{14})$/;
+  var regAMEX = /^(?:3[47][0-9]{13})$/;
 
   win.ParsleyConfig = {};
 
@@ -430,7 +431,8 @@ var
     // Visa and Master Card client side validation
     .addValidator('visaMcCardNum', function (value, requirement) {
       return (value.match(regVisa) && value.match(regVisa).length > 0 )
-              || (value.match(regMC) && value.match(regMC).length > 0 );
+              || (value.match(regMC) && value.match(regMC).length > 0 )
+              || (value.match(regAMEX) && value.match(regAMEX).length > 0);
     }, 10)
     // Credit card expirary date validation
     .addValidator('ccExpirary', function (value, requirement) {
@@ -481,6 +483,8 @@ var
           return 'vs';
         } else if (ccNum.match(regMC)) {
           return 'mc';
+        } else if (ccNum.match(regAMEX)) {
+          return 'ax';
         } else {
           return null;
         }
