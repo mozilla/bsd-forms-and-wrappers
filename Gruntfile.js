@@ -1,6 +1,6 @@
 module.exports = function(grunt) {
 
-  var generate_bake_files_content = function(locale, paypal_locale, show_email_signup, currency, currency_display, return_url, arr_amounts, currency_symbol) {
+  var generate_bake_files_content = function(locale, paypal_locale, show_email_signup, currency, currency_display, return_url, arr_amounts, currency_symbol, show_other_ways_to_give) {
     var obj = {};
     var bake_content = require("./0-donation-forms/locales/" + locale + "/bsd-form-donation.json");
     bake_content = grunt.util._.merge(bake_content, require('./0-content-page/EOYFR2014-Button-Donation/locales/USD/locale.json'));
@@ -11,6 +11,7 @@ module.exports = function(grunt) {
     bake_content["locale"] = paypal_locale;
     bake_content["return_url"] = return_url;
     bake_content["show_email_signup"] = show_email_signup;
+    bake_content["show_other_ways_to_give"] = show_other_ways_to_give;
     bake_content = JSON.parse(JSON.stringify(bake_content).replace(/{{ currency_symbol }}/, function(m, k) {
       return currency_symbol
     }));
@@ -89,7 +90,8 @@ module.exports = function(grunt) {
         "",
         "https://sendto.mozilla.org/page/s/EOYFR2014-donor",
         [15, 10, 5, 3],
-        "$"
+        "$",
+        true
       ),
       'de': generate_bake_files_content(
         "de",
@@ -97,7 +99,8 @@ module.exports = function(grunt) {
         false,
         "USD",
         "USD",
-        "https://sendto.mozilla.org/page/s/EOYFR2014-donor-de"
+        "https://sendto.mozilla.org/page/s/EOYFR2014-donor-de",
+        false
       ),
       'fr': generate_bake_files_content(
         "fr",
@@ -105,7 +108,8 @@ module.exports = function(grunt) {
         false,
         "USD",
         "USD",
-        "https://sendto.mozilla.org/page/s/EOYFR2014-donor-fr"
+        "https://sendto.mozilla.org/page/s/EOYFR2014-donor-fr",
+        false
       ),
       'pt_BR': generate_bake_files_content(
         "pt_BR",
@@ -113,7 +117,8 @@ module.exports = function(grunt) {
         false,
         "USD",
         "USD",
-        "https://sendto.mozilla.org/page/s/EOYFR2014-donor-pt-BR"
+        "https://sendto.mozilla.org/page/s/EOYFR2014-donor-pt-BR",
+        false
       ),
       'id': generate_bake_files_content(
         "id",
@@ -121,7 +126,8 @@ module.exports = function(grunt) {
         false,
         "USD",
         "USD",
-        "https://sendto.mozilla.org/page/s/EOYFR2014-donor-id"
+        "https://sendto.mozilla.org/page/s/EOYFR2014-donor-id",
+        false
       ),
       'es': generate_bake_files_content(
         "es",
@@ -129,7 +135,8 @@ module.exports = function(grunt) {
         false,
         "USD",
         "USD",
-        "https://sendto.mozilla.org/page/s/EOYFR2014-donor-es"
+        "https://sendto.mozilla.org/page/s/EOYFR2014-donor-es",
+        false
       ),
       // PayPal currencies
       'AUD': generatePayPalPage('AUD', 2, '$', 'US'),
