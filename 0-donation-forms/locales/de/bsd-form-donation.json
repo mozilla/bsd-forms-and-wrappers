@@ -41,11 +41,13 @@
   "expired-card": "Leider ist Ihre Karte abgelaufen. Bitte überprüfen Sie Ihre Kartendaten oder versuchen es mit einer anderen Karte.",
   "Invalid-CVC": "Ungültige Kartenprüfnummer",
   "Invalid-number": "Ungültige Kreditkartennummer",
+  "Invalid-zip": "Ungültige Postleitzahl",
   "fraud-card": "Es tut uns leid, aber Ihre Transaktion hat eine Sicherheitswarnung zum Schutz vor Betrug ausgelöst. Bitte versuchen Sie es mit einer anderen Karte.",
   "declined-card": "Leider ist Ihre Karte abgelehnt worden. Bitte überprüfen Sie Ihre Kartendaten oder versuchen es mit einer anderen Karte.",
   "transaction-try-another": "Bei Ihrer Transaktion ist ein Fehler aufgetreten. Bitte überprüfen Sie Ihre Kartendaten oder benutzen Sie eine andere Karte.",
   "dupe-donation": "Wir scheinen Ihre Spende bereits empfangen zu haben – bitte laden Sie die Seite neu, falls Sie noch einmal spenden möchten.",
   "Select-your-amount": "Bitte wählen Sie den Betrag",
   "Next": "Weiter",
-  "Personal": "Persönlich"
+  "Personal": "Persönlich",
+  "Other-amount-format-error": "Bitte geben Sie eine Zahl mit bis zu 2 Nachkommastellen ein"
 }

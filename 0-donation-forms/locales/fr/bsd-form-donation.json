@@ -41,11 +41,13 @@
   "expired-card": "Désolé, votre carte a expiré. Veuillez vérifier les informations de votre carte ou essayez avec une autre carte.",
   "Invalid-CVC": "Cryptogramme invalide",
   "Invalid-number": "Numéro de carte de crédit invalide",
+  "Invalid-zip": "Code postal invalide",
   "fraud-card": "Désolé, votre transaction a été signalée à la protection contre la fraude. Veuillez essayer avec une autre carte.",
   "declined-card": "Désolé, votre carte a été refusée. Veuillez vérifier les informations de votre carte ou essayez avec une autre carte.",
   "transaction-try-another": "Il y a eu un problème avec votre transaction. Veuillez vérifier les informations de votre carte ou essayez avec une autre carte",
   "dupe-donation": "Il semblerait que nous ayons déjà reçu votre don. Veuillez actualiser la page si vous souhaitez faire un autre don",
   "Select-your-amount": "Sélectionnez votre montant",
   "Next": "Suivant",
-  "Personal": "Personnel"
+  "Personal": "Personnel",
+  "Other-amount-format-error": "Veuillez entrer un nombre contenant jusqu'à deux décimales"
 }
