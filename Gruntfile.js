@@ -49,23 +49,15 @@ module.exports = function(grunt) {
   var generatePayPalCurrencyPage = function(currency_code, min_amount, currency_symbol, paypal_locale, locale, currency_dup) {
     var path_code = currency_dup ? currency_dup : currency_code;
     path_code = path_code.toLowerCase();
-    var locale_content;
-    if(locale) {
-      locale_content = require("./0-content-page/EOYFR2014-PayPal-Donate/locales/" + currency_code + "/locale-" + locale + ".json");
-    } else {
-      locale_content = require("./0-content-page/EOYFR2014-PayPal-Donate/locales/USD/locale.json");
-    }
+
+    var locale_content = require("./0-content-page/EOYFR2014-PayPal-Donate/locales/locale-" + locale + ".json");
     locale_content["currency_code"] = currency_code;
     locale_content["min_amount"] = min_amount;
     locale_content["currency_symbol"] = currency_symbol;
     locale_content["locale"] = paypal_locale;
 
-    locale_content = JSON.parse(JSON.stringify(locale_content).replace(/{{ min_amount }}/, function(m, k) {
-      return min_amount
-    }));
-    locale_content = JSON.parse(JSON.stringify(locale_content).replace(/{{ currency_symbol }}/, function(m, k) {
-      return currency_symbol
-    }));
+    locale_content = JSON.parse(JSON.stringify(locale_content).replace('{{ min_amount }}', min_amount));
+    locale_content = JSON.parse(JSON.stringify(locale_content).replace('{{ currency_symbol }}', currency_symbol));
 
     var bake_content = {
       options: {
@@ -140,24 +132,24 @@ module.exports = function(grunt) {
         false
       ),
       // PayPal currencies
-      'AUD': generatePayPalCurrencyPage('AUD', 2, '$', 'US'),
+      'AUD': generatePayPalCurrencyPage('AUD', 2, '$', 'US', 'en_US'),
       'BRL': generatePayPalCurrencyPage('BRL', 5, 'R$', 'pt_BR', 'pt_BR'),
-      'CAD': generatePayPalCurrencyPage('CAD', 2, '$', 'US'),
+      'CAD': generatePayPalCurrencyPage('CAD', 2, '$', 'US', 'en_US'),
       'CHF': generatePayPalCurrencyPage('CHF', 2, 'CHF', 'DE', 'de'),
       // PayPal locale code is wrong here
       'CZK': generatePayPalCurrencyPage('CZK', 45, 'Kč', 'CZ', 'cs'),
       'DKK': generatePayPalCurrencyPage('DKK', 12, 'kr', 'da_DK', 'da'),
       'EUR-DE': generatePayPalCurrencyPage('EUR', 2, '€', 'DE', 'de', 'EUR-DE'),
       'EUR-FR': generatePayPalCurrencyPage('EUR', 2, '€', 'FR', 'fr', 'EUR-FR'),
-      'GBP': generatePayPalCurrencyPage('GBP', 1, '£', 'US'),
-      'HKD': generatePayPalCurrencyPage('HKD', 15, '$', 'US'),
+      'GBP': generatePayPalCurrencyPage('GBP', 1, '£', 'US', 'en_US'),
+      'HKD': generatePayPalCurrencyPage('HKD', 15, '$', 'US', 'en_US'),
       // PayPal locale code is wrong here
       'HUF': generatePayPalCurrencyPage('HUF', 490, 'Ft', 'HU', 'hu'),
       'ILS': generatePayPalCurrencyPage('ILS', 8, '₪', 'he_IL', 'he'),
       'JPY': generatePayPalCurrencyPage('JPY', 240, '¥', 'ja_JP', 'ja'),
       'MXN': generatePayPalCurrencyPage('MXN', 30, '$', 'ES', 'es'),
       'NOK': generatePayPalCurrencyPage('NOK', 15, 'kr', 'no_NO', 'no'),
-      'NZD': generatePayPalCurrencyPage('NZD', 3, '$', 'US'),
+      'NZD': generatePayPalCurrencyPage('NZD', 3, '$', 'US', 'en_US'),
       // PayPal locale code is wrong here
       'PHP': generatePayPalCurrencyPage('PHP', 90, 'P', 'PH', 'tl'),
       'PLN': generatePayPalCurrencyPage('PLN', 7, 'zł', 'PL', 'pl'),
@@ -165,7 +157,13 @@ module.exports = function(grunt) {
       'SEK': generatePayPalCurrencyPage('SEK', 15, 'kr', 'sv_SE', 'sv'),
       'THB': generatePayPalCurrencyPage('THB', 70, '฿', 'th_TH', 'th'),
       'TWD': generatePayPalCurrencyPage('TWD', 62, 'NT$', 'zh_TW', 'zh_TW'),
-      'USD': generatePayPalCurrencyPage('USD', 2, '$', 'US'),
+      // currency_code, min_amount, currency_symbol, paypal_locale, locale, currency_dup
+      'USD': generatePayPalCurrencyPage('USD', 2, '$', 'US', 'en_US'),
+      'USD-de': generatePayPalCurrencyPage('USD', 2, '$', 'DE', 'de', 'usd-de'),
+      'USD-es': generatePayPalCurrencyPage('USD', 2, '$', 'ES', 'es', 'usd-es'),
+      'USD-fr': generatePayPalCurrencyPage('USD', 2, '$', 'FR', 'fr', 'usd-fr'),
+      'USD-id': generatePayPalCurrencyPage('USD', 2, '$', 'id_ID', 'id', 'usd-id'),
+      'USD-pt-BR': generatePayPalCurrencyPage('USD', 2, '$', 'pt_BR', 'pt_BR', 'usd-pt-BR'),
       'styles': {
         files: {
           "compiled/tree/page/-/donation_form/css/font-awesome.min.css": "assets/styles/font-awesome.min.css"
