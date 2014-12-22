@@ -1,0 +1,11 @@
+{
+	"secure": "Aman",
+	"amount": "Nilai",
+	"select_donation": "Pilih nilai yang diinginkan",
+	"error_amount": "Donasi minimum sebesar ${{ min_amount }}.",
+	"donate_now": "Sumbang sekarang",
+	"donate_now_amount": "Sumbang sekarang",
+	"One-time": "Satu kali",
+	"Monthly": "Bulanan",
+	"contributions": "Sumbangan akan disalurkan ke Mozilla Foundation, organisasi 501(c)(3), untuk digunakan atas kebijakannya sendiri demi amal. Sumbangan dapat mengurangi pajak di Amerika Serikat selama dizinkan oleh undang-undang."
+}
