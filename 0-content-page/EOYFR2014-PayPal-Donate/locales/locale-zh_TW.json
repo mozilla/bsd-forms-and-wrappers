@@ -4,10 +4,10 @@
     "amount": "金額",
     "select_donation": "請選擇您的捐贈金額",
     "continue": "繼續",
-    "error_amount": "請選擇一個不少於 {{ min_amount }}的捐贈金額。",
+    "error_amount": "請選擇一個不少於{{ min_amount }}的捐贈金額。",
     "donate_now": "現在就捐贈",
-    "donate_now_amount": "馬上捐贈 {{ currency_symbol }}{ amount } ",
+    "donate_now_amount": "馬上捐贈{{ currency_symbol }}{ amount }",
     "One-time": "一次性",
     "Monthly": "每月",
-    "contributions": "捐款將會轉給Mozilla基金會，它是一個501(c)(3) 組織，並酌情將捐款用於自己的慈善事業。在美國，法律也允許它們可以在最大程度上獲得免稅"
+    "contributions": "捐款將會轉給Mozilla基金會，它是一個501(c)(3)組織，並酌情將捐款用於自己的慈善事業。在美國，法律也允許它們可以在最大程度上獲得免稅。"
 }
