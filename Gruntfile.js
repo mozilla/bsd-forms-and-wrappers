@@ -42,6 +42,7 @@ module.exports = function(grunt) {
     obj.files['compiled/src/' + locale + '/EOY-signup-form-post-donation-below.html'] = '0-email-signup-form/EOYFR2014-Donor/below-form-content.html';
     obj.files['compiled/src/' + locale + '/EOY-donation-form-sequential-above.html'] = '0-donation-forms/EOY-donation-form-sequential/above-form-content.html';
     obj.files['compiled/src/' + locale + '/EOY-donation-form-sequential-below.html'] = '0-donation-forms/EOY-donation-form-sequential/below-form-content.html';
+    obj.files['compiled/src/' + locale + '/Teach-The-Web-Talks-email-template.html'] = '0-mailing-template/Teach-The-Web-Talks/template.html';
 
     return obj;
   };
