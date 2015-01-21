@@ -188,6 +188,13 @@ module.exports = function(grunt) {
         files: [
           'compiled/*.html'
         ]
+      },
+      styles: {
+        files: ['0-*/**/style/style.less'],
+        tasks: ['less'],
+        options: {
+          nospawn: true
+        }
       }
     },
     connect: {
@@ -267,6 +274,24 @@ module.exports = function(grunt) {
         }]
       }
     },
+    less: {
+      development: {
+        options: {
+          compress: false,
+          optimization: 2,
+          strictMath: true
+        },
+        files: [
+          {
+            expand: true,
+            cwd: "",
+            src: ["0-*/**/style/style.less"],
+            dest: "",
+            ext: ".css"
+          }
+        ]
+      }
+    }
   });
 
   grunt.registerTask('dev', [
