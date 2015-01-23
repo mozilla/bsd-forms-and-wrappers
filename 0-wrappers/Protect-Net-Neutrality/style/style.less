@@ -1,0 +1,141 @@
+@white: #FFF;
+@mozilla-charcoal: #4D4E53;
+@mozilla-red: #C13931;
+@link: #0095DD;
+@link-hover: #00539F;
+
+@gutter: 3.5rem;
+
+/* TODO: mobile first plzzzzz */
+
+
+html,
+body {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 300;
+  font-size: 1.4rem;
+  color: @mozilla-charcoal;
+  margin: 0;
+  background: -webkit-gradient(linear, left top, left bottom, from(#D7D3C8), to(#F6F4EC));
+  background: -webkit-linear-gradient(to bottom, #D7D3C8, #F6F4EC);
+  background: -moz-linear-gradient(to bottom, #D7D3C8, #F6F4EC);
+  background: -o-linear-gradient(to bottom, #D7D3C8, #F6F4EC);
+  background: linear-gradient(to bottom, #D7D3C8, #F6F4EC);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+h1,
+h2,
+h3 {
+  font-weight: 300;
+  margin: 1.5rem 0;
+}
+
+h1 {
+  font-size: 4.8rem;
+}
+
+h2 {
+  font-size: 3rem;
+}
+
+h3 {
+  font-size: 2.2rem;
+}
+
+a {
+  color: @link;
+  text-decoration: none;
+}
+
+a:hover {
+  color: @link-hover;
+}
+
+p {
+  line-height: 1.71;
+}
+
+b {
+  font-weight: 700;
+}
+
+#wrapper {
+  /*border: 1px solid purple;*/
+  /*background: orange;*/
+  /*width: 99rem;*/
+  margin: 0;
+  padding: 0;
+  /*padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 5.5rem;
+  padding-right: 5.5rem;*/
+}
+
+.container {
+  /*border: 1px solid blue;*/
+  display: block;
+  margin: 0 auto;
+  width: 99rem;
+  padding-left: 50px;
+  padding-right: 50px;
+
+}
+
+#counter {
+  text-align: center;
+  font-size: 2.2rem;
+}
+
+#countdown-days {
+  display: inline-block;
+  color: @mozilla-red;
+  font-weight: bold;
+  font-size: 1.4rem;
+  span {
+    font-size: 3rem;
+  }
+}
+
+#header {
+  text-align: center;
+}
+
+#letter-and-form {
+  margin: 5rem 0;
+  * {
+    vertical-align: top;
+  }
+}
+
+#letter {
+  display: inline-block;
+  background: @white;
+  padding: 4rem 2.5rem;
+  margin-right: @gutter;
+  width: calc(61% - @gutter);
+}
+
+#form-wrapper {
+  display: inline-block;
+  width: calc(39% - @gutter);
+  padding: 1rem 0;
+}
+
+#context {
+  h2 {
+    text-align: center;
+  }
+}
+
+#promo-advocacy-site {
+  text-align: center;
+  margin: 4rem 0;
+}

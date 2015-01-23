@@ -189,7 +189,7 @@ module.exports = function(grunt) {
           'compiled/*.html'
         ]
       },
-      styles: {
+      less: {
         files: ['0-*/**/style/style.less'],
         tasks: ['less'],
         options: {
@@ -294,7 +294,12 @@ module.exports = function(grunt) {
     }
   });
 
+  // grunt.registerTask('bake', [
+  //   'less'
+  // ]);
+
   grunt.registerTask('dev', [
+    'less',
     'bake',
     'imagemin',
     'connect:livereload',
