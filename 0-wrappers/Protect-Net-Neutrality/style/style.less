@@ -4,9 +4,9 @@
 @link: #0095DD;
 @link-hover: #00539F;
 
+@non-mobile-width: 321px;
 @gutter: 3.5rem;
 
-/* TODO: mobile first plzzzzz */
 
 
 html,
@@ -17,7 +17,7 @@ body {
 body {
   font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: 300;
-  font-size: 1.4rem;
+  font-size: 1.1rem;
   color: @mozilla-charcoal;
   margin: 0;
   background: -webkit-gradient(linear, left top, left bottom, from(#D7D3C8), to(#F6F4EC));
@@ -25,6 +25,9 @@ body {
   background: -moz-linear-gradient(to bottom, #D7D3C8, #F6F4EC);
   background: -o-linear-gradient(to bottom, #D7D3C8, #F6F4EC);
   background: linear-gradient(to bottom, #D7D3C8, #F6F4EC);
+  @media screen and (min-width: @non-mobile-width) {
+    font-size: 1.4rem;
+  }
 }
 
 * {
@@ -39,7 +42,10 @@ h3 {
 }
 
 h1 {
-  font-size: 4.8rem;
+  font-size: 3.4rem;
+  @media screen and (min-width: @non-mobile-width) {
+    font-size: 4.8rem;
+  }
 }
 
 h2 {
@@ -47,7 +53,10 @@ h2 {
 }
 
 h3 {
-  font-size: 2.2rem;
+  font-size: 1.8rem;
+  @media screen and (min-width: @non-mobile-width) {
+    font-size: 2.2rem;
+  }
 }
 
 a {
@@ -79,23 +88,41 @@ b {
 .container {
   display: block;
   margin: 0 auto;
-  width: 99rem;
-  padding-left: 5rem;
-  padding-right: 5rem;
-
+  width: 100%;
+  padding-left: 1.4rem;
+  padding-right: 1.4rem;
+  @media screen and (min-width: 990px) {
+    width: 99rem;
+    padding-left: 5rem;
+    padding-right: 5rem;
+  }
 }
 
-#masthead {
+#header-logo {
+  display: block;
+  padding-top: 5rem;
   .mozilla-wordmark {
-    margin-top: 4rem;
+    display: none;
+    @media screen and (min-width: 990px) {
+      display: block;
+    }
   }
 }
 
 #counter-container {
   text-align: center;
-  font-size: 2.2rem;
+  font-size: 1.8rem;
   margin: 2.5rem 1rem;
   overflow: hidden;
+  @media screen and (min-width: @non-mobile-width) {
+    font-size: 2.2rem;
+  }
+  .text {
+    display: block;
+    @media screen and (min-width: @non-mobile-width) {
+      display: inline-block;
+    }
+  }
 }
 
 #counter {
@@ -117,6 +144,7 @@ b {
   right: 100%;
   margin-right: 1.5rem;
 }
+
 #counter:after {
   left: 100%;
   margin-left: 1.5rem;
@@ -124,15 +152,45 @@ b {
 
 #countdown-days {
   display: inline-block;
+  position: relative;
   background: @white;
   color: @mozilla-red;
   font-weight: bold;
   font-size: 1.4rem;
   border-radius: 0.3rem;
   padding: 0.5rem 2rem;
+  width: 12rem;
+  margin: 1rem auto 0 auto;
   span {
     font-size: 3rem;
   }
+  @media screen and (min-width: @non-mobile-width) {
+    display: inline-block;
+    margin: 0 0 0 1rem;
+    width: auto;
+  }
+}
+
+#countdown-days:before,
+#countdown-days:after {
+  content: "";
+  position: absolute;
+  height: .5rem;
+  background: url(https://sendto.mozilla.org/page/-/protect-net-neutrality/thin-stripe.png) repeat-x;
+  top: 50%;
+  width: 100%;
+  @media screen and (min-width: @non-mobile-width) {
+    display: none;
+  }
+}
+
+#countdown-days:before {
+  right: 100%;
+  margin-right: .5rem;
+}
+#countdown-days:after {
+  left: 100%;
+  margin-left: .5rem;
 }
 
 #header {
@@ -140,35 +198,58 @@ b {
 }
 
 #letter-and-form {
-  margin: 5rem 0;
+  margin-top: 2rem;
+  overflow: hidden;
   * {
     vertical-align: top;
+  }
+  @media screen and (min-width: @non-mobile-width) {
+    margin-top: 5rem;
   }
 }
 
 #letter {
   display: inline-block;
+  float: left;
   background: @white;
-  padding: 4rem 2.5rem;
+  padding: 2.5rem 1rem;
   margin-right: @gutter;
-  width: calc(61% - @gutter);
+  width: 100%;
+  @media screen and (min-width: @non-mobile-width) {
+    float: right;
+    padding: 4rem 2.5rem;
+    width: calc(61% - @gutter);
+  }
 }
 
 #form-wrapper {
   display: inline-block;
-  width: calc(39% - @gutter);
+  float: left;
+  width: 100%;
   padding: 1rem 0;
+  @media screen and (min-width: @non-mobile-width) {
+    float: right;
+    width: calc(39% - @gutter);
+  }
 }
 
 #context {
+  margin-top: 2rem;
   h2 {
     text-align: center;
+  }
+  @media screen and (min-width: @non-mobile-width) {
+    margin-top: 5rem;
   }
 }
 
 #promo-advocacy-site {
   text-align: center;
   margin: 4rem 0;
+}
+
+#advocacy-wordmark {
+  display: block;
 }
 
 footer {
@@ -178,16 +259,20 @@ footer {
   ul {
     display: inline-block;
     list-style: none;
-    margin-left: 0;
+    padding-left: 0;
     line-height: 1.5;
   }
 }
 
 #wordmark-and-note {
-  display: inline-block;
-  width: 35%;
+  display: block;
+  width: 100%;
   margin-right: 3rem;
   img {
     max-width: 12rem;
+  }
+  @media screen and (min-width: @non-mobile-width) {
+    display: inline-block;
+    width: 35%;
   }
 }
