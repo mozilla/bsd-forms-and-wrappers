@@ -1,2 +1,23 @@
 <!-- =================== Below form content STARTS =================== -->
+
+<script>
+
+(function(){
+  // the FCC votes in EST (Washington DC) and the date of the vote is February 26th.
+  // So 8am EST on Feb 26th is a good date to countdown to
+  var FORM_DUE_TIME = 1424955600000;  // countdown to Feb. 26 8am EST = 1424955600000 (Unix)
+
+  var updateCountdown = function() {
+    var userLocalTime = (new Date()).getTime();
+    var daysAway = Math.floor( (FORM_DUE_TIME - userLocalTime) / 24 / 60 / 60 / 1000 );
+    document.querySelector("#countdown-days span").innerHTML = daysAway;
+  }
+  setInterval(updateCountdown, 60*1000); // in milliseconds. update counter every min
+
+  updateCountdown();
+
+})();
+
+</script>
+
 <!-- =================== Below form content ENDS =================== -->
