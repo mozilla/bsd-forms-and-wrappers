@@ -40,6 +40,9 @@ a {
 a:hover {
   color: #00539f;
 }
+a.red {
+  color: #c13931;
+}
 p {
   line-height: 1.71;
 }
@@ -47,33 +50,54 @@ b {
   font-weight: 700;
 }
 #wrapper {
-  /*border: 1px solid purple;*/
-  /*background: orange;*/
-  /*width: 99rem;*/
   margin: 0;
   padding: 0;
-  /*padding-top: 0;
-  padding-bottom: 0;
-  padding-left: 5.5rem;
-  padding-right: 5.5rem;*/
 }
 .container {
-  /*border: 1px solid blue;*/
   display: block;
   margin: 0 auto;
   width: 99rem;
-  padding-left: 50px;
-  padding-right: 50px;
+  padding-left: 5rem;
+  padding-right: 5rem;
 }
-#counter {
+#masthead .mozilla-wordmark {
+  margin-top: 4rem;
+}
+#counter-container {
   text-align: center;
   font-size: 2.2rem;
+  margin: 2.5rem 1rem;
+  overflow: hidden;
+}
+#counter {
+  display: inline-block;
+  position: relative;
+}
+#counter:before,
+#counter:after {
+  content: "";
+  position: absolute;
+  height: 0.5rem;
+  background: url(https://sendto.mozilla.org/page/-/protect-net-neutrality/thin-stripe.png) repeat-x;
+  top: 50%;
+  width: 100%;
+}
+#counter:before {
+  right: 100%;
+  margin-right: 1.5rem;
+}
+#counter:after {
+  left: 100%;
+  margin-left: 1.5rem;
 }
 #countdown-days {
   display: inline-block;
+  background: #ffffff;
   color: #c13931;
   font-weight: bold;
   font-size: 1.4rem;
+  border-radius: 0.3rem;
+  padding: 0.5rem 2rem;
 }
 #countdown-days span {
   font-size: 3rem;
@@ -105,4 +129,23 @@ b {
 #promo-advocacy-site {
   text-align: center;
   margin: 4rem 0;
+}
+footer {
+  background: #ffffff;
+  padding: 4.8rem 0;
+  font-size: 1.2rem;
+}
+footer ul {
+  display: inline-block;
+  list-style: none;
+  margin-left: 0;
+  line-height: 1.5;
+}
+#wordmark-and-note {
+  display: inline-block;
+  width: 35%;
+  margin-left: 3rem;
+}
+#wordmark-and-note img {
+  max-width: 12rem;
 }
