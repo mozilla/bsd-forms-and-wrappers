@@ -16,6 +16,12 @@
 
   updateCountdown();
 
+  // ***********************************************
+  // Remove the BSD generated form from DOM
+  // ***********************************************
+  var bsdForm = document.querySelector("#signup");
+  bsdForm.parentNode.removeChild(bsdForm);
+
 })();
 
 </script>

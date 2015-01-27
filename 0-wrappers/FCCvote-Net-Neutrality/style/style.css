@@ -1,3 +1,4 @@
+/* Beautified Form related */
 html,
 body {
   font-size: 62.5%;
@@ -81,6 +82,9 @@ b {
     padding-right: 5rem;
   }
 }
+/* ========================================
+*  Mozilla Header
+*/
 #header-logo {
   display: block;
   padding-top: 5rem;
@@ -93,6 +97,9 @@ b {
     display: block;
   }
 }
+/* ========================================
+*  Countdown
+*/
 #counter-container {
   text-align: center;
   font-size: 1.8rem;
@@ -178,9 +185,15 @@ b {
   left: 100%;
   margin-left: .5rem;
 }
+/* ========================================
+*  Site Header
+*/
 #header {
   text-align: center;
 }
+/* ========================================
+*  Letter and Form
+*/
 #letter-and-form {
   margin-top: 2rem;
   overflow: hidden;
@@ -193,6 +206,9 @@ b {
     margin-top: 5rem;
   }
 }
+/* ========================================
+*  Letter
+*/
 #letter {
   display: inline-block;
   float: left;
@@ -208,6 +224,9 @@ b {
     width: calc(61% - 3.5rem);
   }
 }
+/* ========================================
+*  Form
+*/
 #form-wrapper {
   display: inline-block;
   float: left;
@@ -217,9 +236,156 @@ b {
 @media screen and (min-width: 321px) {
   #form-wrapper {
     float: right;
-    width: calc(39% - 3.5rem);
+    width: 39%;
   }
 }
+#secure-label {
+  color: #939597;
+  text-align: right;
+  text-transform: uppercase;
+  letter-spacing: 0.1px;
+  font-weight: 700;
+  margin-top: 2.5rem;
+  margin-bottom: .5rem;
+}
+#country-usa {
+  width: 100%;
+  line-height: 3.8rem;
+  border: 0.1rem solid #eaeff2;
+  border-radius: .3rem;
+  margin-bottom: .5rem;
+  font-size: 1.4rem;
+  padding-right: 3rem;
+  padding-left: 3.3rem;
+  font-weight: 400;
+  color: #58585b;
+}
+#signup {
+  /* hide the BSD auto-generated form in case JS fails to remove it from DOM */
+  display: none;
+}
+.beautified-form {
+  /* Set placeholder text colour */
+  /* WebKit browsers */
+  /* Mozilla Firefox 4 to 18 */
+  /* Mozilla Firefox 19+ */
+  /* Internet Explorer 10+ */
+}
+.beautified-form .field-container {
+  display: inline-block;
+  position: relative;
+  width: 100%;
+}
+.beautified-form .fa.field-icon {
+  position: absolute;
+  font-size: 16px;
+  color: #4D4E53;
+  top: 12px;
+  left: 12px;
+}
+.beautified-form .full {
+  width: 100%;
+}
+.beautified-form .half {
+  float: left;
+  width: calc(50% - 0.5*0.5rem);
+}
+.beautified-form .half:first-child {
+  margin-right: calc(0.5*0.5rem);
+}
+.beautified-form .half:last-child {
+  margin-left: calc(0.5*0.5rem);
+}
+.beautified-form fieldset {
+  border: none;
+  padding: 0;
+}
+.beautified-form input,
+.beautified-form select,
+.beautified-form button {
+  width: 100%;
+  border: 0.1rem solid #eaeff2;
+  border-radius: .3rem;
+  margin-bottom: .5rem;
+  font-size: 1.4rem;
+}
+.beautified-form button:hover {
+  cursor: pointer;
+}
+.beautified-form input:focus,
+.beautified-form select:focus {
+  border-color: #38a9ed;
+}
+.beautified-form input[type="checkbox"] {
+  width: auto;
+}
+.beautified-form input {
+  padding-top: .7rem;
+  padding-right: 3rem;
+  padding-bottom: .7rem;
+  padding-left: 3.3rem;
+}
+.beautified-form input.less-indented {
+  padding-left: 1.5rem;
+  padding-right: 0.7rem;
+}
+.beautified-form select {
+  padding-left: 2.9rem;
+  padding-right: 1rem;
+  height: 3.8rem;
+  -webkit-appearance: none;
+}
+.beautified-form select * {
+  padding-left: 2.9rem;
+}
+.beautified-form select option[value=""] {
+  color: red;
+}
+.beautified-form ::-webkit-input-placeholder {
+  color: #a7a9ab;
+}
+.beautified-form :-moz-placeholder {
+  color: #a7a9ab;
+  opacity: 1;
+}
+.beautified-form ::-moz-placeholder {
+  color: #a7a9ab;
+  opacity: 1;
+}
+.beautified-form :-ms-input-placeholder {
+  color: #a7a9ab;
+}
+.beautified-form .privacy-text {
+  font-size: 1.2rem;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+.beautified-form .privacy-text .checkbox-container,
+.beautified-form .privacy-text .label-container {
+  display: inline-block;
+}
+.beautified-form .privacy-text .label-container {
+  width: calc(100% - 2.5rem);
+}
+.beautified-form .btn[type="submit"] {
+  color: #ffffff;
+  font-size: 2.2rem;
+  font-weight: 800;
+  background-color: #c13931;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+  transition: all 0.3s ease 0s;
+}
+.beautified-form .btn[type="submit"]:hover {
+  background-color: #EA3B28;
+  /* Mozilla Red */
+  color: #fff;
+}
+/* ========================================
+*  Context
+*/
 #context {
   margin-top: 2rem;
 }
@@ -231,6 +397,9 @@ b {
     margin-top: 5rem;
   }
 }
+/* ========================================
+*  Promo Advocacy Site
+*/
 #promo-advocacy-site {
   text-align: center;
   margin: 4rem 0;
@@ -238,6 +407,9 @@ b {
 #advocacy-wordmark {
   display: block;
 }
+/* ========================================
+*  Footer
+*/
 footer {
   background: #ffffff;
   padding: 4.8rem 0;
