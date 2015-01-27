@@ -1,6 +1,7 @@
 @white: #FFF;
 @mozilla-charcoal: #4D4E53;
-@mozilla-red: #C13931;
+@mozilla-red-light: #EA3B28;
+@mozilla-red-dark: #C13931;
 @link: #0095DD;
 @link-hover: #00539F;
 @light-grey: #939597;
@@ -10,6 +11,7 @@
 
 /* Beautified Form related */
 @highlight-blue: #38A9ED;
+@highlight-red: @mozilla-red-dark;
 @border-grey: #D4DDE4;
 @field-gutter: .5rem;
 @placeholder-text-grey: #A7A9AB;
@@ -76,7 +78,7 @@ a:hover {
 }
 
 a.red {
-  color: @mozilla-red;
+  color: @mozilla-red-dark;
 }
 
 p {
@@ -169,7 +171,7 @@ b {
   display: inline-block;
   position: relative;
   background: @white;
-  color: @mozilla-red;
+  color: @mozilla-red-dark;
   font-weight: bold;
   font-size: 1.4rem;
   border-radius: .3rem;
@@ -308,7 +310,7 @@ b {
     position: absolute;
     font-size: 1.6rem;
     color: #4D4E53;
-    top: 1rem;
+    top: 1.2rem;
     left: 1.2rem;
   }
 
@@ -388,32 +390,33 @@ b {
     color: @placeholder-text-grey;
   }
 
+  select.defaultTextColor,
   select option:not([value=""]) {
     color: @field-text-grey;
   }
 
   /* Set placeholder text colour */
 
-  /* WebKit browsers */
   ::-webkit-input-placeholder {
+    /* WebKit browsers */
     color: @placeholder-text-grey;
   }
-  /* Mozilla Firefox 4 to 18 */
   :-moz-placeholder {
+    /* Mozilla Firefox 4 to 18 */
     color: @placeholder-text-grey;
     opacity: 1;
   }
-  /* Mozilla Firefox 19+ */
   ::-moz-placeholder {
+    /* Mozilla Firefox 19+ */
     color: @placeholder-text-grey;
     opacity: 1;
   }
-  /* Internet Explorer 10+ */
   :-ms-input-placeholder {
+    /* Internet Explorer 10+ */
     color: @placeholder-text-grey;
   }
 
-  .privacy-text {
+  .legal-confirm {
     font-size: 1.2rem;
     margin-top: 1.5rem;
     margin-bottom: 1.5rem;
@@ -430,7 +433,7 @@ b {
     color: @white;
     font-size: 2.2rem;
     font-weight: 800;
-    background-color: @mozilla-red;
+    background-color: @mozilla-red-dark;
     padding-top: 1rem;
     padding-bottom: 1rem;
     margin-top: 1rem;
@@ -439,11 +442,47 @@ b {
   }
 
   .btn[type="submit"]:hover {
-    background-color: #EA3B28; /* Mozilla Red */
-    color: #fff;
+    background-color: @mozilla-red-light;
+    color: @white;
   }
 
+  /* ***************
+  * Parsley settings for form validation
+  */
+
+  .parsley-errors-list *,
+  .parsley-required,
+  .parsley-type,
+  .parsley-custom-error-message,
+  #one-line-error {
+    color: @highlight-red;
+  }
+
+  .parsley-errors-list {
+    list-style-type: none;
+    padding-left: 0;
+    display: none;
+  }
+
+  #legal-confirm-error {
+    .parsley-errors-list {
+      display: block;
+    }
+  }
+
+  input.parsley-error,
+  input.parsley-error:focus,
+  select.parsley-error,
+  select.parsley-error:focus {
+    border-color: @highlight-red;
+  }
+
+
+
 }
+
+
+
 
 
 

@@ -132,18 +132,24 @@
                 </div>
               </div>
             </fieldset>
-            <fieldset class="privacy-text">
+            <fieldset class="legal-confirm">
               <div class="row">
                 <div class="field-container full">
                   <div class="checkbox-container">
-                    <input id="custom-3272" name="custom-3272" value="1" type="checkbox" required="">
+                    <input id="custom-3272" name="custom-3272" value="1" type="checkbox" required="" data-parsley-error-message="To submit this form you must agree with our privacy policy." data-parsley-errors-container="#legal-confirm-error">
                   </div>
                   <div class="label-container">
                     <label for="custom-3272">I agree to Mozilla's <a href="https://www.mozilla.org/en-US/privacy/websites/" target="_blank">privacy policy</a> and to having my information presented to U.S. Congress in the form of a letter delivered by Fight for the Future (see its <a href="http://www.fightforthefuture.org/privacy/" target="_blank">privacy policy</a>).</label>
                   </div>
+                  <div id="legal-confirm-error"></div>
                 </div>
               </div>
             </fieldset>
+            <div>
+              <div class="full" id="one-line-error">
+                <p>Oops, please complete fields highlighted in red.</p>
+              </div>
+            </div>
             <div>
               <button type="submit" class="btn">Send now <i class="fa fa-angle-double-right"></i></button>
             </div>

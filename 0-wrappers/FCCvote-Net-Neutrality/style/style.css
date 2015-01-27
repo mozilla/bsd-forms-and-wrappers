@@ -270,10 +270,9 @@ b {
 }
 .beautified-form {
   /* Set placeholder text colour */
-  /* WebKit browsers */
-  /* Mozilla Firefox 4 to 18 */
-  /* Mozilla Firefox 19+ */
-  /* Internet Explorer 10+ */
+  /* ***************
+  * Parsley settings for form validation
+  */
 }
 .beautified-form .field-container {
   display: inline-block;
@@ -284,7 +283,7 @@ b {
   position: absolute;
   font-size: 1.6rem;
   color: #4D4E53;
-  top: 1rem;
+  top: 1.2rem;
   left: 1.2rem;
 }
 .beautified-form .full {
@@ -349,33 +348,38 @@ b {
 .beautified-form select option[value=""] {
   color: #a7a9ab;
 }
+.beautified-form select.defaultTextColor,
 .beautified-form select option:not([value=""]) {
   color: #58585b;
 }
 .beautified-form ::-webkit-input-placeholder {
+  /* WebKit browsers */
   color: #a7a9ab;
 }
 .beautified-form :-moz-placeholder {
+  /* Mozilla Firefox 4 to 18 */
   color: #a7a9ab;
   opacity: 1;
 }
 .beautified-form ::-moz-placeholder {
+  /* Mozilla Firefox 19+ */
   color: #a7a9ab;
   opacity: 1;
 }
 .beautified-form :-ms-input-placeholder {
+  /* Internet Explorer 10+ */
   color: #a7a9ab;
 }
-.beautified-form .privacy-text {
+.beautified-form .legal-confirm {
   font-size: 1.2rem;
   margin-top: 1.5rem;
   margin-bottom: 1.5rem;
 }
-.beautified-form .privacy-text .checkbox-container,
-.beautified-form .privacy-text .label-container {
+.beautified-form .legal-confirm .checkbox-container,
+.beautified-form .legal-confirm .label-container {
   display: inline-block;
 }
-.beautified-form .privacy-text .label-container {
+.beautified-form .legal-confirm .label-container {
   width: calc(100% - 2.5rem);
 }
 .beautified-form .btn[type="submit"] {
@@ -390,9 +394,29 @@ b {
   transition: all .3s ease 0s;
 }
 .beautified-form .btn[type="submit"]:hover {
-  background-color: #EA3B28;
-  /* Mozilla Red */
-  color: #fff;
+  background-color: #ea3b28;
+  color: #ffffff;
+}
+.beautified-form .parsley-errors-list *,
+.beautified-form .parsley-required,
+.beautified-form .parsley-type,
+.beautified-form .parsley-custom-error-message,
+.beautified-form #one-line-error {
+  color: #c13931;
+}
+.beautified-form .parsley-errors-list {
+  list-style-type: none;
+  padding-left: 0;
+  display: none;
+}
+.beautified-form #legal-confirm-error .parsley-errors-list {
+  display: block;
+}
+.beautified-form input.parsley-error,
+.beautified-form input.parsley-error:focus,
+.beautified-form select.parsley-error,
+.beautified-form select.parsley-error:focus {
+  border-color: #c13931;
 }
 /* ========================================
 *  Context

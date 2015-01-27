@@ -1,8 +1,22 @@
 <!-- =================== Below form content STARTS =================== -->
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://sendto.mozilla.org/page/-/protect-net-neutrality/js/parsley.min.js"></script>
 <script>
 
 (function(){
+
+  // ***********************************************
+  // Remove the BSD generated form from DOM
+  // ***********************************************
+  $(window).on("load", function () {
+    var $bsdForm = $("#signup").remove();
+  });
+
+
+  // ***********************************************
+  // Display countdown counter
+  // ***********************************************
   // the FCC votes in EST (Washington DC) and the date of the vote is February 26th.
   // So 8am EST on Feb 26th is a good date to countdown to
   var FORM_DUE_TIME = 1424955600000;  // countdown to Feb. 26 8am EST = 1424955600000 (Unix)
@@ -17,10 +31,46 @@
   updateCountdown();
 
   // ***********************************************
-  // Remove the BSD generated form from DOM
+  // Parsley Settings & Form Validation
   // ***********************************************
-  var bsdForm = document.querySelector("#signup");
-  bsdForm.parentNode.removeChild(bsdForm);
+
+  var $theForm = $("#petition-signup-form");
+  var $stateDropdown = $theForm.find("select[name='state_cd']");
+
+  $("#one-line-error").hide();
+  $("#petition-signup-form").parsley().subscribe('parsley:form:validated', function (formInstance) {
+    if (!formInstance.isValid()) {
+      formInstance.submitEvent.preventDefault();
+      $("#one-line-error").show();
+    }
+  });
+
+  var toggleOneLineError = function() {
+    var numErrors = $(".parsley-error").length;
+    if ( numErrors > 0 ) {
+      $("#one-line-error").show();
+    } else {
+      $("#one-line-error").hide();
+    }
+  };
+
+  function updateDropdownTextColor(elem) {
+    var selected = elem.val();
+    console.log(selected);
+    if ( selected ){
+      elem.addClass("defaultTextColor");
+    } else {
+      elem.removeClass("defaultTextColor");
+    }
+  }
+
+  updateDropdownTextColor($stateDropdown);
+
+  $theForm.find("input").on("change", toggleOneLineError);
+  $stateDropdown.on("change", toggleOneLineError);
+  $stateDropdown.on("change", function (){
+    updateDropdownTextColor($(this));
+  });
 
 })();
 
