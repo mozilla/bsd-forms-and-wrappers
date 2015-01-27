@@ -127,7 +127,7 @@ b {
 #counter:after {
   content: "";
   position: absolute;
-  height: 0.5rem;
+  height: .5rem;
   background: url(https://sendto.mozilla.org/page/-/protect-net-neutrality/thin-stripe.png) repeat-x;
   top: 50%;
   width: 100%;
@@ -147,8 +147,8 @@ b {
   color: #c13931;
   font-weight: bold;
   font-size: 1.4rem;
-  border-radius: 0.3rem;
-  padding: 0.5rem 2rem;
+  border-radius: .3rem;
+  padding: .5rem 2rem;
   width: 12rem;
   margin: 1rem auto 0 auto;
 }
@@ -243,15 +243,19 @@ b {
   color: #939597;
   text-align: right;
   text-transform: uppercase;
-  letter-spacing: 0.1px;
+  letter-spacing: .01rem;
+  line-height: 1;
   font-weight: 700;
   margin-top: 2.5rem;
   margin-bottom: .5rem;
 }
+#secure-label i.fa {
+  margin-right: .6rem;
+}
 #country-usa {
   width: 100%;
   line-height: 3.8rem;
-  border: 0.1rem solid #eaeff2;
+  border: 0.1rem solid #d4dde4;
   border-radius: .3rem;
   margin-bottom: .5rem;
   font-size: 1.4rem;
@@ -278,10 +282,10 @@ b {
 }
 .beautified-form .fa.field-icon {
   position: absolute;
-  font-size: 16px;
+  font-size: 1.6rem;
   color: #4D4E53;
-  top: 12px;
-  left: 12px;
+  top: 1rem;
+  left: 1.2rem;
 }
 .beautified-form .full {
   width: 100%;
@@ -304,10 +308,12 @@ b {
 .beautified-form select,
 .beautified-form button {
   width: 100%;
-  border: 0.1rem solid #eaeff2;
+  border: 0.1rem solid #d4dde4;
   border-radius: .3rem;
   margin-bottom: .5rem;
   font-size: 1.4rem;
+  line-height: 1;
+  color: #58585b;
 }
 .beautified-form button:hover {
   cursor: pointer;
@@ -324,10 +330,11 @@ b {
   padding-right: 3rem;
   padding-bottom: .7rem;
   padding-left: 3.3rem;
+  line-height: 2.2rem;
 }
 .beautified-form input.less-indented {
   padding-left: 1.5rem;
-  padding-right: 0.7rem;
+  padding-right: .7rem;
 }
 .beautified-form select {
   padding-left: 2.9rem;
@@ -338,8 +345,12 @@ b {
 .beautified-form select * {
   padding-left: 2.9rem;
 }
+.beautified-form select,
 .beautified-form select option[value=""] {
-  color: red;
+  color: #a7a9ab;
+}
+.beautified-form select option:not([value=""]) {
+  color: #58585b;
 }
 .beautified-form ::-webkit-input-placeholder {
   color: #a7a9ab;
@@ -376,7 +387,7 @@ b {
   padding-bottom: 1rem;
   margin-top: 1rem;
   margin-bottom: 2rem;
-  transition: all 0.3s ease 0s;
+  transition: all .3s ease 0s;
 }
 .beautified-form .btn[type="submit"]:hover {
   background-color: #EA3B28;

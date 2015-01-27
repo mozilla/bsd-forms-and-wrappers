@@ -10,10 +10,10 @@
 
 /* Beautified Form related */
 @highlight-blue: #38A9ED;
-@border-grey: #EAEFF2;
+@border-grey: #D4DDE4;
 @field-gutter: .5rem;
 @placeholder-text-grey: #A7A9AB;
-@field-entered-text-grey: #58585B;
+@field-text-grey: #58585B;
 
 
 html,
@@ -149,7 +149,7 @@ b {
 #counter:after {
   content: "";
   position: absolute;
-  height: 0.5rem;
+  height: .5rem;
   background: url(https://sendto.mozilla.org/page/-/protect-net-neutrality/thin-stripe.png) repeat-x;
   top: 50%;
   width: 100%;
@@ -172,8 +172,8 @@ b {
   color: @mozilla-red;
   font-weight: bold;
   font-size: 1.4rem;
-  border-radius: 0.3rem;
-  padding: 0.5rem 2rem;
+  border-radius: .3rem;
+  padding: .5rem 2rem;
   width: 12rem;
   margin: 1rem auto 0 auto;
   span {
@@ -268,10 +268,14 @@ b {
   color: @light-grey;
   text-align: right;
   text-transform: uppercase;
-  letter-spacing: 0.1px;
+  letter-spacing: .01rem;
+  line-height: 1;
   font-weight: 700;
   margin-top: 2.5rem;
   margin-bottom: .5rem;
+  i.fa {
+    margin-right: .6rem;
+  }
 }
 
 #country-usa {
@@ -284,7 +288,7 @@ b {
   padding-right: 3rem;
   padding-left: 3.3rem;
   font-weight: 400;
-  color: @field-entered-text-grey;
+  color: @field-text-grey;
 }
 
 #signup {
@@ -302,10 +306,10 @@ b {
 
   .fa.field-icon {
     position: absolute;
-    font-size: 16px;
+    font-size: 1.6rem;
     color: #4D4E53;
-    top: 12px;
-    left: 12px;
+    top: 1rem;
+    left: 1.2rem;
   }
 
   .full {
@@ -338,6 +342,8 @@ b {
     border-radius: .3rem;
     margin-bottom: .5rem;
     font-size: 1.4rem;
+    line-height: 1;
+    color: @field-text-grey;
   }
 
   button:hover {
@@ -358,11 +364,12 @@ b {
     padding-right: 3rem;
     padding-bottom: .7rem;
     padding-left: 3.3rem;
+    line-height: 2.2rem;
   }
 
   input.less-indented {
     padding-left: 1.5rem;
-    padding-right: 0.7rem;
+    padding-right: .7rem;
   }
 
   select {
@@ -376,8 +383,13 @@ b {
     padding-left: 2.9rem;
   }
 
+  select,
   select option[value=""] {
-    color: red;
+    color: @placeholder-text-grey;
+  }
+
+  select option:not([value=""]) {
+    color: @field-text-grey;
   }
 
   /* Set placeholder text colour */
@@ -423,7 +435,7 @@ b {
     padding-bottom: 1rem;
     margin-top: 1rem;
     margin-bottom: 2rem;
-    transition: all 0.3s ease 0s;
+    transition: all .3s ease 0s;
   }
 
   .btn[type="submit"]:hover {
