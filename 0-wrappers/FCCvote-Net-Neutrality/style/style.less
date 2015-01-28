@@ -12,7 +12,7 @@
 /* Beautified Form related */
 @highlight-blue: #38A9ED;
 @highlight-red: @mozilla-red-dark;
-@border-grey: #D4DDE4;
+@field-border-color: @white;
 @field-gutter: .5rem;
 @placeholder-text-grey: #A7A9AB;
 @field-text-grey: #58585B;
@@ -152,7 +152,7 @@ b {
   content: "";
   position: absolute;
   height: .5rem;
-  background: url(https://sendto.mozilla.org/page/-/protect-net-neutrality/thin-stripe.png) repeat-x;
+  background: url(https://sendto.mozilla.org/page/-/protect-net-neutrality/img/thin-stripe.png) repeat-x;
   top: 50%;
   width: 100%;
 }
@@ -283,7 +283,7 @@ b {
 #country-usa {
   width: 100%;
   line-height: 3.8rem;
-  border: .1rem solid @border-grey;
+  border: .1rem solid @field-border-color;
   border-radius: .3rem;
   margin-bottom: .5rem;
   font-size: 1.4rem;
@@ -336,16 +336,24 @@ b {
     padding: 0;
   }
 
-  input,
-  select,
-  button {
+  .field-style {
     width: 100%;
-    border: .1rem solid @border-grey;
     border-radius: .3rem;
     margin-bottom: .5rem;
     font-size: 1.4rem;
     line-height: 1;
     color: @field-text-grey;
+  }
+
+  input,
+  select {
+    .field-style;
+    border: .1rem solid @field-border-color;
+  }
+
+  button {
+    .field-style;
+    border: none;
   }
 
   button:hover {
@@ -423,6 +431,7 @@ b {
     .checkbox-container,
     .label-container {
       display: inline-block;
+      float: left;
     }
     .label-container {
       width: calc( 100% - 2.5rem );
@@ -477,6 +486,9 @@ b {
     border-color: @highlight-red;
   }
 
+  #one-line-error {
+    display: none;
+  }
 
 
 }

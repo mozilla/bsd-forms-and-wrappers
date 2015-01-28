@@ -128,7 +128,7 @@ b {
   content: "";
   position: absolute;
   height: .5rem;
-  background: url(https://sendto.mozilla.org/page/-/protect-net-neutrality/thin-stripe.png) repeat-x;
+  background: url(https://sendto.mozilla.org/page/-/protect-net-neutrality/img/thin-stripe.png) repeat-x;
   top: 50%;
   width: 100%;
 }
@@ -255,7 +255,7 @@ b {
 #country-usa {
   width: 100%;
   line-height: 3.8rem;
-  border: 0.1rem solid #d4dde4;
+  border: 0.1rem solid #ffffff;
   border-radius: .3rem;
   margin-bottom: .5rem;
   font-size: 1.4rem;
@@ -303,16 +303,32 @@ b {
   border: none;
   padding: 0;
 }
-.beautified-form input,
-.beautified-form select,
-.beautified-form button {
+.beautified-form .field-style {
   width: 100%;
-  border: 0.1rem solid #d4dde4;
   border-radius: .3rem;
   margin-bottom: .5rem;
   font-size: 1.4rem;
   line-height: 1;
   color: #58585b;
+}
+.beautified-form input,
+.beautified-form select {
+  width: 100%;
+  border-radius: .3rem;
+  margin-bottom: .5rem;
+  font-size: 1.4rem;
+  line-height: 1;
+  color: #58585b;
+  border: 0.1rem solid #ffffff;
+}
+.beautified-form button {
+  width: 100%;
+  border-radius: .3rem;
+  margin-bottom: .5rem;
+  font-size: 1.4rem;
+  line-height: 1;
+  color: #58585b;
+  border: none;
 }
 .beautified-form button:hover {
   cursor: pointer;
@@ -378,6 +394,7 @@ b {
 .beautified-form .legal-confirm .checkbox-container,
 .beautified-form .legal-confirm .label-container {
   display: inline-block;
+  float: left;
 }
 .beautified-form .legal-confirm .label-container {
   width: calc(100% - 2.5rem);
@@ -417,6 +434,9 @@ b {
 .beautified-form select.parsley-error,
 .beautified-form select.parsley-error:focus {
   border-color: #c13931;
+}
+.beautified-form #one-line-error {
+  display: none;
 }
 /* ========================================
 *  Context
