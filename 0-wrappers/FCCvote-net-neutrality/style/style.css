@@ -15,7 +15,7 @@ body {
   background: -o-linear-gradient(to bottom, #d7d3c8, #f6f4ec);
   background: linear-gradient(to bottom, #d7d3c8, #f6f4ec);
 }
-@media screen and (min-width: 321px) {
+@media screen and (min-width: 768px) {
   body {
     font-size: 1.4rem;
   }
@@ -32,7 +32,7 @@ h3 {
 h1 {
   font-size: 3.4rem;
 }
-@media screen and (min-width: 321px) {
+@media screen and (min-width: 768px) {
   h1 {
     font-size: 4.8rem;
   }
@@ -43,7 +43,7 @@ h2 {
 h3 {
   font-size: 1.8rem;
 }
-@media screen and (min-width: 321px) {
+@media screen and (min-width: 768px) {
   h3 {
     font-size: 2.2rem;
   }
@@ -128,7 +128,7 @@ b {
   margin: 2.5rem 1rem;
   overflow: hidden;
 }
-@media screen and (min-width: 321px) {
+@media screen and (min-width: 768px) {
   #counter-container {
     font-size: 2.2rem;
   }
@@ -136,7 +136,7 @@ b {
 #counter-container .text {
   display: block;
 }
-@media screen and (min-width: 321px) {
+@media screen and (min-width: 768px) {
   #counter-container .text {
     display: inline-block;
   }
@@ -145,14 +145,16 @@ b {
   display: inline-block;
   position: relative;
 }
-#counter:before,
-#counter:after {
-  content: "";
-  position: absolute;
-  height: .5rem;
-  background: url(https://sendto.mozilla.org/page/-/protect-net-neutrality/img/thin-stripe.png) repeat-x;
-  top: 50%;
-  width: 100%;
+@media screen and (min-width: 768px) {
+  #counter:before,
+  #counter:after {
+    content: "";
+    position: absolute;
+    height: .5rem;
+    background: url(https://sendto.mozilla.org/page/-/protect-net-neutrality/img/thin-stripe.png) repeat-x;
+    top: 50%;
+    width: 100%;
+  }
 }
 #counter:before {
   right: 100%;
@@ -177,7 +179,7 @@ b {
 #countdown-days span {
   font-size: 3rem;
 }
-@media screen and (min-width: 321px) {
+@media screen and (min-width: 768px) {
   #countdown-days {
     display: inline-block;
     margin: 0 0 0 1rem;
@@ -193,7 +195,7 @@ b {
   top: 50%;
   width: 100%;
 }
-@media screen and (min-width: 321px) {
+@media screen and (min-width: 768px) {
   #countdown-days:before,
   #countdown-days:after {
     display: none;
@@ -201,11 +203,11 @@ b {
 }
 #countdown-days:before {
   right: 100%;
-  margin-right: .5rem;
+  margin-right: 1rem;
 }
 #countdown-days:after {
   left: 100%;
-  margin-left: .5rem;
+  margin-left: 1rem;
 }
 /* ========================================
 *  Site Header
@@ -223,7 +225,7 @@ b {
 #letter-and-form * {
   vertical-align: top;
 }
-@media screen and (min-width: 321px) {
+@media screen and (min-width: 768px) {
   #letter-and-form {
     margin-top: 5rem;
   }
@@ -239,7 +241,7 @@ b {
   margin-right: 3.5rem;
   width: 100%;
 }
-@media screen and (min-width: 321px) {
+@media screen and (min-width: 768px) {
   #letter {
     float: right;
     padding: 4rem 2.5rem;
@@ -255,7 +257,7 @@ b {
   width: 100%;
   padding: 1rem 0;
 }
-@media screen and (min-width: 321px) {
+@media screen and (min-width: 768px) {
   #form-wrapper {
     float: right;
     width: 39%;
@@ -412,9 +414,13 @@ b {
   color: #a7a9ab;
 }
 .beautified-form .legal-confirm {
-  font-size: 1.2rem;
   margin-top: 1.5rem;
   margin-bottom: 1.5rem;
+}
+@media screen and (min-width: 768px) {
+  .beautified-form .legal-confirm {
+    font-size: 1.2rem;
+  }
 }
 .beautified-form .legal-confirm .checkbox-container,
 .beautified-form .legal-confirm .label-container {
@@ -472,7 +478,7 @@ b {
 #context h2 {
   text-align: center;
 }
-@media screen and (min-width: 321px) {
+@media screen and (min-width: 768px) {
   #context {
     margin-top: 5rem;
   }
@@ -488,17 +494,18 @@ b {
   display: block;
 }
 /* ========================================
-*  Thank You Page
+*  Thank You Page (Mailing List Signup & Socail Share)
 */
 #white-box {
   width: 100%;
   background: #ffffff;
-  padding: 2rem 3.5rem 4rem 3.5rem;
+  padding: 1.5rem 2rem 3.5rem 2rem;
   margin: 2rem auto 10rem auto;
 }
-@media screen and (min-width: 321px) {
+@media screen and (min-width: 768px) {
   #white-box {
     width: 42rem;
+    padding: 2rem 3.5rem 4rem 3.5rem;
   }
 }
 .share-btn {
@@ -544,7 +551,7 @@ footer ul {
 #wordmark-and-note img {
   max-width: 12rem;
 }
-@media screen and (min-width: 321px) {
+@media screen and (min-width: 768px) {
   #wordmark-and-note {
     display: inline-block;
     width: 35%;

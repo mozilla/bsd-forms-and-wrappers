@@ -6,7 +6,7 @@
 @link-hover: #00539F;
 @light-grey: #939597;
 
-@non-mobile-width: 321px;
+@non-mobile-min-width: 768px;
 @gutter: 3.5rem;
 
 /* Beautified Form related */
@@ -37,7 +37,7 @@ body {
   background: -moz-linear-gradient(to bottom, #D7D3C8, #F6F4EC);
   background: -o-linear-gradient(to bottom, #D7D3C8, #F6F4EC);
   background: linear-gradient(to bottom, #D7D3C8, #F6F4EC);
-  @media screen and (min-width: @non-mobile-width) {
+  @media screen and (min-width: @non-mobile-min-width) {
     font-size: 1.4rem;
   }
 }
@@ -55,7 +55,7 @@ h3 {
 
 h1 {
   font-size: 3.4rem;
-  @media screen and (min-width: @non-mobile-width) {
+  @media screen and (min-width: @non-mobile-min-width) {
     font-size: 4.8rem;
   }
 }
@@ -66,7 +66,7 @@ h2 {
 
 h3 {
   font-size: 1.8rem;
-  @media screen and (min-width: @non-mobile-width) {
+  @media screen and (min-width: @non-mobile-min-width) {
     font-size: 2.2rem;
   }
 }
@@ -163,12 +163,12 @@ b {
   font-size: 1.8rem;
   margin: 2.5rem 1rem;
   overflow: hidden;
-  @media screen and (min-width: @non-mobile-width) {
+  @media screen and (min-width: @non-mobile-min-width) {
     font-size: 2.2rem;
   }
   .text {
     display: block;
-    @media screen and (min-width: @non-mobile-width) {
+    @media screen and (min-width: @non-mobile-min-width) {
       display: inline-block;
     }
   }
@@ -181,12 +181,14 @@ b {
 
 #counter:before,
 #counter:after {
-  content: "";
-  position: absolute;
-  height: .5rem;
-  background: url(https://sendto.mozilla.org/page/-/protect-net-neutrality/img/thin-stripe.png) repeat-x;
-  top: 50%;
-  width: 100%;
+  @media screen and (min-width: @non-mobile-min-width) {
+    content: "";
+    position: absolute;
+    height: .5rem;
+    background: url(https://sendto.mozilla.org/page/-/protect-net-neutrality/img/thin-stripe.png) repeat-x;
+    top: 50%;
+    width: 100%;
+  }
 }
 
 #counter:before {
@@ -213,7 +215,7 @@ b {
   span {
     font-size: 3rem;
   }
-  @media screen and (min-width: @non-mobile-width) {
+  @media screen and (min-width: @non-mobile-min-width) {
     display: inline-block;
     margin: 0 0 0 1rem;
     width: auto;
@@ -228,18 +230,18 @@ b {
   background: url(https://sendto.mozilla.org/page/-/protect-net-neutrality/thin-stripe.png) repeat-x;
   top: 50%;
   width: 100%;
-  @media screen and (min-width: @non-mobile-width) {
+  @media screen and (min-width: @non-mobile-min-width) {
     display: none;
   }
 }
 
 #countdown-days:before {
   right: 100%;
-  margin-right: .5rem;
+  margin-right: 1rem;
 }
 #countdown-days:after {
   left: 100%;
-  margin-left: .5rem;
+  margin-left: 1rem;
 }
 
 /* ========================================
@@ -260,7 +262,7 @@ b {
   * {
     vertical-align: top;
   }
-  @media screen and (min-width: @non-mobile-width) {
+  @media screen and (min-width: @non-mobile-min-width) {
     margin-top: 5rem;
   }
 }
@@ -276,7 +278,7 @@ b {
   padding: 2.5rem 1rem;
   margin-right: @gutter;
   width: 100%;
-  @media screen and (min-width: @non-mobile-width) {
+  @media screen and (min-width: @non-mobile-min-width) {
     float: right;
     padding: 4rem 2.5rem;
     width: calc(61% - @gutter);
@@ -292,7 +294,7 @@ b {
   float: left;
   width: 100%;
   padding: 1rem 0;
-  @media screen and (min-width: @non-mobile-width) {
+  @media screen and (min-width: @non-mobile-min-width) {
     float: right;
     width: 39%;
   }
@@ -461,9 +463,11 @@ b {
   }
 
   .legal-confirm {
-    font-size: 1.2rem;
     margin-top: 1.5rem;
     margin-bottom: 1.5rem;
+    @media screen and (min-width: @non-mobile-min-width) {
+      font-size: 1.2rem;
+    }
     .checkbox-container,
     .label-container {
       display: inline-block;
@@ -544,7 +548,7 @@ b {
   h2 {
     text-align: center;
   }
-  @media screen and (min-width: @non-mobile-width) {
+  @media screen and (min-width: @non-mobile-min-width) {
     margin-top: 5rem;
   }
 }
@@ -564,16 +568,17 @@ b {
 
 
 /* ========================================
-*  Thank You Page
+*  Thank You Page (Mailing List Signup & Socail Share)
 */
 
 #white-box {
   width: 100%;
   background: @white;
-  padding: 2rem 3.5rem 4rem 3.5rem;
+  padding: 1.5rem 2rem 3.5rem 2rem;
   margin: 2rem auto 10rem auto;
-  @media screen and (min-width: @non-mobile-width) {
+  @media screen and (min-width: @non-mobile-min-width) {
     width: 42rem;
+    padding: 2rem 3.5rem 4rem 3.5rem;
   }
 }
 
@@ -627,7 +632,7 @@ footer {
   img {
     max-width: 12rem;
   }
-  @media screen and (min-width: @non-mobile-width) {
+  @media screen and (min-width: @non-mobile-min-width) {
     display: inline-block;
     width: 35%;
   }
