@@ -66,10 +66,12 @@
       }
 
       function submitSuccess(data, textStatus, XHR) {
+        var redirectUrlWithQuery = REDIRECT_URL + "?" + $theForm.serialize();
+        console.log("redirectUrlWithQuery = " + redirectUrlWithQuery);
         if (window.location.assign) {
-          window.location.assign(REDIRECT_URL);
+          window.location.assign(redirectUrlWithQuery);
         } else {
-          window.location = REDIRECT_URL;
+          window.location = redirectUrlWithQuery;
         }
       }
 
@@ -78,7 +80,7 @@
 
       var submitTheForm = $.ajax($theForm.prop("action"), {
         type: "POST",
-        data: $theForm.serializeArray(),
+        data: $theForm.serialize(),
         statusCode: {
           400: submissionErrorHandler,
           500: submissionErrorHandler
