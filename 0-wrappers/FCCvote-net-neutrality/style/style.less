@@ -138,6 +138,10 @@ b {
   margin-left: calc(.5*@field-gutter);
 }
 
+.hidden {
+  display: none;
+}
+
 
 /* ========================================
 *  Mozilla Header
@@ -316,7 +320,6 @@ b {
 
 #country-usa {
   width: 100%;
-  line-height: 3.8rem;
   border: .1rem solid @field-border-color;
   border-radius: .3rem;
   margin-bottom: .5rem;
@@ -325,6 +328,10 @@ b {
   padding-left: 3.3rem;
   font-weight: 400;
   color: @field-text-grey;
+  p {
+    line-height: 3.8rem;
+    margin: 0;
+  }
 }
 
 #signup {
@@ -380,6 +387,14 @@ b {
     margin-bottom: .5rem;
     font-size: 1.4rem;
     line-height: 1;
+    color: @field-text-grey;
+  }
+
+  input[readonly] {
+    pointer-events: none;
+    width: 100%;
+    background: none;
+    border-color: @field-border-color;
     color: @field-text-grey;
   }
 

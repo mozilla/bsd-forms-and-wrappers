@@ -103,6 +103,9 @@ b {
 .half:last-child {
   margin-left: calc(0.5*0.5rem);
 }
+.hidden {
+  display: none;
+}
 /* ========================================
 *  Mozilla Header
 */
@@ -277,7 +280,6 @@ b {
 }
 #country-usa {
   width: 100%;
-  line-height: 3.8rem;
   border: 0.1rem solid #d4dde4;
   border-radius: .3rem;
   margin-bottom: .5rem;
@@ -286,6 +288,10 @@ b {
   padding-left: 3.3rem;
   font-weight: 400;
   color: #58585b;
+}
+#country-usa p {
+  line-height: 3.8rem;
+  margin: 0;
 }
 #signup {
   /* hide the BSD auto-generated form in case JS fails to remove it from DOM */
@@ -335,6 +341,13 @@ b {
   margin-bottom: .5rem;
   font-size: 1.4rem;
   line-height: 1;
+  color: #58585b;
+}
+.beautified-form input[readonly] {
+  pointer-events: none;
+  width: 100%;
+  background: none;
+  border-color: #d4dde4;
   color: #58585b;
 }
 .beautified-form input,

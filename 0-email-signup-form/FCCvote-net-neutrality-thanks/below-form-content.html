@@ -53,7 +53,7 @@
       function submitError(XHR, textStatus, error) {
       }
 
-      console.log("AJAX POST DATA" = $theForm.serialize() + "&" + addtionalUserInfo);
+      console.log("AJAX POST DATA = " + $theForm.serialize() + "&" + addtionalUserInfo);
 
       var submitTheForm = $.ajax($theForm.prop("action"), {
         type: "POST",

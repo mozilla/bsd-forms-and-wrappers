@@ -15,7 +15,7 @@
   // Remove the BSD generated form from DOM
   // ***********************************************
   $(window).on("load", function () {
-    $bsdForm.remove();
+    // $bsdForm.remove();
   });
 
 
@@ -66,12 +66,12 @@
       }
 
       function submitSuccess(data, textStatus, XHR) {
-        var redirectUrlWithQuery = REDIRECT_URL + "?" + $theForm.serialize();
-        console.log("redirectUrlWithQuery = " + redirectUrlWithQuery);
+        var redirectUrlWithCountry = REDIRECT_URL + "?" + "country=" + $theForm.find("input[name='country']").val();
+        console.log("redirectUrlWithCountry = " + redirectUrlWithCountry);
         if (window.location.assign) {
-          window.location.assign(redirectUrlWithQuery);
+          window.location.assign(redirectUrlWithCountry);
         } else {
-          window.location = redirectUrlWithQuery;
+          window.location = redirectUrlWithCountry;
         }
       }
 
