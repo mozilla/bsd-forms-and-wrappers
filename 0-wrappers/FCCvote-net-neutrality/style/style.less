@@ -568,19 +568,20 @@ b {
 */
 
 #white-box {
-  width: 42rem;
+  width: 100%;
   background: @white;
-  margin: 2rem auto 10rem auto;
   padding: 2rem 3.5rem 4rem 3.5rem;
+  margin: 2rem auto 10rem auto;
+  @media screen and (min-width: @non-mobile-width) {
+    width: 42rem;
+  }
 }
 
 .share-btn {
+  display: block;
   padding: 1.5rem;
   text-align: center;
-  a {
-    display: block;
-    color: @white;
-  }
+  color: @white;
   p {
     margin: 0;
   }
@@ -590,8 +591,16 @@ b {
   background: @facebook-blue;
 }
 
+#facebook-share:hover {
+  background: lighten(@facebook-blue,2%);
+}
+
 #twitter-share {
   background: @twitter-blue;
+}
+
+#twitter-share:hover {
+  background: lighten(@twitter-blue,2%);
 }
 
 

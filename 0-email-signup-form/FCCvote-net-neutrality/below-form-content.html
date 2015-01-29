@@ -49,7 +49,7 @@
     }, 10);
 
 
-  $("#petition-signup-form").parsley().subscribe('parsley:form:validated', function (formInstance) {
+  $theForm.parsley().subscribe('parsley:form:validated', function (formInstance) {
     if (formInstance.submitEvent !== undefined) {
       formInstance.submitEvent.preventDefault();
     }
@@ -76,7 +76,7 @@
       function submitError(XHR, textStatus, error) {
       }
 
-      var submitPetition = $.ajax($theForm.prop("action"), {
+      var submitTheForm = $.ajax($theForm.prop("action"), {
         type: "POST",
         data: $theForm.serializeArray(),
         statusCode: {
@@ -86,7 +86,7 @@
 
       });
 
-      submitPetition.error(submitError).success(submitSuccess);
+      submitTheForm.error(submitError).success(submitSuccess);
     }
   });
 

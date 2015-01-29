@@ -491,17 +491,20 @@ b {
 *  Thank You Page
 */
 #white-box {
-  width: 42rem;
+  width: 100%;
   background: #ffffff;
-  margin: 2rem auto 10rem auto;
   padding: 2rem 3.5rem 4rem 3.5rem;
+  margin: 2rem auto 10rem auto;
+}
+@media screen and (min-width: 321px) {
+  #white-box {
+    width: 42rem;
+  }
 }
 .share-btn {
+  display: block;
   padding: 1.5rem;
   text-align: center;
-}
-.share-btn a {
-  display: block;
   color: #ffffff;
 }
 .share-btn p {
@@ -510,8 +513,14 @@ b {
 #facebook-share {
   background: #4e7ac0;
 }
+#facebook-share:hover {
+  background: #5680c3;
+}
 #twitter-share {
   background: #5ecdf3;
+}
+#twitter-share:hover {
+  background: #67d0f4;
 }
 /* ========================================
 *  Footer
