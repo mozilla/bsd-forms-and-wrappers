@@ -34,6 +34,7 @@ module.exports = function(grunt) {
       obj.files['compiled/tree/page/contribute/givenow-seq/index.html'] = '0-donation-forms/EOY-donation-form-sequential/template.html';
       obj.files['compiled/tree/page/s/FCCvote-net-neutrality/index.html'] = '0-email-signup-form/FCCvote-net-neutrality/template.html';
       obj.files['compiled/tree/page/s/FCCvote-net-neutrality-thanks/index.html'] = '0-email-signup-form/FCCvote-net-neutrality-thanks/template.html';
+      obj.files['compiled/tree/page/content/FCCvote-net-neutrality-share/index.html'] = '0-content-page/FCCvote-net-neutrality-share/template.html';
     } else {
       obj.files['compiled/tree/page/contribute/givenow-seq-' + locale + '/index.html'] = '0-donation-forms/EOY-donation-form-sequential/template.html';
       obj.files['compiled/tree/page/s/EOYFR2014-donor-' + locale + '/index.html'] = '0-email-signup-form/EOYFR2014-Donor/template.html';
