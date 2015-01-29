@@ -12,10 +12,13 @@
 /* Beautified Form related */
 @highlight-blue: #38A9ED;
 @highlight-red: @mozilla-red-dark;
-@field-border-color: @white;
+@field-border-color: #D4DDE4;
 @field-gutter: .5rem;
 @placeholder-text-grey: #A7A9AB;
 @field-text-grey: #58585B;
+
+@facebook-blue: #4E7AC0;
+@twitter-blue: #5ECDF3;
 
 
 html,
@@ -106,6 +109,35 @@ b {
     padding-right: 5rem;
   }
 }
+
+.divider {
+  width: 100%;
+  height: .5rem;
+  background: url(https://sendto.mozilla.org/page/-/protect-net-neutrality/img/thin-stripe.png) repeat-x;
+  margin: 4rem 0;
+}
+
+.row {
+  overflow: hidden;
+}
+
+.full {
+  width: 100%;
+}
+
+.half {
+  float: left;
+  width: calc(50% - .5*@field-gutter);
+}
+
+.half:first-child {
+  margin-right: calc(.5*@field-gutter);
+}
+
+.half:last-child {
+  margin-left: calc(.5*@field-gutter);
+}
+
 
 /* ========================================
 *  Mozilla Header
@@ -295,7 +327,7 @@ b {
 
 #signup {
   /* hide the BSD auto-generated form in case JS fails to remove it from DOM */
-  display: none;
+  /*display: none;*/
 }
 
 .beautified-form {
@@ -312,6 +344,10 @@ b {
     color: #4D4E53;
     top: 1.2rem;
     left: 1.2rem;
+  }
+
+  .row {
+    overflow: hidden;
   }
 
   .full {
@@ -525,6 +561,39 @@ b {
 #advocacy-wordmark {
   display: block;
 }
+
+
+/* ========================================
+*  Thank You Page
+*/
+
+#white-box {
+  width: 42rem;
+  background: @white;
+  margin: 2rem auto 10rem auto;
+  padding: 2rem 3.5rem 4rem 3.5rem;
+}
+
+.share-btn {
+  padding: 1.5rem;
+  text-align: center;
+  a {
+    display: block;
+    color: @white;
+  }
+  p {
+    margin: 0;
+  }
+}
+
+#facebook-share {
+  background: @facebook-blue;
+}
+
+#twitter-share {
+  background: @twitter-blue;
+}
+
 
 /* ========================================
 *  Footer

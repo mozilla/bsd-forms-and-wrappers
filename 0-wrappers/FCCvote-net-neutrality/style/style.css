@@ -82,6 +82,28 @@ b {
     padding-right: 5rem;
   }
 }
+.divider {
+  width: 100%;
+  height: .5rem;
+  background: url(https://sendto.mozilla.org/page/-/protect-net-neutrality/img/thin-stripe.png) repeat-x;
+  margin: 4rem 0;
+}
+.row {
+  overflow: hidden;
+}
+.full {
+  width: 100%;
+}
+.half {
+  float: left;
+  width: calc(50% - 0.5*0.5rem);
+}
+.half:first-child {
+  margin-right: calc(0.5*0.5rem);
+}
+.half:last-child {
+  margin-left: calc(0.5*0.5rem);
+}
 /* ========================================
 *  Mozilla Header
 */
@@ -255,7 +277,7 @@ b {
 #country-usa {
   width: 100%;
   line-height: 3.8rem;
-  border: 0.1rem solid #ffffff;
+  border: 0.1rem solid #d4dde4;
   border-radius: .3rem;
   margin-bottom: .5rem;
   font-size: 1.4rem;
@@ -266,7 +288,7 @@ b {
 }
 #signup {
   /* hide the BSD auto-generated form in case JS fails to remove it from DOM */
-  display: none;
+  /*display: none;*/
 }
 .beautified-form {
   /* Set placeholder text colour */
@@ -285,6 +307,9 @@ b {
   color: #4D4E53;
   top: 1.2rem;
   left: 1.2rem;
+}
+.beautified-form .row {
+  overflow: hidden;
 }
 .beautified-form .full {
   width: 100%;
@@ -319,7 +344,7 @@ b {
   font-size: 1.4rem;
   line-height: 1;
   color: #58585b;
-  border: 0.1rem solid #ffffff;
+  border: 0.1rem solid #d4dde4;
 }
 .beautified-form button {
   width: 100%;
@@ -461,6 +486,32 @@ b {
 }
 #advocacy-wordmark {
   display: block;
+}
+/* ========================================
+*  Thank You Page
+*/
+#white-box {
+  width: 42rem;
+  background: #ffffff;
+  margin: 2rem auto 10rem auto;
+  padding: 2rem 3.5rem 4rem 3.5rem;
+}
+.share-btn {
+  padding: 1.5rem;
+  text-align: center;
+}
+.share-btn a {
+  display: block;
+  color: #ffffff;
+}
+.share-btn p {
+  margin: 0;
+}
+#facebook-share {
+  background: #4e7ac0;
+}
+#twitter-share {
+  background: #5ecdf3;
 }
 /* ========================================
 *  Footer
