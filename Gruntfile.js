@@ -32,7 +32,7 @@ module.exports = function(grunt) {
       obj.files['compiled/tree/page/content/givenow-paypal-simple/index.html'] = '0-content-page/EOYFR2014-Button-Donation/template.html';
       obj.files['compiled/tree/page/s/EOYFR2014-donor/index.html'] = '0-email-signup-form/EOYFR2014-Donor/template.html';
       obj.files['compiled/tree/page/contribute/givenow-seq/index.html'] = '0-donation-forms/EOY-donation-form-sequential/template.html';
-      obj.files['compiled/tree/page/s/FCCvote-Net-Neutrality/index.html'] = '0-email-signup-form/FCCvote-Net-Neutrality/template.html';
+      obj.files['compiled/tree/page/s/FCCvote-net-neutrality/index.html'] = '0-email-signup-form/FCCvote-net-neutrality/template.html';
     } else {
       obj.files['compiled/tree/page/contribute/givenow-seq-' + locale + '/index.html'] = '0-donation-forms/EOY-donation-form-sequential/template.html';
       obj.files['compiled/tree/page/s/EOYFR2014-donor-' + locale + '/index.html'] = '0-email-signup-form/EOYFR2014-Donor/template.html';
