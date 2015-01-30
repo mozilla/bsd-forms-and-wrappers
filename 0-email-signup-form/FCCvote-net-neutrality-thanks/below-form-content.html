@@ -14,8 +14,7 @@
   // Remove the BSD generated form from DOM
   // ***********************************************
   $(window).on("load", function () {
-    // console.log(clonedForm);
-    // $bsdForm.remove();
+    $bsdForm.remove();
   });
 
 
@@ -36,9 +35,6 @@
       // ***********************************************
 
       function submissionErrorHandler(XHR, textStatus, error) {
-        console.log(XHR);
-        console.log(textStatus);
-        console.log(error);
         $('#one-line-error').text("Something seems to have gone wrong. Please try again later").show();
       }
 
@@ -52,8 +48,6 @@
 
       function submitError(XHR, textStatus, error) {
       }
-
-      console.log("AJAX POST DATA = " + $theForm.serialize() + "&" + addtionalUserInfo);
 
       var submitTheForm = $.ajax($theForm.prop("action"), {
         type: "POST",

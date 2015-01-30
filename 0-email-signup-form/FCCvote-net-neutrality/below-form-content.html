@@ -15,7 +15,7 @@
   // Remove the BSD generated form from DOM
   // ***********************************************
   $(window).on("load", function () {
-    // $bsdForm.remove();
+    $bsdForm.remove();
   });
 
 
@@ -67,7 +67,6 @@
 
       function submitSuccess(data, textStatus, XHR) {
         var redirectUrlWithCountry = REDIRECT_URL + "?" + "country=" + $theForm.find("input[name='country']").val();
-        console.log("redirectUrlWithCountry = " + redirectUrlWithCountry);
         if (window.location.assign) {
           window.location.assign(redirectUrlWithCountry);
         } else {
@@ -101,22 +100,21 @@
     }
   };
 
-  function updateDropdownTextColor(elem) {
-    var selected = elem.val();
+  var updateDropdownTextColor =  function(event) {
+    var $target = $(event.target);
+    var selected = $target.val();
     if ( selected ){
-      elem.addClass("defaultTextColor");
+      $target.addClass("defaultTextColor");
     } else {
-      elem.removeClass("defaultTextColor");
+      $target.removeClass("defaultTextColor");
     }
   }
 
   updateDropdownTextColor($stateDropdown);
 
   $theForm.find("input").on("change", toggleOneLineError);
-  $stateDropdown.on("change", toggleOneLineError);
-  $stateDropdown.on("change", function (){
-    updateDropdownTextColor($(this));
-  });
+  $stateDropdown.on("change", toggleOneLineError)
+                .on("change", updateDropdownTextColor);
 
 
 })();
