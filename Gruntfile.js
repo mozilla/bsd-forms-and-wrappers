@@ -32,6 +32,9 @@ module.exports = function(grunt) {
       obj.files['compiled/tree/page/content/givenow-paypal-simple/index.html'] = '0-content-page/EOYFR2014-Button-Donation/template.html';
       obj.files['compiled/tree/page/s/EOYFR2014-donor/index.html'] = '0-email-signup-form/EOYFR2014-Donor/template.html';
       obj.files['compiled/tree/page/contribute/givenow-seq/index.html'] = '0-donation-forms/EOY-donation-form-sequential/template.html';
+      obj.files['compiled/tree/page/s/FCCvote-net-neutrality/index.html'] = '0-email-signup-form/FCCvote-net-neutrality/template.html';
+      obj.files['compiled/tree/page/s/FCCvote-net-neutrality-thanks/index.html'] = '0-email-signup-form/FCCvote-net-neutrality-thanks/template.html';
+      obj.files['compiled/tree/page/content/FCCvote-net-neutrality-share/index.html'] = '0-content-page/FCCvote-net-neutrality-share/template.html';
     } else {
       obj.files['compiled/tree/page/contribute/givenow-seq-' + locale + '/index.html'] = '0-donation-forms/EOY-donation-form-sequential/template.html';
       obj.files['compiled/tree/page/s/EOYFR2014-donor-' + locale + '/index.html'] = '0-email-signup-form/EOYFR2014-Donor/template.html';
@@ -187,6 +190,13 @@ module.exports = function(grunt) {
         files: [
           'compiled/*.html'
         ]
+      },
+      less: {
+        files: ['0-*/**/style/style.less'],
+        tasks: ['less'],
+        options: {
+          nospawn: true
+        }
       }
     },
     connect: {
@@ -266,9 +276,32 @@ module.exports = function(grunt) {
         }]
       }
     },
+    less: {
+      development: {
+        options: {
+          compress: false,
+          optimization: 2,
+          strictMath: true
+        },
+        files: [
+          {
+            expand: true,
+            cwd: "",
+            src: ["0-*/**/style/style.less"],
+            dest: "",
+            ext: ".css"
+          }
+        ]
+      }
+    }
   });
 
+  // grunt.registerTask('bake', [
+  //   'less'
+  // ]);
+
   grunt.registerTask('dev', [
+    'less',
     'bake',
     'imagemin',
     'connect:livereload',
