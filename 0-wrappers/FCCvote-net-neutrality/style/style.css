@@ -273,7 +273,6 @@ b {
 #all-required {
   float: left;
   margin: 0 0 0 .3rem;
-  color: #939597;
 }
 #secure-label {
   color: #939597;
@@ -414,6 +413,7 @@ b {
   padding-right: 1rem;
   height: 3.8rem;
   -webkit-appearance: none;
+  background: #ffffff;
 }
 .beautified-form select * {
   padding-left: 2.9rem;
