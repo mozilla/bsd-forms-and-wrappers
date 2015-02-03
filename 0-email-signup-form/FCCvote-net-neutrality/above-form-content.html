@@ -28,16 +28,19 @@
             <b>If you live or vote in the United States, please add your name to the petition using the form below</b>
             <i>(if not, please forward this to anyone you know in the U.S.A.)</i>
           </p>
-          <div id="secure-label"><i class="fa fa-lock"></i>Secure</div>
+          <div id="form-note">
+            <p id="all-required"><small>All fields are required.</small></p>
+            <div id="secure-label"><i class="fa fa-lock"></i>Secure</div>
+          </div>
           <form name="signup" action="/page/s/FCCvote-net-neutrality" method="post" id="petition-signup-form" class="beautified-form">
             <fieldset>
               <div class="row">
                 <div class="field-container half">
                   <i class="fa fa-user field-icon"></i>
-                  <input type="text" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" name="firstname" placeholder="First Name" required="">
+                  <input type="text" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" name="firstname" placeholder="First Name" required="" data-parsley-trigger="change">
                 </div>
                 <div class="field-container half">
-                  <input type="text" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" name="lastname" placeholder="Last Name" required="" class="less-indented">
+                  <input type="text" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" name="lastname" placeholder="Last Name" required="" class="less-indented" data-parsley-trigger="change">
                 </div>
               </div>
             </fieldset>
@@ -45,20 +48,20 @@
               <div class="row">
                 <div class="field-container full">
                   <i class="fa fa-map-marker field-icon"></i>
-                  <input type="text" name="addr1" placeholder="Address" required="">
+                  <input type="text" name="addr1" placeholder="Address" required="" data-parsley-trigger="change">
                 </div>
               </div>
               <div class="row">
                 <div class="field-container half">
-                  <input type="text" name="city" placeholder="City" required="">
+                  <input type="text" name="city" placeholder="City" required="" data-parsley-trigger="change">
                 </div>
                 <div class="field-container half">
-                  <input type="text" name="zip" placeholder="Zip Code" required="" class="less-indented" data-parsley-check-zip>
+                  <input type="text" name="zip" placeholder="Zip Code" required="" class="less-indented" data-parsley-trigger="change" data-parsley-check-zip>
                 </div>
               </div>
               <div class="row">
                 <div class="field-container full">
-                  <select id="state_cd" name="state_cd" required="">
+                  <select id="state_cd" name="state_cd" required="" data-parsley-trigger="change">
                       <option value="">State</option>
                       <option value="AK">AK</option>
                       <option value="AL">AL</option>
@@ -139,7 +142,7 @@
               <div class="row">
                 <div class="field-container full">
                   <div class="checkbox-container">
-                    <input id="custom-3272" name="custom-3272" value="1" type="checkbox" required="" data-parsley-error-message="To submit this form you must agree with our privacy policy." data-parsley-errors-container="#legal-confirm-error">
+                    <input id="custom-3272" name="custom-3272" value="1" type="checkbox" required="" data-parsley-error-message="To submit this form you must agree with our privacy policy." data-parsley-trigger="change" data-parsley-errors-container="#legal-confirm-error">
                   </div>
                   <div class="label-container">
                     <label for="custom-3272">I agree to Mozilla's <a href="https://www.mozilla.org/en-US/privacy/websites/" target="_blank">privacy policy</a> and to having my information presented to U.S. Congress in the form of a letter delivered by Fight for the Future (see its <a href="http://www.fightforthefuture.org/privacy/" target="_blank">privacy policy</a>).</label>

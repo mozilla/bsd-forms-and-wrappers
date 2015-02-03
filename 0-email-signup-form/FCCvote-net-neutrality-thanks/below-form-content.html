@@ -28,7 +28,6 @@
     }
     if (!formInstance.isValid()) {
       formInstance.submitEvent.preventDefault();
-      $("#one-line-error").show();
     } else {
       // ***********************************************
       // Form Submission
@@ -63,16 +62,6 @@
     }
   });
 
-  var toggleOneLineError = function() {
-    var numErrors = $(".parsley-error").length;
-    if ( numErrors > 0 ) {
-      $("#one-line-error").show();
-    } else {
-      $("#one-line-error").hide();
-    }
-  };
-
-  $theForm.find("input").on("change", toggleOneLineError);
 
 
 })();

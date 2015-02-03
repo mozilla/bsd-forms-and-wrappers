@@ -231,7 +231,7 @@ b {
   content: "";
   position: absolute;
   height: .5rem;
-  background: url(https://sendto.mozilla.org/page/-/protect-net-neutrality/thin-stripe.png) repeat-x;
+  background: url(https://sendto.mozilla.org/page/-/protect-net-neutrality/img/thin-stripe.png) repeat-x;
   top: 50%;
   width: 100%;
   @media screen and (min-width: @non-mobile-min-width) {
@@ -304,15 +304,25 @@ b {
   }
 }
 
+#form-note {
+  overflow: hidden;
+  margin-top: 2.5rem;
+  margin-bottom: .5rem;
+}
+
+#all-required {
+  float: left;
+  margin: 0 0 0 .3rem;
+  color: @light-grey;
+}
+
 #secure-label {
   color: @light-grey;
-  text-align: right;
+  float: right;
   text-transform: uppercase;
   letter-spacing: .01rem;
   line-height: 1;
   font-weight: 700;
-  margin-top: 2.5rem;
-  margin-bottom: .5rem;
   i.fa {
     margin-right: .6rem;
   }
@@ -420,6 +430,13 @@ b {
 
   input[type="checkbox"] {
     width: auto;
+    transform: scale(1.2);
+    -ms-transform: scale(1.2); /* IE */
+    -moz-transform: scale(1.2); /* FF */
+    -webkit-transform: scale(1.2); /* Safari and Chrome */
+    -o-transform: scale(1.2); /* Opera */
+    margin-right: .5rem;
+    padding: .5rem;
   }
 
   input {
@@ -490,6 +507,9 @@ b {
     }
     .label-container {
       width: calc( 100% - 2.5rem );
+    }
+    #legal-confirm-error {
+      clear: both;
     }
   }
 

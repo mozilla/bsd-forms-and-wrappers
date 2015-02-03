@@ -55,7 +55,6 @@
     }
     if (!formInstance.isValid()) {
       formInstance.submitEvent.preventDefault();
-      $("#one-line-error").show();
     } else {
       // ***********************************************
       // Form Submission
@@ -91,6 +90,7 @@
     }
   });
 
+
   var toggleOneLineError = function() {
     var numErrors = $(".parsley-error").length;
     if ( numErrors > 0 ) {
@@ -112,9 +112,11 @@
 
   updateDropdownTextColor($stateDropdown);
 
-  $theForm.find("input").on("change", toggleOneLineError);
-  $stateDropdown.on("change", toggleOneLineError)
-                .on("change", updateDropdownTextColor);
+  $stateDropdown.on("change", updateDropdownTextColor);
+
+  $theForm.parsley().subscribe('parsley:field:validated', function (fieldInstance) {
+    toggleOneLineError();
+  });
 
 
 })();
