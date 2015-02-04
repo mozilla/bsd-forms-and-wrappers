@@ -193,7 +193,7 @@ module.exports = function(grunt) {
       },
       less: {
         files: ['0-*/**/style/style.less'],
-        tasks: ['less'],
+        tasks: ['less','bake'],
         options: {
           nospawn: true
         }
@@ -295,10 +295,6 @@ module.exports = function(grunt) {
       }
     }
   });
-
-  // grunt.registerTask('bake', [
-  //   'less'
-  // ]);
 
   grunt.registerTask('dev', [
     'less',
