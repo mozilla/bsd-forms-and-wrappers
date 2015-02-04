@@ -29,7 +29,7 @@ body {
 body {
   font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: 300;
-  font-size: 1.1rem;
+  font-size: 1.4rem;
   color: @mozilla-charcoal;
   margin: 0;
   background: -webkit-gradient(linear, left top, left bottom, from(#D7D3C8), to(#F6F4EC));
@@ -37,9 +37,6 @@ body {
   background: -moz-linear-gradient(to bottom, #D7D3C8, #F6F4EC);
   background: -o-linear-gradient(to bottom, #D7D3C8, #F6F4EC);
   background: linear-gradient(to bottom, #D7D3C8, #F6F4EC);
-  @media screen and (min-width: @non-mobile-min-width) {
-    font-size: 1.4rem;
-  }
 }
 
 * {
@@ -93,9 +90,11 @@ p {
   line-height: 1.71;
 }
 
-b {
+b,
+strong {
   font-weight: 700;
 }
+
 
 #wrapper {
   margin: 0;
