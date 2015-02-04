@@ -25,7 +25,7 @@
   $(window).on("load", function () {
     $bsdForm.remove();
     var carriedEmail = $.urlParam("email");
-    if ( carriedEmail) {
+    if ( carriedEmail ) {
       $("#mailinglist-signup-form").find("input[name='email']").attr("value",carriedEmail);
     }
   });
@@ -59,8 +59,6 @@
 
       function submitError(XHR, textStatus, error) {
       }
-
-      console.log($theForm.serialize());
 
       var submitTheForm = $.ajax($theForm.prop("action"), {
         type: "POST",
