@@ -65,7 +65,9 @@
       }
 
       function submitSuccess(data, textStatus, XHR) {
-        var redirectUrlWithCountry = REDIRECT_URL + "?" + "country=" + $theForm.find("input[name='country']").val();
+        var redirectUrlWithCountry = REDIRECT_URL + "?"
+                                                  + "country=" + $theForm.find("input[name='country']").val()
+                                                  + "&email=" + $theForm.find("input[name='email']").val();
         if (window.location.assign) {
           window.location.assign(redirectUrlWithCountry);
         } else {
