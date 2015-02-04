@@ -18,9 +18,7 @@
     var pairs = sparams.substring(1).split("&");
     pairs.forEach(function(p) {
       var terms = p.split("=");
-      var key = terms[0];
-      var value = terms[1];
-      queryParams[key] = value;
+      queryParams[ terms[0] ] = terms[1];
     });
   }
 
