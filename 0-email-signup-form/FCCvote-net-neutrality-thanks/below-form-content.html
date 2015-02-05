@@ -14,20 +14,19 @@
   // ***********************************************
   // Extract query param from url
   // ***********************************************
-  if ( sparams.indexOf("?") === 0 ) {
-    var pairs = sparams.substring(1).split("&");
-    pairs.forEach(function(p) {
-      var terms = p.split("=");
-      queryParams[ terms[0] ] = terms[1];
-    });
-  }
+  var findTerms = function(pair) {
+    var terms = pair.split("=");
+    queryParams[ terms[0] ] = terms[1];
+  };
+  sparams.substring(1).split("&").forEach(findTerms);
+
 
   // ***********************************************
   // Remove the BSD generated form from DOM
   // ***********************************************
   $(window).on("load", function () {
     $bsdForm.remove();
-    var carriedEmail = queryParams["email"];
+    var carriedEmail = queryParams.email;
     if ( carriedEmail ) {
       $("#mailinglist-signup-form").find("input[name='email']").attr("value",carriedEmail);
     }
