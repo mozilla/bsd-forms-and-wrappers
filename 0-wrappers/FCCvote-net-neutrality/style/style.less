@@ -2,6 +2,8 @@
 @mozilla-charcoal: #4D4E53;
 @mozilla-red-light: #EA3B28;
 @mozilla-red-dark: #C13931;
+@blue-btn-light: #00a6f7;
+@blue-btn-dark: #0095DD;
 @link: #0095DD;
 @link-hover: #00539F;
 @light-grey: #939597;
@@ -95,6 +97,37 @@ strong {
   font-weight: 700;
 }
 
+.field-style {
+  width: 100%;
+  border-radius: .3rem;
+  margin-bottom: .5rem;
+  font-size: 1.4rem;
+  line-height: 1;
+  color: @field-text-grey;
+}
+
+.btn {
+  .field-style;
+  display: block;
+  color: @white;
+  text-align: center;
+  font-size: 2.2rem;
+  font-weight: 800;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+  transition: all .3s ease 0s;
+}
+
+.btn.blue {
+  .btn;
+  background-color: @blue-btn-light;
+}
+
+.btn.blue:hover {
+  background-color: @blue-btn-dark;
+}
 
 #wrapper {
   margin: 0;
@@ -417,12 +450,14 @@ strong {
     border: .1rem solid @field-border-color;
   }
 
-  button {
+  button,
+  .btn {
     .field-style;
     border: none;
   }
 
-  button:hover {
+  button:hover,
+  .btn:hover {
     cursor: pointer;
   }
 
@@ -517,11 +552,10 @@ strong {
     }
   }
 
-  .btn[type="submit"] {
+  .btn {
     color: @white;
     font-size: 2.2rem;
     font-weight: 800;
-    background-color: @mozilla-red-dark;
     padding-top: 1rem;
     padding-bottom: 1rem;
     margin-top: 1rem;
@@ -529,10 +563,14 @@ strong {
     transition: all .3s ease 0s;
   }
 
+  .btn[type="submit"] {
+    background-color: @mozilla-red-dark;
+  }
+
   .btn[type="submit"]:hover {
     background-color: @mozilla-red-light;
-    color: @white;
   }
+
 
   /* ***************
   * Parsley settings for form validation
