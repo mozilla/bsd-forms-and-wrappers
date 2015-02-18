@@ -28,7 +28,7 @@
 
   var updateCountdown = function() {
     var userLocalTime = (new Date()).getTime();
-    var daysAway = Math.floor( (FORM_DUE_TIME - userLocalTime) / 24 / 60 / 60 / 1000 );
+    var daysAway = Math.ceil( (FORM_DUE_TIME - userLocalTime) / 24 / 60 / 60 / 1000 );
     document.querySelector("#countdown-days span").innerHTML = daysAway;
   }
   setInterval(updateCountdown, 60*1000); // in milliseconds. update counter every min
