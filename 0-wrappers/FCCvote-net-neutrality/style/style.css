@@ -63,6 +63,54 @@ b,
 strong {
   font-weight: 700;
 }
+.field-style {
+  width: 100%;
+  border-radius: .3rem;
+  margin-bottom: .5rem;
+  font-size: 1.4rem;
+  line-height: 1;
+  color: #58585b;
+}
+.btn {
+  width: 100%;
+  border-radius: .3rem;
+  margin-bottom: .5rem;
+  font-size: 1.4rem;
+  line-height: 1;
+  color: #58585b;
+  display: block;
+  color: #ffffff;
+  text-align: center;
+  font-size: 2.2rem;
+  font-weight: 800;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+  transition: all .3s ease 0s;
+}
+.btn.blue {
+  width: 100%;
+  border-radius: .3rem;
+  margin-bottom: .5rem;
+  font-size: 1.4rem;
+  line-height: 1;
+  color: #58585b;
+  display: block;
+  color: #ffffff;
+  text-align: center;
+  font-size: 2.2rem;
+  font-weight: 800;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+  transition: all .3s ease 0s;
+  background-color: #00a6f7;
+}
+.btn.blue:hover {
+  background-color: #0095dd;
+}
 #wrapper {
   margin: 0;
   padding: 0;
@@ -367,7 +415,8 @@ strong {
   color: #58585b;
   border: 0.1rem solid #d4dde4;
 }
-.beautified-form button {
+.beautified-form button,
+.beautified-form .btn {
   width: 100%;
   border-radius: .3rem;
   margin-bottom: .5rem;
@@ -376,7 +425,8 @@ strong {
   color: #58585b;
   border: none;
 }
-.beautified-form button:hover {
+.beautified-form button:hover,
+.beautified-form .btn:hover {
   cursor: pointer;
 }
 .beautified-form input:focus,
@@ -464,20 +514,21 @@ strong {
 .beautified-form .legal-confirm #legal-confirm-error {
   clear: both;
 }
-.beautified-form .btn[type="submit"] {
+.beautified-form .btn {
   color: #ffffff;
   font-size: 2.2rem;
   font-weight: 800;
-  background-color: #c13931;
   padding-top: 1rem;
   padding-bottom: 1rem;
   margin-top: 1rem;
   margin-bottom: 2rem;
   transition: all .3s ease 0s;
 }
+.beautified-form .btn[type="submit"] {
+  background-color: #c13931;
+}
 .beautified-form .btn[type="submit"]:hover {
   background-color: #ea3b28;
-  color: #ffffff;
 }
 .beautified-form .parsley-errors-list *,
 .beautified-form .parsley-required,
