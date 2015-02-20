@@ -1,0 +1,232 @@
+html,
+body {
+  font-size: 62.5%;
+}
+body {
+  font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 300;
+  font-size: 1.4rem;
+  color: #4d4e53;
+  margin: 0;
+  background: -webkit-gradient(linear, left top, left bottom, from(#d7d3c8), to(#f6f4ec));
+  background: -webkit-linear-gradient(to bottom, #d7d3c8, #f6f4ec);
+  background: -moz-linear-gradient(to bottom, #d7d3c8, #f6f4ec);
+  background: -o-linear-gradient(to bottom, #d7d3c8, #f6f4ec);
+  background: linear-gradient(to bottom, #d7d3c8, #f6f4ec);
+}
+* {
+  box-sizing: border-box;
+}
+h1,
+h2,
+h3,
+h4 {
+  font-weight: 300;
+  margin: 1.5rem 0;
+}
+h1 {
+  font-size: 3.4rem;
+}
+@media screen and (min-width: 768px) {
+  h1 {
+    font-size: 4.8rem;
+  }
+}
+h2 {
+  font-size: 3rem;
+}
+h3 {
+  font-size: 1.8rem;
+}
+@media screen and (min-width: 768px) {
+  h3 {
+    font-size: 2.2rem;
+  }
+}
+h4 {
+  font-size: 1.4rem;
+}
+a {
+  color: #0095dd;
+  text-decoration: none;
+}
+a:hover {
+  color: #00539f;
+}
+a.red {
+  color: #c13931;
+}
+p {
+  line-height: 1.71;
+}
+b,
+strong {
+  font-weight: 700;
+}
+.container {
+  width: 100%;
+  margin: 0 auto 0 auto;
+}
+@media screen and (min-width: 768px) {
+  .container {
+    width: 768px;
+  }
+}
+#mozilla-header-container {
+  width: 100%;
+  margin: 0 auto 0 auto;
+}
+@media screen and (min-width: 768px) {
+  #mozilla-header-container {
+    width: 768px;
+  }
+}
+#mozilla-header-container .mozilla-wordmark {
+  display: inline-block;
+  margin-top: 3rem;
+}
+#signupheader {
+  width: 100%;
+  margin: 0 auto 0 auto;
+  text-align: center;
+}
+@media screen and (min-width: 768px) {
+  #signupheader {
+    width: 768px;
+  }
+}
+#signup {
+  margin-top: -3rem;
+}
+#signuptable {
+  position: relative;
+  width: 95%;
+  margin: 5rem auto;
+  background: #ffffff;
+  padding-top: 1rem;
+  padding-right: 2rem;
+  padding-bottom: 10rem;
+  padding-left: 2rem;
+  /* Set placeholder text colour */
+}
+@media screen and (min-width: 768px) {
+  #signuptable {
+    width: 56rem;
+  }
+}
+#signuptable input,
+#signuptable textarea,
+#signuptable select {
+  width: 100%;
+  border: 0.1rem solid #d4dde4;
+  border-radius: .3rem;
+  margin-bottom: .5rem;
+  font-size: 1.4rem;
+  line-height: 1;
+  color: #58585b;
+}
+#signuptable input[readonly] {
+  pointer-events: none;
+  width: 100%;
+  background: none;
+  border-color: #d4dde4;
+  color: #58585b;
+}
+#signuptable button {
+  border: none;
+}
+#signuptable button:hover {
+  cursor: pointer;
+}
+#signuptable input:focus,
+#signuptable select:focus {
+  border-color: #38a9ed;
+}
+#signuptable input[type="checkbox"] {
+  width: auto;
+  transform: scale(1.2);
+  -ms-transform: scale(1.2);
+  /* IE */
+  -moz-transform: scale(1.2);
+  /* FF */
+  -webkit-transform: scale(1.2);
+  /* Safari and Chrome */
+  -o-transform: scale(1.2);
+  /* Opera */
+  margin-right: .5rem;
+  padding: .5rem;
+}
+#signuptable input {
+  padding: 0.5rem 1rem;
+  line-height: 2.2rem;
+}
+#signuptable input.less-indented {
+  padding-left: 1.5rem;
+  padding-right: .7rem;
+}
+#signuptable select {
+  padding: 0.5rem 1rem;
+  height: 3.8rem;
+  -webkit-appearance: none;
+  background: #ffffff;
+}
+#signuptable select * {
+  padding: 0.5rem 1rem;
+}
+#signuptable select,
+#signuptable select option[value=""] {
+  color: #a7a9ab;
+}
+#signuptable select.defaultTextColor,
+#signuptable select option:not([value=""]) {
+  color: #58585b;
+}
+#signuptable ::-webkit-input-placeholder {
+  /* WebKit browsers */
+  color: #a7a9ab;
+}
+#signuptable :-moz-placeholder {
+  /* Mozilla Firefox 4 to 18 */
+  color: #a7a9ab;
+  opacity: 1;
+}
+#signuptable ::-moz-placeholder {
+  /* Mozilla Firefox 19+ */
+  color: #a7a9ab;
+  opacity: 1;
+}
+#signuptable :-ms-input-placeholder {
+  /* Internet Explorer 10+ */
+  color: #a7a9ab;
+}
+#signuptable #bsd-field-submit-btn {
+  position: absolute;
+  left: 2rem;
+  bottom: calc(1rem*2);
+  width: calc(100% - 2rem*2);
+}
+#signuptable #bsd-field-submit-btn input[type="submit"] {
+  color: #ffffff;
+  font-size: 2.2rem;
+  font-weight: 800;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+  transition: all .3s ease 0s;
+  border: none;
+  background-color: #c13931;
+}
+#signuptable #bsd-field-submit-btn input[type="submit"]:hover {
+  background-color: #ea3b28;
+  cursor: pointer;
+}
+#signuptable .required {
+  margin-left: .5rem;
+}
+#signuptable input + label[for].field {
+  font-weight: 300 !important;
+}
+.signuperror {
+  display: none;
+}
