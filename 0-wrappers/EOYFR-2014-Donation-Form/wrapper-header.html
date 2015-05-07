@@ -95,7 +95,7 @@ html {
 }
 
 body {
-  height: 100%;
+  min-height: 100%;
   font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 14px;
   line-height: 20px;
@@ -776,9 +776,17 @@ footer ul {
   list-style: none;
 }
 
-form#contribution input,
-form#contribution select {
-  max-width: 500px;
+.bsd-contribForm-wrap {
+  max-width: 700px;
+  margin: 0px auto;
+}
+
+.bsd-other-amount-input {
+  max-width: 230px;
+}
+
+td.contribcolumn td {
+  vertical-align: top;
 }
 
 /* Parsley.js / Validation Styling */
